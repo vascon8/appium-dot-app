@@ -1570,7 +1570,7 @@
                                 </connections>
                             </textField>
                             <button id="T2Y-rV-vtT" userLabel="Coverage Class Check Box">
-                                <rect key="frame" x="16" y="46" width="117" height="18"/>
+                                <rect key="frame" x="16" y="46" width="120" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Coverage Class" bezelStyle="regularSquare" imagePosition="left" inset="2" id="QmC-aa-GBj">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2292,7 +2292,7 @@
                                 </connections>
                             </button>
                             <comboBox verticalHuggingPriority="750" id="518" userLabel="Device Combo Box">
-                                <rect key="frame" x="124" y="117" width="172" height="26"/>
+                                <rect key="frame" x="124" y="117" width="425" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="521">
                                     <font key="font" metaFont="system"/>
@@ -2332,7 +2332,7 @@
                                 </textFieldCell>
                             </textField>
                             <comboBox verticalHuggingPriority="750" id="GM3-ic-zvI" userLabel="Platform Version Combo Box">
-                                <rect key="frame" x="463" y="118" width="86" height="26"/>
+                                <rect key="frame" x="124" y="89" width="63" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="txh-uI-qqH">
                                     <font key="font" metaFont="system"/>
@@ -2349,8 +2349,71 @@
                                     </binding>
                                 </connections>
                             </comboBox>
+                            <button id="1129" userLabel="UDID Check Box">
+                                <rect key="frame" x="194" y="93" width="55" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="UDID" bezelStyle="regularSquare" imagePosition="left" inset="2" id="1130">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <binding destination="-2" name="enabled2" keyPath="model.general.useRemoteServer" previousBinding="1233" id="1360">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="value" keyPath="model.iOS.useUDID" id="PpM-we-UPR"/>
+                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="1233">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" id="1156" userLabel="UDID Text Field">
+                                <rect key="frame" x="255" y="93" width="291" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="1157">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="-2" name="enabled3" keyPath="model.general.useRemoteServer" previousBinding="8Kt-az-7F0" id="gRp-W9-2qs">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="value" keyPath="model.iOS.udid" id="28I-a3-TVP">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="enabled2" keyPath="model.iOS.useUDID" previousBinding="1236" id="8Kt-az-7F0">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="1236">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
                             <button id="cbO-vc-xMG" userLabel="Force Orientation Check Box">
-                                <rect key="frame" x="16" y="92" width="132" height="18"/>
+                                <rect key="frame" x="16" y="67" width="132" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="指定方向" bezelStyle="regularSquare" imagePosition="left" inset="2" id="gOF-wi-qoz">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2410,7 +2473,7 @@
                                 </connections>
                             </comboBox>
                             <button id="38E-A1-YPv" userLabel="Force Language Check Box">
-                                <rect key="frame" x="317" y="92" width="122" height="18"/>
+                                <rect key="frame" x="317" y="67" width="122" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="指定语言" bezelStyle="regularSquare" imagePosition="left" inset="2" id="N61-Bd-hLT">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2426,7 +2489,7 @@
                                 </connections>
                             </button>
                             <comboBox verticalHuggingPriority="750" id="Zo1-wQ-e7P" userLabel="Language Combo Box">
-                                <rect key="frame" x="463" y="90" width="86" height="26"/>
+                                <rect key="frame" x="463" y="65" width="86" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="AZT-MC-8GE">
                                     <font key="font" metaFont="system"/>
@@ -2449,7 +2512,7 @@
                                 </connections>
                             </comboBox>
                             <button id="ONF-i1-g3h" userLabel="Force Calendar Check Box">
-                                <rect key="frame" x="16" y="65" width="117" height="18"/>
+                                <rect key="frame" x="16" y="40" width="117" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="指定日历" bezelStyle="regularSquare" imagePosition="left" inset="2" id="9Vo-8F-LK4">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2506,7 +2569,7 @@
                                 </connections>
                             </comboBox>
                             <button id="pqV-nt-tTf" userLabel="Force Locale Check Box">
-                                <rect key="frame" x="317" y="65" width="100" height="18"/>
+                                <rect key="frame" x="317" y="40" width="100" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="指定区域" bezelStyle="regularSquare" imagePosition="left" inset="2" id="uDw-iX-83q">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2522,7 +2585,7 @@
                                 </connections>
                             </button>
                             <comboBox verticalHuggingPriority="750" id="970-E2-deZ" userLabel="Locale Combo Box">
-                                <rect key="frame" x="463" y="61" width="86" height="26"/>
+                                <rect key="frame" x="463" y="36" width="86" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="zfy-4L-2wr">
                                     <font key="font" metaFont="system"/>
@@ -2544,69 +2607,6 @@
                                     </binding>
                                 </connections>
                             </comboBox>
-                            <button id="1129" userLabel="UDID Check Box">
-                                <rect key="frame" x="16" y="37" width="55" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="UDID" bezelStyle="regularSquare" imagePosition="left" inset="2" id="1130">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <binding destination="-2" name="enabled2" keyPath="model.general.useRemoteServer" previousBinding="1233" id="1360">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="value" keyPath="model.iOS.useUDID" id="PpM-we-UPR"/>
-                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="1233">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </button>
-                            <textField verticalHuggingPriority="750" id="1156" userLabel="UDID Text Field">
-                                <rect key="frame" x="77" y="36" width="469" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="1157">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <binding destination="-2" name="enabled3" keyPath="model.general.useRemoteServer" previousBinding="8Kt-az-7F0" id="gRp-W9-2qs">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="value" keyPath="model.iOS.udid" id="28I-a3-TVP">
-                                        <dictionary key="options">
-                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="enabled2" keyPath="model.iOS.useUDID" previousBinding="1236" id="8Kt-az-7F0">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="1236">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </textField>
                             <button id="jZM-n9-zG9" userLabel="Full Reset Check Box">
                                 <rect key="frame" x="16" y="12" width="83" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -2707,6 +2707,15 @@
                                     </binding>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="SlS-Zv-uSL" userLabel="Platform Version Label">
+                                <rect key="frame" x="16" y="95" width="109" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Platform Version" id="32p-I7-7Ri">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -3885,6 +3894,7 @@
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
             </subviews>
+            <point key="canvasLocation" x="-167.5" y="272"/>
         </customView>
         <customView id="2rW-W8-vOb" userLabel="Developer Settings View">
             <rect key="frame" x="0.0" y="0.0" width="600" height="252"/>
@@ -3925,7 +3935,7 @@
                     </connections>
                 </button>
                 <button id="S5Z-KB-RSL" userLabel="Use External NodeJS Binary Check Box">
-                    <rect key="frame" x="18" y="151" width="192" height="18"/>
+                    <rect key="frame" x="18" y="151" width="197" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Use External NodeJS Binary" bezelStyle="regularSquare" imagePosition="left" inset="2" id="pER-cD-Id2">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -4063,7 +4073,7 @@
                     </connections>
                 </textField>
                 <button id="vRI-mA-xaR" userLabel="NodeJS Debug Port Check Box">
-                    <rect key="frame" x="18" y="87" width="141" height="18"/>
+                    <rect key="frame" x="18" y="87" width="151" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="NodeJS Debug Port" bezelStyle="regularSquare" imagePosition="left" inset="2" id="aQV-8n-Z7d">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
