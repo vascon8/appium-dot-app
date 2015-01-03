@@ -131,3 +131,6 @@
 #define APPIUM_PLIST_USE_ROBOT @"Use Robot"
 #define APPIUM_PLIST_USE_SELENIUM_GRID_CONFIG_FILE @"Use Selenium Grid Config File"
 #define APPIUM_PLIST_USE_LOCAL_TIMEZONE @"Use Local Timezone"
+
+#define APPIUM_PLIST_ExportRecordScripts_DIRECTORY @"ExportRecordScripts Directory"
+#define APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY @"Use ExportRecordScripts Directory"

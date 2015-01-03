@@ -797,5 +797,11 @@ BOOL _isServerListening;
 		[self didChangeValueForKey:propName];
 	}
 }
+#pragma mark - exportScript
+- (BOOL)useExportscriptsDirectory { return [DEFAULTS boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]; }
+- (void)setUseExportscriptsDirectory:(BOOL)useExportscriptsDirectory{ [DEFAULTS setBool:useExportscriptsDirectory forKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]; }
+
+- (NSString *) exportscriptsDirectory { return [DEFAULTS stringForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]; }
+- (void) setExportscriptsDirectory:(NSString *)exportscriptsDirectory { [DEFAULTS setValue:exportscriptsDirectory forKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]; }
 
 @end

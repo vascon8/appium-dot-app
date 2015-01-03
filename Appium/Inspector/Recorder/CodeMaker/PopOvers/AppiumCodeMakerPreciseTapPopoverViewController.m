@@ -30,7 +30,7 @@
 	[self setNumberOfTapsString:@"1"];
 	[self setNumberOfFingersString:@"1"];
 	[self setDuration:[NSNumber numberWithFloat:0.5f]];
-	[self setTouchPointLabel:@"(click to select)"];
+	[self setTouchPointLabel:@"(请点击选择)"];
 }
 
 #pragma mark - Properties
@@ -78,7 +78,7 @@
 	[self setNumberOfTapsString:@"1"];
 	[self setNumberOfFingersString:@"1"];
 	[self setDuration:[NSNumber numberWithFloat:0.5f]];
-	[self setTouchPointLabel:@"(click to select)"];
+	[self setTouchPointLabel:@"(请点击选择)"];
 	[_windowController.screenshotImageView setBeginPoint:nil];
 	[_windowController.screenshotImageView setEndPoint:nil];
 }

@@ -25,13 +25,13 @@
 		
 		if (self.driver == nil)
 		{
-			return [self closeWithError:@"Could not connect to Appium Server"];
+			return [self closeWithError:@"无法连接到Appium服务器"];
 		}
 
         NSArray *sessions = [self.driver allSessions];
 		if (self.driver == nil || sessions == nil)
 		{
-			return [self closeWithError:@"Could not get list of sessions from Appium Server"];
+			return [self closeWithError:@"无法取得Appium服务器会话"];
 		}
 
 		// get session to use
@@ -41,7 +41,7 @@
             [self.driver setSession:[sessions objectAtIndex:0]];
 			if (self.driver == nil || self.driver.session == nil)
 			{
-				return [self closeWithError:@"Could not set the session"];
+				return [self closeWithError:@"无法配置会话"];
 			}
         }
         if (sessions.count == 0 || self.driver.session == nil || self.driver.session.capabilities.platform == nil)
@@ -65,7 +65,7 @@
             [self.driver startSessionWithDesiredCapabilities:capabilities requiredCapabilities:nil];
 			if (self.driver == nil || self.driver.session == nil || self.driver.session.sessionId == nil)
 			{
-				return [self closeWithError:@"Could not start a new session"];
+				return [self closeWithError:@"无法启动新会话"];
 			}
         }
 
@@ -100,13 +100,13 @@
 		// fix crash for pulse animation on record button
 		[self.recordButton setLayerUsesCoreImageFilters:YES];
 }
-
 - (void)windowDidResize:(NSNotification *)notification
 {
 	if (!self.selectedElementHighlightView.isHidden)
 	{
 		[self.selectedElementHighlightView setHidden:YES];
 	}
+	[self.screenshotImageView determineBorders];
 }
 
 -(void) awakeFromNib

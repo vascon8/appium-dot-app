@@ -239,6 +239,30 @@
 		self.model.iOS.traceDirectory = [[[panel URLs] objectAtIndex:0] path];
 	}
 }
+- (IBAction)chooseExportscriptsDirectory:(id)sender {
+	NSString *selectedPath = self.model.exportscriptsDirectory;
+	NSString *firstCharacter = ([selectedPath length] > 0) ? [selectedPath substringWithRange:NSMakeRange(0, 1)] : nil;
+	
+	NSOpenPanel *panel = [NSOpenPanel openPanel];
+	panel.showsHiddenFiles = YES;
+	panel.canChooseDirectories = YES;
+	panel.canChooseFiles = NO;
+	panel.prompt = @"选择导出脚本路径";
+	
+	if (selectedPath == nil || [selectedPath length] < 1 || [selectedPath isEqualToString:@"/"] || !([firstCharacter isEqualToString:@"/"] || [firstCharacter isEqualToString:@"~"]))
+	{
+		panel.directoryURL = [NSURL fileURLWithPath:NSHomeDirectory()];
+	}
+	else
+	{
+		panel.directoryURL = [NSURL fileURLWithPath:[selectedPath stringByExpandingTildeInPath]];
+	}
+	
+	if ([panel runModal] == NSOKButton)
+	{
+		self.model.exportscriptsDirectory = [[[panel URLs] objectAtIndex:0] path];
+	}
+}
 
 -(IBAction)clearLog:(id)sender
 {

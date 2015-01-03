@@ -47,4 +47,7 @@ typedef enum platformTypes
 -(void) reset;
 - (void)setupServerTask:(NSString *)commandString;
 
+@property NSString *exportscriptsDirectory;
+@property BOOL useExportscriptsDirectory;
+
 @end

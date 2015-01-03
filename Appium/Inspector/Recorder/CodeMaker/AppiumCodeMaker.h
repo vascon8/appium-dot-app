@@ -42,4 +42,6 @@
 -(void) addAction:(AppiumCodeMakerAction*)action;
 -(void) replay:(SERemoteWebDriver*)driver;
 
+@property(nonatomic,assign) BOOL exportScripts;
+
 @end

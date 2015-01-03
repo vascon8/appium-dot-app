@@ -31,9 +31,11 @@
 
 -(NSString*) preCodeBoilerplateAndroid
 {
-	NSString *code = [NSString stringWithFormat:@"from selenium.webdriver.firefox.webdriver import WebDriver\n\
+	NSString *code = [NSString stringWithFormat:@"from appium import webdriver\n\
 from selenium.webdriver.common.action_chains import ActionChains\n\
 import time\n\
+from time import sleep\n\
+import os\n\
 \n\
 success = True\n\
 desired_caps = {}\n\
@@ -79,9 +81,10 @@ try:\n", self.model.general.serverAddress, self.model.general.serverPort];
 
 -(NSString*) preCodeBoilerplateiOS
 {
-	NSString *code = [NSString stringWithFormat:@"from selenium.webdriver.firefox.webdriver import WebDriver\n\
+	NSString *code = [NSString stringWithFormat:@"from appium import webdriver\n\
 from selenium.webdriver.common.action_chains import ActionChains\n\
 import time\n\
+import os\n\
 \n\
 success = True\n\
 desired_caps = {}\n\

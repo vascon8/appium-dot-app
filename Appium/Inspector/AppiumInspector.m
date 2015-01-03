@@ -464,6 +464,7 @@
         }
 
         CGRect viewRect = [_windowController.screenshotImageView convertSeleniumRectToViewRect:[_selection rect]];
+		
         highlightView.frame = viewRect;
         [highlightView setHidden:NO];
     }

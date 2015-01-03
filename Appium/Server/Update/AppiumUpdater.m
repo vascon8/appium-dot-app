@@ -37,13 +37,13 @@ NSString* upgradeUrl;
 {
 	BOOL alertOnNoUpdates = sender != nil;
 	BOOL updatesAvailable = NO;
-    updatesAvailable |= [self checkForAppUpdate];
-    //updatesAvailable |= [self checkForPackageUpdate];
+//    updatesAvailable |= [self checkForAppUpdate];
+    updatesAvailable |= [self checkForPackageUpdate];
 	if (alertOnNoUpdates && !updatesAvailable)
 	{
 		NSAlert *alert = [NSAlert new];
-		[alert setMessageText:@"No Updates Available"];
-		[alert setInformativeText:@"Your application is up to date"];
+		[alert setMessageText:@"没有可用的更新"];
+		[alert setInformativeText:@"已经是最新版本"];
 		[alert performSelectorOnMainThread:@selector(runModal) withObject:nil waitUntilDone:YES];
 	}
 }
@@ -77,8 +77,8 @@ NSString* upgradeUrl;
 			if ([myVersion isEqualToString:(NSString*)[notUpgradableVersions objectAtIndex:i]])
 			{
 				NSAlert *cannotUpgradeAlert = [NSAlert new];
-				[cannotUpgradeAlert setMessageText:@"Cannot Upgrade This App"];
-				[cannotUpgradeAlert setInformativeText:@"A new version of Appium.app is available but this version of Appium.app cannot be upgraded.\n\nPlease download the latest version from http://appium.io"];
+				[cannotUpgradeAlert setMessageText:@"无法更新"];
+				[cannotUpgradeAlert setInformativeText:@"有新版本的Appium.app，但是不能下载.\n\n请登录下载：http://appium.io"];
 				[cannotUpgradeAlert runModal];
 				return NO;
 			}
@@ -92,9 +92,9 @@ NSString* upgradeUrl;
 -(void)doAppUpgradeAlert:(NSArray*)versions
 {
     NSAlert *upgradeAlert = [NSAlert new];
-    [upgradeAlert setInformativeText:[NSString stringWithFormat:@"Would you like to download the latest version of Appium.app and restart?\n\nYour Version:\t%@\nLatest Version:\t%@", [versions objectAtIndex:0], [versions objectAtIndex:1]]];
-    [upgradeAlert addButtonWithTitle:@"No"];
-    [upgradeAlert addButtonWithTitle:@"Yes"];
+    [upgradeAlert setInformativeText:[NSString stringWithFormat:@"确定要下载最新的Appium.app并且重新启动?\n\n当前版本:\t%@\n最新版本:\t%@", [versions objectAtIndex:0], [versions objectAtIndex:1]]];
+    [upgradeAlert addButtonWithTitle:@"取消"];
+    [upgradeAlert addButtonWithTitle:@"确定"];
     if([upgradeAlert runModal] == NSAlertSecondButtonReturn)
     {
         [self performSelectorInBackground:@selector(doAppUpgradeInstall) withObject:nil];
@@ -109,10 +109,9 @@ NSString* upgradeUrl;
     [[mainWindowController window] orderOut:nil];
     [installationWindow performSelectorOnMainThread:@selector(showWindow:) withObject:self waitUntilDone:YES];
     [[installationWindow window] makeKeyAndOrderFront:self];
-    [[installationWindow messageLabel] performSelectorOnMainThread:@selector(setStringValue:) withObject:@"Downloading Appium.app..." waitUntilDone:YES];
+    [[installationWindow messageLabel] performSelectorOnMainThread:@selector(setStringValue:) withObject:@"正在下载Appium.app..." waitUntilDone:YES];
 
     // download latest appium.app
-    NSLog(@"Downloading Appium app from \"%@.\"", upgradeUrl);
     NSURL  *url = [NSURL URLWithString:upgradeUrl];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     if (!urlData)
@@ -160,6 +159,7 @@ NSString* upgradeUrl;
         jsonDictionary = (NSDictionary *)jsonObject;
         myVersion = [jsonDictionary objectForKey:@"version"];
     }
+	
     if (![myVersion isEqualToString:latestVersion])
     {
         [self performSelectorOnMainThread:@selector(doPackageUpgradeAlert:) withObject:[NSArray arrayWithObjects:myVersion, latestVersion, nil] waitUntilDone:NO];
@@ -171,32 +171,38 @@ NSString* upgradeUrl;
 -(void)doPackageUpgradeAlert:(NSArray*)versions
 {
     NSAlert *upgradeAlert = [NSAlert new];
-    [upgradeAlert setMessageText:@"Appium Upgrade Available"];
-    [upgradeAlert setInformativeText:[NSString stringWithFormat:@"Would you like to stop the server and download the latest version of Appium?\n\nYour Version:\t%@\nLatest Version:\t%@", [versions objectAtIndex:0], [versions objectAtIndex:1]]];
-    [upgradeAlert addButtonWithTitle:@"No"];
-    [upgradeAlert addButtonWithTitle:@"Yes"];
+    [upgradeAlert setMessageText:@"有新版本的Appium可下载"];
+    [upgradeAlert setInformativeText:[NSString stringWithFormat:@"确定停止服务并且下载最新版本的Appium?\n\n当前版本:\t%@\n最新版本:\t%@", [versions objectAtIndex:0], [versions objectAtIndex:1]]];
+    [upgradeAlert addButtonWithTitle:@"取消"];
+    [upgradeAlert addButtonWithTitle:@"确定"];
     if([upgradeAlert runModal] == NSAlertSecondButtonReturn)
     {
         [mainWindowController.model killServer];
-        [self performSelectorInBackground:@selector(updateAppiumPackage) withObject:nil];
+//        [self performSelectorInBackground:@selector(updateAppiumPackage:) withObject:versions];
+		[self performSelectorOnMainThread:@selector(updateAppiumPackage:) withObject:versions waitUntilDone:YES];
     }
 }
 
--(void) updateAppiumPackage
+-(void) updateAppiumPackage:(NSArray *)versions
 {
     AppiumInstallationWindowController *installationWindow = [[AppiumInstallationWindowController alloc] initWithWindowNibName:@"AppiumInstallationWindow"];
     [installationWindow performSelectorOnMainThread:@selector(showWindow:) withObject:self waitUntilDone:YES];
     [[installationWindow window] makeKeyAndOrderFront:self];
     [[mainWindowController window] orderOut:self];
-    [[installationWindow messageLabel] performSelectorOnMainThread:@selector(setStringValue:) withObject:@"Updating Appium Package..." waitUntilDone:YES];
+    [[installationWindow messageLabel] performSelectorOnMainThread:@selector(setStringValue:) withObject:@"正在升级Appium..." waitUntilDone:YES];
 
-    [[mainWindowController node] installPackage:@"appium" atVersion:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] forceInstall:YES];
+//    [[mainWindowController node] installPackage:@"appium" atVersion:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] forceInstall:YES];
+	
+	[[mainWindowController node] installPackage:@"appium" atVersion:versions[1] forceInstall:YES];
 
     [[mainWindowController window] makeKeyAndOrderFront:self];
     [installationWindow close];
     NSAlert *upgradeCompleteAlert = [NSAlert new];
-    [upgradeCompleteAlert setMessageText:@"Upgrade Complete"];
-    [upgradeCompleteAlert setInformativeText:@"The package was installed successfully"];
+    [upgradeCompleteAlert setMessageText:@"升级完成"];
+    [upgradeCompleteAlert setInformativeText:@"安装成功"];
+	
+	[[NSUserDefaults standardUserDefaults]setValue:versions[1] forKey:@"CFBundleShortVersionString"];
+	
     [upgradeCompleteAlert performSelectorOnMainThread:@selector(runModal) withObject:nil waitUntilDone:YES];
 }
 

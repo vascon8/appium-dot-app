@@ -22,7 +22,7 @@
 
 - (id)transformedValue:(id)value
 {
-    return ([value boolValue] ? @"" : @"Refresh");
+    return ([value boolValue] ? @"" : @"刷新屏幕截图");
 }
 
 @end

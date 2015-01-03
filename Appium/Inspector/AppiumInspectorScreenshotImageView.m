@@ -21,6 +21,7 @@
 
 -(NSImage*) rotateImage:(NSImage *)image byAngle:(NSInteger)degrees;
 
+@property CGFloat scalarMultiplier;
 @end
 
 @implementation AppiumInspectorScreenshotImageView
@@ -207,27 +208,28 @@
             scalarMultiplier = 2.0f;
         }
     }
+	self.scalarMultiplier = scalarMultiplier;
 	
     // determine borders
-	if (self.image.size.width > (self.bounds.size.width * scalarMultiplier))
-	{
-		self.screenshotScalar = self.image.size.width > 0 ? self.bounds.size.width / self.image.size.width : .0f;
-		self.maxHeight = self.image.size.height * self.screenshotScalar;
-		self.yBorder  = (self.bounds.size.height - self.maxHeight) / 2.0f;
-	}
-	else
-	{
-		self.screenshotScalar = self.image.size.width > 0 ? self.bounds.size.width / self.image.size.width : .0f;
-		self.maxWidth = self.image.size.width * self.screenshotScalar;
-		self.xBorder = (self.bounds.size.width - self.maxWidth) / 2.0f;
-	}
+	[self determineBorders];
+}
+- (void)determineBorders
+{
+	self.screenshotScalar = (self.image.size.width > 0) ? self.bounds.size.width / self.image.size.width : .0f;
 	
-	if (scalarMultiplier != 0.0f)
+	if (self.image.size.height * self.screenshotScalar > self.bounds.size.height){
+		self.screenshotScalar = self.image.size.height > 0 ? self.bounds.size.height / self.image.size.height : .0f;
+	}
+	self.maxHeight = self.image.size.height * self.screenshotScalar;
+	self.maxWidth = self.image.size.width * self.screenshotScalar;
+	self.xBorder = (self.bounds.size.width - self.maxWidth) / 2.0f;
+	self.yBorder  = (self.bounds.size.height - self.maxHeight) / 2.0f;
+	
+	if (self.scalarMultiplier != 0.0f)
 	{
-		self.screenshotScalar *= scalarMultiplier;
+		self.screenshotScalar *= self.scalarMultiplier;
 	}
 }
-
 -(void)mouseUp:(NSEvent *)event
 {
 	NSPoint point = [event locationInWindow];

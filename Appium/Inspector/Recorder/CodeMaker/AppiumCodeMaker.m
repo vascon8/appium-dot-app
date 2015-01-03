@@ -11,6 +11,14 @@
 #import "AppiumPreferencesFile.h"
 #import "AppiumCodeMakerPlugins.h"
 
+#import "AppiumAppDelegate.h"
+
+@class AppiumCodeMakerAction;
+
+@interface AppiumCodeMaker ()
+@property (strong,nonatomic) NSString *path;
+@end
+
 @class AppiumCodeMakerAction;
 
 @implementation AppiumCodeMaker
@@ -68,6 +76,7 @@
 	[[NSUserDefaults standardUserDefaults] setObject:syntaxDefinition forKey:APPIUM_PLIST_INSPECTOR_CODEMAKER_LANGUAGE];
 	[_fragaria setObject:(![syntaxDefinition isEqualToString:@"node.js"]) ? syntaxDefinition : @"JavaScript" forKey:MGSFOSyntaxDefinitionName];
 
+	if (self.exportScripts) self.path = [self scriptName];
 }
 
 -(void) setUseBoilerPlate:(NSNumber *)useBoilerPlate
@@ -83,12 +92,69 @@
 }
 
 #pragma mark - Private Methods
-
+- (void)setExportScripts:(BOOL)exportScripts
+{
+	_exportScripts = exportScripts;
+	if (exportScripts) {
+		[self exportRecordScripts];
+	}
+}
+- (void)exportRecordScripts
+{
+	[self.string writeToFile:self.path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+}
+- (NSString *)scriptName
+{
+	AppiumAppDelegate *delegate = (AppiumAppDelegate*)([NSApplication sharedApplication].delegate);
+	AppiumModel *model = [delegate model];
+	
+	NSString *extension = self.syntaxDefinition;
+	if ([extension isEqualToString:@"Python"]) {
+		extension = @"py";
+	}
+	else if ([extension isEqualToString:@"Ruby"]){
+		extension = @"rb";
+	}
+	else if ([extension isEqualToString:@"node.js"]){
+		extension = @"js";
+	}
+	else if ([extension isEqualToString:@"Java"]){
+		extension = @"java";
+	}
+	else if ([extension isEqualToString:@"C#"]){
+		extension = @"c";
+	}
+	else{
+		extension = @"testQ";
+	}
+	
+	NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+	formatter.dateFormat = @"MMddHHmm";
+	NSString *date = [formatter stringFromDate:[NSDate date]];
+	NSString *name = [[((model.platform==AppiumiOSPlatform) ? model.iOS.appPath : model.android.appPath) lastPathComponent] stringByReplacingOccurrencesOfString:((model.platform==AppiumiOSPlatform) ? @".app" : @".apk") withString:[NSString stringWithFormat:@"_%@.%@",date,extension]];
+	name = [NSString stringWithFormat:@"%@_%@",((model.platform==AppiumiOSPlatform) ? @"IOS" : @"Android"),name];
+	NSString *dir = [DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
+	dir = [dir stringByAppendingPathComponent:@"RecordScriptByTestQ/"];
+	
+	NSFileManager *mgr = [NSFileManager defaultManager];
+	[mgr createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
+	
+	return [dir stringByAppendingPathComponent:name];
+}
+- (NSString *)path
+{
+	if (!_path) {
+		_path = [self scriptName];
+	}
+	return _path;
+}
 -(void) render
 {
 	[self setString:[NSString stringWithFormat:@"%@%@%@", ([self.useBoilerPlate boolValue] ? _activePlugin.preCodeBoilerplate : @""), _renderedActions,([self.useBoilerPlate boolValue] ?_activePlugin.postCodeBoilerplate : @"")]];
 	[self setAttributedString:[[NSAttributedString alloc] initWithString:self.string]];
 	[_fragaria setString:self.string];
+	
+	if (self.exportScripts)	[self exportRecordScripts];
 }
 
 -(void) renderAll

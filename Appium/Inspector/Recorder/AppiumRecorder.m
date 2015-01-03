@@ -261,7 +261,7 @@
         [filter setValue:[CIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0] forKey:@"inputColor0"];
         [filter setValue:[CIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0] forKey:@"inputColor1"];
         [filter setName:@"pulseFilter"];
-        [_windowController.recordButton.layer setFilters:[NSArray arrayWithObject:filter]];
+//        [_windowController.recordButton.layer setFilters:[NSArray arrayWithObject:filter]];
 
         CABasicAnimation* pulseAnimation1 = [CABasicAnimation animation];
         pulseAnimation1.keyPath = @"filters.pulseFilter.inputColor1";
@@ -273,8 +273,12 @@
 
         [_windowController.recordButton.layer addAnimation:pulseAnimation1 forKey:@"pulseAnimation1"];
 		NSShadow * shadow = [NSShadow new];
-		[shadow setShadowColor:[[NSColor blackColor] colorWithAlphaComponent:0.95f]];
+//		[shadow setShadowColor:[[NSColor blackColor] colorWithAlphaComponent:0.95f]];
+		[shadow setShadowColor:[[NSColor blueColor] colorWithAlphaComponent:0.95f]];
 		[_windowController.recordButton setShadow:shadow];
+		
+		_codeMaker.exportScripts = YES;
+		[_windowController.recordButton setTitle:@"停止录制脚本"];
 	}
 	else
 	{
@@ -282,6 +286,9 @@
         [_windowController.recordButton.layer setFilters:[NSArray new]];
         [_windowController.recordButton.layer removeAllAnimations];
 		[_windowController.bottomDrawer close];
+		
+		_codeMaker.exportScripts = NO;
+		[_windowController.recordButton setTitle:@"启动录制脚本"];
 	}
 }
 
