@@ -3924,6 +3924,7 @@
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
             </subviews>
+            <point key="canvasLocation" x="-167.5" y="287"/>
         </customView>
         <customView id="2rW-W8-vOb" userLabel="Developer Settings View">
             <rect key="frame" x="0.0" y="0.0" width="600" height="252"/>
