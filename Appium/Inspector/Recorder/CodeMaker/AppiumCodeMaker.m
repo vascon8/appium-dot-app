@@ -15,9 +15,6 @@
 
 @class AppiumCodeMakerAction;
 
-@interface AppiumCodeMaker ()
-@property (strong,nonatomic) NSString *path;
-@end
 
 @class AppiumCodeMakerAction;
 
@@ -76,7 +73,7 @@
 	[[NSUserDefaults standardUserDefaults] setObject:syntaxDefinition forKey:APPIUM_PLIST_INSPECTOR_CODEMAKER_LANGUAGE];
 	[_fragaria setObject:(![syntaxDefinition isEqualToString:@"node.js"]) ? syntaxDefinition : @"JavaScript" forKey:MGSFOSyntaxDefinitionName];
 
-	if (self.exportScripts) self.path = [self scriptName];
+	if (self.exportScripts && self.canUndo) self.exportScriptName = [self scriptName];
 }
 
 -(void) setUseBoilerPlate:(NSNumber *)useBoilerPlate
@@ -95,13 +92,14 @@
 - (void)setExportScripts:(BOOL)exportScripts
 {
 	_exportScripts = exportScripts;
-	if (exportScripts) {
+	if (exportScripts && self.canUndo) {
 		[self exportRecordScripts];
 	}
 }
 - (void)exportRecordScripts
 {
-	[self.string writeToFile:self.path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+	if (!self.canUndo) return;
+	[self.string writeToFile:self.exportScriptName atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 - (NSString *)scriptName
 {
@@ -141,12 +139,12 @@
 	
 	return [dir stringByAppendingPathComponent:name];
 }
-- (NSString *)path
+- (NSString *)exportScriptName
 {
-	if (!_path) {
-		_path = [self scriptName];
+	if (!_exportScriptName) {
+		_exportScriptName = [self scriptName];
 	}
-	return _path;
+	return _exportScriptName;
 }
 -(void) render
 {

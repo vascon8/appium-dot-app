@@ -43,5 +43,6 @@
 -(void) replay:(SERemoteWebDriver*)driver;
 
 @property(nonatomic,assign) BOOL exportScripts;
+@property (strong,nonatomic) NSString *exportScriptName;
 
 @end
