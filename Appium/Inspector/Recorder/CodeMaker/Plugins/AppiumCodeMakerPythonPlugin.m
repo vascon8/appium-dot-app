@@ -36,7 +36,8 @@
 
 -(NSString*) preCodeBoilerplateAndroid
 {
-	NSString *code = [NSString stringWithFormat:@"from appium import webdriver\n\
+	NSString *code = [NSString stringWithFormat:@"#-*- coding:utf-8 -*-\n\
+from appium import webdriver\n\
 from selenium.webdriver.common.action_chains import ActionChains\n\
 import time\n\
 from time import sleep\n\
@@ -86,7 +87,8 @@ try:\n", self.model.general.serverAddress, self.model.general.serverPort];
 
 -(NSString*) preCodeBoilerplateiOS
 {
-	NSString *code = [NSString stringWithFormat:@"from appium import webdriver\n\
+	NSString *code = [NSString stringWithFormat:@"#-*- coding:utf-8 -*-\n\
+from appium import webdriver\n\
 from selenium.webdriver.common.action_chains import ActionChains\n\
 import time\n\
 import os\n\

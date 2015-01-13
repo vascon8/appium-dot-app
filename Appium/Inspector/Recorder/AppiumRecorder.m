@@ -13,6 +13,8 @@
 #import "AppiumInspector.h"
 #import "AppiumCodeMakerActions.h"
 
+#import "Utility.h"
+
 @interface AppiumRecorder ()
 @property (readonly) AppiumInspector *inspector;
 @property (readonly) SERemoteWebDriver *driver;
@@ -265,7 +267,7 @@
 
         CABasicAnimation* pulseAnimation1 = [CABasicAnimation animation];
         pulseAnimation1.keyPath = @"filters.pulseFilter.inputColor1";
-        pulseAnimation1.fromValue = [CIColor colorWithRed:0.8 green:0.0 blue:0.0 alpha:0.9];
+        pulseAnimation1.fromValue = [CIColor colorWithRed:0.7 green:0.0 blue:0.0 alpha:0.9];
         pulseAnimation1.toValue = [CIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
         pulseAnimation1.duration = 1.5;
         pulseAnimation1.repeatCount = HUGE_VALF;
@@ -308,8 +310,27 @@
 
 -(IBAction)replay:(id)sender
 {
-    [_codeMaker replay:self.driver];
-    [self.inspector refresh:sender];
+	if ([self.codeMaker.activePlugin.name isEqualTo:@"Python"]) {
+		NSString *scriptPath = self.codeMaker.exportScriptName;;
+		if (!self.codeMaker.exportScripts) {
+			NSString *scriptName = [[self.codeMaker exportScriptName] lastPathComponent];
+			scriptPath = [NSString stringWithFormat:@"/tmp/%@",scriptName];
+		}
+		NSString *scriptStr = [self.codeMaker.string stringByReplacingOccurrencesOfString:@"\n\twd.quit()" withString:@""];
+		[scriptStr writeToFile:scriptPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+		NSLog(@"%@",scriptStr);
+		[self.driver quit];
+		[_windowController.window close];
+		
+		NSString *command = [NSString stringWithFormat:@"'/usr/bin/python' '%@'", scriptPath];
+		
+		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:@"tell application \"Terminal\" to do script \"%@\"\nactivate application \"Terminal\"", command]];
+		[script executeAndReturnError:nil];
+	}
+	else{
+		[_codeMaker replay:self.driver];
+		[self.inspector refresh:sender];
+	}
 }
 
 - (IBAction)save:(id)sender
@@ -319,8 +340,9 @@
 	
 	if (extension != nil)
 	{
-		savePanel.nameFieldStringValue = [@"CodeMakerTest." stringByAppendingString:extension];
+		savePanel.nameFieldStringValue = [self.codeMaker.exportScriptName lastPathComponent];
 	}
+	[savePanel setDirectoryURL:[NSURL fileURLWithPath:[self.codeMaker.exportScriptName stringByDeletingLastPathComponent]]];
 	
 	[savePanel beginSheetModalForWindow:_windowController.window
 					  completionHandler:^(NSInteger result) {

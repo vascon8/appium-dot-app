@@ -622,7 +622,7 @@
                 <button verticalHuggingPriority="750" id="407" userLabel="Replay Button">
                     <rect key="frame" x="520" y="200" width="75" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="roundRect" title="重播" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="408">
+                    <buttonCell key="cell" type="roundRect" title="执行脚本" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="408">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="cellTitle"/>
                     </buttonCell>
@@ -634,7 +634,7 @@
                 <button verticalHuggingPriority="750" id="338" userLabel="Clear Button">
                     <rect key="frame" x="769" y="200" width="75" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="roundRect" title="清除" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="339">
+                    <buttonCell key="cell" type="roundRect" title="清除所有" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="339">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="cellTitle"/>
                     </buttonCell>
@@ -646,7 +646,7 @@
                 <button verticalHuggingPriority="750" id="555" userLabel="Undo Button">
                     <rect key="frame" x="603" y="200" width="75" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="roundRect" title="撤销" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="556">
+                    <buttonCell key="cell" type="roundRect" title="撤销上次" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="556">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="cellTitle"/>
                     </buttonCell>
@@ -658,7 +658,7 @@
                 <button verticalHuggingPriority="750" id="559" userLabel="Redo Button">
                     <rect key="frame" x="686" y="200" width="75" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="roundRect" title="重做" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="560">
+                    <buttonCell key="cell" type="roundRect" title="重做上次" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="560">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="cellTitle"/>
                         <connections>
@@ -676,7 +676,7 @@
                 <button verticalHuggingPriority="750" id="O0O-6w-c6v" userLabel="Save Button">
                     <rect key="frame" x="437" y="200" width="75" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="roundRect" title="Save" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bfG-7F-Txy">
+                    <buttonCell key="cell" type="roundRect" title="脚本另存为" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bfG-7F-Txy">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="cellTitle"/>
                     </buttonCell>

@@ -112,7 +112,7 @@
 -(void) awakeFromNib
 {
 	// setup drawer
-    NSSize contentSize = NSMakeSize(self.window.minSize.width, 200.0f);
+    NSSize contentSize = NSMakeSize(self.window.minSize.width, 160.0f);
     self.bottomDrawer = [[NSDrawer alloc] initWithContentSize:contentSize preferredEdge:NSMinYEdge];
     [self.bottomDrawer setParentWindow:self.window];
     [self.bottomDrawer setMinContentSize:contentSize];
