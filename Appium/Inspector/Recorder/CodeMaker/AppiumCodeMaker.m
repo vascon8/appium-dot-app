@@ -73,7 +73,7 @@
 	[[NSUserDefaults standardUserDefaults] setObject:syntaxDefinition forKey:APPIUM_PLIST_INSPECTOR_CODEMAKER_LANGUAGE];
 	[_fragaria setObject:(![syntaxDefinition isEqualToString:@"node.js"]) ? syntaxDefinition : @"JavaScript" forKey:MGSFOSyntaxDefinitionName];
 
-	if (self.exportScripts) self.exportScriptName = [self scriptName];
+	if (self.exportScripts && self.canUndo) self.exportScriptName = [self scriptName];
 }
 
 -(void) setUseBoilerPlate:(NSNumber *)useBoilerPlate
@@ -92,12 +92,13 @@
 - (void)setExportScripts:(BOOL)exportScripts
 {
 	_exportScripts = exportScripts;
-	if (exportScripts) {
+	if (exportScripts && self.canUndo) {
 		[self exportRecordScripts];
 	}
 }
 - (void)exportRecordScripts
 {
+	if (!self.canUndo) return;
 	[self.string writeToFile:self.exportScriptName atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 - (NSString *)scriptName
