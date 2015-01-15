@@ -38,6 +38,17 @@
 -(NSNumber*) commandTimeout { return [NSNumber numberWithInt:[[DEFAULTS stringForKey:APPIUM_PLIST_NEW_COMMAND_TIMEOUT] intValue]]; }
 -(void) setCommandTimeout:(NSNumber *)commandTimeout { [[NSUserDefaults standardUserDefaults] setValue:commandTimeout forKey:APPIUM_PLIST_NEW_COMMAND_TIMEOUT]; }
 
+-(NSArray*) environmentVariables {
+	NSArray *envArray = [DEFAULTS arrayForKey:APPIUM_PLIST_ENVIRONMENT_VARIABLES];
+	if (envArray == nil) {
+		[self setEnvironmentVariables:@[]];
+		return [DEFAULTS arrayForKey:APPIUM_PLIST_ENVIRONMENT_VARIABLES];
+	} else {
+		return envArray;
+	}
+}
+-(void) setEnvironmentVariables:(NSArray *)environmentVariables { [DEFAULTS setValue:environmentVariables forKey:APPIUM_PLIST_ENVIRONMENT_VARIABLES]; }
+
 -(BOOL) killProcessesUsingPort { return [DEFAULTS boolForKey:APPIUM_PLIST_KILL_PROCESSES_USING_PORT]; }
 -(void) setKillProcessesUsingPort:(BOOL)killProcessesUsingPort { [DEFAULTS setBool:killProcessesUsingPort forKey:APPIUM_PLIST_KILL_PROCESSES_USING_PORT];}
 
@@ -99,9 +110,6 @@
 	}
 	[((AppiumModel*)((AppiumAppDelegate*)[NSApplication sharedApplication].delegate).model) setIsServerListening:useRemoteServer];
 }
-
--(BOOL) useQuietLogging { return [DEFAULTS boolForKey:APPIUM_PLIST_USE_QUIET_LOGGING]; }
--(void) setUseQuietLogging:(BOOL)useQuietLogging { [DEFAULTS setBool:useQuietLogging forKey:APPIUM_PLIST_USE_QUIET_LOGGING]; }
 
 -(BOOL) useSeleniumGridConfigFile { return [DEFAULTS boolForKey:APPIUM_PLIST_USE_SELENIUM_GRID_CONFIG_FILE]; }
 -(void) setUseSeleniumGridConfigFile:(BOOL)useSeleniumGridConfigFile { [DEFAULTS setBool:useSeleniumGridConfigFile forKey:APPIUM_PLIST_USE_SELENIUM_GRID_CONFIG_FILE]; }

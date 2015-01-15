@@ -210,11 +210,6 @@ BOOL _isServerListening;
 														  withValue:self.general.logWebHook]];
     }
 	
-	if (self.general.useQuietLogging)
-	{
-		[arguments addObject:[AppiumServerArgument argumentWithName:@"--quiet"]];
-    }
-	
     if (self.general.useSeleniumGridConfigFile)
 	{
 		[arguments addObject:[AppiumServerArgument argumentWithName:@"--nodeconfig"
@@ -249,11 +244,6 @@ BOOL _isServerListening;
 															  withValue:self.android.platformName]];
 			[arguments addObject:[AppiumServerArgument argumentWithName:@"--platform-version"
 															  withValue:self.android.platformVersionNumber]];
-			
-			if (self.android.useCustomSDKPath)
-			{
-				[command insertString:[NSString stringWithFormat:@"export ANDROID_HOME=\"%@\"; ", self.android.customSDKPath] atIndex:0];
-			}
 			
 			if (self.android.useAppPath || self.android.useBrowser)
 			{
@@ -444,7 +434,7 @@ BOOL _isServerListening;
 			
 			if (self.iOS.showSimulatorLog)
 			{
-				[arguments addObject:[AppiumServerArgument argumentWithName:@"--show-sim-log"]];
+				[arguments addObject:[AppiumServerArgument argumentWithName:@"--show-ios-log"]];
 			}
 			
 			if (self.iOS.useBackendRetries)
@@ -539,6 +529,16 @@ BOOL _isServerListening;
 	if (self.developer.developerMode && self.developer.useCustomFlags && [self.developer.customFlags length] != 0)
 	{
 		[command appendFormat:@" %@", self.developer.customFlags];
+	}
+	
+	// Add environment variables
+	if (self.isAndroid && self.android.useCustomSDKPath)
+	{
+		[command insertString:[NSString stringWithFormat:@"export ANDROID_HOME=\"%@\"; ", self.android.customSDKPath] atIndex:0];
+	}
+	NSDictionary *environmentVariables = [self.general.environmentVariables copy];
+	for (NSString *key in environmentVariables) {
+		[command insertString:[NSString stringWithFormat:@"export %@=\"%@\"; ", key, [environmentVariables valueForKey:key]] atIndex:0];
 	}
 	
 	[self setupServerTask:command];
