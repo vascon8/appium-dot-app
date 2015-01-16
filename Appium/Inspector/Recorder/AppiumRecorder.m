@@ -318,7 +318,7 @@
 		}
 		NSString *scriptStr = [self.codeMaker.string stringByReplacingOccurrencesOfString:@"\n\twd.quit()" withString:@""];
 		[scriptStr writeToFile:scriptPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
-		NSLog(@"%@",scriptStr);
+		
 		[self.driver quit];
 		[_windowController.window close];
 		
