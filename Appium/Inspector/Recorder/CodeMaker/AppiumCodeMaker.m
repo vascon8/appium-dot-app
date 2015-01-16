@@ -98,7 +98,8 @@
 }
 - (void)exportRecordScripts
 {
-	if (!self.canUndo) return;
+	if (!self.canUndo || ![[NSUserDefaults standardUserDefaults]boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]) return;
+	
 	[self.string writeToFile:self.exportScriptName atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 - (NSString *)scriptName

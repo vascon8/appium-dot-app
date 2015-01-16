@@ -13,7 +13,7 @@
 #import "AppiumInspector.h"
 #import "AppiumCodeMakerActions.h"
 
-#import "Utility.h"
+#import "AppiumPreferencesFile.h"
 
 @interface AppiumRecorder ()
 @property (readonly) AppiumInspector *inspector;
@@ -312,7 +312,7 @@
 {
 	if ([self.codeMaker.activePlugin.name isEqualTo:@"Python"]) {
 		NSString *scriptPath = self.codeMaker.exportScriptName;;
-		if (!self.codeMaker.exportScripts) {
+		if (![[NSUserDefaults standardUserDefaults]boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]) {
 			NSString *scriptName = [[self.codeMaker exportScriptName] lastPathComponent];
 			scriptPath = [NSString stringWithFormat:@"/tmp/%@",scriptName];
 		}
