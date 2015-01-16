@@ -3608,7 +3608,6 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <binding destination="-2" name="value" keyPath="model.general.useQuietLogging" id="hUf-H0-dr3"/>
                                     <binding destination="-2" name="enabled2" keyPath="model.general.useRemoteServer" previousBinding="5vu-G3-90g" id="Ws2-V0-TLV">
                                         <dictionary key="options">
                                             <integer key="NSMultipleValuesPlaceholder" value="-1"/>
