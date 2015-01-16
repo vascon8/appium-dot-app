@@ -3519,7 +3519,7 @@
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" id="hrK-Em-SQy" userLabel="Selenium Grid Config File Path TextField">
-                                <rect key="frame" x="18" y="71" width="344" height="22"/>
+                                <rect key="frame" x="18" y="71" width="345" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="rsW-Kl-rfl">
                                     <font key="font" metaFont="system"/>
@@ -4436,8 +4436,9 @@
                 <outlet property="delegate" destination="8ME-c5-j9d" id="Mar-Uv-exe"/>
             </connections>
         </popover>
-        <viewController id="Ug1-6P-qDs" userLabel="General Settings Popover View Controller" customClass="AppiumMonitorWindowPopOverViewController">
+        <viewController id="Ug1-6P-qDs" userLabel="General Settings Popover View Controller" customClass="AppiumMonitorWindowGeneralSettingsPopOverViewController">
             <connections>
+                <outlet property="environmentVariablesTableView" destination="e4i-YS-uuj" id="UNw-1N-gt7"/>
                 <outlet property="popover" destination="lir-Zd-0T7" id="5Bc-hc-IA8"/>
                 <outlet property="view" destination="lfV-Jy-qRr" id="jN7-wX-eXJ"/>
             </connections>
