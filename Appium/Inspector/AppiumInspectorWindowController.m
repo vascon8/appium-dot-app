@@ -118,6 +118,8 @@
     [self.bottomDrawer setMinContentSize:contentSize];
 	[self.bottomDrawer setContentView:self.bottomDrawerContentView];
 	[self.bottomDrawer.contentView setAutoresizingMask:NSViewHeightSizable];
+    
+    self.textBoxFieldCell.placeholderString = @"按回车结束输入";
 }
 
 - (void)dealloc

@@ -36,4 +36,7 @@
     @property IBOutlet NSButton *swipeButton;
 	@property IBOutlet NSButton *findElementButton;
 	@property NSString *syntaxDefinition;
+
+@property (weak) IBOutlet NSTextFieldCell *textBoxFieldCell;
+
 @end

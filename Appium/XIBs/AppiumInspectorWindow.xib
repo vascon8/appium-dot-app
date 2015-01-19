@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6724"/>
+        <deployment defaultVersion="1080" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AppiumInspectorWindowController">
@@ -19,6 +19,7 @@
                 <outlet property="selectedElementHighlightView" destination="57" id="352"/>
                 <outlet property="swipeButton" destination="220" id="353"/>
                 <outlet property="swipePopoverViewController" destination="222" id="355"/>
+                <outlet property="textBoxFieldCell" destination="mqC-1Y-OP5" id="o25-m6-rMg"/>
                 <outlet property="window" destination="1" id="3"/>
             </connections>
         </customObject>
@@ -270,11 +271,11 @@
                             </tabViewItem>
                             <tabViewItem label="文本" identifier="2" id="2jh-8t-t3Y" userLabel="Text Tab">
                                 <view key="view" id="JoQ-Em-Rib">
-                                    <rect key="frame" x="10" y="33" width="569" height="65"/>
+                                    <rect key="frame" x="10" y="33" width="566" height="65"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" id="sp3-mj-EXg" userLabel="Actions Box TextField">
-                                            <rect key="frame" x="17" y="40" width="530" height="22"/>
+                                            <rect key="frame" x="17" y="40" width="527" height="22"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="mqC-1Y-OP5">
                                                 <font key="font" metaFont="system"/>
@@ -347,7 +348,7 @@
                             </tabViewItem>
                             <tabViewItem label="定位" identifier="3" id="73g-pF-4nF">
                                 <view key="view" id="gm2-9i-R2p">
-                                    <rect key="frame" x="10" y="33" width="569" height="65"/>
+                                    <rect key="frame" x="10" y="33" width="566" height="65"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0gu-mb-9j3" userLabel="Value Label">
@@ -360,7 +361,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="yzy-oT-MDo" userLabel="Value Text Field">
-                                            <rect key="frame" x="78" y="40" width="323" height="22"/>
+                                            <rect key="frame" x="78" y="40" width="320" height="22"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="gBV-aq-NQL">
                                                 <font key="font" metaFont="system"/>
@@ -386,7 +387,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <comboBox verticalHuggingPriority="750" id="mM3-ea-JOG" userLabel="Strategy Combo Box">
-                                            <rect key="frame" x="78" y="8" width="251" height="26"/>
+                                            <rect key="frame" x="78" y="8" width="248" height="26"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="BIJ-IW-zCZ">
                                                 <font key="font" metaFont="system"/>
@@ -399,7 +400,7 @@
                                             </connections>
                                         </comboBox>
                                         <button verticalHuggingPriority="750" id="w64-8V-5y3" userLabel="Search Button">
-                                            <rect key="frame" x="325" y="3" width="82" height="32"/>
+                                            <rect key="frame" x="322" y="3" width="82" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <buttonCell key="cell" type="push" title="开始定位" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lbx-ZQ-VG6">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

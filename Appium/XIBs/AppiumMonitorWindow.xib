@@ -234,8 +234,8 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logTextViewBg" id="xIb-O4-C2e"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" id="zVt-xT-RN3" userLabel="Text Field - Logo">
-                                <rect key="frame" x="540" y="20" width="152" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="531" y="20" width="161" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="http://testq.cn" id="41J-90-5Fd" userLabel="Text Field Cell - testQ logo">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" name="selectedKnobColor" catalog="System" colorSpace="catalog"/>
