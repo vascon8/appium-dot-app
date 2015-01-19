@@ -610,7 +610,7 @@
                     </connections>
                 </button>
                 <button id="211" userLabel="XPath Only Checkbox">
-                    <rect key="frame" x="283" y="201" width="103" height="18"/>
+                    <rect key="frame" x="239" y="201" width="103" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="仅使用XPath" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="212">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -684,6 +684,18 @@
                     <connections>
                         <action selector="save:" target="357" id="f1a-8P-xin"/>
                         <binding destination="357" name="enabled" keyPath="codeMaker.canUndo" id="7Y2-jo-d48"/>
+                    </connections>
+                </button>
+                <button appearanceType="aqua" verticalHuggingPriority="750" id="V2r-ip-OCP" userLabel="Upload Button">
+                    <rect key="frame" x="354" y="199" width="75" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="roundRect" title="上传脚本" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Rbg-GZ-dRb">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="titleBar" size="12"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="uploadScript:" target="357" id="lTE-ea-tW2"/>
+                        <binding destination="357" name="enabled" keyPath="codeMaker.canUndo" id="Ad4-gz-0FB"/>
                     </connections>
                 </button>
             </subviews>
