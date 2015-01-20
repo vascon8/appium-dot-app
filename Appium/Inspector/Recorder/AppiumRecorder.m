@@ -278,7 +278,6 @@
 		[shadow setShadowColor:[[NSColor blackColor] colorWithAlphaComponent:0.95f]];
 		[_windowController.recordButton setShadow:shadow];
 		
-		_codeMaker.exportScripts = YES;
 		[_windowController.recordButton setTitle:@"停止录制脚本"];
 	}
 	else
@@ -288,7 +287,6 @@
         [_windowController.recordButton.layer removeAllAnimations];
 		[_windowController.bottomDrawer close];
 		
-		_codeMaker.exportScripts = NO;
 		[_windowController.recordButton setTitle:@"启动录制脚本"];
 	}
 }
@@ -343,8 +341,8 @@
 		savePanel.nameFieldStringValue = self.codeMaker.exportScriptName;
 	}
 	
-	id curPath = [DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
-	if (curPath && [curPath isDirectory]){
+	NSString *curPath = [DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
+	if (curPath){
 		[savePanel setDirectoryURL:[NSURL URLWithString:curPath]];
 	}
 	else{
@@ -355,7 +353,7 @@
 						  if (result == NSFileHandlingPanelOKButton)
 						  {
 							  if(![[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY] isEqualToString:savePanel.directoryURL.path]){
-								  [DEFAULTS setValue:savePanel.directoryURL.path forKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
+								  self.inspector.model.exportscriptsDirectory = savePanel.directoryURL.path;
 							  }
 							  [self.codeMaker exportRecordScripts];
 						  }

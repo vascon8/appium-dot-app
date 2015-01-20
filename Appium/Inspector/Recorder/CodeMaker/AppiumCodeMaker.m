@@ -73,7 +73,7 @@
 	[[NSUserDefaults standardUserDefaults] setObject:syntaxDefinition forKey:APPIUM_PLIST_INSPECTOR_CODEMAKER_LANGUAGE];
 	[_fragaria setObject:(![syntaxDefinition isEqualToString:@"node.js"]) ? syntaxDefinition : @"JavaScript" forKey:MGSFOSyntaxDefinitionName];
 
-	if (self.exportScripts && self.canUndo) self.exportScriptName = [self scriptName];
+	if ([DEFAULTS boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY] && self.canUndo) self.exportScriptName = [self scriptName];
 }
 
 -(void) setUseBoilerPlate:(NSNumber *)useBoilerPlate
@@ -88,22 +88,9 @@
 	[self renderAll];
 }
 
-#pragma mark - Private Methods
-- (BOOL)exportScripts
-{
-	return [DEFAULTS boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY];
-}
-- (void)setExportScripts:(BOOL)exportScripts
-{
-	[DEFAULTS setBool:exportScripts forKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY];
-	if (exportScripts && self.canUndo) {
-		[self exportRecordScripts];
-	}
-}
+#pragma mark - export script
 - (void)exportRecordScripts
 {
-	NSLog(@"%@ %d",[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY],[DEFAULTS boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]);
-	
 	NSString *dir = [DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
 	dir = [dir stringByAppendingPathComponent:@"RecordScriptByTestQ/"];
 	
@@ -126,36 +113,14 @@
 	AppiumAppDelegate *delegate = (AppiumAppDelegate*)([NSApplication sharedApplication].delegate);
 	AppiumModel *model = [delegate model];
 	
-	NSString *extension = self.syntaxDefinition;
-	if ([extension isEqualToString:@"Python"]) {
-		extension = @"py";
-	}
-	else if ([extension isEqualToString:@"Ruby"]){
-		extension = @"rb";
-	}
-	else if ([extension isEqualToString:@"node.js"]){
-		extension = @"js";
-	}
-	else if ([extension isEqualToString:@"Java"]){
-		extension = @"java";
-	}
-	else if ([extension isEqualToString:@"C#"]){
-		extension = @"c";
-	}
-	else{
-		extension = @"testQ";
-	}
+	NSString *extension = self.activePlugin.fileExtension;
 	
 	NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
 	formatter.dateFormat = @"MMddHHmm";
 	NSString *date = [formatter stringFromDate:[NSDate date]];
-	NSString *name = [[((model.platform==AppiumiOSPlatform) ? model.iOS.appPath : model.android.appPath) lastPathComponent] stringByReplacingOccurrencesOfString:((model.platform==AppiumiOSPlatform) ? @".app" : @".apk") withString:[NSString stringWithFormat:@"_%@.%@",date,extension]];
-	name = [NSString stringWithFormat:@"%@_%@",((model.platform==AppiumiOSPlatform) ? @"IOS" : @"Android"),name];
-//	NSString *dir = [DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
-//	dir = [dir stringByAppendingPathComponent:@"RecordScriptByTestQ/"];
-//	
-//	NSFileManager *mgr = [NSFileManager defaultManager];
-//	[mgr createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
+	NSString *platformName = ((model.platform==AppiumiOSPlatform) ? @"IOS" : @"Android");
+	
+	NSString *name = [[((model.platform==AppiumiOSPlatform) ? model.iOS.appPath : model.android.appPath) lastPathComponent] stringByReplacingOccurrencesOfString:((model.platform==AppiumiOSPlatform) ? @".app" : @".apk") withString:[NSString stringWithFormat:@"_%@_%@.%@",platformName,date,extension]];
 	
 	return name;
 }
@@ -172,7 +137,7 @@
 	[self setAttributedString:[[NSAttributedString alloc] initWithString:self.string]];
 	[_fragaria setString:self.string];
 	
-	if (self.exportScripts && self.canUndo)	[self exportRecordScripts];
+	if ([DEFAULTS boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY] && self.canUndo)	[self exportRecordScripts];
 }
 
 -(void) renderAll
