@@ -311,7 +311,7 @@
 -(IBAction)replay:(id)sender
 {
 	if ([self.codeMaker.activePlugin.name isEqualTo:@"Python"]) {
-		NSString *scriptPath = self.codeMaker.exportScriptName;;
+		NSString *scriptPath = self.codeMaker.exportScriptName;
 		if (![[NSUserDefaults standardUserDefaults]boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]) {
 			NSString *scriptName = [[self.codeMaker exportScriptName] lastPathComponent];
 			scriptPath = [NSString stringWithFormat:@"/tmp/%@",scriptName];
@@ -340,27 +340,26 @@
 	
 	if (extension != nil)
 	{
-		savePanel.nameFieldStringValue = [self.codeMaker.exportScriptName lastPathComponent];
+		savePanel.nameFieldStringValue = self.codeMaker.exportScriptName;
 	}
-	[savePanel setDirectoryURL:[NSURL fileURLWithPath:[self.codeMaker.exportScriptName stringByDeletingLastPathComponent]]];
 	
+	id curPath = [DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
+	if (curPath && [curPath isDirectory]){
+		[savePanel setDirectoryURL:[NSURL URLWithString:curPath]];
+	}
+	else{
+		[savePanel setDirectoryURL:[NSURL URLWithString:NSHomeDirectoryForUser(NSUserName())]];
+	}
 	[savePanel beginSheetModalForWindow:_windowController.window
 					  completionHandler:^(NSInteger result) {
-		if (result == NSFileHandlingPanelOKButton)
-		{
-			if (![[NSFileManager defaultManager] createFileAtPath:savePanel.URL.path
-														contents:[self.codeMaker.string dataUsingEncoding:NSUTF8StringEncoding]
-													  attributes:nil])
-			{
-				NSAlert *errorAlert = [NSAlert alertWithMessageText:@"Code Maker Save Error"
-													  defaultButton:@"OK"
-													alternateButton:nil
-														otherButton:nil
-										  informativeTextWithFormat:@"The file could not be saved. Please check your directory write permissions and ensure that the disk is not full."];
-				[errorAlert runModal];
-			}
-		}
-	}];
+						  if (result == NSFileHandlingPanelOKButton)
+						  {
+							  if(![[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY] isEqualToString:savePanel.directoryURL.path]){
+								  [DEFAULTS setValue:savePanel.directoryURL.path forKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
+							  }
+							  [self.codeMaker exportRecordScripts];
+						  }
+					  }];
 }
 - (IBAction)uploadScript:(id)sender
 {
