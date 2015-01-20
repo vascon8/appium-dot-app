@@ -48,6 +48,8 @@ BOOL _isServerListening;
 		_isServerRunning = NO;
 		_isServerListening = self.general.useRemoteServer;
         [self setDoctorSocketIsConnected:NO];
+		
+		self.exportscriptsDirectory = NSHomeDirectoryForUser(NSUserName());
     }
 	
     return self;

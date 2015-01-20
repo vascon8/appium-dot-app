@@ -42,6 +42,7 @@
 -(void) addAction:(AppiumCodeMakerAction*)action;
 -(void) replay:(SERemoteWebDriver*)driver;
 
+- (void)exportRecordScripts;
 @property(nonatomic,assign) BOOL exportScripts;
 @property (strong,nonatomic) NSString *exportScriptName;
 

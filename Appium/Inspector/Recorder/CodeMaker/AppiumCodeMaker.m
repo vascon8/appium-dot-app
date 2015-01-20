@@ -89,18 +89,37 @@
 }
 
 #pragma mark - Private Methods
+- (BOOL)exportScripts
+{
+	return [DEFAULTS boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY];
+}
 - (void)setExportScripts:(BOOL)exportScripts
 {
-	_exportScripts = exportScripts;
+	[DEFAULTS setBool:exportScripts forKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY];
 	if (exportScripts && self.canUndo) {
 		[self exportRecordScripts];
 	}
 }
 - (void)exportRecordScripts
 {
-	if (!self.canUndo || ![[NSUserDefaults standardUserDefaults]boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]) return;
+	NSLog(@"%@ %d",[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY],[DEFAULTS boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]);
 	
-	[self.string writeToFile:self.exportScriptName atomically:YES encoding:NSUTF8StringEncoding error:nil];
+	NSString *dir = [DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
+	dir = [dir stringByAppendingPathComponent:@"RecordScriptByTestQ/"];
+	
+	NSFileManager *mgr = [NSFileManager defaultManager];
+	
+	[mgr createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
+	
+	if (![self.string writeToFile:[dir stringByAppendingPathComponent:[self exportScriptName]] atomically:YES encoding:NSUTF8StringEncoding error:nil])
+	{
+		NSAlert *errorAlert = [NSAlert alertWithMessageText:@"Export Record Script Error"
+											  defaultButton:@"OK"
+											alternateButton:nil
+												otherButton:nil
+								  informativeTextWithFormat:@"The file could not be saved. Please check your directory write permissions and ensure that the disk is not full."];
+		[errorAlert runModal];
+	}
 }
 - (NSString *)scriptName
 {
@@ -132,13 +151,13 @@
 	NSString *date = [formatter stringFromDate:[NSDate date]];
 	NSString *name = [[((model.platform==AppiumiOSPlatform) ? model.iOS.appPath : model.android.appPath) lastPathComponent] stringByReplacingOccurrencesOfString:((model.platform==AppiumiOSPlatform) ? @".app" : @".apk") withString:[NSString stringWithFormat:@"_%@.%@",date,extension]];
 	name = [NSString stringWithFormat:@"%@_%@",((model.platform==AppiumiOSPlatform) ? @"IOS" : @"Android"),name];
-	NSString *dir = [DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
-	dir = [dir stringByAppendingPathComponent:@"RecordScriptByTestQ/"];
+//	NSString *dir = [DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
+//	dir = [dir stringByAppendingPathComponent:@"RecordScriptByTestQ/"];
+//	
+//	NSFileManager *mgr = [NSFileManager defaultManager];
+//	[mgr createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
 	
-	NSFileManager *mgr = [NSFileManager defaultManager];
-	[mgr createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
-	
-	return [dir stringByAppendingPathComponent:name];
+	return name;
 }
 - (NSString *)exportScriptName
 {
@@ -153,7 +172,7 @@
 	[self setAttributedString:[[NSAttributedString alloc] initWithString:self.string]];
 	[_fragaria setString:self.string];
 	
-	if (self.exportScripts)	[self exportRecordScripts];
+	if (self.exportScripts && self.canUndo)	[self exportRecordScripts];
 }
 
 -(void) renderAll
