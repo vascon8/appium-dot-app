@@ -150,20 +150,6 @@
 			remoteGlobalIDString = 36CEB7C716E3662E00B5B100;
 			remoteInfo = Appium;
 		};
-		C71F956A1A5FF2470013F230 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C77BC82D19FFC16B008979E5;
-			remoteInfo = SeleniumForiOS;
-		};
-		C71F956C1A5FF2470013F230 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C77BC83719FFC16B008979E5;
-			remoteInfo = SeleniumForiOSTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -692,10 +678,8 @@
 			isa = PBXGroup;
 			children = (
 				36A1A000173FFF34002717C2 /* Selenium.framework */,
-				36A1A002173FFF34002717C2 /* SeleniumTests.xctest */,
+				36A1A002173FFF34002717C2 /* SeleniumTests.octest */,
 				36B9018119071DEF00AE40E8 /* liblibSelenium.a */,
-				C71F956B1A5FF2470013F230 /* SeleniumForiOS.framework */,
-				C71F956D1A5FF2470013F230 /* SeleniumForiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -947,9 +931,10 @@
 			remoteRef = 36A19FFF173FFF34002717C2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		36A1A002173FFF34002717C2 /* SeleniumTests.xctest */ = {
+		36A1A002173FFF34002717C2 /* SeleniumTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
+			name = SeleniumTests.octest;
 			path = SeleniumTests.xctest;
 			remoteRef = 36A1A001173FFF34002717C2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -959,20 +944,6 @@
 			fileType = archive.ar;
 			path = liblibSelenium.a;
 			remoteRef = 36B9018019071DEF00AE40E8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C71F956B1A5FF2470013F230 /* SeleniumForiOS.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SeleniumForiOS.framework;
-			remoteRef = C71F956A1A5FF2470013F230 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C71F956D1A5FF2470013F230 /* SeleniumForiOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SeleniumForiOSTests.xctest;
-			remoteRef = C71F956C1A5FF2470013F230 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1200,7 +1171,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -1226,7 +1197,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
 			};
 			name = Release;

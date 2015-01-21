@@ -92,7 +92,9 @@
 - (void)exportRecordScripts
 {
 	NSString *dir = [DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
-	dir = [dir stringByAppendingPathComponent:@"RecordScriptByTestQ/"];
+	if (![[dir lastPathComponent] isEqualToString:@"RecordScriptByTestQ"]){
+		dir = [dir stringByAppendingPathComponent:@"RecordScriptByTestQ/"];
+	}
 	
 	NSFileManager *mgr = [NSFileManager defaultManager];
 	
