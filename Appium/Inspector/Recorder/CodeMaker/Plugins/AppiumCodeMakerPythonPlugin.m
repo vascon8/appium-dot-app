@@ -221,4 +221,8 @@ try:\n", self.model.general.serverAddress, self.model.general.serverPort];
 	}
 }
 
+- (NSString *)commandStr
+{
+	return @"/usr/bin/python";
+}
 @end

@@ -401,6 +401,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FD93BFC1A6EAC990087A17F /* RecordScript */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RecordScript;
+			sourceTree = "<group>";
+		};
 		3612E5F916E5B6820050CF0A /* AppleScript */ = {
 			isa = PBXGroup;
 			children = (
@@ -817,6 +824,7 @@
 		36CEB7D116E3662E00B5B100 /* Appium */ = {
 			isa = PBXGroup;
 			children = (
+				0FD93BFC1A6EAC990087A17F /* RecordScript */,
 				362DF1E4170F4350001CAD1D /* AppiumGlobals.h */,
 				3612E5F916E5B6820050CF0A /* AppleScript */,
 				36CD44F016F0E1CE00194193 /* Inspector */,

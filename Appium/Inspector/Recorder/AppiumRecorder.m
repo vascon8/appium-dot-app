@@ -308,6 +308,9 @@
 
 -(IBAction)replay:(id)sender
 {
+	NSString *commandStr = @"/usr/bin/python";
+	
+
 	if ([self.codeMaker.activePlugin.name isEqualTo:@"Python"]) {
 		NSString *scriptPath = self.codeMaker.exportScriptName;
 		if (![[NSUserDefaults standardUserDefaults]boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]) {

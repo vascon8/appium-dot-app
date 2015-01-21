@@ -197,4 +197,9 @@ browser.init(desired).then(function() {\n\
 	}
 }
 
+- (NSString *)commandStr
+{
+	return nil;
+}
+
 @end
