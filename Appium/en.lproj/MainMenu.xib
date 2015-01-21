@@ -653,6 +653,17 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="脚本" id="56z-sd-VCA" userLabel="Menu Item - 脚本">
+                    <menu key="submenu" title="脚本" systemMenu="window" id="G9o-IZ-7VH">
+                        <items>
+                            <menuItem title="上传" keyEquivalent="u" id="eyg-Ig-1F2">
+                                <connections>
+                                    <action selector="displayRecordscriptWindow:" target="494" id="26v-7o-Dai"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="帮助" id="490">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="帮助" systemMenu="help" id="491">

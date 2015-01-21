@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */; };
+		0F7B14E71A6F84C30012296F /* RecordScriptMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B14E61A6F84C30012296F /* RecordScriptMainView.xib */; };
+		0F7B14EE1A6F96FD0012296F /* RecordScriptWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */; };
 		360BD91516F12B03000D3BEB /* AppiumInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 360BD91416F12B03000D3BEB /* AppiumInspector.m */; };
 		3612E5F816E5B6520050CF0A /* appium.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 3612E5F716E5B6520050CF0A /* appium.sdef */; };
 		3612E5FC16E5B69C0050CF0A /* NSApplication+AppleScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 3612E5FB16E5B69C0050CF0A /* NSApplication+AppleScript.m */; };
@@ -167,6 +170,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptMainWindow.xib; sourceTree = "<group>"; };
+		0F7B14E61A6F84C30012296F /* RecordScriptMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptMainView.xib; sourceTree = "<group>"; };
+		0F7B14EC1A6F96FD0012296F /* RecordScriptWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptWindowController.h; sourceTree = "<group>"; };
+		0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptWindowController.m; sourceTree = "<group>"; };
 		360BD91316F12B03000D3BEB /* AppiumInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiumInspector.h; sourceTree = "<group>"; };
 		360BD91416F12B03000D3BEB /* AppiumInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppiumInspector.m; sourceTree = "<group>"; };
 		3612E5F716E5B6520050CF0A /* appium.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appium.sdef; sourceTree = "<group>"; };
@@ -387,6 +394,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F7B14E31A6F820C0012296F /* RecordScript */ = {
+			isa = PBXGroup;
+			children = (
+				0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */,
+				0F7B14E61A6F84C30012296F /* RecordScriptMainView.xib */,
+			);
+			name = RecordScript;
+			path = XIBs/RecordScript;
+			sourceTree = "<group>";
+		};
+		0F7B14E81A6F8BD50012296F /* RecordScript */ = {
+			isa = PBXGroup;
+			children = (
+				0F7B14EC1A6F96FD0012296F /* RecordScriptWindowController.h */,
+				0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */,
+			);
+			path = RecordScript;
+			sourceTree = "<group>";
+		};
 		3612E5F916E5B6820050CF0A /* AppleScript */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +481,7 @@
 		3614B1701719F43700A72D99 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				0F7B14E31A6F820C0012296F /* RecordScript */,
 				36CD44ED16F0D5C300194193 /* AppiumInspectorWindow.xib */,
 				3695CAAF16E3FCAE003697A9 /* AppiumInstallationWindow.xib */,
 				36AA8D6E16E40B28007472C1 /* AppiumMonitorWindow.xib */,
@@ -801,6 +828,7 @@
 		36CEB7D116E3662E00B5B100 /* Appium */ = {
 			isa = PBXGroup;
 			children = (
+				0F7B14E81A6F8BD50012296F /* RecordScript */,
 				362DF1E4170F4350001CAD1D /* AppiumGlobals.h */,
 				3612E5F916E5B6820050CF0A /* AppleScript */,
 				36CD44F016F0E1CE00194193 /* Inspector */,
@@ -960,6 +988,7 @@
 				364EED4F191EDFFF00AB4439 /* inspector.png in Resources */,
 				364EED53191EE04A00AB4439 /* settings.png in Resources */,
 				C7FFBA8D19F15CDE005B030F /* menubar-icon.png in Resources */,
+				0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */,
 				36CEB7E216E3662E00B5B100 /* MainMenu.xib in Resources */,
 				364EED55191EE07000AB4439 /* trash.png in Resources */,
 				36BA3A1D191EE417007FA51B /* doctor.png in Resources */,
@@ -969,6 +998,7 @@
 				3612E5F816E5B6520050CF0A /* appium.sdef in Resources */,
 				364EED59191EE27000AB4439 /* robot.png in Resources */,
 				36B2F18616E6379C008764E0 /* defaults.plist in Resources */,
+				0F7B14E71A6F84C30012296F /* RecordScriptMainView.xib in Resources */,
 				36A765A616F01C7C002A7D6A /* appium.icns in Resources */,
 				36CD44EF16F0D5C300194193 /* AppiumInspectorWindow.xib in Resources */,
 				36D17E2916F144E600DC5797 /* Upgrade.applescript in Resources */,
@@ -1040,6 +1070,7 @@
 				368230DA1715C73F00FF113F /* AppiumCodeMaker.m in Sources */,
 				7D3CB870198579DD004D3CA4 /* AppiumInspectorButtonImageTransformer.m in Sources */,
 				36919C8B171616AD00AC2C63 /* AppiumCodeMakerAction.m in Sources */,
+				0F7B14EE1A6F96FD0012296F /* RecordScriptWindowController.m in Sources */,
 				3661735617172AB200E786DF /* AppiumCodeMakerPythonPlugin.m in Sources */,
 				36FF07AD171743AC009ED9E2 /* AppiumCodeMakerLocator.m in Sources */,
 				7D7BE878199686F90080F21A /* AppiumServerArgument.m in Sources */,
