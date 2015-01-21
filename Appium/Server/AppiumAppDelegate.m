@@ -14,6 +14,8 @@
 #import "NodeInstance.h"
 #import "Utility.h"
 
+#import "RecordScriptWindowController.h"
+
 @implementation AppiumAppDelegate
 
 #pragma mark - Handlers
@@ -178,5 +180,48 @@
     [restartTask launch];
     [[NSApplication sharedApplication] terminate:nil];
 }
+#pragma mark - display recordscript upload window
+- (IBAction)displayRecordscriptWindow:(id)sender
+{
+	if (self.recordScriptWindow == nil)
+	{
+//		self.mainWindowController.inspectorIsLaunching = YES;
+		
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+			self.recordScriptWindow = [[RecordScriptWindowController alloc] initWithWindowNibName:@"RecordScriptMainWindow"];
+//			self.mainWindowController.inspectorIsLaunching = NO;
+			
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self presentRecordscriptWindow];
+			});
+		});
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self
+												 selector:@selector(recordscriptWindowWillClose:)
+													 name:NSWindowWillCloseNotification
+												   object:[self.recordScriptWindow window]];
+	}
+	else
+	{
+		[self presentRecordscriptWindow];
+	}
+}
+- (void)presentRecordscriptWindow
+{
+	[self.recordScriptWindow showWindow:self];
+	[[self.recordScriptWindow window] makeKeyAndOrderFront:self];
+}
+//- (void)closeRecordScriptWindow
+//{
+//	if (self.recordScriptWindow != nil)
+//	{
+//		[self.recordScriptWindow close];
+//	}
+//}
 
+- (void)recordscriptWindowWillClose:(NSNotification *)notification
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowWillCloseNotification object:[self.recordScriptWindow window]];
+	self.recordScriptWindow = nil;
+}
 @end
