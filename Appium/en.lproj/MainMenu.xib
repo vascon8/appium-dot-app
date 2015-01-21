@@ -653,12 +653,12 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="脚本" id="RJI-tH-z8J">
-                    <menu key="submenu" title="脚本" systemMenu="window" id="peD-dh-ztc">
+                <menuItem title="脚本" id="56z-sd-VCA" userLabel="Menu Item - 脚本">
+                    <menu key="submenu" title="脚本" systemMenu="window" id="G9o-IZ-7VH">
                         <items>
-                            <menuItem title="上传" keyEquivalent="u" id="0db-Mh-WQQ">
+                            <menuItem title="上传" keyEquivalent="u" id="eyg-Ig-1F2">
                                 <connections>
-                                    <action selector="performMiniaturize:" target="-1" id="4fd-Fh-IxN"/>
+                                    <action selector="displayRecordscriptWindow:" target="494" id="26v-7o-Dai"/>
                                 </connections>
                             </menuItem>
                         </items>

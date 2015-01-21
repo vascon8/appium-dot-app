@@ -9,29 +9,30 @@
 #import "RecordScriptWindowController.h"
 #import "AppiumPreferencesFile.h"
 
-@interface RecordScriptWindowController ()
+@interface RecordScriptWindowController ()<NSTableViewDataSource>
 
 @end
 
 @implementation RecordScriptWindowController
 
-- (id)initWithWindow:(NSWindow *)window
+- (id)initWithWindowNibName:(NSString *)windowNibName
 {
-    self = [super initWithWindow:window];
-    if (self) {
+	self = [super initWithWindowNibName:windowNibName];
+	if (self) {
 		
-    }
-    return self;
+	}
+	return self;
 }
 
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+	self.recordscriptAppTableView.dataSource = self;
 }
-- (IBAction)saveButtonClicked:(NSButton *)sender {
+- (IBAction)chooseScriptButtonClicked:(NSButton *)sender {
 	NSOpenPanel* chooseScriptPanlel = [NSOpenPanel openPanel];
 	[chooseScriptPanlel setMessage:@"请选择要上传的脚本"];
-	[chooseScriptPanlel setPrompt:@"确定"];
+	[chooseScriptPanlel setPrompt:@"上传"];
 	[chooseScriptPanlel setDirectoryURL:[NSURL URLWithString:[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]]];
     
     // Enable the selection of files in the dialog.
@@ -42,14 +43,23 @@
     
     // Display the dialog.  If the OK button was pressed,
     // process the files.
-	[chooseScriptPanlel beginSheet:self.window completionHandler:^(NSModalResponse returnCode) {
+	[chooseScriptPanlel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
 		NSLog(@"url:%@",[chooseScriptPanlel URLs]);
-		if (returnCode == NSModalResponseContinue) {
-			[self.appNameField setStringValue:[chooseScriptPanlel URLs][0]];
+		if (result == NSFileHandlingPanelOKButton) {
+			[self.appNameFieldCell setStringValue:[[chooseScriptPanlel URLs][0] lastPathComponent]];
+			
 			NSLog(@"url2:%@",[chooseScriptPanlel URLs]);
 		}
 	}];
-	[chooseScriptPanlel runModal];
 }
 
+#pragma mark - tableview datasource
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+	return 5;
+}
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+	return @"good";
+}
 @end
