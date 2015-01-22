@@ -9,10 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface RecordScriptWindowController : NSWindowController
-@property (weak) IBOutlet NSButton *checkBox;
-@property (weak) IBOutlet NSTextField *appNameField;
-@property (weak) IBOutlet NSProgressIndicator *progressIndicator;
-@property (weak) IBOutlet NSTextFieldCell *appNameFieldCell;
+
 @property (weak) IBOutlet NSTableView *recordscriptAppTableView;
 
 @end

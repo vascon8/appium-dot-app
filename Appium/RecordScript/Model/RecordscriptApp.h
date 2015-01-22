@@ -10,8 +10,7 @@
 
 @interface RecordscriptApp : NSObject
 
-@property  BOOL checked;
-@property  NSString *appString;
-@property  float progress;
+@property NSString *appName;
+@property NSString *platformName;
 
 @end
