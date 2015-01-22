@@ -10,6 +10,7 @@
 #import "AppiumPreferencesFile.h"
 
 #import "RecordscriptApp.h"
+#import "RecordScriptStatusView.h"
 
 @interface RecordScriptWindowController ()<NSTableViewDataSource,NSTableViewDelegate>
 @property NSMutableArray *appListArr;
@@ -37,47 +38,44 @@
 	self.recordscriptAppTableView.delegate = self;
 	self.recordscriptAppTableView.dataSource = self;
 }
+#pragma mark - upload record script
 - (IBAction)chooseScriptButtonClicked:(NSButton *)sender {
 	NSOpenPanel* chooseScriptPanlel = [NSOpenPanel openPanel];
 	[chooseScriptPanlel setMessage:@"请选择要上传的脚本"];
 	[chooseScriptPanlel setPrompt:@"上传"];
 	[chooseScriptPanlel setDirectoryURL:[NSURL URLWithString:[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]]];
     
-    // Enable the selection of files in the dialog.
     [chooseScriptPanlel setCanChooseFiles:YES];
-    
-    // Enable the selection of directories in the dialog.
-    [chooseScriptPanlel setCanChooseDirectories:YES];
-    
-    // Display the dialog.  If the OK button was pressed,
-    // process the files.
+//    [chooseScriptPanlel setCanChooseDirectories:YES];
+
 	[chooseScriptPanlel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
-		NSLog(@"url:%@",[chooseScriptPanlel URLs]);
 		if (result == NSFileHandlingPanelOKButton) {
-//			[self.appNameFieldCell setStringValue:[[chooseScriptPanlel URLs][0] lastPathComponent]];
 			
-			NSLog(@"url2:%@",[chooseScriptPanlel URLs]);
+			float H = self.recordscriptUploadView.frame.size.height;
+			for (int i=0; i<chooseScriptPanlel.URLs.count; i++) {
+				RecordScriptStatusView *statusView = [[RecordScriptStatusView alloc]init];
+				NSRect rect = statusView.frame;
+				rect.origin.x = 0.0;
+				rect.origin.y = i*H;
+				statusView.frame = rect;
+				[self.recordscriptUploadView addSubview:statusView];
+				statusView.scriptNameTextField.stringValue = [[chooseScriptPanlel URLs][i] lastPathComponent];
+				NSLog(@"%@ %@",statusView,NSStringFromRect(statusView.frame));
+			}
+			
 		}
 	}];
 }
-
 #pragma mark - tableview datasource
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
 	return self.appListArr.count;
 }
-//- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
-//{
-//	RecordscriptApp *rc = [self.appListArr objectAtIndex:row];
-//	NSString *identifier = [tableColumn identifier];
-//	return [rc valueForKey:identifier];
-//}
 #pragma mark - tableview delegate
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-	NSTableCellView	 *cellView = [tableView makeViewWithIdentifier:@"myView" owner:self.recordscriptAppTableView];
+	NSTableCellView	 *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
 	RecordscriptApp *rc = [self.appListArr objectAtIndex:row];
-	NSLog(@"%@ %@",cellView,cellView.textField);
 	cellView.textField.stringValue = [rc valueForKey:tableColumn.identifier];
 	return cellView;
 }

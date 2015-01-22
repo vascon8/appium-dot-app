@@ -341,6 +341,21 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="脚本" id="4tL-L7-DdV" userLabel="Menu Item - 脚本">
+                    <menu key="submenu" title="脚本" systemMenu="apple" id="U8c-99-xw1" userLabel="Menu - 脚本">
+                        <items>
+                            <menuItem isSeparatorItem="YES" id="ahV-ex-aJF">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="上传" id="0Lb-93-sqL" userLabel="Menu Item - 上传">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="displayRecordscriptWindow:" target="494" id="1Z5-wl-wUK"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="格式" id="375">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="格式" id="376">
@@ -648,17 +663,6 @@
                             <menuItem title="Bring All to Front" id="5">
                                 <connections>
                                     <action selector="arrangeInFront:" target="-1" id="39"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
-                <menuItem title="脚本" id="56z-sd-VCA" userLabel="Menu Item - 脚本">
-                    <menu key="submenu" title="脚本" systemMenu="window" id="G9o-IZ-7VH">
-                        <items>
-                            <menuItem title="上传" keyEquivalent="u" id="eyg-Ig-1F2">
-                                <connections>
-                                    <action selector="displayRecordscriptWindow:" target="494" id="26v-7o-Dai"/>
                                 </connections>
                             </menuItem>
                         </items>

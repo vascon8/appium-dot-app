@@ -11,5 +11,6 @@
 @interface RecordScriptWindowController : NSWindowController
 
 @property (weak) IBOutlet NSTableView *recordscriptAppTableView;
+@property (weak) IBOutlet NSView *recordscriptUploadView;
 
 @end

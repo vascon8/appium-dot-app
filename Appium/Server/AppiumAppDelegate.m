@@ -221,6 +221,7 @@
 
 - (void)recordscriptWindowWillClose:(NSNotification *)notification
 {
+	NSLog(@"%@",notification);
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowWillCloseNotification object:[self.recordScriptWindow window]];
 	self.recordScriptWindow = nil;
 }
