@@ -13,4 +13,7 @@
 @property NSString *appName;
 @property NSString *platformName;
 
+@property NSString *category;
+@property NSString *title;
+
 @end

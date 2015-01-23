@@ -196,10 +196,10 @@
 			});
 		});
 		
-		[[NSNotificationCenter defaultCenter] addObserver:self
-												 selector:@selector(recordscriptWindowWillClose:)
-													 name:NSWindowWillCloseNotification
-												   object:[self.recordScriptWindow window]];
+//		[[NSNotificationCenter defaultCenter] addObserver:self
+//												 selector:@selector(recordscriptWindowWillClose:)
+//													 name:NSWindowWillCloseNotification
+//												   object:[self.recordScriptWindow window]];
 	}
 	else
 	{

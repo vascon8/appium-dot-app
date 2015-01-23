@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -9,6 +9,11 @@
             <connections>
                 <outlet property="recordscriptAppTableView" destination="irb-PE-lLi" id="whI-k6-e1b"/>
                 <outlet property="recordscriptUploadView" destination="Avm-or-1fl" id="bUC-tJ-yDn"/>
+                <outlet property="scriptNameLabel" destination="VVi-tS-FGX" id="zMG-l8-r45"/>
+                <outlet property="scriptNameTextField" destination="VVi-tS-FGX" id="fRu-IV-Kpf"/>
+                <outlet property="statusImageView" destination="thB-Uy-R9M" id="Qdq-C5-EcG"/>
+                <outlet property="uploadProgressIndicator" destination="fif-6w-3Iq" id="aPt-Ta-9EO"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="Eue-Rk-KAb"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -16,19 +21,19 @@
         <window title="脚本上传" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="133" y="274" width="642" height="362"/>
+            <rect key="contentRect" x="133" y="274" width="702" height="362"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <value key="minSize" type="size" width="642" height="362"/>
             <value key="maxSize" type="size" width="900" height="550"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="642" height="362"/>
+                <rect key="frame" x="0.0" y="0.0" width="702" height="362"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Fak-f4-GXd" userLabel="AppInfo- Scroll View">
                         <rect key="frame" x="10" y="52" width="364" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="XsY-a8-TFc">
-                            <rect key="frame" x="1" y="0.0" width="362" height="299"/>
+                            <rect key="frame" x="1" y="17" width="362" height="282"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" headerView="6i0-2f-DtX" viewBased="YES" id="irb-PE-lLi">
@@ -124,7 +129,7 @@
                         </tableHeaderView>
                     </scrollView>
                     <button verticalHuggingPriority="750" id="x9e-rg-bze">
-                        <rect key="frame" x="549" y="19" width="73" height="19"/>
+                        <rect key="frame" x="512" y="19" width="73" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="选择脚本" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fXu-Wg-pMk">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -135,40 +140,38 @@
                         </connections>
                     </button>
                     <customView appearanceType="aqua" id="Avm-or-1fl" userLabel="Custom View - RecordScript View">
-                        <rect key="frame" x="382.00000043710077" y="52" width="240" height="300"/>
+                        <rect key="frame" x="381.99999989668532" y="52" width="300" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressIndicator appearanceType="aqua" maxValue="100" doubleValue="1" indeterminate="YES" style="bar" id="fif-6w-3Iq">
+                                <rect key="frame" x="0.0" y="140" width="258" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </progressIndicator>
+                            <textField appearanceType="aqua" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VVi-tS-FGX" userLabel="Text Field - scriptNameLabel">
+                                <rect key="frame" x="0.0" y="167" width="260" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="15Z-fq-LO5">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="thB-Uy-R9M">
+                                <rect key="frame" x="263" y="150" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="xyD-5J-MfD"/>
+                            </imageView>
+                        </subviews>
                     </customView>
                 </subviews>
             </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="hwT-rM-IgN"/>
+            </connections>
         </window>
         <customView id="AN4-0j-mMS" userLabel="Custom View-progressView" customClass="RecordScriptStatusView">
             <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <subviews>
-                <textField appearanceType="aqua" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VVi-tS-FGX" userLabel="Text Field - scriptNameLabel">
-                    <rect key="frame" x="0.0" y="20" width="200" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="15Z-fq-LO5">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <progressIndicator appearanceType="aqua" maxValue="100" indeterminate="YES" style="bar" id="fif-6w-3Iq">
-                    <rect key="frame" x="0.0" y="0.0" width="200" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                </progressIndicator>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="thB-Uy-R9M">
-                    <rect key="frame" x="200" y="0.0" width="40" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="xyD-5J-MfD"/>
-                </imageView>
-            </subviews>
-            <connections>
-                <outlet property="scriptNameTextField" destination="VVi-tS-FGX" id="adn-Zc-zGs"/>
-                <outlet property="statusImageView" destination="thB-Uy-R9M" id="lRs-nk-V0t"/>
-                <outlet property="uploadProgressIndicator" destination="fif-6w-3Iq" id="qqh-55-OV7"/>
-            </connections>
         </customView>
     </objects>
 </document>

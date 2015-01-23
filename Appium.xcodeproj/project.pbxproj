@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F2095CA1A72446000B6C3D3 /* LXIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2095C61A72446000B6C3D3 /* LXIvar.m */; };
+		0F2095CB1A72446000B6C3D3 /* NSObject+LXDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2095C81A72446000B6C3D3 /* NSObject+LXDict.m */; };
+		0F2095CC1A72446000B6C3D3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0F2095C91A72446000B6C3D3 /* README.md */; };
 		0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */; };
 		0F7B14E71A6F84C30012296F /* RecordScriptMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B14E61A6F84C30012296F /* RecordScriptMainView.xib */; };
 		0F7B14EE1A6F96FD0012296F /* RecordScriptWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */; };
@@ -120,20 +123,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0FE85A461A6FFB9800240A45 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C77BC82D19FFC16B008979E5;
-			remoteInfo = SeleniumForiOS;
-		};
-		0FE85A481A6FFB9800240A45 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C77BC83719FFC16B008979E5;
-			remoteInfo = SeleniumForiOSTests;
-		};
 		36683086184A5DDB00C1A91D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
@@ -186,6 +175,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F2095C51A72446000B6C3D3 /* LXIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXIvar.h; sourceTree = "<group>"; };
+		0F2095C61A72446000B6C3D3 /* LXIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXIvar.m; sourceTree = "<group>"; };
+		0F2095C71A72446000B6C3D3 /* NSObject+LXDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LXDict.h"; sourceTree = "<group>"; };
+		0F2095C81A72446000B6C3D3 /* NSObject+LXDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LXDict.m"; sourceTree = "<group>"; };
+		0F2095C91A72446000B6C3D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptMainWindow.xib; sourceTree = "<group>"; };
 		0F7B14E61A6F84C30012296F /* RecordScriptMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptMainView.xib; sourceTree = "<group>"; };
 		0F7B14EC1A6F96FD0012296F /* RecordScriptWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptWindowController.h; sourceTree = "<group>"; };
@@ -414,6 +408,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F2095C41A72446000B6C3D3 /* LXDictObject */ = {
+			isa = PBXGroup;
+			children = (
+				0F2095C51A72446000B6C3D3 /* LXIvar.h */,
+				0F2095C61A72446000B6C3D3 /* LXIvar.m */,
+				0F2095C71A72446000B6C3D3 /* NSObject+LXDict.h */,
+				0F2095C81A72446000B6C3D3 /* NSObject+LXDict.m */,
+				0F2095C91A72446000B6C3D3 /* README.md */,
+			);
+			name = LXDictObject;
+			path = External/LXDictObject;
+			sourceTree = "<group>";
+		};
 		0F7B14E31A6F820C0012296F /* RecordScript */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +641,7 @@
 		3668304A184A5C9600C1A91D /* External */ = {
 			isa = PBXGroup;
 			children = (
+				0F2095C41A72446000B6C3D3 /* LXDictObject */,
 				3668304D184A5CE600C1A91D /* SBJson */,
 				3668304E184A5CED00C1A91D /* SocketIO */,
 				3668304F184A5CF200C1A91D /* SocketRocket */,
@@ -747,8 +755,6 @@
 				36A1A000173FFF34002717C2 /* Selenium.framework */,
 				36A1A002173FFF34002717C2 /* SeleniumTests.xctest */,
 				36B9018119071DEF00AE40E8 /* liblibSelenium.a */,
-				0FE85A471A6FFB9800240A45 /* SeleniumForiOS.framework */,
-				0FE85A491A6FFB9800240A45 /* SeleniumForiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -994,20 +1000,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		0FE85A471A6FFB9800240A45 /* SeleniumForiOS.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SeleniumForiOS.framework;
-			remoteRef = 0FE85A461A6FFB9800240A45 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0FE85A491A6FFB9800240A45 /* SeleniumForiOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SeleniumForiOSTests.xctest;
-			remoteRef = 0FE85A481A6FFB9800240A45 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		36A1A000173FFF34002717C2 /* Selenium.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1044,6 +1036,7 @@
 				364EED53191EE04A00AB4439 /* settings.png in Resources */,
 				C7FFBA8D19F15CDE005B030F /* menubar-icon.png in Resources */,
 				0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */,
+				0F2095CC1A72446000B6C3D3 /* README.md in Resources */,
 				36CEB7E216E3662E00B5B100 /* MainMenu.xib in Resources */,
 				364EED55191EE07000AB4439 /* trash.png in Resources */,
 				36BA3A1D191EE417007FA51B /* doctor.png in Resources */,
@@ -1107,6 +1100,7 @@
 				36442F3E19081ACA00C2AED7 /* AppiumAndroidSettingsModel.m in Sources */,
 				36683066184A5DB500C1A91D /* SBJsonStreamParser.m in Sources */,
 				3652B34416E4287600BDE3E4 /* AppiumLaunchButtonTextTransformer.m in Sources */,
+				0F2095CA1A72446000B6C3D3 /* LXIvar.m in Sources */,
 				3612E5FC16E5B69C0050CF0A /* NSApplication+AppleScript.m in Sources */,
 				36683067184A5DB500C1A91D /* SBJsonStreamParserAccumulator.m in Sources */,
 				36BA17BB16E81BF30041DD86 /* AppiumAppPathTransformer.m in Sources */,
@@ -1162,6 +1156,7 @@
 				36D66777191FC8CE0088C110 /* NSObject+Properties.m in Sources */,
 				3668307A184A5DC000C1A91D /* SocketIO.m in Sources */,
 				3668306E184A5DB500C1A91D /* SBJsonWriter.m in Sources */,
+				0F2095CB1A72446000B6C3D3 /* NSObject+LXDict.m in Sources */,
 				366DFB75173D552800B451A6 /* AppiumInspectorWindow+AppleScript.m in Sources */,
 				36A0138B19076BDB00952D9B /* AppiumMonitorWindowPopOverButton.m in Sources */,
 				3641B1CC1922B5AA00DCF95D /* AppiumGeneralSettingsModel.m in Sources */,

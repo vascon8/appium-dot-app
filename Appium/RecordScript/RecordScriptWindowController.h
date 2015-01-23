@@ -13,4 +13,7 @@
 @property (weak) IBOutlet NSTableView *recordscriptAppTableView;
 @property (weak) IBOutlet NSView *recordscriptUploadView;
 
+@property (weak) IBOutlet NSTextField *scriptNameTextField;
+@property (weak) IBOutlet NSProgressIndicator *uploadProgressIndicator;
+@property (weak) IBOutlet NSImageView *statusImageView;
 @end
