@@ -11,10 +11,8 @@
 		0F2095CB1A72446000B6C3D3 /* NSObject+LXDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2095C81A72446000B6C3D3 /* NSObject+LXDict.m */; };
 		0F2095CC1A72446000B6C3D3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0F2095C91A72446000B6C3D3 /* README.md */; };
 		0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */; };
-		0F7B14E71A6F84C30012296F /* RecordScriptMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B14E61A6F84C30012296F /* RecordScriptMainView.xib */; };
 		0F7B14EE1A6F96FD0012296F /* RecordScriptWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */; };
 		0FE85A4C1A6FFC0000240A45 /* RecordscriptApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE85A4B1A6FFC0000240A45 /* RecordscriptApp.m */; };
-		0FFC5B871A713AC300F53599 /* RecordScriptStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC5B861A713AC300F53599 /* RecordScriptStatusView.m */; };
 		360BD91516F12B03000D3BEB /* AppiumInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 360BD91416F12B03000D3BEB /* AppiumInspector.m */; };
 		3612E5F816E5B6520050CF0A /* appium.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 3612E5F716E5B6520050CF0A /* appium.sdef */; };
 		3612E5FC16E5B69C0050CF0A /* NSApplication+AppleScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 3612E5FB16E5B69C0050CF0A /* NSApplication+AppleScript.m */; };
@@ -123,6 +121,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0FA1A9721A73DB1C0033F30D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C77BC82D19FFC16B008979E5;
+			remoteInfo = SeleniumForiOS;
+		};
+		0FA1A9741A73DB1C0033F30D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C77BC83719FFC16B008979E5;
+			remoteInfo = SeleniumForiOSTests;
+		};
 		36683086184A5DDB00C1A91D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
@@ -181,13 +193,10 @@
 		0F2095C81A72446000B6C3D3 /* NSObject+LXDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LXDict.m"; sourceTree = "<group>"; };
 		0F2095C91A72446000B6C3D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptMainWindow.xib; sourceTree = "<group>"; };
-		0F7B14E61A6F84C30012296F /* RecordScriptMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptMainView.xib; sourceTree = "<group>"; };
 		0F7B14EC1A6F96FD0012296F /* RecordScriptWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptWindowController.h; sourceTree = "<group>"; };
 		0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptWindowController.m; sourceTree = "<group>"; };
 		0FE85A4A1A6FFC0000240A45 /* RecordscriptApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordscriptApp.h; sourceTree = "<group>"; };
 		0FE85A4B1A6FFC0000240A45 /* RecordscriptApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordscriptApp.m; sourceTree = "<group>"; };
-		0FFC5B851A713AC300F53599 /* RecordScriptStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptStatusView.h; sourceTree = "<group>"; };
-		0FFC5B861A713AC300F53599 /* RecordScriptStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptStatusView.m; sourceTree = "<group>"; };
 		360BD91316F12B03000D3BEB /* AppiumInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiumInspector.h; sourceTree = "<group>"; };
 		360BD91416F12B03000D3BEB /* AppiumInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppiumInspector.m; sourceTree = "<group>"; };
 		3612E5F716E5B6520050CF0A /* appium.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appium.sdef; sourceTree = "<group>"; };
@@ -425,7 +434,6 @@
 			isa = PBXGroup;
 			children = (
 				0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */,
-				0F7B14E61A6F84C30012296F /* RecordScriptMainView.xib */,
 			);
 			name = RecordScript;
 			path = XIBs/RecordScript;
@@ -434,7 +442,6 @@
 		0F7B14E81A6F8BD50012296F /* RecordScript */ = {
 			isa = PBXGroup;
 			children = (
-				0FFC5B841A713A7700F53599 /* View */,
 				0FE85A411A6FFB9800240A45 /* Model */,
 				0F7B14EC1A6F96FD0012296F /* RecordScriptWindowController.h */,
 				0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */,
@@ -449,15 +456,6 @@
 				0FE85A4B1A6FFC0000240A45 /* RecordscriptApp.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		0FFC5B841A713A7700F53599 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				0FFC5B851A713AC300F53599 /* RecordScriptStatusView.h */,
-				0FFC5B861A713AC300F53599 /* RecordScriptStatusView.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		3612E5F916E5B6820050CF0A /* AppleScript */ = {
@@ -755,6 +753,8 @@
 				36A1A000173FFF34002717C2 /* Selenium.framework */,
 				36A1A002173FFF34002717C2 /* SeleniumTests.xctest */,
 				36B9018119071DEF00AE40E8 /* liblibSelenium.a */,
+				0FA1A9731A73DB1C0033F30D /* SeleniumForiOS.framework */,
+				0FA1A9751A73DB1C0033F30D /* SeleniumForiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1000,6 +1000,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		0FA1A9731A73DB1C0033F30D /* SeleniumForiOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SeleniumForiOS.framework;
+			remoteRef = 0FA1A9721A73DB1C0033F30D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FA1A9751A73DB1C0033F30D /* SeleniumForiOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SeleniumForiOSTests.xctest;
+			remoteRef = 0FA1A9741A73DB1C0033F30D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		36A1A000173FFF34002717C2 /* Selenium.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1046,7 +1060,6 @@
 				3612E5F816E5B6520050CF0A /* appium.sdef in Resources */,
 				364EED59191EE27000AB4439 /* robot.png in Resources */,
 				36B2F18616E6379C008764E0 /* defaults.plist in Resources */,
-				0F7B14E71A6F84C30012296F /* RecordScriptMainView.xib in Resources */,
 				36A765A616F01C7C002A7D6A /* appium.icns in Resources */,
 				36CD44EF16F0D5C300194193 /* AppiumInspectorWindow.xib in Resources */,
 				36D17E2916F144E600DC5797 /* Upgrade.applescript in Resources */,
@@ -1085,7 +1098,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FFC5B871A713AC300F53599 /* RecordScriptStatusView.m in Sources */,
 				36B901891907221000AE40E8 /* AppiumMonitorWindowPopOverViewController.m in Sources */,
 				36683084184A5DCE00C1A91D /* NSData+SRB64Additions.m in Sources */,
 				36CEB7D816E3662E00B5B100 /* main.m in Sources */,

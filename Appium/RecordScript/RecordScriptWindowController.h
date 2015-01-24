@@ -16,4 +16,5 @@
 @property (weak) IBOutlet NSTextField *scriptNameTextField;
 @property (weak) IBOutlet NSProgressIndicator *uploadProgressIndicator;
 @property (weak) IBOutlet NSImageView *statusImageView;
+@property (weak) IBOutlet NSProgressIndicator *loadDataProgressIndicator;
 @end

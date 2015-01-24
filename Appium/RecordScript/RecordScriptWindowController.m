@@ -10,7 +10,6 @@
 #import "AppiumPreferencesFile.h"
 
 #import "RecordscriptApp.h"
-#import "RecordScriptStatusView.h"
 
 #import "NSObject+LXDict.h"
 
@@ -24,10 +23,6 @@
 	self = [super initWithWindowNibName:windowNibName];
 	if (self) {	}
 	return self;
-}
-- (void)awakeFromNib
-{
-	
 }
 - (void)windowDidLoad
 {
@@ -48,6 +43,8 @@
 #pragma mark - load data
 - (void)loadAppData
 {
+	[self.loadDataProgressIndicator startAnimation:nil];
+	
 	 NSString *str =@"https://openapi.youku.com/v2/videos/by_category.json?client_id=ecb276dff376b7e2";
 	NSURL *url = [NSURL URLWithString:str];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0f];
@@ -61,6 +58,7 @@
 		}
 		else{
 			[self handleJsonResult:resultDict];
+			[self.recordscriptAppTableView reloadData];
 		}
 	}
 	else if (resultData == nil){
@@ -69,45 +67,40 @@
 	else{
 		NSLog(@"%@",error);
 	}
+	
+	[self.loadDataProgressIndicator stopAnimation:nil];
 }
 - (void)handleJsonResult:(NSDictionary *)resultDict
 {
-	NSMutableArray *resultArr = [NSMutableArray arrayWithCapacity:resultDict.count];
-	NSDictionary *dict = [NSDictionary objectWithKeyedDict:resultDict modelDict:@{@"videos":@"RecordscriptApp"}];
-	NSArray *tempA = dict[@"videos"];
-	for (RecordscriptApp *app in tempA) {
-		
+	NSArray *resultArr = resultDict[@"videos"];
+	NSMutableArray *tempArrM = [NSMutableArray arrayWithCapacity:resultArr.count];
+	for (NSDictionary *dict in resultArr) {
+		RecordscriptApp *rc = [RecordscriptApp objectWithKeyedDict:dict];
+		rc.appName = rc.title;
+		rc.platformName = rc.category;
+		[tempArrM addObject:rc];
 	}
-}
-- (void)uploadScript
-{
-
+	self.appListArr = tempArrM;
 }
 #pragma mark - upload record script
+- (void)uploadScript
+{
+	
+}
 - (IBAction)chooseScriptButtonClicked:(NSButton *)sender {
 	NSOpenPanel* chooseScriptPanlel = [NSOpenPanel openPanel];
 	[chooseScriptPanlel setMessage:@"请选择要上传的脚本"];
-	[chooseScriptPanlel setPrompt:@"上传"];
+	[chooseScriptPanlel setPrompt:@"确认上传"];
+	
+	[chooseScriptPanlel setFrameTopLeftPoint:self.window.frame.origin];
 	[chooseScriptPanlel setDirectoryURL:[NSURL URLWithString:[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]]];
-    
     [chooseScriptPanlel setCanChooseFiles:YES];
-//    [chooseScriptPanlel setCanChooseDirectories:YES];
 
 	[chooseScriptPanlel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
-		if (result == NSFileHandlingPanelOKButton) {
+		if (result == NSFileHandlingPanelOKButton && [[chooseScriptPanlel URLs][0] lastPathComponent]) {
 			
 			self.scriptNameTextField.stringValue = [[chooseScriptPanlel URLs][0] lastPathComponent];
-//			float H = self.recordscriptUploadView.frame.size.height;
-//			for (int i=0; i<chooseScriptPanlel.URLs.count; i++) {
-//				RecordScriptStatusView *statusView = [[RecordScriptStatusView alloc]init];
-//				NSRect rect = statusView.frame;
-//				rect.origin.x = 0.0;
-//				rect.origin.y = i*H;
-//				statusView.frame = rect;
-//				[self.recordscriptUploadView addSubview:statusView];
-//				statusView.scriptNameTextField.stringValue = [[chooseScriptPanlel URLs][i] lastPathComponent];
-//				NSLog(@"%@ %@",statusView,NSStringFromRect(statusView.frame));
-//			}
+			[self uploadScript];
 			
 		}
 	}];

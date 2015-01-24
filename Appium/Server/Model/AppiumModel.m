@@ -815,6 +815,8 @@ BOOL _isServerListening;
 - (void)setUseExportscriptsDirectory:(BOOL)useExportscriptsDirectory{ [DEFAULTS setBool:useExportscriptsDirectory forKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]; }
 
 - (NSString *) exportscriptsDirectory { return [DEFAULTS stringForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]; }
-- (void) setExportscriptsDirectory:(NSString *)exportscriptsDirectory { [DEFAULTS setValue:exportscriptsDirectory forKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]; }
+- (void) setExportscriptsDirectory:(NSString *)exportscriptsDirectory {
+	if (!exportscriptsDirectory) return;
+	[DEFAULTS setValue:[exportscriptsDirectory stringByAppendingPathComponent:EXPORTRECORDSCRIPTLASTPATHCOMPONENT] forKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]; }
 
 @end

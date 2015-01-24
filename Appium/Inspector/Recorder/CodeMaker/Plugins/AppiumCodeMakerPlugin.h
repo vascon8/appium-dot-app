@@ -41,5 +41,6 @@
 -(NSString*) tap:(AppiumCodeMakerActionTap*)action;
 
 @property (readonly) NSString *commandStr;
+@property (readonly) NSString *commandNeedIgnore;
 
 @end

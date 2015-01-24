@@ -135,3 +135,4 @@
 
 #define APPIUM_PLIST_ExportRecordScripts_DIRECTORY @"ExportRecordScripts Directory"
 #define APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY @"Use ExportRecordScripts Directory"
+#define EXPORTRECORDSCRIPTLASTPATHCOMPONENT @"RecordScriptByTestQ"

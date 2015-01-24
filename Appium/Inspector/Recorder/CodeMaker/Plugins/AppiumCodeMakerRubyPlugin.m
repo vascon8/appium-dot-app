@@ -196,5 +196,12 @@ Appium.promote_appium_methods Object\n\
 		default: return nil;
 	}
 }
-
+- (NSString *)commandStr
+{
+	return @"/usr/bin/ruby";
+}
+- (NSString *)commandNeedIgnore
+{
+	return @"driver_quit\n";
+}
 @end

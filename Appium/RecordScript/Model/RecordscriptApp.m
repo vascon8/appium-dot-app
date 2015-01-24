@@ -10,5 +10,8 @@
 
 @implementation RecordscriptApp
 
-
+- (NSString *)description
+{
+	return [NSString stringWithFormat:@"%@ %@ %@ %@",self.appName,self.platformName,self.category,self.title];
+}
 @end
