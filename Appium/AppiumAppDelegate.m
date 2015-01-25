@@ -24,8 +24,8 @@
 	[self setModel:[AppiumModel new]];
 
     // create main monitor window
-    [self setMainWindowController:[[AppiumMainWindowController alloc] initWithWindowNibName:@"AppiumMonitorWindow"]];
-	_updater = [[AppiumUpdater alloc] initWithAppiumMonitorWindowController:[self mainWindowController]];
+    [self setMainWindowController:[[AppiumMainWindowController alloc] initWithWindowNibName:@"AppiumMainWindow"]];
+	_updater = [[AppiumUpdater alloc] initWithAppiumMainWindowController:[self mainWindowController]];
 
     // install anything that's missing
     [self performSelectorInBackground:@selector(install) withObject:nil];
@@ -183,7 +183,7 @@
 
 -(IBAction)openDocument:(id)sender {
 	NSOpenPanel *openPanel = [NSOpenPanel openPanel];
-	[openPanel setAllowedFileTypes:@[@"plist"]];
+	[openPanel setAllowedFileTypes:@[@"appiumconfig"]];
 	[openPanel setDirectoryURL:[NSURL fileURLWithPath: NSHomeDirectory()]];
 	[openPanel beginSheetModalForWindow:self.mainWindowController.window completionHandler:^(NSInteger result){
 		if (result == NSFileHandlingPanelOKButton) {
@@ -196,13 +196,24 @@
 
 -(IBAction)saveDocument:(id)sender {
 	NSSavePanel *savePanel = [NSSavePanel savePanel];
-	[savePanel setAllowedFileTypes:@[@"plist"]];
+	[savePanel setAllowedFileTypes:@[@"appiumconfig"]];
 	[savePanel setDirectoryURL:[NSURL fileURLWithPath: NSHomeDirectory()]];
 	[savePanel beginSheetModalForWindow:self.mainWindowController.window completionHandler:^(NSInteger result){
 		if (result == NSFileHandlingPanelOKButton) {
 			[savePanel orderOut:self];
 			NSError *err;
 			NSString *pListPath = [NSString pathWithComponents:@[NSHomeDirectory(),@"Library",@"Preferences",@"com.appium.Appium.plist"]];
+			
+			// remove the file if it exists
+			if ([[NSFileManager defaultManager] fileExistsAtPath:[savePanel.URL path]  isDirectory:NO]) {
+				[[NSFileManager defaultManager] removeItemAtPath:[savePanel.URL path] error:&err];
+				if (err) {
+					NSLog(@"%@",err.description);
+					return;
+				}
+			}
+			
+			// copy the current settings to the file
 			[[NSFileManager defaultManager] copyItemAtPath:pListPath toPath:[savePanel.URL path] error:&err];
 			
 			if (err) {
