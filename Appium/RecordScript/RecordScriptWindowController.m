@@ -97,6 +97,28 @@
 	self.appListArr = tempArrM;
 }
 #pragma mark - upload record script
+- (void)uploadScriptWithParams2:(RecordScriptUploadParam *)postParams
+{
+	AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+	mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
+	NSError *error = nil;
+	
+	[mgr POST:[RecordscriptUploadServerAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:postParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+		
+		[formData appendPartWithFileURL:[NSURL URLWithString:postParams.urlStr] name:postParams.name fileName:postParams.filename mimeType:@"text/html" error:NULL];
+		
+	} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		
+		NSLog(@"success:%@",responseObject);
+		NSLog(@"operation:%@",operation);
+		
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		
+		NSLog(@"error:%@",error);
+		NSLog(@"operation:%@",operation);
+		
+	}];
+}
 - (void)uploadScriptWithParams:(RecordScriptUploadParam *)postParams
 {
 	NSString *path = [postParams.urlStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -108,8 +130,8 @@
 	}
 	NSLog(@"inputstream:%@\ncontentLen:%@",inputStream,contentLen);
 		
-	NSMutableURLRequest	*requestM = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:[RecordscriptUploadServerAddress stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:[postParams keyedDictFromModel] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-		[formData appendPartWithInputStream:inputStream name:postParams.name fileName:postParams.filename length:[contentLen integerValue] mimeType:@"text/plain"];
+	NSMutableURLRequest	*requestM = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:[RecordscriptUploadServerAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:[postParams keyedDictFromModel] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+		[formData appendPartWithInputStream:inputStream name:postParams.name fileName:postParams.filename length:[contentLen integerValue] mimeType:@"text/html"];
 	} error:&error];
 	
 	if (error) {
@@ -121,12 +143,13 @@
 	
 	NSURLSessionUploadTask *uploadTask = [mgr uploadTaskWithStreamedRequest:requestM progress:&progress completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
 		NSLog(@"response:%@",response);
-		if (error) {
-			NSLog(@"failed:%@",error);
-		}
-		else{
-			NSLog(@"success:%@",responseObject);
-		}
+		NSLog(@"resObj:%@",responseObject);
+//		if (error) {
+//			NSLog(@"failed:%@",error);
+//		}
+//		else{
+//			NSLog(@"success:%@",responseObject);
+//		}
 	}];
 	
 	[uploadTask resume];
