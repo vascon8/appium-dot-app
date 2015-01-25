@@ -12,6 +12,6 @@
 
 - (NSString *)description
 {
-	return [NSString stringWithFormat:@"%@ %@ %@ %@",self.appName,self.platformName,self.category,self.title];
+	return [NSString stringWithFormat:@"%@ %@ %@ %@",self.name,self.type,self.category,self.title];
 }
 @end

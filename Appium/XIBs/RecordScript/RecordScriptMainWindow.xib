@@ -7,9 +7,12 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RecordScriptWindowController">
             <connections>
+                <outlet property="chooseScriptButton" destination="x9e-rg-bze" id="Fbj-Ft-qKZ"/>
+                <outlet property="customviewChooseScriptButton" destination="p1m-5x-0CF" id="jcY-ve-N3Z"/>
                 <outlet property="loadDataProgressIndicator" destination="dOR-Rm-tDJ" id="PKN-hU-C3U"/>
                 <outlet property="recordscriptAppTableView" destination="irb-PE-lLi" id="whI-k6-e1b"/>
                 <outlet property="recordscriptUploadView" destination="Avm-or-1fl" id="bUC-tJ-yDn"/>
+                <outlet property="refreshAppListButton" destination="Ib0-1v-5mE" id="2Mn-hh-Gre"/>
                 <outlet property="scriptNameLabel" destination="VVi-tS-FGX" id="zMG-l8-r45"/>
                 <outlet property="scriptNameTextField" destination="VVi-tS-FGX" id="fRu-IV-Kpf"/>
                 <outlet property="statusImageView" destination="thB-Uy-R9M" id="Qdq-C5-EcG"/>
@@ -22,20 +25,20 @@
         <window title="脚本上传" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="133" y="274" width="702" height="362"/>
+            <rect key="contentRect" x="133" y="274" width="702" height="351"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <value key="minSize" type="size" width="642" height="362"/>
             <value key="maxSize" type="size" width="900" height="550"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="702" height="362"/>
+                <rect key="frame" x="0.0" y="0.0" width="702" height="351"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" id="dOR-Rm-tDJ">
-                        <rect key="frame" x="182" y="165" width="32" height="32"/>
+                        <rect key="frame" x="182" y="154" width="32" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </progressIndicator>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Fak-f4-GXd" userLabel="AppInfo- Scroll View">
-                        <rect key="frame" x="10" y="52" width="364" height="300"/>
+                        <rect key="frame" x="10" y="41" width="364" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <clipView key="contentView" id="XsY-a8-TFc">
                             <rect key="frame" x="1" y="0.0" width="362" height="299"/>
@@ -49,7 +52,7 @@
                                     <tableViewGridLines key="gridStyleMask" dashed="YES"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="platformName" width="80" minWidth="40" maxWidth="1000" id="86s-UP-bl9">
+                                        <tableColumn identifier="type" width="80" minWidth="40" maxWidth="1000" id="86s-UP-bl9">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="平台">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -82,7 +85,7 @@
                                                 </tableCellView>
                                             </prototypeCellViews>
                                         </tableColumn>
-                                        <tableColumn identifier="appName" width="276" minWidth="10" maxWidth="3.4028234663852886e+38" id="6El-3b-bDu">
+                                        <tableColumn identifier="name" width="276" minWidth="10" maxWidth="3.4028234663852886e+38" id="6El-3b-bDu">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="服务器获取到的App列表">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -134,9 +137,9 @@
                         </tableHeaderView>
                     </scrollView>
                     <button verticalHuggingPriority="750" id="x9e-rg-bze">
-                        <rect key="frame" x="512" y="19" width="73" height="19"/>
+                        <rect key="frame" x="583" y="14" width="98" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="选择脚本" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fXu-Wg-pMk">
+                        <buttonCell key="cell" type="roundRect" title="请选择脚本上传" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fXu-Wg-pMk">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
@@ -145,7 +148,7 @@
                         </connections>
                     </button>
                     <customView appearanceType="aqua" id="Avm-or-1fl" userLabel="Custom View - RecordScript View">
-                        <rect key="frame" x="381.99999968087792" y="52" width="300" height="300"/>
+                        <rect key="frame" x="382" y="41" width="299.99999989668532" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <subviews>
                             <progressIndicator appearanceType="aqua" maxValue="100" doubleValue="1" indeterminate="YES" style="bar" id="fif-6w-3Iq">
@@ -166,8 +169,30 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="xyD-5J-MfD"/>
                             </imageView>
+                            <button appearanceType="aqua" verticalHuggingPriority="750" id="p1m-5x-0CF" userLabel="Round Rect Button - customview选择脚本">
+                                <rect key="frame" x="95.999999896685324" y="140" width="98" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <buttonCell key="cell" type="roundRect" title="请选择脚本上传" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hWJ-J2-c4Z">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="titleBar" size="12"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="chooseScriptButtonClicked:" target="-2" id="xRH-jJ-4YW"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </customView>
+                    <button appearanceType="aqua" verticalHuggingPriority="750" id="Ib0-1v-5mE">
+                        <rect key="frame" x="288" y="14" width="86" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="roundRect" title="刷新App列表" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QCM-YE-4SO">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="controlContent"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="refreshAppList:" target="-2" id="3h2-cx-9eU"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <connections>
