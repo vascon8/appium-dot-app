@@ -14,9 +14,9 @@
 
 @implementation AppiumDeveloperSettingsPopOverViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do view setup here.
-}
+//- (void)viewDidLoad {
+//    [super viewDidLoad];
+//    // Do view setup here.
+//}
 
 @end
