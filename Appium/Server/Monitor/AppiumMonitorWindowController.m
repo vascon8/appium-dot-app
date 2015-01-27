@@ -249,7 +249,7 @@
 	}
 }
 - (IBAction)chooseExportscriptsDirectory:(id)sender {
-	NSString *selectedPath = self.model.exportscriptsDirectory;
+	NSString *selectedPath = self.model.general.exportscriptsDirectory;
 	NSString *firstCharacter = ([selectedPath length] > 0) ? [selectedPath substringWithRange:NSMakeRange(0, 1)] : nil;
 	
 	NSOpenPanel *panel = [NSOpenPanel openPanel];
@@ -269,7 +269,7 @@
 	
 	if ([panel runModal] == NSOKButton)
 	{
-		self.model.exportscriptsDirectory = [[[panel URLs] objectAtIndex:0] path];
+		self.model.general.exportscriptsDirectory = [[[panel URLs] objectAtIndex:0] path];
 	}
 }
 
