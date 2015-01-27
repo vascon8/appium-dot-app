@@ -259,7 +259,13 @@
 	<key>Use Selenium Grid Config File</key>
 	<false/>
 	<key>Use ExportRecordScripts Directory</key>
-	<false/>
+	<true/>
+	<key>ExportRecordScripts Directory</key>
+	<string></string>
+	<key>Upload ExportRecordScripts ServerPort</key>
+	<string></string>
+	<key>Upload ExportRecordScripts ServerAddress</key>
+	<string></string>
 	<key>Use Local Timezone</key>
 	<false/>
 </dict>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -246,17 +246,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="710" height="425"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="LtR-VR-wie">
-                                    <rect key="frame" x="1" y="1" width="708" height="423"/>
+                                    <rect key="frame" x="1" y="1" width="693" height="423"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" smartInsertDelete="YES" id="29">
-                                            <rect key="frame" x="0.0" y="0.0" width="708" height="423"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="693" height="423"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                            <size key="minSize" width="708" height="423"/>
+                                            <size key="minSize" width="693" height="423"/>
                                             <size key="maxSize" width="710" height="10000000"/>
                                             <color key="insertionPointColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="708" height="423"/>
+                                            <size key="minSize" width="693" height="423"/>
                                             <size key="maxSize" width="710" height="10000000"/>
                                         </textView>
                                     </subviews>
@@ -267,7 +267,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="27">
-                                    <rect key="frame" x="693" y="1" width="16" height="423"/>
+                                    <rect key="frame" x="694" y="1" width="15" height="423"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -3128,11 +3128,11 @@
             <accessibility description="iOSSettingsView"/>
         </customView>
         <customView id="lfV-Jy-qRr" userLabel="General Settings View">
-            <rect key="frame" x="0.0" y="0.0" width="417" height="707"/>
+            <rect key="frame" x="0.0" y="0.0" width="417" height="737"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="pFP-rp-D7j" userLabel="General Settings Label">
-                    <rect key="frame" x="18" y="670" width="107" height="17"/>
+                    <rect key="frame" x="18" y="700" width="107" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="基本设置" id="Svf-QT-oNe">
                         <font key="font" metaFont="system"/>
@@ -3141,7 +3141,7 @@
                     </textFieldCell>
                 </textField>
                 <box autoresizesSubviews="NO" title="服务器" borderType="line" id="ATX-v7-2MS" userLabel="Selenium Grid Configuration Box">
-                    <rect key="frame" x="17" y="366" width="383" height="296"/>
+                    <rect key="frame" x="17" y="396" width="383" height="296"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
                         <rect key="frame" x="1" y="1" width="381" height="280"/>
@@ -3555,7 +3555,7 @@
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
                 <box autoresizesSubviews="NO" title="日志" borderType="line" id="6DB-Rn-YeW" userLabel="Logging Box">
-                    <rect key="frame" x="17" y="203" width="383" height="159"/>
+                    <rect key="frame" x="17" y="233" width="383" height="159"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
                         <rect key="frame" x="1" y="1" width="381" height="143"/>
@@ -3814,7 +3814,7 @@
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
                 <box autoresizesSubviews="NO" title="Environment Variables" borderType="line" id="dBb-dn-yap" userLabel="Environment Variables Box">
-                    <rect key="frame" x="17" y="82" width="383" height="117"/>
+                    <rect key="frame" x="17" y="112" width="383" height="117"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
                         <rect key="frame" x="1" y="1" width="381" height="101"/>
@@ -3824,7 +3824,7 @@
                                 <rect key="frame" x="18" y="35" width="345" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" id="XV2-yy-WwB">
-                                    <rect key="frame" x="1" y="0.0" width="343" height="55"/>
+                                    <rect key="frame" x="1" y="17" width="343" height="38"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="WDZ-al-xeH" viewBased="YES" id="e4i-YS-uuj">
@@ -3950,16 +3950,16 @@
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
                 <box autoresizesSubviews="NO" title="脚本录制" borderType="line" id="u3r-DX-DwT" userLabel="Recording Box">
-                    <rect key="frame" x="17" y="16" width="383" height="62"/>
+                    <rect key="frame" x="17" y="16" width="383" height="92"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
-                        <rect key="frame" x="1" y="1" width="381" height="46"/>
+                        <rect key="frame" x="1" y="1" width="381" height="76"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button id="4Bt-FL-t3z" userLabel="Exportscript Check Box">
-                                <rect key="frame" x="6" y="16" width="56" height="18"/>
+                                <rect key="frame" x="6" y="46" width="56" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="导出" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="HSR-IO-9qS">
+                                <buttonCell key="cell" type="check" title="导出" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="HSR-IO-9qS">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -3983,7 +3983,7 @@
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" id="dTu-oT-xna" userLabel="Exportscript Directory Text Field">
-                                <rect key="frame" x="59" y="14" width="253" height="22"/>
+                                <rect key="frame" x="59" y="44" width="253" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="rrF-1M-plB">
                                     <font key="font" metaFont="system"/>
@@ -4021,7 +4021,7 @@
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" id="fNY-1z-vaC" userLabel="Exportscript Directory Button">
-                                <rect key="frame" x="314" y="8" width="55" height="32"/>
+                                <rect key="frame" x="314" y="38" width="55" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="选择" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KAG-T8-jhG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -4053,6 +4053,67 @@
                                     </binding>
                                 </connections>
                             </button>
+                            <textField verticalHuggingPriority="750" id="SX9-A5-aS2" userLabel="Upload Server Address Label">
+                                <rect key="frame" x="6" y="17" width="66" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="上传地址:" id="Mh9-qW-UvZ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" id="ZcA-dc-gyy" userLabel="Upload Server Address Text Field">
+                                <rect key="frame" x="78" y="14" width="196" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" id="MaA-ao-EEQ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="XYt-Ex-e7h">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="value" keyPath="model.general.serverAddress" id="h2o-qu-AJH">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
+                            <textField verticalHuggingPriority="750" id="Ycu-gG-qQK" userLabel="Upload Server Port Label">
+                                <rect key="frame" x="280" y="18" width="34" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="端口:" id="enb-1v-W7C">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" id="ocy-iu-Lnk" userLabel="Upload Server Port TextField">
+                                <rect key="frame" x="320" y="15" width="43" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" id="Jv4-Jg-O0g">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="CkJ-wT-f40">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="value" keyPath="model.general.serverPort" id="EKU-Ky-zJB">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                            <string key="NSValueTransformerName">AppiumPortTransformer</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
                         </subviews>
                     </view>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>

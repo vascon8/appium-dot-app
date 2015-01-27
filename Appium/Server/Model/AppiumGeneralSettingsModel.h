@@ -36,4 +36,9 @@
 @property BOOL useCallbackAddress;
 @property BOOL useCallbackPort;
 
+@property NSString *exportscriptsDirectory;
+@property BOOL useExportscriptsDirectory;
+@property NSString *uploadExportscriptsServerAddr;
+@property NSString *uploadExportscriptsServerPort;
+
 @end
