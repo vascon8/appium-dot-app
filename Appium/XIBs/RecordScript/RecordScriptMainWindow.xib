@@ -140,7 +140,7 @@
                         </connections>
                     </button>
                     <customView appearanceType="aqua" id="Avm-or-1fl" userLabel="Custom View - RecordScript View">
-                        <rect key="frame" x="381.99999989668532" y="52" width="300" height="300"/>
+                        <rect key="frame" x="381.99999979034089" y="52" width="300" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <subviews>
                             <progressIndicator appearanceType="aqua" maxValue="100" doubleValue="1" indeterminate="YES" style="bar" id="fif-6w-3Iq">

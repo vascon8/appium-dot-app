@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F03234B1A777DBD0082843D /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F03234A1A777DBD0082843D /* record.png */; };
+		0F0323521A7786B20082843D /* RecordScriptSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0323511A7786B20082843D /* RecordScriptSettingModel.m */; };
 		0F2095CA1A72446000B6C3D3 /* LXIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2095C61A72446000B6C3D3 /* LXIvar.m */; };
 		0F2095CB1A72446000B6C3D3 /* NSObject+LXDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2095C81A72446000B6C3D3 /* NSObject+LXDict.m */; };
 		0F2095CC1A72446000B6C3D3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0F2095C91A72446000B6C3D3 /* README.md */; };
@@ -175,6 +177,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F03234A1A777DBD0082843D /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
+		0F0323501A7786B20082843D /* RecordScriptSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptSettingModel.h; sourceTree = "<group>"; };
+		0F0323511A7786B20082843D /* RecordScriptSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptSettingModel.m; sourceTree = "<group>"; };
 		0F2095C51A72446000B6C3D3 /* LXIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXIvar.h; sourceTree = "<group>"; };
 		0F2095C61A72446000B6C3D3 /* LXIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXIvar.m; sourceTree = "<group>"; };
 		0F2095C71A72446000B6C3D3 /* NSObject+LXDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LXDict.h"; sourceTree = "<group>"; };
@@ -585,6 +590,7 @@
 		364EED37191EDDB300AB4439 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				0F03234A1A777DBD0082843D /* record.png */,
 				C7FFBA8C19F15CDE005B030F /* menubar-icon.png */,
 				364EED46191EDF6C00AB4439 /* android.png */,
 				364EED48191EDF9100AB4439 /* apple.png */,
@@ -634,6 +640,8 @@
 				3641B1C31922AAB600DCF95D /* AppiumRobotSettingsModel.m */,
 				7D7BE876199686F90080F21A /* AppiumServerArgument.h */,
 				7D7BE877199686F90080F21A /* AppiumServerArgument.m */,
+				0F0323501A7786B20082843D /* RecordScriptSettingModel.h */,
+				0F0323511A7786B20082843D /* RecordScriptSettingModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1032,6 +1040,7 @@
 				36CEB7DC16E3662E00B5B100 /* Credits.rtf in Resources */,
 				364EED47191EDF6C00AB4439 /* android.png in Resources */,
 				364EED49191EDF9100AB4439 /* apple.png in Resources */,
+				0F03234B1A777DBD0082843D /* record.png in Resources */,
 				364EED4F191EDFFF00AB4439 /* inspector.png in Resources */,
 				364EED53191EE04A00AB4439 /* settings.png in Resources */,
 				C7FFBA8D19F15CDE005B030F /* menubar-icon.png in Resources */,
@@ -1125,6 +1134,7 @@
 				3661735617172AB200E786DF /* AppiumCodeMakerPythonPlugin.m in Sources */,
 				36FF07AD171743AC009ED9E2 /* AppiumCodeMakerLocator.m in Sources */,
 				7D7BE878199686F90080F21A /* AppiumServerArgument.m in Sources */,
+				0F0323521A7786B20082843D /* RecordScriptSettingModel.m in Sources */,
 				36FF07B0171747C4009ED9E2 /* AppiumCodeMakerJavaPlugin.m in Sources */,
 				C71F95651A5FF2470013F230 /* AppiumMonitorWindowGeneralSettingsPopOverViewController.m in Sources */,
 				36FF07B317174936009ED9E2 /* AppiumCodeMakerRubyPlugin.m in Sources */,

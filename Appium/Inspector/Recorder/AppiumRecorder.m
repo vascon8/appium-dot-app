@@ -356,7 +356,7 @@
 						  if (result == NSFileHandlingPanelOKButton)
 						  {
 							  if(![[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY] isEqualToString:savePanel.directoryURL.path]){
-								  self.inspector.model.general.exportscriptsDirectory = savePanel.directoryURL.path;
+								  self.inspector.model.record.exportscriptsDirectory = savePanel.directoryURL.path;
 							  }
 							  [self.codeMaker exportRecordScripts];
 						  }

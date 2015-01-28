@@ -727,7 +727,7 @@
                     </textFieldCell>
                 </textField>
                 <popUpButton verticalHuggingPriority="750" id="235" userLabel="Fingers Pop Up Button">
-                    <rect key="frame" x="86" y="101" width="50" height="26"/>
+                    <rect key="frame" x="86" y="101.00000001039223" width="50" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="238" id="236">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -757,7 +757,7 @@
                     </textFieldCell>
                 </textField>
                 <slider verticalHuggingPriority="750" id="244" userLabel="Duration Slider">
-                    <rect key="frame" x="86" y="75.999997914722712" width="119" height="25"/>
+                    <rect key="frame" x="86" y="75.999997914722741" width="119" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <sliderCell key="cell" state="on" alignment="left" minValue="0.5" maxValue="2" doubleValue="0.5" tickMarkPosition="below" numberOfTickMarks="16" sliderType="linear" id="245">
                         <connections>
@@ -778,7 +778,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="248" userLabel="Begin Value">
-                    <rect key="frame" x="85" y="56.999998062256736" width="99" height="17"/>
+                    <rect key="frame" x="85" y="56.999998062256758" width="99" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(请点击选择)" id="249">
                         <font key="font" metaFont="system"/>
@@ -799,7 +799,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="252" userLabel="End Value">
-                    <rect key="frame" x="85" y="32.000003162552211" width="99" height="17"/>
+                    <rect key="frame" x="85" y="32.000003162552204" width="99" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(请点击选择)" id="253">
                         <font key="font" metaFont="system"/>

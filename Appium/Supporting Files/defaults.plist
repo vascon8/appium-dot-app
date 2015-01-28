@@ -263,7 +263,7 @@
 	<key>ExportRecordScripts Directory</key>
 	<string></string>
 	<key>Upload ExportRecordScripts ServerPort</key>
-	<string></string>
+	<integer>8080</integer>
 	<key>Upload ExportRecordScripts ServerAddress</key>
 	<string></string>
 	<key>Use Local Timezone</key>
