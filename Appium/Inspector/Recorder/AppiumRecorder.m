@@ -14,6 +14,7 @@
 #import "AppiumCodeMakerActions.h"
 
 #import "AppiumPreferencesFile.h"
+#import "AppiumAppDelegate.h"
 
 @interface AppiumRecorder ()
 @property (readonly) AppiumInspector *inspector;
@@ -308,22 +309,17 @@
 
 -(IBAction)replay:(id)sender
 {
-	NSString *commandStr = @"/usr/bin/python";
-	
-
-	if ([self.codeMaker.activePlugin.name isEqualTo:@"Python"]) {
-		NSString *scriptPath = self.codeMaker.exportScriptName;
-		if (![[NSUserDefaults standardUserDefaults]boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]) {
-			NSString *scriptName = [[self.codeMaker exportScriptName] lastPathComponent];
-			scriptPath = [NSString stringWithFormat:@"/tmp/%@",scriptName];
-		}
-		NSString *scriptStr = [self.codeMaker.string stringByReplacingOccurrencesOfString:@"\n\twd.quit()" withString:@""];
+	if ([self.codeMaker.activePlugin.name isEqualTo:@"Python"] || [self.codeMaker.activePlugin.name isEqualTo:@"node.js"] || [self.codeMaker.activePlugin.name isEqualTo:@"Ruby"]) {
+		NSString *scriptName = [[self.codeMaker exportScriptName] lastPathComponent];
+		NSString *scriptPath = [NSString stringWithFormat:@"/tmp/%@",scriptName];
+		
+		NSString *scriptStr = [self.codeMaker.string stringByReplacingOccurrencesOfString:self.codeMaker.activePlugin.commandNeedIgnore withString:@""];
 		[scriptStr writeToFile:scriptPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 		
 		[self.driver quit];
 		[_windowController.window close];
 		
-		NSString *command = [NSString stringWithFormat:@"'/usr/bin/python' '%@'", scriptPath];
+		NSString *command = [NSString stringWithFormat:@"'%@' '%@'",self.codeMaker.activePlugin.commandStr, scriptPath];
 		
 		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:@"tell application \"Terminal\" to do script \"%@\"\nactivate application \"Terminal\"", command]];
 		[script executeAndReturnError:nil];
@@ -356,7 +352,7 @@
 						  if (result == NSFileHandlingPanelOKButton)
 						  {
 							  if(![[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY] isEqualToString:savePanel.directoryURL.path]){
-								  self.inspector.model.record.exportscriptsDirectory = savePanel.directoryURL.path;
+								  self.inspector.model.exportscriptsDirectory = savePanel.directoryURL.path;
 							  }
 							  [self.codeMaker exportRecordScripts];
 						  }
@@ -364,6 +360,6 @@
 }
 - (IBAction)uploadScript:(id)sender
 {
-    
+    [(AppiumAppDelegate *)[[NSApplication sharedApplication]delegate] displayRecordscriptWindow:nil];
 }
 @end

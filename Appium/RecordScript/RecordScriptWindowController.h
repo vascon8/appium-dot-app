@@ -8,6 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
+#define RecordscriptGetServerAppAddress @"http://192.168.1.100:8008/attp/ajax/allApps"
+#define RecordscriptUploadServerAddress @"http://192.168.1.100:8008/attp/upload"
+
 @interface RecordScriptWindowController : NSWindowController
 
 @property (weak) IBOutlet NSTableView *appInfoTableView;

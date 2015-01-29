@@ -9,6 +9,8 @@
 #import "AppiumCodeMakerNodePlugin.h"
 #import "AppiumCodeMakerActions.h"
 
+#import "NodeInstance.h"
+
 @interface AppiumCodeMakerNodePlugin()
 
 @property (readonly) NSString *indentation;
@@ -199,7 +201,11 @@ browser.init(desired).then(function() {\n\
 
 - (NSString *)commandStr
 {
-	return nil;
+	NSString *nodeRootPath = [[NSBundle mainBundle] resourcePath];
+	return [NSString stringWithFormat:@"%@/node/bin/node",nodeRootPath];
 }
-
+- (NSString *)commandNeedIgnore
+{
+	return @"\n\t\t\treturn browser.quit();";
+}
 @end

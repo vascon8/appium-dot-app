@@ -117,28 +117,4 @@
 -(BOOL) useLocalTimezone { return [DEFAULTS boolForKey:APPIUM_PLIST_USE_LOCAL_TIMEZONE]; }
 -(void) setUseLocalTimezone:(BOOL)useLocalTimezone { [DEFAULTS setBool:useLocalTimezone forKey:APPIUM_PLIST_USE_LOCAL_TIMEZONE]; }
 
-#pragma mark - recordScript
-//- (BOOL)useExportscriptsDirectory { return [DEFAULTS boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]; }
-//- (void)setUseExportscriptsDirectory:(BOOL)useExportscriptsDirectory{ [DEFAULTS setBool:useExportscriptsDirectory forKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]; }
-//
-//- (NSString *) exportscriptsDirectory { return [DEFAULTS stringForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]; }
-//- (void) setExportscriptsDirectory:(NSString *)exportscriptsDirectory { [DEFAULTS setValue:exportscriptsDirectory forKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]; }
-//
-//- (NSString *)uploadExportscriptsServerAddr
-//{
-//	return [DEFAULTS valueForKey:APPIUM_PLIST_Upload_ExportRecordScripts_ServerAddress];
-//}
-//- (void)setUploadExportscriptsServerAddr:(NSString *)uploadExportscriptsServerAddr
-//{
-//	[DEFAULTS setValue:uploadExportscriptsServerAddr forKey:APPIUM_PLIST_Upload_ExportRecordScripts_ServerAddress];
-//}
-//
-//- (NSString *)uploadExportscriptsServerPort
-//{
-//	return [DEFAULTS valueForKey:APPIUM_PLIST_Upload_ExportRecordScripts_ServerPort];
-//}
-//- (void)setUploadExportscriptsServerPort:(NSString *)uploadExportscriptsServerPort
-//{
-//	[DEFAULTS setValue:uploadExportscriptsServerPort forKey:APPIUM_PLIST_Upload_ExportRecordScripts_ServerPort];
-//}
 @end
