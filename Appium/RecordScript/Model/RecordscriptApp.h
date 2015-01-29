@@ -20,4 +20,6 @@
 @property NSString *category;
 @property NSString *title;
 
+@property NSArray *scriptList;
+
 @end

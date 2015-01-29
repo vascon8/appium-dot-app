@@ -13,17 +13,17 @@
 
 @interface RecordScriptWindowController : NSWindowController
 
-@property (weak) IBOutlet NSTableView *recordscriptAppTableView;
-@property (weak) IBOutlet NSView *recordscriptUploadView;
+@property (weak) IBOutlet NSTableView *appInfoTableView;
+@property (weak) IBOutlet NSButton *appInfoRefreshButton;
+@property (weak) IBOutlet NSProgressIndicator *loadAppProgressIndicator;
 
-@property (weak) IBOutlet NSTextField *scriptNameTextField;
-@property (weak) IBOutlet NSProgressIndicator *uploadProgressIndicator;
-@property (weak) IBOutlet NSImageView *statusImageView;
+@property (weak) IBOutlet NSView *scriptInfoView;
+@property (weak) IBOutlet NSView *chooseUploadView;
+
+@property (weak) IBOutlet NSButton *firstChooseScriptButton;
+
+@property (weak) IBOutlet NSTableView *uploadResultView;
 
 @property (weak) IBOutlet NSButton *chooseScriptButton;
-@property (weak) IBOutlet NSButton *customviewChooseScriptButton;
-
-@property (weak) IBOutlet NSProgressIndicator *loadDataProgressIndicator;
-@property (weak) IBOutlet NSButton *refreshAppListButton;
 
 @end
