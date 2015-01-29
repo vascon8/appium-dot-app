@@ -10,12 +10,8 @@
 
 @interface RecordscriptApp : NSObject
 
-/**
- the same with tableview column identifier
- */
-@property NSString *name;
-@property NSString *type;
-@property NSString *id;
+@property NSString *appName;
+@property NSString *platformName;
 
 @property NSString *category;
 @property NSString *title;

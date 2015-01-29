@@ -31,7 +31,6 @@
 - (void)closeInspector;
 -(void) restart;
 
-- (IBAction)displayRecordscriptWindow:(id)sender;
 @property RecordScriptWindowController *recordScriptWindow;
 
 @end

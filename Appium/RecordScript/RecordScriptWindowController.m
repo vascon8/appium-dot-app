@@ -10,10 +10,9 @@
 #import "AppiumPreferencesFile.h"
 
 #import "RecordscriptApp.h"
-#import "RecordScriptUploadParam.h"
+#import "RecordScriptStatusView.h"
 
 #import "NSObject+LXDict.h"
-#import "AFNetworking.h"
 
 #import "RecordScriptUploadResultViewController.h"
 #import "RecordScriptUploadResult.h"
@@ -33,6 +32,10 @@
 	self = [super initWithWindowNibName:windowNibName];
 	if (self) {	}
 	return self;
+}
+- (void)awakeFromNib
+{
+	
 }
 - (void)windowDidLoad
 {
@@ -71,10 +74,6 @@
 	self.appInfoTableView.dataSource = self;
 }
 #pragma mark - load data
-- (IBAction)refreshAppList:(id)sender {
-	[self loadAppData];
-}
-
 - (void)loadAppData
 {
 	[self.loadAppProgressIndicator startAnimation:nil];
@@ -90,7 +89,6 @@
 	NSError *error = nil;
 	NSData *resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 	if (!error && resultData != nil) {
-		
 		NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:resultData options:NSJSONReadingAllowFragments error:&error];
 		if (error) {
 			NSLog(@"error found:%@",error);
@@ -113,40 +111,14 @@
 }
 - (void)handleJsonResult:(NSDictionary *)resultDict
 {
-//	NSArray *resultArr = resultDict[@"videos"];
-	NSMutableArray *tempArrM = [NSMutableArray arrayWithCapacity:resultDict.count];
-	for (NSDictionary *dict in resultDict) {
-		RecordscriptApp *rc = [RecordscriptApp objectWithKeyedDict:dict];
-//		rc.name = rc.title;
-//		rc.type = rc.category;
-		[tempArrM addObject:rc];
+	NSMutableArray *resultArr = [NSMutableArray arrayWithCapacity:resultDict.count];
+	NSDictionary *dict = [NSDictionary objectWithKeyedDict:resultDict modelDict:@{@"videos":@"RecordscriptApp"}];
+	NSArray *tempA = dict[@"videos"];
+	for (RecordscriptApp *app in tempA) {
+		
 	}
-	self.appListArr = tempArrM;
 }
-#pragma mark - upload record script
-- (void)uploadScriptWithParams2:(RecordScriptUploadParam *)postParams
-{
-	AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-	mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
-	NSError *error = nil;
-	
-	[mgr POST:[RecordscriptUploadServerAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:postParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-		
-		[formData appendPartWithFileURL:[NSURL URLWithString:postParams.urlStr] name:postParams.name fileName:postParams.filename mimeType:@"text/html" error:NULL];
-		
-	} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		
-		NSLog(@"success:%@",responseObject);
-		NSLog(@"operation:%@",operation);
-		
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		
-		NSLog(@"error:%@",error);
-		NSLog(@"operation:%@",operation);
-		
-	}];
-}
-- (void)uploadScriptWithParams:(RecordScriptUploadParam *)postParams
+- (void)uploadScript
 {
 	NSInteger selectedRow = self.appInfoTableView.selectedRow;
 	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
@@ -189,14 +161,15 @@
 	
 	[uploadTask resume];
 }
+#pragma mark - upload record script
 - (IBAction)chooseScriptButtonClicked:(NSButton *)sender {
 	NSOpenPanel* chooseScriptPanlel = [NSOpenPanel openPanel];
 	[chooseScriptPanlel setMessage:@"请选择要上传的脚本"];
-	[chooseScriptPanlel setPrompt:@"确认上传"];
-	
-	[chooseScriptPanlel setFrameTopLeftPoint:self.window.frame.origin];
+	[chooseScriptPanlel setPrompt:@"上传"];
 	[chooseScriptPanlel setDirectoryURL:[NSURL URLWithString:[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]]];
+    
     [chooseScriptPanlel setCanChooseFiles:YES];
+//    [chooseScriptPanlel setCanChooseDirectories:YES];
 
 	[chooseScriptPanlel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
 		
@@ -240,34 +213,7 @@
 		}
 	}];
 }
-- (NSString *)scriptLanguage:(NSString *)fileName
-{
-	NSString *language = nil;
-	NSRange range = [fileName rangeOfString:@"." options:NSBackwardsSearch];
-	if (range.length > 0) {
-		NSString *ext = [fileName substringFromIndex:range.location+1];
-		if ([ext isEqualToString:@"py"]) {
-			language = @"Python";
-		}
-		else if ([ext isEqualToString:@"js"]){
-			language = @"node.js";
-		}
-		else if ([ext isEqualToString:@"rb"]){
-			language = @"Ruby";
-		}
-		else if ([ext isEqualToString:@"cs"]){
-			language = @"C#";
-		}
-		else if ([ext isEqualToString:@"java"]){
-			language = @"Java";
-		}
-		else if ([ext isEqualToString:@"m"]){
-			language = @"Objective-C";
-		}
-	}
-	
-	return language;
-}
+
 #pragma mark - tableview datasource
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {

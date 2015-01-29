@@ -185,17 +185,21 @@
 {
 	if (self.recordScriptWindow == nil)
 	{
+//		self.mainWindowController.inspectorIsLaunching = YES;
+		
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 			self.recordScriptWindow = [[RecordScriptWindowController alloc] initWithWindowNibName:@"RecordScriptMainWindow"];
-			[[NSNotificationCenter defaultCenter] addObserver:self
-													 selector:@selector(recordscriptWindowWillClose:)
-														 name:NSWindowWillCloseNotification
-													   object:[self.recordScriptWindow window]];
+//			self.mainWindowController.inspectorIsLaunching = NO;
 			
 			dispatch_async(dispatch_get_main_queue(), ^{
 				[self presentRecordscriptWindow];
 			});
 		});
+		
+//		[[NSNotificationCenter defaultCenter] addObserver:self
+//												 selector:@selector(recordscriptWindowWillClose:)
+//													 name:NSWindowWillCloseNotification
+//												   object:[self.recordScriptWindow window]];
 	}
 	else
 	{
@@ -217,6 +221,7 @@
 
 - (void)recordscriptWindowWillClose:(NSNotification *)notification
 {
+	NSLog(@"%@",notification);
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowWillCloseNotification object:[self.recordScriptWindow window]];
 	self.recordScriptWindow = nil;
 }

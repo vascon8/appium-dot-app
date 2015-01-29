@@ -225,8 +225,4 @@ try:\n", self.model.general.serverAddress, self.model.general.serverPort];
 {
 	return @"/usr/bin/python";
 }
-- (NSString *)commandNeedIgnore
-{
-	return @"\n\twd.quit()";
-}
 @end
