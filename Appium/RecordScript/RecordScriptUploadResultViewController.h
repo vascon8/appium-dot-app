@@ -13,5 +13,6 @@
 @property (weak) IBOutlet NSTableView *tableView;
 
 @property NSArray *scriptList;
+//@property (weak) IBOutlet NSTableView *scriptResultTableView;
 
 @end

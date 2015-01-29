@@ -15,15 +15,10 @@
 
 @property (weak) IBOutlet NSTableView *appInfoTableView;
 @property (weak) IBOutlet NSButton *appInfoRefreshButton;
-@property (weak) IBOutlet NSProgressIndicator *loadAppProgressIndicator;
+@property (weak) IBOutlet NSProgressIndicator *appLoadProgressIndicator;
 
-@property (weak) IBOutlet NSView *scriptInfoView;
-@property (weak) IBOutlet NSView *chooseUploadView;
-
-@property (weak) IBOutlet NSButton *firstChooseScriptButton;
-
-@property (weak) IBOutlet NSTableView *uploadResultView;
-
-@property (weak) IBOutlet NSButton *chooseScriptButton;
+//@property (weak) IBOutlet NSTableView *scriptResultTableView;
+@property (weak) IBOutlet NSButton *scriptAddButton;
+@property (weak) IBOutlet NSButton *scriptFistAddButton;
 
 @end

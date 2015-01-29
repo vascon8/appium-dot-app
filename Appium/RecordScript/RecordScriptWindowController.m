@@ -22,8 +22,9 @@
 
 @property NSMutableArray *appListArr;
 @property BOOL isLoadingApp;
-@property NSView *scriptUploadResultView;
-@property RecordScriptUploadResultViewController *scriptUploadViewController;
+//@property NSView *scriptUploadView;
+@property (strong) IBOutlet RecordScriptUploadResultViewController *scriptUploadViewController;
+//@property RecordScriptUploadResultViewController *scriptUploadViewController;
 
 @end
 
@@ -42,16 +43,18 @@
 }
 - (void)setupViews
 {
-	[self.chooseScriptButton setHidden:YES];
-	[self.firstChooseScriptButton setHidden:NO];
-	RecordScriptUploadResultViewController *controller = [[RecordScriptUploadResultViewController alloc]initWithNibName:@"RecordScriptUploadResultView" bundle:nil];
-	self.scriptUploadResultView = controller.view;
-	CGRect frame = self.scriptInfoView.bounds;
+	[self.scriptAddButton setHidden:YES];
+	[self.scriptFistAddButton setHidden:NO];
+	[self.scriptFistAddButton setEnabled:NO];
+	
+//	self.scriptUploadResultView = controller.view;
+//	CGRect frame = self.scriptInfoView.bounds;
 //	frame.origin.y = frame.size.height-self.scriptUploadResultView.bounds.size.height;
-	self.scriptUploadResultView.frame = frame;
-	self.scriptUploadViewController = controller;
-	[self.scriptInfoView addSubview:controller.view];
-	[self.scriptUploadResultView setHidden:YES];
+//	self.scriptUploadResultView.frame = frame;
+//	self.scriptUploadViewController = controller;
+//	[self.scriptInfoView addSubview:controller.view];
+//	self.scriptUploadViewController = [[RecordScriptUploadResultViewController alloc]init];
+	[self.scriptUploadViewController.tableView setHidden:YES];
 }
 - (void)setupData
 {
@@ -72,13 +75,14 @@
 }
 #pragma mark - load data
 - (IBAction)refreshAppList:(id)sender {
+	if (self.isLoadingApp) return;
 	[self loadAppData];
 }
 
 - (void)loadAppData
 {
-	[self.loadAppProgressIndicator startAnimation:nil];
 	self.isLoadingApp = YES;
+	[self.appLoadProgressIndicator startAnimation:nil];
 	[self.appInfoRefreshButton setEnabled:NO];
 	
 //	NSString *str =@"https://openapi.youku.com/v2/videos/by_category.json?client_id=ecb276dff376b7e2";
@@ -107,7 +111,7 @@
 		NSLog(@"%@",error);
 	}
 	
-	[self.loadAppProgressIndicator stopAnimation:nil];
+	[self.appLoadProgressIndicator stopAnimation:nil];
 	self.isLoadingApp = NO;
 	[self.appInfoRefreshButton setEnabled:YES];
 }
@@ -150,7 +154,7 @@
 {
 	NSInteger selectedRow = self.appInfoTableView.selectedRow;
 	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
-	self.scriptUploadViewController.scriptList = app.scriptList;
+	self.scriptUploadViewController.scriptList = [NSArray arrayWithArray:app.scriptList];
 	if (self.scriptUploadViewController.scriptList.count>0) [self.scriptUploadViewController.view setHidden:NO];
 	[self.scriptUploadViewController.tableView reloadData];
 	
@@ -203,22 +207,23 @@
 		if (result == NSFileHandlingPanelOKButton && [[chooseScriptPanlel URLs][0] lastPathComponent]) {
 			NSString *scriptName = [[chooseScriptPanlel URLs][0] lastPathComponent];
 			
-			if (!self.firstChooseScriptButton.isHidden) {
-				[self.firstChooseScriptButton setHidden:YES];
+			if (!self.scriptFistAddButton.isHidden) {
+				[self.scriptFistAddButton setHidden:YES];
 				
-				[self.chooseScriptButton setHidden:NO];
-				[self.chooseScriptButton setEnabled:YES];
+				[self.scriptAddButton setHidden:NO];
+				[self.scriptAddButton setEnabled:YES];
 			}
 		
 			NSInteger selectedRow = self.appInfoTableView.selectedRow;
-			RecordscriptApp *rc = (RecordscriptApp *)self.appListArr[selectedRow];
+			RecordscriptApp *app = (RecordscriptApp *)self.appListArr[selectedRow];
 			
-			NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:rc.scriptList.count+1];
-			if (rc.scriptList) [arrM addObjectsFromArray:rc.scriptList];
+			NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:app.scriptList.count+1];
+			if (app.scriptList) [arrM addObjectsFromArray:app.scriptList];
 			RecordScriptUploadResult *result = [RecordScriptUploadResult new];
 			result.scriptName = scriptName;
 			[arrM addObject:result];
-			rc.scriptList = arrM;
+			app.scriptList = arrM;
+			arrM = nil;
 			
 //			self.scriptNameTextField.stringValue = filename;
 //			NSData *bodyData = [NSData dataWithContentsOfURL:[chooseScriptPanlel URLs][0]];
@@ -230,8 +235,8 @@
 			param.urlStr = path;
 			
 			param.filename = scriptName;
-			param.appId = rc.id;
-			param.name = rc.name;
+			param.appId = app.id;
+			param.name = app.name;
 			param.language = [self scriptLanguage:scriptName];
 			
 			NSLog(@"%@",param);
@@ -273,9 +278,13 @@
 {
     NSInteger rows = self.appListArr.count;
     if (rows <= 0) {
-        if (self.chooseScriptButton.isEnabled) [self.chooseScriptButton setEnabled:NO];
-        if (self.firstChooseScriptButton.isEnabled) [self.firstChooseScriptButton setEnabled:NO];
+        if (self.scriptAddButton.isEnabled) [self.scriptAddButton setEnabled:NO];
+        if (self.scriptFistAddButton.isEnabled) [self.scriptFistAddButton setEnabled:NO];
     }
+	else{
+        if (!self.scriptAddButton.isEnabled) [self.scriptAddButton setEnabled:YES];
+        if (!self.scriptFistAddButton.isEnabled) [self.scriptFistAddButton setEnabled:YES];
+	}
     
 	return rows;
 }
@@ -283,33 +292,33 @@
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
 	NSTableCellView	 *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
-	RecordscriptApp *rc = [self.appListArr objectAtIndex:row];
-	cellView.textField.stringValue = rc.name;
+	RecordscriptApp *app = [self.appListArr objectAtIndex:row];
+	cellView.textField.stringValue = app.name;
 	NSString *imageName = @"apple";
-	if ([rc.type isEqualToString:@"Android"]) imageName = @"android";
+	if ([app.type isEqualToString:@"Android"]) imageName = @"android";
 	[cellView.imageView setImage:[NSImage imageNamed:imageName]];
 	return cellView;
 }
 - (void)tableViewSelectionDidChange:(NSNotification *)notification
 {
-	if ([self.appInfoTableView numberOfRows] > 0 && !self.firstChooseScriptButton.isEnabled) {
-		[self.firstChooseScriptButton setEnabled:YES];
+	if ([self.appInfoTableView numberOfRows] > 0 && !self.scriptFistAddButton.isEnabled) {
+		[self.scriptFistAddButton setEnabled:YES];
 	}
 	
 	NSInteger selectedRow = self.appInfoTableView.selectedRow;
 	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
 	if (app.scriptList.count>0) {
-		[self.scriptUploadResultView setHidden:NO];
-		[self.firstChooseScriptButton setHidden:YES];
-		[self.chooseScriptButton setHidden:NO];
+		[self.scriptFistAddButton setHidden:YES];
+		[self.scriptAddButton setHidden:NO];
 		
+		[self.scriptUploadViewController.tableView setHidden:NO];
 		self.scriptUploadViewController.scriptList = app.scriptList;
 		[self.scriptUploadViewController.tableView reloadData];
 	}
 	else{
-		[self.scriptUploadResultView setHidden:YES];
-		[self.firstChooseScriptButton setHidden:NO];
-		[self.chooseScriptButton setHidden:YES];
+		[self.scriptUploadViewController.tableView setHidden:YES];
+		[self.scriptFistAddButton setHidden:NO];
+		[self.scriptAddButton setHidden:YES];
 	}
 }
 @end

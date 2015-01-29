@@ -13,7 +13,6 @@
 		0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */; };
 		0F7B14EE1A6F96FD0012296F /* RecordScriptWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */; };
 		0F9BE9081A766AB400D668DE /* RecordScriptUploadResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BE9071A766AB400D668DE /* RecordScriptUploadResultViewController.m */; };
-		0F9BE90E1A766ACB00D668DE /* RecordScriptUploadResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F9BE90D1A766ACB00D668DE /* RecordScriptUploadResultView.xib */; };
 		0F9BE9111A76706500D668DE /* RecordScriptUploadResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */; };
 		0FA34BE01A77E4C400D0774C /* applistrefresh.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0FA34BDB1A77E4C400D0774C /* applistrefresh.tiff */; };
 		0FA34BE11A77E4C400D0774C /* recordscriptinfo_left_on.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0FA34BDC1A77E4C400D0774C /* recordscriptinfo_left_on.tiff */; };
@@ -216,7 +215,6 @@
 		0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptWindowController.m; sourceTree = "<group>"; };
 		0F9BE9061A766AB400D668DE /* RecordScriptUploadResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadResultViewController.h; sourceTree = "<group>"; };
 		0F9BE9071A766AB400D668DE /* RecordScriptUploadResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadResultViewController.m; sourceTree = "<group>"; };
-		0F9BE90D1A766ACB00D668DE /* RecordScriptUploadResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptUploadResultView.xib; sourceTree = "<group>"; };
 		0F9BE90F1A76706500D668DE /* RecordScriptUploadResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadResult.h; sourceTree = "<group>"; };
 		0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadResult.m; sourceTree = "<group>"; };
 		0FA34BDB1A77E4C400D0774C /* applistrefresh.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = applistrefresh.tiff; sourceTree = "<group>"; };
@@ -486,7 +484,6 @@
 			isa = PBXGroup;
 			children = (
 				0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */,
-				0F9BE90D1A766ACB00D668DE /* RecordScriptUploadResultView.xib */,
 			);
 			name = RecordScript;
 			path = XIBs/RecordScript;
@@ -1155,7 +1152,6 @@
 				36AA8D7016E40B28007472C1 /* AppiumMonitorWindow.xib in Resources */,
 				0FA34BE31A77E4C400D0774C /* recordscriptinfo_right_on.tiff in Resources */,
 				3612E5F816E5B6520050CF0A /* appium.sdef in Resources */,
-				0F9BE90E1A766ACB00D668DE /* RecordScriptUploadResultView.xib in Resources */,
 				364EED59191EE27000AB4439 /* robot.png in Resources */,
 				36B2F18616E6379C008764E0 /* defaults.plist in Resources */,
 				0FA34BE41A77E4C400D0774C /* recordscriptinfo_right.tiff in Resources */,

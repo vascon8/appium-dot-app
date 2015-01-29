@@ -22,19 +22,19 @@
     }
     return self;
 }
-- (id)init
-{
-	if (self = [super init]) {
-		NSTableView *tableView = [[NSTableView alloc]init];
-		tableView.dataSource = self;
-		tableView.delegate = self;
-		self.tableView = tableView;
-		
-		[tableView setRowHeight:24.0f];
-		
-	}
-	return self;
-}
+//- (id)init
+//{
+//	if (self = [super init]) {
+//		NSTableView *tableView = [[NSTableView alloc]init];
+//		tableView.dataSource = self;
+//		tableView.delegate = self;
+//		self.tableView = tableView;
+//		
+//		[tableView setRowHeight:24.0f];
+//		
+//	}
+//	return self;
+//}
 #pragma mark - tableView datasource
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
