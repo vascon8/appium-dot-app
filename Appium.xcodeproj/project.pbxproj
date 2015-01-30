@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1C6EEE1A7B4CC100D4ED32 /* RecordScriptSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1C6EED1A7B4CC100D4ED32 /* RecordScriptSettingModel.m */; };
+		0F1C6EF21A7B4CCD00D4ED32 /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F1C6EF11A7B4CCD00D4ED32 /* record.png */; };
 		0F2095CA1A72446000B6C3D3 /* LXIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2095C61A72446000B6C3D3 /* LXIvar.m */; };
 		0F2095CB1A72446000B6C3D3 /* NSObject+LXDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2095C81A72446000B6C3D3 /* NSObject+LXDict.m */; };
 		0F2095CC1A72446000B6C3D3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0F2095C91A72446000B6C3D3 /* README.md */; };
@@ -139,20 +141,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0FA1A9721A73DB1C0033F30D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C77BC82D19FFC16B008979E5;
-			remoteInfo = SeleniumForiOS;
-		};
-		0FA1A9741A73DB1C0033F30D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C77BC83719FFC16B008979E5;
-			remoteInfo = SeleniumForiOSTests;
-		};
 		36683086184A5DDB00C1A91D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
@@ -205,6 +193,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F1C6EEC1A7B4CC100D4ED32 /* RecordScriptSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptSettingModel.h; sourceTree = "<group>"; };
+		0F1C6EED1A7B4CC100D4ED32 /* RecordScriptSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptSettingModel.m; sourceTree = "<group>"; };
+		0F1C6EF11A7B4CCD00D4ED32 /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
 		0F2095C51A72446000B6C3D3 /* LXIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXIvar.h; sourceTree = "<group>"; };
 		0F2095C61A72446000B6C3D3 /* LXIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXIvar.m; sourceTree = "<group>"; };
 		0F2095C71A72446000B6C3D3 /* NSObject+LXDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LXDict.h"; sourceTree = "<group>"; };
@@ -666,6 +657,7 @@
 		364EED37191EDDB300AB4439 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				0F1C6EF11A7B4CCD00D4ED32 /* record.png */,
 				C7FFBA8C19F15CDE005B030F /* menubar-icon.png */,
 				364EED46191EDF6C00AB4439 /* android.png */,
 				364EED48191EDF9100AB4439 /* apple.png */,
@@ -704,6 +696,8 @@
 		365CA3C016EFB9C400A6DBE8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0F1C6EEC1A7B4CC100D4ED32 /* RecordScriptSettingModel.h */,
+				0F1C6EED1A7B4CC100D4ED32 /* RecordScriptSettingModel.m */,
 				36442F3C19081ACA00C2AED7 /* AppiumAndroidSettingsModel.h */,
 				36442F3D19081ACA00C2AED7 /* AppiumAndroidSettingsModel.m */,
 				3641B1C71922B10400DCF95D /* AppiumDeveloperSettingsModel.h */,
@@ -842,8 +836,6 @@
 				36A1A000173FFF34002717C2 /* Selenium.framework */,
 				36A1A002173FFF34002717C2 /* SeleniumTests.xctest */,
 				36B9018119071DEF00AE40E8 /* liblibSelenium.a */,
-				0FA1A9731A73DB1C0033F30D /* SeleniumForiOS.framework */,
-				0FA1A9751A73DB1C0033F30D /* SeleniumForiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1090,20 +1082,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		0FA1A9731A73DB1C0033F30D /* SeleniumForiOS.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SeleniumForiOS.framework;
-			remoteRef = 0FA1A9721A73DB1C0033F30D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0FA1A9751A73DB1C0033F30D /* SeleniumForiOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SeleniumForiOSTests.xctest;
-			remoteRef = 0FA1A9741A73DB1C0033F30D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		36A1A000173FFF34002717C2 /* Selenium.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1148,6 +1126,7 @@
 				36BA3A1D191EE417007FA51B /* doctor.png in Resources */,
 				3695CAB116E3FCAE003697A9 /* AppiumInstallationWindow.xib in Resources */,
 				36F1DE43191FE67300FC65AC /* logTextViewBg.png in Resources */,
+				0F1C6EF21A7B4CCD00D4ED32 /* record.png in Resources */,
 				0FA34BE01A77E4C400D0774C /* applistrefresh.tiff in Resources */,
 				36AA8D7016E40B28007472C1 /* AppiumMonitorWindow.xib in Resources */,
 				0FA34BE31A77E4C400D0774C /* recordscriptinfo_right_on.tiff in Resources */,
@@ -1238,6 +1217,7 @@
 				3661735617172AB200E786DF /* AppiumCodeMakerPythonPlugin.m in Sources */,
 				36FF07AD171743AC009ED9E2 /* AppiumCodeMakerLocator.m in Sources */,
 				7D7BE878199686F90080F21A /* AppiumServerArgument.m in Sources */,
+				0F1C6EEE1A7B4CC100D4ED32 /* RecordScriptSettingModel.m in Sources */,
 				36FF07B0171747C4009ED9E2 /* AppiumCodeMakerJavaPlugin.m in Sources */,
 				C71F95651A5FF2470013F230 /* AppiumMonitorWindowGeneralSettingsPopOverViewController.m in Sources */,
 				36FF07B317174936009ED9E2 /* AppiumCodeMakerRubyPlugin.m in Sources */,
