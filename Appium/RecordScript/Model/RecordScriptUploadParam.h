@@ -15,6 +15,7 @@
 @property NSString *language;
 @property NSString *appId;
 
-@property NSString *urlStr;
+@property NSString *filePath;
+@property NSString *base64EncodingStr;
 
 @end

@@ -22,9 +22,7 @@
 
 @property NSMutableArray *appListArr;
 @property BOOL isLoadingApp;
-//@property NSView *scriptUploadView;
 @property (strong) IBOutlet RecordScriptUploadResultViewController *scriptUploadViewController;
-//@property RecordScriptUploadResultViewController *scriptUploadViewController;
 
 @end
 
@@ -39,7 +37,7 @@
 {
     [super windowDidLoad];
 	[self setupViews];
-	[self setupData];
+	[self setupAppData];
 }
 - (void)setupViews
 {
@@ -47,17 +45,13 @@
 	[self.scriptFistAddButton setHidden:NO];
 	[self.scriptFistAddButton setEnabled:NO];
 	
-//	self.scriptUploadResultView = controller.view;
-//	CGRect frame = self.scriptInfoView.bounds;
-//	frame.origin.y = frame.size.height-self.scriptUploadResultView.bounds.size.height;
-//	self.scriptUploadResultView.frame = frame;
-//	self.scriptUploadViewController = controller;
-//	[self.scriptInfoView addSubview:controller.view];
-//	self.scriptUploadViewController = [[RecordScriptUploadResultViewController alloc]init];
 	[self.scriptUploadViewController.tableView setHidden:YES];
 }
-- (void)setupData
+- (void)setupAppData
 {
+	self.appInfoTableView.delegate = self;
+	self.appInfoTableView.dataSource = self;
+	
 	NSMutableArray *arr = [NSMutableArray arrayWithCapacity:10];
 	for (int i=0; i<6; i++) {
 		RecordscriptApp *app = [[RecordscriptApp alloc]init];
@@ -69,11 +63,8 @@
 	[self.appInfoTableView reloadData];
 	
 	//	[self loadAppData];
-	
-	self.appInfoTableView.delegate = self;
-	self.appInfoTableView.dataSource = self;
 }
-#pragma mark - load data
+#pragma mark - load app data
 - (IBAction)refreshAppList:(id)sender {
 	if (self.isLoadingApp) return;
 	[self loadAppData];
@@ -100,7 +91,7 @@
 			NSLog(@"error found:%@",error);
 		}
 		else{
-			[self handleJsonResult:resultDict];
+			[self handleAppJsonResult:resultDict];
 			[self.appInfoTableView reloadData];
 		}
 	}
@@ -115,7 +106,7 @@
 	self.isLoadingApp = NO;
 	[self.appInfoRefreshButton setEnabled:YES];
 }
-- (void)handleJsonResult:(NSDictionary *)resultDict
+- (void)handleAppJsonResult:(NSDictionary *)resultDict
 {
 //	NSArray *resultArr = resultDict[@"videos"];
 	NSMutableArray *tempArrM = [NSMutableArray arrayWithCapacity:resultDict.count];
@@ -136,7 +127,7 @@
 	
 	[mgr POST:[RecordscriptUploadServerAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:postParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 		
-		[formData appendPartWithFileURL:[NSURL URLWithString:postParams.urlStr] name:postParams.name fileName:postParams.filename mimeType:@"text/html" error:NULL];
+		[formData appendPartWithFileURL:[NSURL URLWithString:postParams.filePath] name:postParams.name fileName:postParams.filename mimeType:@"text/html" error:NULL];
 		
 	} success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		
@@ -158,10 +149,10 @@
 	if (self.scriptUploadViewController.scriptList.count>0) [self.scriptUploadViewController.view setHidden:NO];
 	[self.scriptUploadViewController.tableView reloadData];
 	
-	NSString *path = [postParams.urlStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	NSString *path = [postParams.filePath stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	NSInputStream *inputStream = [NSInputStream inputStreamWithFileAtPath:path];
 	NSError *error = nil;
-	NSNumber *contentLen = [[[NSFileManager defaultManager]attributesOfItemAtPath:postParams.urlStr error:&error] objectForKey:NSFileSize];
+	NSNumber *contentLen = [[[NSFileManager defaultManager]attributesOfItemAtPath:postParams.filePath error:&error] objectForKey:NSFileSize];
 	if (error) {
 		NSLog(@"contlen error:%@",error);
 	}
@@ -197,6 +188,7 @@
 	NSOpenPanel* chooseScriptPanlel = [NSOpenPanel openPanel];
 	[chooseScriptPanlel setMessage:@"请选择要上传的脚本"];
 	[chooseScriptPanlel setPrompt:@"确认上传"];
+	[chooseScriptPanlel setFrameOrigin:self.window.frame.origin];
 	
 	[chooseScriptPanlel setFrameTopLeftPoint:self.window.frame.origin];
 	[chooseScriptPanlel setDirectoryURL:[NSURL URLWithString:[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]]];
@@ -211,7 +203,6 @@
 				[self.scriptFistAddButton setHidden:YES];
 				
 				[self.scriptAddButton setHidden:NO];
-				[self.scriptAddButton setEnabled:YES];
 			}
 		
 			NSInteger selectedRow = self.appInfoTableView.selectedRow;
@@ -225,20 +216,17 @@
 			app.scriptList = arrM;
 			arrM = nil;
 			
-//			self.scriptNameTextField.stringValue = filename;
-//			NSData *bodyData = [NSData dataWithContentsOfURL:[chooseScriptPanlel URLs][0]];
-			
 			RecordScriptUploadParam *param = [[RecordScriptUploadParam alloc]init];
-//			param.urlStr = [chooseScriptPanlel URLs][0];
 			NSURL *fileUrl = [chooseScriptPanlel URLs][0];
 			NSString *path = [fileUrl path];
-			param.urlStr = path;
-			
+			param.filePath = path;
 			param.filename = scriptName;
 			param.appId = app.id;
 			param.name = app.name;
 			param.language = [self scriptLanguage:scriptName];
 			
+			NSData *fileData = [NSData dataWithContentsOfFile:path];
+			param.base64EncodingStr = [fileData base64Encoding];
 			NSLog(@"%@",param);
 			
 			[self uploadScriptWithParams:param];
@@ -278,12 +266,10 @@
 {
     NSInteger rows = self.appListArr.count;
     if (rows <= 0) {
-        if (self.scriptAddButton.isEnabled) [self.scriptAddButton setEnabled:NO];
         if (self.scriptFistAddButton.isEnabled) [self.scriptFistAddButton setEnabled:NO];
     }
 	else{
         if (!self.scriptAddButton.isEnabled) [self.scriptAddButton setEnabled:YES];
-        if (!self.scriptFistAddButton.isEnabled) [self.scriptFistAddButton setEnabled:YES];
 	}
     
 	return rows;
@@ -308,10 +294,10 @@
 	NSInteger selectedRow = self.appInfoTableView.selectedRow;
 	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
 	if (app.scriptList.count>0) {
-		[self.scriptFistAddButton setHidden:YES];
-		[self.scriptAddButton setHidden:NO];
+		if (!self.scriptFistAddButton.isHidden)[self.scriptFistAddButton setHidden:YES];
+		if (self.scriptAddButton.isHidden)[self.scriptAddButton setHidden:NO];
 		
-		[self.scriptUploadViewController.tableView setHidden:NO];
+		if (self.scriptUploadViewController.tableView.isHidden)[self.scriptUploadViewController.tableView setHidden:NO];
 		self.scriptUploadViewController.scriptList = app.scriptList;
 		[self.scriptUploadViewController.tableView reloadData];
 	}

@@ -11,6 +11,6 @@
 @implementation RecordScriptUploadParam
 - (NSString *)description
 {
-	return [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@",self.appId,self.name,self.filename,self.language,self.urlStr];
+	return [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@",self.appId,self.name,self.filename,self.language,self.filePath];
 }
 @end

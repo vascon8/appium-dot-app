@@ -17,7 +17,6 @@
 @property (weak) IBOutlet NSButton *appInfoRefreshButton;
 @property (weak) IBOutlet NSProgressIndicator *appLoadProgressIndicator;
 
-//@property (weak) IBOutlet NSTableView *scriptResultTableView;
 @property (weak) IBOutlet NSButton *scriptAddButton;
 @property (weak) IBOutlet NSButton *scriptFistAddButton;
 
