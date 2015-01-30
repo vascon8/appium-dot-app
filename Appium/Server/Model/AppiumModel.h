@@ -14,6 +14,8 @@
 #import "AppiumRobotSettingsModel.h"
 #import "SocketIO.h"
 
+#import "RecordScriptSettingModel.h"
+
 typedef enum platformTypes
 {
 	AppiumiOSPlatform,
@@ -49,7 +51,6 @@ typedef enum platformTypes
 -(void) reset;
 - (void)setupServerTask:(NSString *)commandString;
 
-@property NSString *exportscriptsDirectory;
-@property BOOL useExportscriptsDirectory;
+@property RecordScriptSettingModel *record;
 
 @end

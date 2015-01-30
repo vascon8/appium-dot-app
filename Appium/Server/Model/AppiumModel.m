@@ -44,13 +44,19 @@ BOOL _isServerListening;
 		[self setIOS:[AppiumiOSSettingsModel new]];
 		[self setRobot:[AppiumRobotSettingsModel new]];
 		
+		[self setRecord:[RecordScriptSettingModel new]];
+		
 		// initialize members
 		_isServerRunning = NO;
 		_isServerListening = self.general.useRemoteServer;
         [self setDoctorSocketIsConnected:NO];
 		
-		if (!self.exportscriptsDirectory){
-			self.exportscriptsDirectory = NSHomeDirectoryForUser(NSUserName());
+//		if (!self.general.exportscriptsDirectory){
+//			self.general.exportscriptsDirectory = NSHomeDirectoryForUser(NSUserName());
+//		}
+		
+		if (!self.record.exportscriptsDirectory){
+			self.record.exportscriptsDirectory = NSHomeDirectoryForUser(NSUserName());
 		}
     }
 	
@@ -810,13 +816,5 @@ BOOL _isServerListening;
 		[self didChangeValueForKey:propName];
 	}
 }
-#pragma mark - exportScript
-- (BOOL)useExportscriptsDirectory { return [DEFAULTS boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]; }
-- (void)setUseExportscriptsDirectory:(BOOL)useExportscriptsDirectory{ [DEFAULTS setBool:useExportscriptsDirectory forKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]; }
-
-- (NSString *) exportscriptsDirectory { return [DEFAULTS stringForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]; }
-- (void) setExportscriptsDirectory:(NSString *)exportscriptsDirectory {
-	if (!exportscriptsDirectory) return;
-	[DEFAULTS setValue:[exportscriptsDirectory stringByAppendingPathComponent:EXPORTRECORDSCRIPTLASTPATHCOMPONENT] forKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]; }
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -107,6 +107,18 @@
                                 <connections>
                                     <action selector="toggle:" target="Vql-EG-AP5" id="IND-sU-of3"/>
                                     <outlet property="popoverController" destination="Vql-EG-AP5" id="J7l-2g-KR9"/>
+                                </connections>
+                            </button>
+                            <button toolTip="Robot Settings" id="7su-7h-9yf" userLabel="Record Settings Button" customClass="AppiumMonitorWindowPopOverButton">
+                                <rect key="frame" x="274" y="23" width="52" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="record" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" id="4xi-Zt-2Wy">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="toggle:" target="C7h-I7-d7c" id="RHc-FC-iEj"/>
+                                    <outlet property="popoverController" destination="C7h-I7-d7c" id="Sn7-JH-6YB"/>
                                 </connections>
                             </button>
                             <button toolTip="Inspector" id="1306" userLabel="Inspector Button">
@@ -246,17 +258,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="710" height="425"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="LtR-VR-wie">
-                                    <rect key="frame" x="1" y="1" width="708" height="423"/>
+                                    <rect key="frame" x="1" y="1" width="693" height="423"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" smartInsertDelete="YES" id="29">
-                                            <rect key="frame" x="0.0" y="0.0" width="708" height="423"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="693" height="423"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                            <size key="minSize" width="708" height="423"/>
+                                            <size key="minSize" width="693" height="423"/>
                                             <size key="maxSize" width="710" height="10000000"/>
                                             <color key="insertionPointColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="708" height="423"/>
+                                            <size key="minSize" width="693" height="423"/>
                                             <size key="maxSize" width="710" height="10000000"/>
                                         </textView>
                                     </subviews>
@@ -267,7 +279,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="27">
-                                    <rect key="frame" x="693" y="1" width="16" height="423"/>
+                                    <rect key="frame" x="694" y="1" width="15" height="423"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -3128,11 +3140,11 @@
             <accessibility description="iOSSettingsView"/>
         </customView>
         <customView id="lfV-Jy-qRr" userLabel="General Settings View">
-            <rect key="frame" x="0.0" y="0.0" width="417" height="707"/>
+            <rect key="frame" x="0.0" y="0.0" width="417" height="641"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="pFP-rp-D7j" userLabel="General Settings Label">
-                    <rect key="frame" x="18" y="670" width="107" height="17"/>
+                    <rect key="frame" x="18" y="604" width="107" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="基本设置" id="Svf-QT-oNe">
                         <font key="font" metaFont="system"/>
@@ -3141,7 +3153,7 @@
                     </textFieldCell>
                 </textField>
                 <box autoresizesSubviews="NO" title="服务器" borderType="line" id="ATX-v7-2MS" userLabel="Selenium Grid Configuration Box">
-                    <rect key="frame" x="17" y="366" width="383" height="296"/>
+                    <rect key="frame" x="17" y="300" width="383" height="296"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
                         <rect key="frame" x="1" y="1" width="381" height="280"/>
@@ -3555,7 +3567,7 @@
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
                 <box autoresizesSubviews="NO" title="日志" borderType="line" id="6DB-Rn-YeW" userLabel="Logging Box">
-                    <rect key="frame" x="17" y="203" width="383" height="159"/>
+                    <rect key="frame" x="17" y="137" width="383" height="159"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
                         <rect key="frame" x="1" y="1" width="381" height="143"/>
@@ -3814,7 +3826,7 @@
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
                 <box autoresizesSubviews="NO" title="Environment Variables" borderType="line" id="dBb-dn-yap" userLabel="Environment Variables Box">
-                    <rect key="frame" x="17" y="82" width="383" height="117"/>
+                    <rect key="frame" x="17" y="16" width="383" height="117"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
                         <rect key="frame" x="1" y="1" width="381" height="101"/>
@@ -3824,7 +3836,7 @@
                                 <rect key="frame" x="18" y="35" width="345" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" id="XV2-yy-WwB">
-                                    <rect key="frame" x="1" y="0.0" width="343" height="55"/>
+                                    <rect key="frame" x="1" y="17" width="343" height="38"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="WDZ-al-xeH" viewBased="YES" id="e4i-YS-uuj">
@@ -3942,115 +3954,6 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="addButtonClicked:" target="Ug1-6P-qDs" id="tFh-wO-9EN"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                    </view>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </box>
-                <box autoresizesSubviews="NO" title="脚本录制" borderType="line" id="u3r-DX-DwT" userLabel="Recording Box">
-                    <rect key="frame" x="17" y="16" width="383" height="62"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <view key="contentView">
-                        <rect key="frame" x="1" y="1" width="381" height="46"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button id="4Bt-FL-t3z" userLabel="Exportscript Check Box">
-                                <rect key="frame" x="6" y="16" width="56" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="导出" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="HSR-IO-9qS">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <binding destination="-2" name="enabled2" keyPath="model.general.useRemoteServer" previousBinding="zyi-M6-VTA" id="2hZ-1s-KoN">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="zyi-M6-VTA">
-                                        <dictionary key="options">
-                                            <integer key="NSNullPlaceholder" value="1"/>
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="value" keyPath="model.useExportscriptsDirectory" id="R9p-Ul-giX"/>
-                                </connections>
-                            </button>
-                            <textField verticalHuggingPriority="750" id="dTu-oT-xna" userLabel="Exportscript Directory Text Field">
-                                <rect key="frame" x="59" y="14" width="253" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="rrF-1M-plB">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <binding destination="-2" name="value" keyPath="model.exportscriptsDirectory" id="5kb-dd-wB2">
-                                        <dictionary key="options">
-                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="enabled2" keyPath="model.general.useRemoteServer" previousBinding="Rlq-ak-SCh" id="lln-cS-ewB">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="Rlq-ak-SCh">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="enabled3" keyPath="model.useExportscriptsDirectory" previousBinding="lln-cS-ewB" id="gnc-rV-IRw">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </textField>
-                            <button verticalHuggingPriority="750" id="fNY-1z-vaC" userLabel="Exportscript Directory Button">
-                                <rect key="frame" x="314" y="8" width="55" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="选择" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KAG-T8-jhG">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="chooseExportscriptsDirectory:" target="-2" id="bmX-8v-fWc"/>
-                                    <binding destination="-2" name="enabled3" keyPath="model.general.useRemoteServer" previousBinding="ETE-KI-bLJ" id="4h3-MX-EN0">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="Wml-iF-nm9">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="enabled2" keyPath="model.useExportscriptsDirectory" previousBinding="Wml-iF-nm9" id="ETE-KI-bLJ">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                        </dictionary>
-                                    </binding>
                                 </connections>
                             </button>
                         </subviews>
@@ -4597,6 +4500,200 @@
                 </textField>
             </subviews>
         </customView>
+        <customView id="aVz-Zy-RBN" userLabel="Record Settings View">
+            <rect key="frame" x="0.0" y="0.0" width="398" height="158"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dGk-jY-zhh" userLabel="Title Settings Label">
+                    <rect key="frame" x="9" y="121" width="107" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="脚本录制" id="qOf-iX-1AT">
+                        <font key="font" size="13" name="STHeitiSC-Light"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <box autoresizesSubviews="NO" title="脚本保存" borderType="line" id="jRd-De-VZb" userLabel="Recording Box">
+                    <rect key="frame" x="8" y="16" width="383" height="92"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView">
+                        <rect key="frame" x="1" y="1" width="381" height="76"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button id="GFA-1y-E2H" userLabel="Exportscript Check Box">
+                                <rect key="frame" x="6" y="46" width="56" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="导出" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="lyi-mX-NPm">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="ouZ-oY-mGA">
+                                        <dictionary key="options">
+                                            <integer key="NSNullPlaceholder" value="1"/>
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="value" keyPath="model.record.useExportscriptsDirectory" id="Vfx-sx-5Ig">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" id="Nmc-Nz-oaw" userLabel="Exportscript Directory Text Field">
+                                <rect key="frame" x="59" y="44" width="253" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="6e7-oS-F3O">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="-2" name="enabled3" keyPath="model.record.useExportscriptsDirectory" previousBinding="FOh-Qy-G8r" id="zER-aT-laq">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="enabled2" keyPath="model.general.useRemoteServer" previousBinding="CdJ-Vc-RO8" id="FOh-Qy-G8r">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="CdJ-Vc-RO8">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="value" keyPath="model.record.exportscriptsDirectory" id="Px9-V8-tCH">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
+                            <button verticalHuggingPriority="750" id="0np-0e-h9O" userLabel="Exportscript Directory Button">
+                                <rect key="frame" x="314" y="38" width="55" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="选择" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Pmt-7z-cwr">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="chooseExportscriptsDirectory:" target="-2" id="YGL-sB-GMv"/>
+                                    <binding destination="-2" name="enabled2" keyPath="model.record.useExportscriptsDirectory" previousBinding="Zvk-gN-QQF" id="HWr-Y5-bU8">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="enabled3" keyPath="model.general.useRemoteServer" previousBinding="HWr-Y5-bU8" id="mvS-U9-q6i">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="Zvk-gN-QQF">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" id="SYZ-ww-tGT" userLabel="Upload Server Address Label">
+                                <rect key="frame" x="6" y="17" width="66" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="上传地址:" id="ybq-oF-T6f">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" id="iPu-1g-czh" userLabel="Upload Server Address Text Field">
+                                <rect key="frame" x="78" y="14" width="196" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" id="GUM-U4-sfA">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="vx7-Gv-UOI">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="value" keyPath="model.record.uploadExportscriptsServerAddr" id="N48-Ha-ZmC">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
+                            <textField verticalHuggingPriority="750" id="Bdj-pw-vEA" userLabel="Upload Server Port Label">
+                                <rect key="frame" x="280" y="18" width="34" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="端口:" id="WuM-UU-dae">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" id="oiQ-gt-4Ch" userLabel="Upload Server Port TextField">
+                                <rect key="frame" x="320" y="15" width="43" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="" drawsBackground="YES" id="KO5-8x-BTj">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="UZQ-qS-lno">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="value" keyPath="model.record.uploadExportscriptsServerPort" id="n1r-wQ-UxH">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                            <string key="NSValueTransformerName">AppiumPortTransformer</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </box>
+            </subviews>
+        </customView>
+        <viewController id="C7h-I7-d7c" userLabel="Record Setting Popover View Controller" customClass="AppiumMonitorWindowPopOverViewController">
+            <connections>
+                <outlet property="popover" destination="k4f-dV-f3L" id="rBl-93-Crz"/>
+                <outlet property="view" destination="aVz-Zy-RBN" id="dNi-MX-Fj1"/>
+            </connections>
+        </viewController>
+        <popover id="k4f-dV-f3L" userLabel="Record Setting Popover">
+            <connections>
+                <outlet property="contentViewController" destination="C7h-I7-d7c" id="Qgu-oB-szU"/>
+                <outlet property="delegate" destination="C7h-I7-d7c" id="DXC-Bh-Rhv"/>
+            </connections>
+        </popover>
     </objects>
     <resources>
         <image name="android" width="137" height="137"/>
@@ -4605,6 +4702,7 @@
         <image name="doctor" width="20.803611755371094" height="20.803611755371094"/>
         <image name="inspector" width="173" height="173"/>
         <image name="logTextViewBg" width="584" height="142"/>
+        <image name="record" width="32" height="32"/>
         <image name="robot" width="20.803611755371094" height="20.803611755371094"/>
         <image name="settings" width="155" height="155"/>
         <image name="trash" width="144" height="144"/>
