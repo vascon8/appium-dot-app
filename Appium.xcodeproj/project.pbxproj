@@ -196,6 +196,7 @@
 		0F1C6EEC1A7B4CC100D4ED32 /* RecordScriptSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptSettingModel.h; sourceTree = "<group>"; };
 		0F1C6EED1A7B4CC100D4ED32 /* RecordScriptSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptSettingModel.m; sourceTree = "<group>"; };
 		0F1C6EF11A7B4CCD00D4ED32 /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
+		0F1C6EF81A7B4DAB00D4ED32 /* AppiumPreferencesFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiumPreferencesFile.h; sourceTree = "<group>"; };
 		0F2095C51A72446000B6C3D3 /* LXIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXIvar.h; sourceTree = "<group>"; };
 		0F2095C61A72446000B6C3D3 /* LXIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXIvar.m; sourceTree = "<group>"; };
 		0F2095C71A72446000B6C3D3 /* NSObject+LXDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LXDict.h"; sourceTree = "<group>"; };
@@ -242,7 +243,6 @@
 		3612E5F716E5B6520050CF0A /* appium.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appium.sdef; sourceTree = "<group>"; };
 		3612E5FA16E5B69C0050CF0A /* NSApplication+AppleScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSApplication+AppleScript.h"; sourceTree = "<group>"; };
 		3612E5FB16E5B69C0050CF0A /* NSApplication+AppleScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSApplication+AppleScript.m"; sourceTree = "<group>"; };
-		36187189171871EB0021D7F7 /* AppiumPreferencesFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppiumPreferencesFile.h; sourceTree = "<group>"; };
 		3618718B171887CC0021D7F7 /* AppiumCodeMakerSwipePopOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppiumCodeMakerSwipePopOverViewController.h; path = PopOvers/AppiumCodeMakerSwipePopOverViewController.h; sourceTree = "<group>"; };
 		3618718C171887CC0021D7F7 /* AppiumCodeMakerSwipePopOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppiumCodeMakerSwipePopOverViewController.m; path = PopOvers/AppiumCodeMakerSwipePopOverViewController.m; sourceTree = "<group>"; };
 		362B5B631713B35A00F1B344 /* AppiumCodeMakerCSharpPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppiumCodeMakerCSharpPlugin.h; path = Plugins/AppiumCodeMakerCSharpPlugin.h; sourceTree = "<group>"; };
@@ -458,6 +458,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F1C6EF71A7B4DAB00D4ED32 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				0F1C6EF81A7B4DAB00D4ED32 /* AppiumPreferencesFile.h */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 		0F2095C41A72446000B6C3D3 /* LXDictObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -548,23 +556,15 @@
 		3614B16B1719F29900A72D99 /* Server */ = {
 			isa = PBXGroup;
 			children = (
+				0F1C6EF71A7B4DAB00D4ED32 /* Preferences */,
 				3614B16F1719F3F400A72D99 /* MenuBar */,
 				365CA3C016EFB9C400A6DBE8 /* Model */,
 				3614B16D1719F35400A72D99 /* Monitor */,
-				3614B16C1719F2F300A72D99 /* Preferences */,
 				3614B16E1719F3AC00A72D99 /* Update */,
 				36CEB7DD16E3662E00B5B100 /* AppiumAppDelegate.h */,
 				36CEB7DE16E3662E00B5B100 /* AppiumAppDelegate.m */,
 			);
 			path = Server;
-			sourceTree = "<group>";
-		};
-		3614B16C1719F2F300A72D99 /* Preferences */ = {
-			isa = PBXGroup;
-			children = (
-				36187189171871EB0021D7F7 /* AppiumPreferencesFile.h */,
-			);
-			path = Preferences;
 			sourceTree = "<group>";
 		};
 		3614B16D1719F35400A72D99 /* Monitor */ = {
