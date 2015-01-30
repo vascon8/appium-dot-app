@@ -16,7 +16,11 @@
 - (void)setUseExportscriptsDirectory:(BOOL)useExportscriptsDirectory{ [DEFAULTS setBool:useExportscriptsDirectory forKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]; }
 
 - (NSString *) exportscriptsDirectory { return [DEFAULTS stringForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]; }
-- (void) setExportscriptsDirectory:(NSString *)exportscriptsDirectory { [DEFAULTS setValue:exportscriptsDirectory forKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]; }
+- (void) setExportscriptsDirectory:(NSString *)exportscriptsDirectory {
+	NSString *tempDir = exportscriptsDirectory;
+	if (![[tempDir lastPathComponent] isEqualToString:EXPORTRECORDSCRIPTLASTPATHCOMPONENT]) tempDir = [tempDir stringByAppendingPathComponent:EXPORTRECORDSCRIPTLASTPATHCOMPONENT];
+	[DEFAULTS setValue:tempDir forKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
+}
 
 - (NSString *)uploadExportscriptsServerAddr
 {

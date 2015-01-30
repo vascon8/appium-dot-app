@@ -51,10 +51,6 @@ BOOL _isServerListening;
 		_isServerListening = self.general.useRemoteServer;
         [self setDoctorSocketIsConnected:NO];
 		
-//		if (!self.general.exportscriptsDirectory){
-//			self.general.exportscriptsDirectory = NSHomeDirectoryForUser(NSUserName());
-//		}
-		
 		if (!self.record.exportscriptsDirectory){
 			self.record.exportscriptsDirectory = NSHomeDirectoryForUser(NSUserName());
 		}
