@@ -178,7 +178,7 @@
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
                                                                             <tableCellView id="TIA-fP-mAb">
-                                                                                <rect key="frame" x="1" y="1" width="335.50000019820345" height="24"/>
+                                                                                <rect key="frame" x="1" y="1" width="335.50000019820357" height="24"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="eVA-kg-fbg">
@@ -212,7 +212,7 @@
                                                         </subviews>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </clipView>
-                                                    <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="2.6427119337313343e-07" horizontal="YES" id="DIc-4X-1Du">
+                                                    <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="2.6427142074680887e-07" horizontal="YES" id="DIc-4X-1Du">
                                                         <rect key="frame" x="0.0" y="284" width="338" height="16"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
