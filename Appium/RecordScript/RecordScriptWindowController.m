@@ -23,10 +23,12 @@
 
 @interface RecordScriptWindowController ()<NSTableViewDataSource,NSTableViewDelegate>
 
-@property NSMutableArray *appListArr;
+@property NSArray *appListArr;
 @property BOOL isLoadingApp;
 @property (strong) IBOutlet RecordScriptUploadResultViewController *scriptUploadViewController;
 @property NSOperationQueue *uploadQueue;
+
+@property NSArray *prjListArr;
 
 @end
 
@@ -74,46 +76,64 @@
 #pragma mark - load project data
 - (void)loadProjectData
 {
-	[TestWAHttpExecutor loadDataWithUrlStr:[RecordscriptGetServerProjectAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] handleResultBlock:^(NSDictionary *resultDict) {
-//		NSLog(@"%@",resultDict);
+	[TestWAHttpExecutor loadDataWithUrlStr:[RecordscriptGetServerProjectAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] handleResultBlock:^(id resultData) {
+		NSDictionary *prj = resultData[@"project"];
+		
+		NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:prj.count];
+		for (id obj in prj) {
+			TestWAServerProject *prj = [TestWAServerProject objectWithKeyedDict:obj modelDict:@{@"apps": @"RecordscriptApp"}];
+			[arrM addObject:prj];
+		}
+		self.prjListArr = arrM;
+		arrM = nil;
+		
+		NSMutableArray *arr = [NSMutableArray array];
+		for (TestWAServerProject *prj in self.prjListArr) {
+			for (RecordscriptApp *app in prj.apps) {
+				[arr addObject:app];
+			}
+		}
+		self.appListArr = arr;
+		arr = nil;
+		
+		[self.appInfoTableView reloadData];
 	}];
 }
 #pragma mark - load app data
 - (IBAction)refreshAppList:(id)sender {
 	if (self.isLoadingApp) return;
-	[self loadAppData];
+	[self loadProjectData];
 }
-- (void)loadAppData
-{
-	self.isLoadingApp = YES;
-	[self.appLoadProgressIndicator startAnimation:nil];
-	[self.appInfoRefreshButton setEnabled:NO];
-	
-	[TestWAHttpExecutor loadDataWithUrlStr:[RecordscriptGetServerAppAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] handleResultBlock:^(NSDictionary *resultDict) {
-		NSMutableArray *tempArrM = [NSMutableArray arrayWithCapacity:resultDict.count];
-		for (NSDictionary *dict in resultDict) {
-			RecordscriptApp *rc = [RecordscriptApp objectWithKeyedDict:dict];
-			[tempArrM addObject:rc];
-		}
-		self.appListArr = tempArrM;
-		tempArrM = nil;
-		[self.appInfoTableView reloadData];
-		NSLog(@"appist:%@",self.appListArr);
-	}];
-	
-	
-	[self.appLoadProgressIndicator stopAnimation:nil];
-	self.isLoadingApp = NO;
-	[self.appInfoRefreshButton setEnabled:YES];
-}
+//- (void)loadAppData
+//{
+//	self.isLoadingApp = YES;
+//	[self.appLoadProgressIndicator startAnimation:nil];
+//	[self.appInfoRefreshButton setEnabled:NO];
+//	
+//	[TestWAHttpExecutor loadDataWithUrlStr:[RecordscriptGetServerAppAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] handleResultBlock:^(id resultData) {
+//		NSMutableArray *tempArrM = [NSMutableArray arrayWithCapacity:resultData.count];
+//		for (NSDictionary *dict in resultData) {
+//			RecordscriptApp *rc = [RecordscriptApp objectWithKeyedDict:dict];
+//			[tempArrM addObject:rc];
+//		}
+//		self.appListArr = tempArrM;
+//		tempArrM = nil;
+//		[self.appInfoTableView reloadData];
+//		NSLog(@"appist:%@",self.appListArr);
+//	}];
+//	
+//	
+//	[self.appLoadProgressIndicator stopAnimation:nil];
+//	self.isLoadingApp = NO;
+//	[self.appInfoRefreshButton setEnabled:YES];
+//}
 #pragma mark - get User data
 - (TestWAServerUser *)getUser
 {
 	__block TestWAServerUser *user = nil;
 	NSString *str = [RecordscriptGetServerUser stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	[TestWAHttpExecutor loadDataWithUrlStr:str handleResultBlock:^(NSDictionary *resultDict) {
-		user = [TestWAServerUser objectWithKeyedDict:resultDict];
-		NSLog(@"user:%@",user);
+	[TestWAHttpExecutor loadDataWithUrlStr:str handleResultBlock:^(id resultData) {
+		user = [TestWAServerUser objectWithKeyedDict:resultData];
 	}];
 	
 	return user;
@@ -182,8 +202,8 @@
 	param.name = app.name;
 	param.language = [self scriptLanguage:param.filename];
 	TestWAServerUser *user = [self getUser];
-	param.userID = user.id;
-	NSLog(@"userid:%@",param.userID);
+	if (!user) param.userID = @"1";
+	else param.userID = user.id;
 	
 	NSData *fileData = [NSData dataWithContentsOfFile:path];
 	param.base64EncodingStr = [fileData base64Encoding];
@@ -260,6 +280,7 @@
 		[self.scriptUploadViewController.tableView reloadData];
 	}
 	else{
+		
 		[self.scriptUploadViewController.tableView setHidden:YES];
 		[self.scriptFistAddButton setHidden:NO];
 		[self.scriptAddButton setHidden:YES];

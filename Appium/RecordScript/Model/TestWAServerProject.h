@@ -11,6 +11,6 @@
 
 @interface TestWAServerProject : TestWABaseModel
 //list of RecordScriptApp
-@property NSArray *appList;
+@property NSArray *apps;
 
 @end

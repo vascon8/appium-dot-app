@@ -12,26 +12,25 @@
 
 @implementation TestWAHttpExecutor
 
-+ (void)loadDataWithUrlStr:(NSString *)urlStr handleResultBlock:(void (^)(NSDictionary *resultDict))handleResultBlock{
++ (void)loadDataWithUrlStr:(NSString *)urlStr handleResultBlock:(void (^)(id resultData))handleResultBlock{
 	
 	NSURL *url = [NSURL URLWithString:[self handleUrlStr:urlStr]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
 	NSURLResponse *response = nil;
 	NSError *error = nil;
-	NSData *resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-	NSLog(@"resultData:%@",resultData);
-	if (!error && resultData != nil) {
-		NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:resultData options:NSJSONReadingAllowFragments error:&error];
+	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+	
+	if (!error && data != nil) {
+		id resultData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
 		
 		if (error) {
 			NSLog(@"error found:%@",error);
 		}
 		else{
-			NSLog(@"%@",resultDict);
-			handleResultBlock(resultDict);
+			handleResultBlock(resultData);
 		}
 	}
-	else if (resultData == nil){
+	else if (data == nil){
 		NSLog(@"no data found");
 	}
 	else{

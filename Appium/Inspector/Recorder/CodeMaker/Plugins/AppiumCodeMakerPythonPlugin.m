@@ -42,6 +42,7 @@ from selenium.webdriver.common.action_chains import ActionChains\n\
 import time\n\
 from time import sleep\n\
 import os\n\
+PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__),p))\n\
 \n\
 success = True\n\
 desired_caps = {}\n\
@@ -92,6 +93,7 @@ from appium import webdriver\n\
 from selenium.webdriver.common.action_chains import ActionChains\n\
 import time\n\
 import os\n\
+PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__),p))\n\
 \n\
 success = True\n\
 desired_caps = {}\n\

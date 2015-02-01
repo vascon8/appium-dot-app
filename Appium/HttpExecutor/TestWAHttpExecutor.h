@@ -14,7 +14,7 @@
 
 //load app data
 //load user data
-+ (void)loadDataWithUrlStr:(NSString *)urlStr handleResultBlock:(void (^)(NSDictionary *resultDict))handleResultBlock;
++ (void)loadDataWithUrlStr:(NSString *)urlStr handleResultBlock:(void (^)(id resultData))handleResultBlock;
 //upload script
 + (void)uploadScriptWithUrlStr:(NSString *)urlStr queue:(NSOperationQueue *)uploadQueue postParams:(RecordScriptUploadParam *)params;
 
