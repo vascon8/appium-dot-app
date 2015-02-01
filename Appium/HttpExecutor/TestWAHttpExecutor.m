@@ -19,9 +19,10 @@
 	NSURLResponse *response = nil;
 	NSError *error = nil;
 	NSData *resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+	NSLog(@"resultData:%@",resultData);
 	if (!error && resultData != nil) {
-		
 		NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:resultData options:NSJSONReadingAllowFragments error:&error];
+		
 		if (error) {
 			NSLog(@"error found:%@",error);
 		}

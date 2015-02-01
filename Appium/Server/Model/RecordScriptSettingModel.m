@@ -21,37 +21,20 @@
 	if (![[tempDir lastPathComponent] isEqualToString:EXPORTRECORDSCRIPTLASTPATHCOMPONENT]) tempDir = [tempDir stringByAppendingPathComponent:EXPORTRECORDSCRIPTLASTPATHCOMPONENT];
 	[DEFAULTS setValue:tempDir forKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY];
 }
-
-- (NSString *)uploadExportscriptsServerAddr
+- (NSString *)testWAServerAddr
 {
-	return [DEFAULTS valueForKey:APPIUM_PLIST_Upload_ExportRecordScripts_ServerAddress];
+	return [DEFAULTS valueForKey:APPIUM_PLIST_TestWA_ServerAddress];
 }
-- (void)setUploadExportscriptsServerAddr:(NSString *)uploadExportscriptsServerAddr
+- (void)setTestWAServerAddr:(NSString *)testWAServerAddr
 {
-	[DEFAULTS setValue:uploadExportscriptsServerAddr forKey:APPIUM_PLIST_Upload_ExportRecordScripts_ServerAddress];
+	[DEFAULTS setValue:testWAServerAddr forKey:APPIUM_PLIST_TestWA_ServerAddress];
 }
-//- (NSNumber *)uploadExportscriptsServerPort
-//{
-//	
-//}
-//- (void)setUploadExportscriptsServerPort:(NSNumber *)uploadExportscriptsServerPort
-//{
-//	
-//}
-//- (NSString *)getServerAppAddr
-//{
-//	return [DEFAULTS valueForKey:APPIUM_PLIST_GetServerApp_Address];
-//}
-//- (void)setGetServerAppAddr:(NSString *)getServerAppAddr
-//{
-//	[DEFAULTS setValue:getServerAppAddr forKey:APPIUM_PLIST_GetServerApp_Address];
-//}
-//- (void)setGetServerAppPort:(NSNumber *)getServerAppPort
-//{
-//	[DEFAULTS setValue:getServerAppPort forKey:APPIUM_PLIST_GetServerApp_Port];
-//}
-//- (NSNumber *)getServerAppPort
-//{
-//	return [DEFAULTS valueForKey:APPIUM_PLIST_GetServerApp_Port];
-//}
+- (NSNumber *)testWASererPort
+{
+	return [NSNumber numberWithInt:[[DEFAULTS valueForKeyPath:APPIUM_PLIST_TestWA_ServerPort]intValue]];
+}
+- (void)setTestWASererPort:(NSNumber *)testWASererPort
+{
+	[DEFAULTS setValue:testWASererPort forKey:APPIUM_PLIST_TestWA_ServerPort];
+}
 @end

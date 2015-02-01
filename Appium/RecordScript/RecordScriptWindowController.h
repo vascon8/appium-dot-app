@@ -9,10 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import "AppiumPreferencesFile.h"
 
-#define RecordscriptGetServerAppAddress @"http://192.168.1.101:8081/attp/ajax/allApps"
-#define RecordscriptUploadServerAddress @"http://192.168.1.101:8081/attp/upload"
-#define RecordscriptGetServerUser @"http://192.168.1.101:8081/attp/ajax/allAdmin"
-#define RecordscriptGetServerProjectAddress @"http://192.168.1.101:8081/attp/projects"
+#define RecordscriptGetServerAppAddress [NSString stringWithFormat:@"%@:%@/attp/ajax/allApps",APPIUM_PLIST_TestWA_ServerAddress,APPIUM_PLIST_TestWA_ServerPort]
+#define RecordscriptUploadServerAddress [NSString stringWithFormat:@"%@:%@/attp/upload",APPIUM_PLIST_TestWA_ServerAddress,APPIUM_PLIST_TestWA_ServerPort]
+#define RecordscriptGetServerUser [NSString stringWithFormat:@"%@:%@/attp/ajax/allAdmin",APPIUM_PLIST_TestWA_ServerAddress,APPIUM_PLIST_TestWA_ServerPort]
+#define RecordscriptGetServerProjectAddress [NSString stringWithFormat:@"%@:%@/attp/projects",APPIUM_PLIST_TestWA_ServerAddress,APPIUM_PLIST_TestWA_ServerPort]
 
 #define MaxConcurrentUploadOperation 5
 

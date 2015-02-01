@@ -9,10 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "TestWABaseModel.h"
 
-@class RecordscriptApp;
-
 @interface TestWAServerProject : TestWABaseModel
-
-@property RecordscriptApp *app;
+//list of RecordScriptApp
+@property NSArray *appList;
 
 @end

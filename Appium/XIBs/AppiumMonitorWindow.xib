@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -258,28 +258,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="710" height="425"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="LtR-VR-wie">
-                                    <rect key="frame" x="1" y="1" width="693" height="423"/>
+                                    <rect key="frame" x="1" y="1" width="708" height="423"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" smartInsertDelete="YES" id="29">
-                                            <rect key="frame" x="0.0" y="0.0" width="693" height="423"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="708" height="423"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                            <size key="minSize" width="693" height="423"/>
+                                            <size key="minSize" width="708" height="423"/>
                                             <size key="maxSize" width="710" height="10000000"/>
                                             <color key="insertionPointColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="693" height="423"/>
+                                            <size key="minSize" width="708" height="423"/>
                                             <size key="maxSize" width="710" height="10000000"/>
                                         </textView>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="28">
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="27">
-                                    <rect key="frame" x="694" y="1" width="15" height="423"/>
+                                    <rect key="frame" x="693" y="1" width="16" height="423"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -3836,7 +3835,7 @@
                                 <rect key="frame" x="18" y="35" width="345" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" id="XV2-yy-WwB">
-                                    <rect key="frame" x="1" y="17" width="343" height="38"/>
+                                    <rect key="frame" x="1" y="0.0" width="343" height="55"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="WDZ-al-xeH" viewBased="YES" id="e4i-YS-uuj">
@@ -4550,15 +4549,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="-2" name="enabled3" keyPath="model.record.useExportscriptsDirectory" previousBinding="FOh-Qy-G8r" id="zER-aT-laq">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
                                     <binding destination="-2" name="enabled2" keyPath="model.general.useRemoteServer" previousBinding="CdJ-Vc-RO8" id="FOh-Qy-G8r">
                                         <dictionary key="options">
                                             <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -4578,6 +4568,15 @@
                                             <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                         </dictionary>
                                     </binding>
+                                    <binding destination="-2" name="enabled3" keyPath="model.record.useExportscriptsDirectory" previousBinding="FOh-Qy-G8r" id="zER-aT-laq">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" id="0np-0e-h9O" userLabel="Exportscript Directory Button">
@@ -4589,15 +4588,6 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="chooseExportscriptsDirectory:" target="-2" id="YGL-sB-GMv"/>
-                                    <binding destination="-2" name="enabled2" keyPath="model.record.useExportscriptsDirectory" previousBinding="Zvk-gN-QQF" id="HWr-Y5-bU8">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
                                     <binding destination="-2" name="enabled3" keyPath="model.general.useRemoteServer" previousBinding="HWr-Y5-bU8" id="mvS-U9-q6i">
                                         <dictionary key="options">
                                             <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -4609,6 +4599,15 @@
                                     </binding>
                                     <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="Zvk-gN-QQF">
                                         <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="enabled2" keyPath="model.record.useExportscriptsDirectory" previousBinding="Zvk-gN-QQF" id="HWr-Y5-bU8">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
                                             <string key="NSValueTransformerName">NSNegateBoolean</string>
                                         </dictionary>
                                     </binding>
@@ -4637,7 +4636,7 @@
                                             <string key="NSValueTransformerName">NSNegateBoolean</string>
                                         </dictionary>
                                     </binding>
-                                    <binding destination="-2" name="value" keyPath="model.record.uploadExportscriptsServerAddr" id="N48-Ha-ZmC">
+                                    <binding destination="-2" name="value" keyPath="model.record.testWAServerAddr" id="VY3-8t-WCm">
                                         <dictionary key="options">
                                             <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                         </dictionary>
@@ -4667,7 +4666,7 @@
                                             <string key="NSValueTransformerName">NSNegateBoolean</string>
                                         </dictionary>
                                     </binding>
-                                    <binding destination="-2" name="value" keyPath="model.record.uploadExportscriptsServerPort" id="n1r-wQ-UxH">
+                                    <binding destination="-2" name="value" keyPath="model.record.testWASererPort" id="Rh9-3t-ADE">
                                         <dictionary key="options">
                                             <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                             <string key="NSValueTransformerName">AppiumPortTransformer</string>

@@ -262,9 +262,9 @@
 	<true/>
 	<key>ExportRecordScripts Directory</key>
 	<string></string>
-	<key>Upload ExportRecordScripts ServerPort</key>
+	<key>TestWA_ServerPort</key>
 	<integer>8080</integer>
-	<key>Upload ExportRecordScripts ServerAddress</key>
+	<key>TestWA_ServerAddress</key>
 	<string></string>
 	<key>Use Local Timezone</key>
 	<false/>

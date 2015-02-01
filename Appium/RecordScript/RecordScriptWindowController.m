@@ -48,8 +48,7 @@
 	[self.scriptAddButton setHidden:YES];
 	[self.scriptFistAddButton setHidden:NO];
 	[self.scriptFistAddButton setEnabled:NO];
-	[NSString stringWithFormat:@"%@:%@/attp/upload",APPIUM_PLIST_Upload_ExportRecordScripts_ServerAddress,APPIUM_PLIST_Upload_ExportRecordScripts_ServerPort];
-	[NSString stringWithFormat:@"%@:%@/attp/ajax/allApps",APPIUM_PLIST_Upload_ExportRecordScripts_ServerAddress,APPIUM_PLIST_Upload_ExportRecordScripts_ServerPort];
+
 	[self.scriptUploadViewController.tableView setHidden:YES];
 }
 - (void)setupAppData
@@ -69,13 +68,14 @@
 //	self.appListArr = arr;
 //	[self.appInfoTableView reloadData];
 	
-	[self loadAppData];
+//	[self loadAppData];
+	[self loadProjectData];
 }
 #pragma mark - load project data
-- (void)loadPorjectData
+- (void)loadProjectData
 {
 	[TestWAHttpExecutor loadDataWithUrlStr:[RecordscriptGetServerProjectAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] handleResultBlock:^(NSDictionary *resultDict) {
-		NSLog(@"%@",resultDict);
+//		NSLog(@"%@",resultDict);
 	}];
 }
 #pragma mark - load app data

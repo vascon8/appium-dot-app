@@ -11,6 +11,12 @@
 #import "ANSIUtility.h"
 #import "Utility.h"
 
+@interface AppiumMonitorWindowController ()
+
+@property (weak) IBOutlet NSScrollView *backGroundScrollView;
+
+@end
+
 @implementation AppiumMonitorWindowController
 
 -(id)init
@@ -40,6 +46,9 @@
 	// launch the menu bar icon
 	_menuBarManager = [AppiumMenuBarManager new];
 	[[self model] addObserver:_menuBarManager forKeyPath:@"isServerRunning" options:NSKeyValueObservingOptionNew context:NULL];
+    
+//    NSColor *bgColor = [NSColor colorWithCalibratedRed:199.0/255.0 green:200.0/255.0 blue:198.0/255.0 alpha:1.0];
+//    [self.backGroundScrollView setBackgroundColor:bgColor];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
