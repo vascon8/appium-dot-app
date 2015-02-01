@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TestWABaseModel.h"
 
-@interface RecordscriptApp : NSObject
+@class TestWAServerUser;
+
+@interface RecordscriptApp : TestWABaseModel
 
 /**
  the same with tableview column identifier
  */
-@property NSString *name;
 @property NSString *type;
-@property NSString *id;
+@property TestWAServerUser *user;
 
 @property NSString *category;
 @property NSString *title;

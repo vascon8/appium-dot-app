@@ -139,3 +139,5 @@
 
 #define APPIUM_PLIST_Upload_ExportRecordScripts_ServerAddress @"Upload ExportRecordScripts ServerAddress"
 #define APPIUM_PLIST_Upload_ExportRecordScripts_ServerPort @"Upload ExportRecordScripts ServerPort"
+#define APPIUM_PLIST_GetServerApp_Address @"GetServerApp_Address"
+#define APPIUM_PLIST_GetServerApp_Port @"GetServerApp_Port"

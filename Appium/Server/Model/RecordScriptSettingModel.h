@@ -14,5 +14,8 @@
 @property BOOL useExportscriptsDirectory;
 @property NSString *uploadExportscriptsServerAddr;
 @property NSNumber *uploadExportscriptsServerPort;
+//by default,the same value with upload export script
+@property NSString *getServerAppAddr;
+@property NSNumber *getServerAppPort;
 
 @end

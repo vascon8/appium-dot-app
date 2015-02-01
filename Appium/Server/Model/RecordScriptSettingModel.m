@@ -30,14 +30,28 @@
 {
 	[DEFAULTS setValue:uploadExportscriptsServerAddr forKey:APPIUM_PLIST_Upload_ExportRecordScripts_ServerAddress];
 }
-
-- (NSNumber *)uploadExportscriptsServerPort
-{
-	return [NSNumber numberWithInt:[[DEFAULTS valueForKey:APPIUM_PLIST_Upload_ExportRecordScripts_ServerPort]intValue]];
-}
-- (void)setUploadExportscriptsServerPort:(NSNumber *)uploadExportscriptsServerPort
-{
-	[DEFAULTS setValue:uploadExportscriptsServerPort forKey:APPIUM_PLIST_Upload_ExportRecordScripts_ServerPort];
-}
-
+//- (NSNumber *)uploadExportscriptsServerPort
+//{
+//	
+//}
+//- (void)setUploadExportscriptsServerPort:(NSNumber *)uploadExportscriptsServerPort
+//{
+//	
+//}
+//- (NSString *)getServerAppAddr
+//{
+//	return [DEFAULTS valueForKey:APPIUM_PLIST_GetServerApp_Address];
+//}
+//- (void)setGetServerAppAddr:(NSString *)getServerAppAddr
+//{
+//	[DEFAULTS setValue:getServerAppAddr forKey:APPIUM_PLIST_GetServerApp_Address];
+//}
+//- (void)setGetServerAppPort:(NSNumber *)getServerAppPort
+//{
+//	[DEFAULTS setValue:getServerAppPort forKey:APPIUM_PLIST_GetServerApp_Port];
+//}
+//- (NSNumber *)getServerAppPort
+//{
+//	return [DEFAULTS valueForKey:APPIUM_PLIST_GetServerApp_Port];
+//}
 @end
