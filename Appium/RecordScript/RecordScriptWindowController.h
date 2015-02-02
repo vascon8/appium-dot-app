@@ -30,4 +30,6 @@
 @property (weak) IBOutlet NSButton *scriptAddButton;
 @property (weak) IBOutlet NSButton *scriptFistAddButton;
 
+@property (weak) IBOutlet NSButton *loginButton;
+
 @end

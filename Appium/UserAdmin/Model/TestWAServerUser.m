@@ -10,4 +10,7 @@
 
 @implementation TestWAServerUser
 
+#pragma mark - NSCoding
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{}
 @end

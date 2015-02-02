@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "TestWABaseModel.h"
 
-@interface TestWAServerUser : TestWABaseModel
+@interface TestWAServerUser : TestWABaseModel <NSCoding>
 
 @end

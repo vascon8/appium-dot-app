@@ -286,4 +286,8 @@
 		[self.scriptAddButton setHidden:YES];
 	}
 }
+#pragma mark - login
+- (IBAction)clickedLogin:(id)sender {
+}
+
 @end
