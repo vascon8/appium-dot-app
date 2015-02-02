@@ -35,15 +35,9 @@
 {
 	return NO;
 }
-- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
+- (void)controlTextDidChange:(NSNotification *)obj
 {
-	NSLog(@"%@",fieldEditor);
-	NSLog(@"%@",control);
-	if (fieldEditor == self.userNameField) {
-		
-		[self.pwdFiled becomeFirstResponder];
-	}
-	return YES;
+	NSLog(@"%@",obj);
 }
 - (IBAction)clickedOnLogin:(id)sender {
 	NSString *userName = self.userNameField.stringValue;;
