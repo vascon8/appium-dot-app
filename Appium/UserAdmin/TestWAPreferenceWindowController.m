@@ -13,7 +13,7 @@
 
 #import "TestWAServerUser.h"
 
-@interface TestWAPreferenceWindowController ()
+@interface TestWAPreferenceWindowController ()<NSTextFieldDelegate>
 
 @end
 
@@ -31,32 +31,52 @@
 {
     [super windowDidLoad];
 }
+- (BOOL)loginHandle
+{
+	return NO;
+}
+- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
+{
+	NSLog(@"%@",fieldEditor);
+	NSLog(@"%@",control);
+	if (fieldEditor == self.userNameField) {
+		
+		[self.pwdFiled becomeFirstResponder];
+	}
+	return YES;
+}
 - (IBAction)clickedOnLogin:(id)sender {
 	NSString *userName = self.userNameField.stringValue;;
 	NSString *pwd = self.pwdFiled.stringValue;
 	if (!userName || !pwd) {
 		
 	}
-	
+
 	TestWALoginParam *param = [[TestWALoginParam alloc]init];
 	param.userName = userName;
 	param.password = pwd;
 	
-	NSString *urlStr = [TestWALoginServerAddr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	NSURL *url = [NSURL URLWithString:urlStr];
-	NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
-	NSError *error = nil;
-	NSURLResponse *response = nil;
-	NSData *resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+	TestWAServerUser *temp = [[TestWAServerUser alloc]init];
+	temp.name = userName;
+	temp.id = @"tempID";
+	[TestWAAccountTool saveAccount:temp];
 	
-	TestWAServerUser *user = [NSJSONSerialization JSONObjectWithData:resultData options:NSJSONReadingAllowFragments error:nil][@"user"];
-	if (!error) {
-		[TestWAAccountTool saveAccount:user];
-	}
-	else{
-		
-	}
+//	NSString *urlStr = [TestWALoginServerAddr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//	NSURL *url = [NSURL URLWithString:urlStr];
+//	NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
+//	NSError *error = nil;
+//	NSURLResponse *response = nil;
+//	NSData *resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//	
+//	TestWAServerUser *user = [NSJSONSerialization JSONObjectWithData:resultData options:NSJSONReadingAllowFragments error:nil][@"user"];
+//	if (!error) {
+//		[TestWAAccountTool saveAccount:user];
+//	}
+//	else{
+//		
+//	}
 	
 }
+#pragma mark - textField delegate
 
 @end

@@ -21,6 +21,9 @@
 #import "TestWAServerUser.h"
 #import "TestWAServerProject.h"
 
+#import "TestWAPreferenceWindowController.h"
+#import "TestWAAccountTool.h"
+
 @interface RecordScriptWindowController ()<NSTableViewDataSource,NSTableViewDelegate>
 
 @property NSArray *appListArr;
@@ -29,6 +32,8 @@
 @property NSOperationQueue *uploadQueue;
 
 @property NSArray *prjListArr;
+@property BOOL isLogin;
+@property TestWAPreferenceWindowController *preferenceHandler;
 
 @end
 
@@ -52,6 +57,18 @@
 	[self.scriptFistAddButton setEnabled:NO];
 
 	[self.scriptUploadViewController.tableView setHidden:YES];
+	
+	[self setupUserInfo];
+}
+- (void)setupUserInfo
+{
+	self.isLogin = [TestWAAccountTool isLogin];
+	if (_isLogin) {
+		self.userLabel.stringValue = [TestWAAccountTool loginUserName];
+	}
+	
+	[self.userLabel setHidden:!self.isLogin];
+	[self.loginButton setHidden:self.isLogin];
 }
 - (void)setupAppData
 {
@@ -288,6 +305,20 @@
 }
 #pragma mark - login
 - (IBAction)clickedLogin:(id)sender {
+	if (!self.isLogin) {
+		TestWAPreferenceWindowController *loginHandle = [[TestWAPreferenceWindowController alloc]initWithWindowNibName:@"PreferenceWindow"];
+		self.preferenceHandler = loginHandle;
+		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(preferenceHandleWillClose:) name:NSWindowWillCloseNotification object:self.preferenceHandler.window];
+		
+		[loginHandle showWindow:nil];
+		[loginHandle.window makeKeyAndOrderFront:nil];
+//		[loginHandle loginHandle];
+//		[self setupUserInfo];
+	}
 }
-
+- (void)preferenceHandleWillClose:(NSNotification *)notify
+{
+	[[NSNotificationCenter defaultCenter]removeObserver:self name:NSWindowWillCloseNotification object:self.preferenceHandler.window];
+	self.preferenceHandler = nil;
+}
 @end

@@ -12,7 +12,12 @@
 
 @interface TestWAPreferenceWindowController : NSWindowController
 
+@property (weak) IBOutlet NSView *loginView;
 @property (weak) IBOutlet NSTextField *userNameField;
 @property (weak) IBOutlet NSSecureTextField *pwdFiled;
+
+@property (strong) IBOutlet NSView *logoutView;
+
+- (BOOL)loginHandle;
 
 @end

@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class TestWAServerUser;
+#import "TestWAServerUser.h"
 
 @interface TestWAAccountTool : NSObject
 
-+ (BOOL)logedin;
++ (BOOL)isLogin;
 + (void)saveAccount:(TestWAServerUser *)user;
 + (TestWAServerUser *)requestAccount;
++ (NSString *)loginUserName;
+
++ (void)clearAccountRecord;
 
 @end

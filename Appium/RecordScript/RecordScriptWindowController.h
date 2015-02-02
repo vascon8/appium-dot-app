@@ -31,5 +31,6 @@
 @property (weak) IBOutlet NSButton *scriptFistAddButton;
 
 @property (weak) IBOutlet NSButton *loginButton;
+@property (weak) IBOutlet NSTextField *userLabel;
 
 @end
