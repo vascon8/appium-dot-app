@@ -11,10 +11,13 @@
 #import "AppiumModel.h"
 #import "AppiumUpdater.h"
 
+#define TestWALogStateDidChangedNotification @"TestWALogStateDidChangedNotification"
+
 @class AppiumInspectorWindowController;
 @class AppiumPreferencesWindowController;
 @class AppiumUpdater;
 @class RecordScriptWindowController;
+@class TestWAPreferenceWindowController;
 
 @interface AppiumAppDelegate : NSObject <NSApplicationDelegate> {
     @private
@@ -34,4 +37,6 @@
 - (IBAction)displayRecordscriptWindow:(id)sender;
 @property RecordScriptWindowController *recordScriptWindow;
 
+@property TestWAPreferenceWindowController *preferenceWindow;
+- (IBAction)displayPreferenceWindow:(id)sender;
 @end

@@ -21,7 +21,7 @@
 #import "TestWAServerUser.h"
 #import "TestWAServerProject.h"
 
-#import "TestWAPreferenceWindowController.h"
+#import "AppiumAppDelegate.h"
 #import "TestWAAccountTool.h"
 
 @interface RecordScriptWindowController ()<NSTableViewDataSource,NSTableViewDelegate>
@@ -48,13 +48,13 @@
 {
     [super windowDidLoad];
 	[self setupViews];
-	[self setupAppData];
+	if(_isLogin) [self setupAppData];
 }
 - (void)setupViews
 {
 	[self.scriptAddButton setHidden:YES];
 	[self.scriptFistAddButton setHidden:NO];
-	[self.scriptFistAddButton setEnabled:NO];
+	[self.scriptFistAddButton	setEnabled:NO];
 
 	[self.scriptUploadViewController.tableView setHidden:YES];
 	
@@ -65,6 +65,7 @@
 	self.isLogin = [TestWAAccountTool isLogin];
 	if (_isLogin) {
 		self.userLabel.stringValue = [TestWAAccountTool loginUserName];
+		[self loadProjectData];
 	}
 	
 	[self.userLabel setHidden:!self.isLogin];
@@ -306,19 +307,14 @@
 #pragma mark - login
 - (IBAction)clickedLogin:(id)sender {
 	if (!self.isLogin) {
-		TestWAPreferenceWindowController *loginHandle = [[TestWAPreferenceWindowController alloc]initWithWindowNibName:@"PreferenceWindow"];
-		self.preferenceHandler = loginHandle;
-		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(preferenceHandleWillClose:) name:NSWindowWillCloseNotification object:self.preferenceHandler.window];
-		
-		[loginHandle showWindow:nil];
-		[loginHandle.window makeKeyAndOrderFront:nil];
-//		[loginHandle loginHandle];
-//		[self setupUserInfo];
+		AppiumAppDelegate *appDelegate = [NSApplication sharedApplication].delegate;
+		[appDelegate displayPreferenceWindow:nil];
 	}
 }
-- (void)preferenceHandleWillClose:(NSNotification *)notify
+#pragma mark - change log state and update app info
+- (void)logStateDidChanged:(NSNotification *)notification
 {
-	[[NSNotificationCenter defaultCenter]removeObserver:self name:NSWindowWillCloseNotification object:self.preferenceHandler.window];
-	self.preferenceHandler = nil;
+	[self setupUserInfo];
+	NSLog(@"logstat changed:%@",notification);
 }
 @end

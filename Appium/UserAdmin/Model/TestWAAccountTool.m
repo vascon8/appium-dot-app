@@ -16,7 +16,6 @@
 		return;
 	}
 	[NSKeyedArchiver archiveRootObject:user toFile:[self userinfoFile]];
-	NSLog(@"%@",[self userinfoFile]);
 }
 + (TestWAServerUser *)requestAccount
 {
