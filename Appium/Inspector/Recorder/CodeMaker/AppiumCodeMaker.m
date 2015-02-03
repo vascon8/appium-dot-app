@@ -139,7 +139,7 @@
 	[self setString:[NSString stringWithFormat:@"%@%@%@", ([self.useBoilerPlate boolValue] ? _activePlugin.preCodeBoilerplate : @""), _renderedActions,([self.useBoilerPlate boolValue] ?_activePlugin.postCodeBoilerplate : @"")]];
 	[self setAttributedString:[[NSAttributedString alloc] initWithString:self.string]];
 	[_fragaria setString:self.string];
-	
+	NSLog(@"%d", [DEFAULTS boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY]);
 	if ([DEFAULTS boolForKey:APPIUM_PLIST_USE_ExportRecordScripts_DIRECTORY] && self.canUndo)	[self exportRecordScripts];
 }
 

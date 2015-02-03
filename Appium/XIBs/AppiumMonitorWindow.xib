@@ -4533,11 +4533,7 @@
                                             <string key="NSValueTransformerName">NSNegateBoolean</string>
                                         </dictionary>
                                     </binding>
-                                    <binding destination="-2" name="value" keyPath="model.record.useExportscriptsDirectory" id="Vfx-sx-5Ig">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
+                                    <binding destination="-2" name="value" keyPath="model.record.useExportscriptsDirectory" id="Ub3-Au-QfI"/>
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" id="Nmc-Nz-oaw" userLabel="Exportscript Directory Text Field">
@@ -4549,6 +4545,14 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
+                                    <binding destination="-2" name="enabled3" keyPath="model.record.useExportscriptsDirectory" previousBinding="FOh-Qy-G8r" id="obO-Qt-phB">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                        </dictionary>
+                                    </binding>
                                     <binding destination="-2" name="enabled2" keyPath="model.general.useRemoteServer" previousBinding="CdJ-Vc-RO8" id="FOh-Qy-G8r">
                                         <dictionary key="options">
                                             <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -4568,15 +4572,6 @@
                                             <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                         </dictionary>
                                     </binding>
-                                    <binding destination="-2" name="enabled3" keyPath="model.record.useExportscriptsDirectory" previousBinding="FOh-Qy-G8r" id="zER-aT-laq">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" id="0np-0e-h9O" userLabel="Exportscript Directory Button">
@@ -4588,7 +4583,15 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="chooseExportscriptsDirectory:" target="-2" id="YGL-sB-GMv"/>
-                                    <binding destination="-2" name="enabled3" keyPath="model.general.useRemoteServer" previousBinding="HWr-Y5-bU8" id="mvS-U9-q6i">
+                                    <binding destination="-2" name="enabled2" keyPath="model.record.useExportscriptsDirectory" previousBinding="Zvk-gN-QQF" id="OgQ-9Y-d6f">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="enabled3" keyPath="model.general.useRemoteServer" previousBinding="OgQ-9Y-d6f" id="Cwu-7Y-Ku9">
                                         <dictionary key="options">
                                             <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                             <integer key="NSNoSelectionPlaceholder" value="-1"/>
@@ -4599,15 +4602,6 @@
                                     </binding>
                                     <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="Zvk-gN-QQF">
                                         <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="enabled2" keyPath="model.record.useExportscriptsDirectory" previousBinding="Zvk-gN-QQF" id="HWr-Y5-bU8">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
                                             <string key="NSValueTransformerName">NSNegateBoolean</string>
                                         </dictionary>
                                     </binding>

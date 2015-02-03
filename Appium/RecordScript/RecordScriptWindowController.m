@@ -24,6 +24,12 @@
 #import "AppiumAppDelegate.h"
 #import "TestWAAccountTool.h"
 
+#define TestWAServerPrefix [NSString stringWithFormat:@"%@:%@",[DEFAULTS valueForKey:APPIUM_PLIST_TestWA_ServerAddress],[DEFAULTS valueForKey:APPIUM_PLIST_TestWA_ServerPort]]
+#define RecordscriptGetServerAppAddress [NSString stringWithFormat:@"%@/attp/ajax/allApps",TestWAServerPrefix]
+#define RecordscriptUploadServerAddress [NSString stringWithFormat:@"%@/attp/upload",TestWAServerPrefix]
+#define RecordscriptGetServerUser [NSString stringWithFormat:@"%@/attp/ajax/allAdmin",TestWAServerPrefix]
+#define RecordscriptGetServerProjectAddress [NSString stringWithFormat:@"%@/attp/projects",TestWAServerPrefix]
+
 @interface RecordScriptWindowController ()<NSTableViewDataSource,NSTableViewDelegate>
 
 @property NSArray *appListArr;
@@ -33,7 +39,7 @@
 
 @property NSArray *prjListArr;
 @property BOOL isLogin;
-@property TestWAPreferenceWindowController *preferenceHandler;
+//@property TestWAPreferenceWindowController *preferenceHandler;
 
 @end
 
@@ -48,7 +54,8 @@
 {
     [super windowDidLoad];
 	[self setupViews];
-	if(_isLogin) [self setupAppData];
+	[self setupAppData];
+	if(_isLogin) [self loadProjectData];
 }
 - (void)setupViews
 {
@@ -89,11 +96,15 @@
 //	[self.appInfoTableView reloadData];
 	
 //	[self loadAppData];
-	[self loadProjectData];
+//	[self loadProjectData];
 }
 #pragma mark - load project data
 - (void)loadProjectData
 {
+	self.isLoadingApp = YES;
+	[self.appLoadProgressIndicator startAnimation:nil];
+	[self.appInfoRefreshButton setEnabled:NO];
+
 	[TestWAHttpExecutor loadDataWithUrlStr:[RecordscriptGetServerProjectAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] handleResultBlock:^(id resultData) {
 		NSDictionary *prj = resultData[@"project"];
 		
@@ -116,10 +127,15 @@
 		
 		[self.appInfoTableView reloadData];
 	}];
+	
+	[self.appLoadProgressIndicator stopAnimation:nil];
+	self.isLoadingApp = NO;
+	[self.appInfoRefreshButton setEnabled:YES];
+
 }
 #pragma mark - load app data
 - (IBAction)refreshAppList:(id)sender {
-	if (self.isLoadingApp) return;
+	if (self.isLoadingApp || !self.isLogin) return;
 	[self loadProjectData];
 }
 //- (void)loadAppData
@@ -127,7 +143,7 @@
 //	self.isLoadingApp = YES;
 //	[self.appLoadProgressIndicator startAnimation:nil];
 //	[self.appInfoRefreshButton setEnabled:NO];
-//	
+//
 //	[TestWAHttpExecutor loadDataWithUrlStr:[RecordscriptGetServerAppAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] handleResultBlock:^(id resultData) {
 //		NSMutableArray *tempArrM = [NSMutableArray arrayWithCapacity:resultData.count];
 //		for (NSDictionary *dict in resultData) {
@@ -277,7 +293,7 @@
 	RecordscriptApp *app = [self.appListArr objectAtIndex:row];
 	cellView.textField.stringValue = app.name;
 	NSString *imageName = @"apple";
-	if ([app.type isEqualToString:@"android"]) imageName = @"android";
+	if ([[app.type lowercaseString] isEqualToString:@"android"]) imageName = @"android";
 	[cellView.imageView setImage:[NSImage imageNamed:imageName]];
 	return cellView;
 }
@@ -315,6 +331,5 @@
 - (void)logStateDidChanged:(NSNotification *)notification
 {
 	[self setupUserInfo];
-	NSLog(@"logstat changed:%@",notification);
 }
 @end
