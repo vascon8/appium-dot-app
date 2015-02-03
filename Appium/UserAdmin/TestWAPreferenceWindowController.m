@@ -13,7 +13,11 @@
 
 #import "TestWAServerUser.h"
 
+#import "AppiumAppDelegate.h"
+
 @interface TestWAPreferenceWindowController ()<NSTextFieldDelegate>
+
+@property BOOL isLogin;
 
 @end
 
@@ -30,16 +34,36 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+	[self setupLogView];
 }
+- (void)setupLogView
+{
+	self.isLogin = [TestWAAccountTool isLogin];
+	[self.loginView setHidden:self.isLogin];
+	[self.logoutView setHidden:!self.isLogin];
+	
+	if (!self.loginView.isHidden) {
+		self.pwdFiled.stringValue = @"";
+		[self controlTextDidChange:nil];
+	}
+	if (!self.logoutView.isHidden) {
+		self.userNameLabel.stringValue = [TestWAAccountTool loginUserName];
+	}
+	
+	[[NSNotificationCenter defaultCenter]postNotificationName:TestWALogStateDidChangedNotification object:self userInfo:nil];
+}
+- (IBAction)logout:(id)sender {
+	[TestWAAccountTool clearAccountRecord];
+	[self setupLogView];
+}
+
 - (BOOL)loginHandle
 {
 	return NO;
 }
-- (void)controlTextDidChange:(NSNotification *)obj
-{
-	NSLog(@"%@",obj);
-}
+
 - (IBAction)clickedOnLogin:(id)sender {
+	[self.loginProgressView setHidden:NO];
 	NSString *userName = self.userNameField.stringValue;;
 	NSString *pwd = self.pwdFiled.stringValue;
 	if (!userName || !pwd) {
@@ -54,6 +78,9 @@
 	temp.name = userName;
 	temp.id = @"tempID";
 	[TestWAAccountTool saveAccount:temp];
+	
+	[self.loginProgressView setHidden:YES];
+	[self setupLogView];
 	
 //	NSString *urlStr = [TestWALoginServerAddr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 //	NSURL *url = [NSURL URLWithString:urlStr];
@@ -72,5 +99,13 @@
 	
 }
 #pragma mark - textField delegate
-
+- (void)controlTextDidChange:(NSNotification *)obj
+{
+	if (self.userNameField.stringValue.length>0 && self.pwdFiled.stringValue.length>0) {
+		[self.loginButton setEnabled:YES];
+	}
+	else{
+		[self.loginButton setEnabled:NO];
+	}
+}
 @end

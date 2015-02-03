@@ -33,4 +33,6 @@
 @property (weak) IBOutlet NSButton *loginButton;
 @property (weak) IBOutlet NSTextField *userLabel;
 
+- (void)logStateDidChanged:(NSNotification *)notification;
+
 @end

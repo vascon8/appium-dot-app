@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -7,10 +7,14 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TestWAPreferenceWindowController">
             <connections>
+                <outlet property="loginButton" destination="wVN-UO-Dse" id="f5P-hq-UJi"/>
+                <outlet property="loginProgressView" destination="7Ew-tS-uIr" id="F6r-rx-ccw"/>
                 <outlet property="loginView" destination="ztL-qO-sdz" id="vY8-g2-PgD"/>
                 <outlet property="logoutView" destination="I8p-1o-4VX" id="O1W-1X-cvO"/>
                 <outlet property="pwdFiled" destination="5R2-ww-TJ1" id="Ujw-kD-LHu"/>
+                <outlet property="userIcon" destination="hFF-hz-jcN" id="Hzd-rc-hPZ"/>
                 <outlet property="userNameField" destination="ZXQ-l1-vKY" id="Smi-fi-WWa"/>
+                <outlet property="userNameLabel" destination="Aoj-j1-HwX" id="dCE-1l-KVp"/>
                 <outlet property="window" destination="9KO-sy-Sln" id="wsw-ov-atF"/>
             </connections>
         </customObject>
@@ -20,11 +24,42 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="310" y="320" width="482" height="265"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1024" height="746"/>
             <view key="contentView" id="uoi-HA-H9s">
                 <rect key="frame" x="0.0" y="0.0" width="482" height="265"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <customView appearanceType="aqua" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8p-1o-4VX" userLabel="Logout View - Custom View">
+                        <rect key="frame" x="20" y="84" width="441" height="96"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <button appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLi-57-bKh" userLabel="Logout Button - Round Rect Button - Round Rect Button">
+                                <rect key="frame" x="313" y="38" width="72" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundRect" title="退出" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cba-ws-h7b">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="logout:" target="-2" id="fSw-Fy-eFT"/>
+                                </connections>
+                            </button>
+                            <textField appearanceType="aqua" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aoj-j1-HwX" userLabel="UserName Label - Text Field - Label">
+                                <rect key="frame" x="129" y="34" width="154" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="1pd-Ww-G4r">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView appearanceType="aqua" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hFF-hz-jcN" userLabel="User Icon Image View - Image Well">
+                                <rect key="frame" x="56" y="21" width="54" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="appium" id="R8e-fF-mRa"/>
+                            </imageView>
+                        </subviews>
+                    </customView>
                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ztL-qO-sdz" userLabel="Login View - Custom View">
                         <rect key="frame" x="20" y="20" width="441" height="161"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -97,27 +132,33 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="roundRect" title="注册" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R09-Fg-2sv">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="titleBar" size="12"/>
+                                                <font key="font" metaFont="cellTitle"/>
                                             </buttonCell>
                                         </button>
-                                        <progressIndicator appearanceType="aqua" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="45J-El-9u8" userLabel="Login Circular Progress Indicator">
-                                            <rect key="frame" x="95" y="25" width="16" height="16"/>
+                                        <customView hidden="YES" appearanceType="aqua" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ew-tS-uIr" userLabel="Login Progress View -Custom View">
+                                            <rect key="frame" x="143" y="14" width="64" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        </progressIndicator>
-                                        <textField appearanceType="aqua" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bOD-S8-7bA" userLabel="Login Progress Text Field - 登陆中...">
-                                            <rect key="frame" x="129" y="25" width="82" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="登陆中..." id="HsA-2A-q05">
-                                                <font key="font" metaFont="system" size="10"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
+                                            <subviews>
+                                                <progressIndicator appearanceType="aqua" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="45J-El-9u8" userLabel="Login Circular Progress Indicator">
+                                                    <rect key="frame" x="4" y="8" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                </progressIndicator>
+                                                <textField appearanceType="aqua" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bOD-S8-7bA" userLabel="Login Progress Text Field - 登陆中...">
+                                                    <rect key="frame" x="18" y="7" width="49" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="登陆中..." id="HsA-2A-q05">
+                                                        <font key="font" metaFont="system" size="10"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
+                                        </customView>
                                     </subviews>
                                 </view>
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
-                                <font key="titleFont" size="12" name=".HelveticaNeueDeskInterface-Regular"/>
+                                <font key="titleFont" metaFont="cellTitle"/>
                             </box>
                         </subviews>
                     </customView>
@@ -160,9 +201,8 @@
             <size key="contentSize" width="100" height="100"/>
             <size key="maxContentSize" width="10000" height="10000"/>
         </drawer>
-        <customView appearanceType="aqua" id="I8p-1o-4VX" userLabel="Logout View - Custom View">
-            <rect key="frame" x="0.0" y="0.0" width="163" height="96"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-        </customView>
     </objects>
+    <resources>
+        <image name="appium" width="128" height="128"/>
+    </resources>
 </document>

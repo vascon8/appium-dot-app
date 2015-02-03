@@ -15,6 +15,7 @@
 #import "Utility.h"
 
 #import "RecordScriptWindowController.h"
+#import "TestWAPreferenceWindowController.h"
 
 @implementation AppiumAppDelegate
 
@@ -191,6 +192,8 @@
 													 selector:@selector(recordscriptWindowWillClose:)
 														 name:NSWindowWillCloseNotification
 													   object:[self.recordScriptWindow window]];
+			if (self.preferenceWindow)
+				[[NSNotificationCenter defaultCenter]addObserver:self.recordScriptWindow selector:@selector(logStateDidChanged:) name:TestWALogStateDidChangedNotification object:self.preferenceWindow];
 			
 			dispatch_async(dispatch_get_main_queue(), ^{
 				[self presentRecordscriptWindow];
@@ -207,17 +210,33 @@
 	[self.recordScriptWindow showWindow:self];
 	[[self.recordScriptWindow window] makeKeyAndOrderFront:self];
 }
-//- (void)closeRecordScriptWindow
-//{
-//	if (self.recordScriptWindow != nil)
-//	{
-//		[self.recordScriptWindow close];
-//	}
-//}
 
 - (void)recordscriptWindowWillClose:(NSNotification *)notification
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowWillCloseNotification object:[self.recordScriptWindow window]];
 	self.recordScriptWindow = nil;
+}
+#pragma mark display preference window
+- (IBAction)displayPreferenceWindow:(id)sender{
+	if (self.preferenceWindow == nil){
+		self.preferenceWindow = [[TestWAPreferenceWindowController alloc]initWithWindowNibName:@"PreferenceWindow"];
+		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(preferenceWindowWillClose:) name:NSWindowWillCloseNotification object:self.preferenceWindow.window];
+		
+		if (self.recordScriptWindow)
+		[[NSNotificationCenter defaultCenter]addObserver:self.recordScriptWindow selector:@selector(logStateDidChanged:) name:TestWALogStateDidChangedNotification object:self.preferenceWindow];
+		
+	}
+	[self presentPreferenceWindow];
+}
+- (void)presentPreferenceWindow
+{
+	[self.preferenceWindow showWindow:self];
+	[self.preferenceWindow.window makeKeyAndOrderFront:self];
+}
+- (void)preferenceWindowWillClose:(NSNotification *)notification
+{
+	[[NSNotificationCenter defaultCenter]removeObserver:self name:NSWindowWillCloseNotification object:self.preferenceWindow.window];
+	[[NSNotificationCenter defaultCenter]removeObserver:self.recordScriptWindow name:TestWALogStateDidChangedNotification object:self.preferenceWindow];
+	self.preferenceWindow = nil;
 }
 @end
