@@ -48,6 +48,7 @@ BOOL _isServerListening;
 		_isServerRunning = NO;
 		_isServerListening = self.general.useRemoteServer;
         [self setDoctorSocketIsConnected:NO];
+		
     }
 	
     return self;
