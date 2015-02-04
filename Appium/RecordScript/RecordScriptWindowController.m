@@ -198,12 +198,11 @@
 		RecordScriptUploadResult *result = app.scriptList[index];
 		if (!error) {
 			result.uploadStatus = RecordScriptUploadStatusSuccess;
-			[self updateScriptView];
 		}
 		else{
 			result.uploadStatus = RecordScriptUploadStatusFail;
 		}
-		[self.scriptUploadViewController.tableView reloadDataForRowIndexes:[NSIndexSet indexSetWithIndex:index] columnIndexes:[NSIndexSet indexSetWithIndex:0]];
+		[self.scriptUploadViewController.tableView reloadDataForRowIndexes:[NSIndexSet indexSetWithIndex:index] columnIndexes:[NSIndexSet indexSetWithIndex:1]];
 	}];
 }
 - (void)updateScriptView
@@ -227,6 +226,7 @@
 	[chooseScriptPanlel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
 		
 		if (result == NSFileHandlingPanelOKButton && [[chooseScriptPanlel URLs][0] lastPathComponent]) {
+			[self updateScriptView];
 			NSURL *scriptFileUrl = [chooseScriptPanlel URLs][0];
 		
 			NSInteger selectedRow = self.appInfoTableView.selectedRow;
@@ -234,7 +234,10 @@
 		
 			NSInteger uploadIndex = [self setupAppRecordScriptUploadResult:app withScriptName:[scriptFileUrl lastPathComponent]];
 			
-			[self uploadScriptWithPostParams:[self setupAppParams:app withScriptFileUrl:scriptFileUrl] app:app uploadIndex:uploadIndex];
+			NSBlockOperation *uploadOp = [NSBlockOperation blockOperationWithBlock:^{
+				[self uploadScriptWithPostParams:[self setupAppParams:app withScriptFileUrl:scriptFileUrl] app:app uploadIndex:uploadIndex];
+			}];
+			[self.uploadQueue addOperation:uploadOp];
 		}
 	}];
 }
@@ -355,6 +358,7 @@
 		[self.scriptAddButton setHidden:YES];
 	}
 }
+#pragma mark - remove upload script record
 - (IBAction)removeRecordScript:(id)sender{
 	
 }
