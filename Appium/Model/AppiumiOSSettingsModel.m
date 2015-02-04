@@ -166,7 +166,6 @@
 -(BOOL) useUDID { return [DEFAULTS boolForKey:APPIUM_PLIST_IOS_USE_UDID]; }
 -(void) setUseUDID:(BOOL)useUDID { [DEFAULTS setBool:useUDID forKey:APPIUM_PLIST_IOS_USE_UDID]; }
 
-
 #pragma mark - Methods
 
 -(NSString*) xcodePath

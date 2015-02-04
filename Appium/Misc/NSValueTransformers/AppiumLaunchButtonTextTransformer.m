@@ -22,7 +22,7 @@
 
 - (id)transformedValue:(id)value
 {
-    return ([value boolValue] ? @"Stop" : @"Launch");
+    return ([value boolValue] ? @"停止服务器" : @"启动服务器");
 }
 
 @end

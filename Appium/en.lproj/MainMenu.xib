@@ -17,7 +17,7 @@
                 <menuItem title="Appium" id="56">
                     <menu key="submenu" title="Appium" systemMenu="apple" id="57">
                         <items>
-                            <menuItem title="About Appium" id="58">
+                            <menuItem title="关于Appium" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
@@ -26,13 +26,13 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Check For Updates" id="698">
+                            <menuItem title="检查更新" id="698">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="checkForUpdates:" target="494" id="699"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Reset Preferences" id="Wk3-bj-hTa">
+                            <menuItem title="重置设置" id="Wk3-bj-hTa">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="resetPreferences:" target="494" id="h8L-rw-atT"/>
@@ -47,18 +47,18 @@
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Hide Appium" keyEquivalent="h" id="134">
+                            <menuItem title="隐藏Appium" keyEquivalent="h" id="134">
                                 <connections>
                                     <action selector="hide:" target="-1" id="367"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Hide Others" keyEquivalent="h" id="145">
+                            <menuItem title="隐藏其它" keyEquivalent="h" id="145">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="hideOtherApplications:" target="-1" id="368"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show All" id="150">
+                            <menuItem title="显示所有" id="150">
                                 <connections>
                                     <action selector="unhideAllApplications:" target="-1" id="370"/>
                                 </connections>
@@ -66,7 +66,7 @@
                             <menuItem isSeparatorItem="YES" id="149">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Quit Appium" keyEquivalent="q" id="136">
+                            <menuItem title="退出" keyEquivalent="q" id="136">
                                 <connections>
                                     <action selector="terminate:" target="-3" id="449"/>
                                 </connections>
@@ -74,23 +74,23 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="File" id="83">
-                    <menu key="submenu" title="File" id="81">
+                <menuItem title="文件" id="83">
+                    <menu key="submenu" title="文件" id="81">
                         <items>
-                            <menuItem title="New" keyEquivalent="n" id="82">
+                            <menuItem title="新建" keyEquivalent="n" id="82">
                                 <connections>
                                     <action selector="newDocument:" target="-1" id="373"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Open…" keyEquivalent="o" id="72">
+                            <menuItem title="打开…" keyEquivalent="o" id="72">
                                 <connections>
                                     <action selector="openDocument:" target="-1" id="374"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Open Recent" id="124">
-                                <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="125">
+                            <menuItem title="打开最近" id="124">
+                                <menu key="submenu" title="打开最近" systemMenu="recentDocuments" id="125">
                                     <items>
-                                        <menuItem title="Clear Menu" id="126">
+                                        <menuItem title="清除菜单" id="126">
                                             <connections>
                                                 <action selector="clearRecentDocuments:" target="-1" id="127"/>
                                             </connections>
@@ -101,17 +101,17 @@
                             <menuItem isSeparatorItem="YES" id="79">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Close" keyEquivalent="w" id="73">
+                            <menuItem title="关闭" keyEquivalent="w" id="73">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="193"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Save…" keyEquivalent="s" id="75">
+                            <menuItem title="保存…" keyEquivalent="s" id="75">
                                 <connections>
                                     <action selector="saveDocument:" target="-1" id="362"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Revert to Saved" id="112">
+                            <menuItem title="恢复到最近保存" id="112">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="revertDocumentToSaved:" target="-1" id="364"/>
@@ -120,13 +120,13 @@
                             <menuItem isSeparatorItem="YES" id="74">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Page Setup..." keyEquivalent="P" id="77">
+                            <menuItem title="页面设置..." keyEquivalent="P" id="77">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="runPageLayout:" target="-1" id="87"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Print…" keyEquivalent="p" id="78">
+                            <menuItem title="打印…" keyEquivalent="p" id="78">
                                 <connections>
                                     <action selector="print:" target="-1" id="86"/>
                                 </connections>
@@ -134,8 +134,8 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Edit" id="217">
-                    <menu key="submenu" title="Edit" id="205">
+                <menuItem title="编辑" id="217">
+                    <menu key="submenu" title="编辑" id="205">
                         <items>
                             <menuItem title="Undo" keyEquivalent="z" id="207">
                                 <connections>
@@ -341,13 +341,28 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Format" id="375">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Format" id="376">
+                <menuItem title="脚本" id="4tL-L7-DdV" userLabel="Menu Item - 脚本">
+                    <menu key="submenu" title="脚本" systemMenu="apple" id="U8c-99-xw1" userLabel="Menu - 脚本">
                         <items>
-                            <menuItem title="Font" id="377">
+                            <menuItem isSeparatorItem="YES" id="ahV-ex-aJF">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="上传" id="0Lb-93-sqL" userLabel="Menu Item - 上传">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Font" systemMenu="font" id="388">
+                                <connections>
+                                    <action selector="displayRecordscriptWindow:" target="494" id="1Z5-wl-wUK"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="格式" id="375">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="格式" id="376">
+                        <items>
+                            <menuItem title="字体" id="377">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="字体" systemMenu="font" id="388">
                                     <items>
                                         <menuItem title="Show Fonts" keyEquivalent="t" id="389">
                                             <connections>
@@ -496,35 +511,35 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Text" id="496">
+                            <menuItem title="文本" id="496">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Text" id="497">
+                                <menu key="submenu" title="文本" id="497">
                                     <items>
-                                        <menuItem title="Align Left" keyEquivalent="{" id="498">
+                                        <menuItem title="左对齐" keyEquivalent="{" id="498">
                                             <connections>
                                                 <action selector="alignLeft:" target="-1" id="524"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Center" keyEquivalent="|" id="499">
+                                        <menuItem title="居中" keyEquivalent="|" id="499">
                                             <connections>
                                                 <action selector="alignCenter:" target="-1" id="518"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Justify" id="500">
+                                        <menuItem title="适应" id="500">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="alignJustified:" target="-1" id="523"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Align Right" keyEquivalent="}" id="501">
+                                        <menuItem title="右对齐" keyEquivalent="}" id="501">
                                             <connections>
                                                 <action selector="alignRight:" target="-1" id="521"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="502"/>
-                                        <menuItem title="Writing Direction" id="503">
+                                        <menuItem title="书写方向" id="503">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Writing Direction" id="508">
+                                            <menu key="submenu" title="书写方向" id="508">
                                                 <items>
                                                     <menuItem title="Paragraph" enabled="NO" id="509">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
@@ -603,8 +618,8 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="View" id="295">
-                    <menu key="submenu" title="View" id="296">
+                <menuItem title="视图" id="295">
+                    <menu key="submenu" title="视图" id="296">
                         <items>
                             <menuItem title="Show Toolbar" keyEquivalent="t" id="297">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
@@ -620,8 +635,8 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Window" id="19">
-                    <menu key="submenu" title="Window" systemMenu="window" id="24">
+                <menuItem title="窗口" id="19">
+                    <menu key="submenu" title="窗口" systemMenu="window" id="24">
                         <items>
                             <menuItem title="Minimize" keyEquivalent="m" id="23">
                                 <connections>
@@ -653,9 +668,9 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Help" id="490">
+                <menuItem title="帮助" id="490">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Help" systemMenu="help" id="491">
+                    <menu key="submenu" title="帮助" systemMenu="help" id="491">
                         <items>
                             <menuItem title="Online Help" keyEquivalent="?" id="492">
                                 <connections>

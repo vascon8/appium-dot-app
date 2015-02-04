@@ -14,6 +14,8 @@
 #import "NodeInstance.h"
 #import "Utility.h"
 
+#import "RecordScriptWindowController.h"
+
 @implementation AppiumAppDelegate
 
 #pragma mark - Handlers

@@ -260,6 +260,14 @@
 	<false/>
 	<key>Use Selenium Grid Config File</key>
 	<false/>
+	<key>Use ExportRecordScripts Directory</key>
+	<true/>
+	<key>ExportRecordScripts Directory</key>
+	<string></string>
+	<key>TestWA_ServerPort</key>
+	<integer>8080</integer>
+	<key>TestWA_ServerAddress</key>
+	<string></string>
 	<key>Use Local Timezone</key>
 	<false/>
 </dict>

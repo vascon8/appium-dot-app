@@ -29,8 +29,8 @@
 	[self setIsReady:[NSNumber numberWithBool:NO]];
 	[self setNumberOfFingersString:@"1"];
 	[self setDuration:[NSNumber numberWithFloat:0.5f]];
-	[self setBeginPointLabel:@"(click to select)"];
-	[self setEndPointLabel:@"(click to select)"];
+	[self setBeginPointLabel:@"(请点击选择)"];
+	[self setEndPointLabel:@"(请点击选择)"];
 }
 
 #pragma mark - Properties
@@ -104,8 +104,8 @@
 	[self setIsReady:[NSNumber numberWithBool:NO]];
 	[self setNumberOfFingersString:@"1"];
 	[self setDuration:[NSNumber numberWithFloat:0.5f]];
-	[self setBeginPointLabel:@"(click to select)"];
-	[self setEndPointLabel:@"(click to select)"];
+	[self setBeginPointLabel:@"(请点击选择)"];
+	[self setEndPointLabel:@"(请点击选择)"];
 	[_windowController.screenshotImageView setBeginPoint:nil];
 	[_windowController.screenshotImageView setEndPoint:nil];
 }

@@ -14,6 +14,7 @@
 @class AppiumInspectorWindowController;
 @class AppiumPreferencesWindowController;
 @class AppiumUpdater;
+@class RecordScriptWindowController;
 
 @interface AppiumAppDelegate : NSObject <NSApplicationDelegate> {
     @private
@@ -29,5 +30,8 @@
 -(IBAction) displayInspector:(id)sender;
 -(void) closeInspector;
 -(void) restart;
+
+- (IBAction)displayRecordscriptWindow:(id)sender;
+@property RecordScriptWindowController *recordScriptWindow;
 
 @end

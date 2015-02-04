@@ -24,4 +24,5 @@
 -(NSRect) convertSeleniumRectToViewRect:(NSRect)rect;
 -(NSPoint) convertWindowPointToSeleniumPoint:(NSPoint)pointInWindow;
 
+- (void)determineBorders;
 @end

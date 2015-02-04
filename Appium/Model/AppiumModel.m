@@ -44,6 +44,8 @@ BOOL _isServerListening;
 		[self setIOS:[AppiumiOSSettingsModel new]];
 		[self setRobot:[AppiumRobotSettingsModel new]];
 		
+		[self setRecord:[RecordScriptSettingModel new]];
+		
 		// initialize members
 		_isServerRunning = NO;
 		_isServerListening = self.general.useRemoteServer;
