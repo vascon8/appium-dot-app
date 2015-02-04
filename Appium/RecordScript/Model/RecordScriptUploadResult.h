@@ -10,12 +10,14 @@
 
 typedef enum RecordScriptUploadStatusType{
 	RecordScriptUploadStatusSuccess,
-	RecordScriptUploadStatusFailed
+	RecordScriptUploadStatusFail,
+	RecordScriptUploadStatusUploading
 }RecordScriptUploadStatus;
 
 @interface RecordScriptUploadResult : NSObject
 
 @property NSString *scriptName;
-@property RecordScriptUploadStatus *uploadStatus;
+@property RecordScriptUploadStatus uploadStatus;
+@property BOOL checked;
 
 @end

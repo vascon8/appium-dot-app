@@ -32,7 +32,28 @@
 {
 	NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:nil];
 	RecordScriptUploadResult *result = [self.scriptList objectAtIndex:row];
-	cellView.textField.stringValue = result.scriptName;
+	
+	if ([tableColumn.identifier isEqualToString:@"Script"]) {
+		cellView.textField.stringValue = result.scriptName;
+		switch (result.uploadStatus) {
+			case RecordScriptUploadStatusUploading:
+				[cellView.imageView setImage:[NSImage imageNamed:@"upload3"]];
+				break;
+			case RecordScriptUploadStatusFail:
+				[cellView.imageView setImage:[NSImage imageNamed:@"faile3"]];
+				break;
+			case RecordScriptUploadStatusSuccess:
+			default:
+				[cellView.imageView setImage:[NSImage imageNamed:@"success3"]];
+				break;
+		}
+	}
+	else{
+		NSButton *btn = (NSButton *)cellView;
+		[btn setState:result.checked];
+	}
+
 	return cellView;
 }
+- tableview
 @end

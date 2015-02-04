@@ -12,7 +12,7 @@
 
 @implementation TestWAHttpExecutor
 
-+ (void)loadDataWithUrlStr:(NSString *)urlStr handleResultBlock:(void (^)(id resultData))handleResultBlock{
++ (void)loadDataWithUrlStr:(NSString *)urlStr handleResultBlock:(void (^)(id resultData,NSError *error))handleResultBlock{
 	
 	NSURL *url = [NSURL URLWithString:[self handleUrlStr:urlStr]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
@@ -27,7 +27,7 @@
 			NSLog(@"error found:%@",error);
 		}
 		else{
-			handleResultBlock(resultData);
+			handleResultBlock(resultData,nil);
 		}
 	}
 	else if (data == nil){
@@ -35,15 +35,14 @@
 	}
 	else{
 		NSLog(@"%@",error);
+		handleResultBlock(nil,error);
 	}
 }
 
-+ (void)uploadScriptWithUrlStr:(NSString *)urlStr queue:(NSOperationQueue *)uploadQueue postParams:(RecordScriptUploadParam *)params{
++ (void)uploadScriptWithUrlStr:(NSString *)urlStr queue:(NSOperationQueue *)uploadQueue postParams:(RecordScriptUploadParam *)params handleResultBlock:(void (^)(id resultData,NSError *error))handleResultBlock{
 	NSError *error = nil;
 	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[params keyedDictFromModel] options:NSJSONWritingPrettyPrinted error:&error];
-	if (error) {NSLog(@"%@",error); return;}
-	//	NSString *jsonStr =  [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-	//	NSData *body = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+	if (error) {NSLog(@"%@",error); handleResultBlock(nil,error);return;}
 	
 	NSURL *url = [NSURL URLWithString:[self handleUrlStr:urlStr]];
 	
@@ -59,6 +58,7 @@
 		else{
 			NSLog(@"%@",response);
 		}
+		handleResultBlock(response,connectionError);
 	}];
 }
 

@@ -32,6 +32,17 @@
 
 @interface RecordScriptWindowController ()<NSTableViewDataSource,NSTableViewDelegate>
 
+@property (weak) IBOutlet NSTableView *appInfoTableView;
+@property (weak) IBOutlet NSButton *appInfoRefreshButton;
+@property (weak) IBOutlet NSProgressIndicator *appLoadProgressIndicator;
+
+@property (weak) IBOutlet NSButton *scriptAddButton;
+@property (weak) IBOutlet NSButton *scriptFistAddButton;
+@property (weak) IBOutlet NSButton *scriptRemoveButton;
+
+@property (weak) IBOutlet NSButton *loginButton;
+@property (weak) IBOutlet NSTextField *userLabel;
+
 @property NSArray *appListArr;
 @property BOOL isLoadingApp;
 @property (strong) IBOutlet RecordScriptUploadResultViewController *scriptUploadViewController;
@@ -39,7 +50,6 @@
 
 @property NSArray *prjListArr;
 @property BOOL isLogin;
-//@property TestWAPreferenceWindowController *preferenceHandler;
 
 @end
 
@@ -85,15 +95,15 @@
 	self.uploadQueue = [[NSOperationQueue alloc]init];
 	[self.uploadQueue setMaxConcurrentOperationCount:MaxConcurrentUploadOperation];
 	
-//	NSMutableArray *arr = [NSMutableArray arrayWithCapacity:10];
-//	for (int i=0; i<6; i++) {
-//		RecordscriptApp *app = [[RecordscriptApp alloc]init];
-//		app.type = i%2 ? @"IOS" : @"Android";
-//		app.name = [NSString stringWithFormat:@"App %d",i+1];
-//		[arr addObject:app];
-//	}
-//	self.appListArr = arr;
-//	[self.appInfoTableView reloadData];
+	NSMutableArray *arr = [NSMutableArray arrayWithCapacity:10];
+	for (int i=0; i<6; i++) {
+		RecordscriptApp *app = [[RecordscriptApp alloc]init];
+		app.type = i%2 ? @"IOS" : @"Android";
+		app.name = [NSString stringWithFormat:@"App %d",i+1];
+		[arr addObject:app];
+	}
+	self.appListArr = arr;
+	[self.appInfoTableView reloadData];
 	
 //	[self loadAppData];
 //	[self loadProjectData];
@@ -105,7 +115,12 @@
 	[self.appLoadProgressIndicator startAnimation:nil];
 	[self.appInfoRefreshButton setEnabled:NO];
 
-	[TestWAHttpExecutor loadDataWithUrlStr:[RecordscriptGetServerProjectAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] handleResultBlock:^(id resultData) {
+	[TestWAHttpExecutor loadDataWithUrlStr:[RecordscriptGetServerProjectAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] handleResultBlock:^(id resultData,NSError *error) {
+		if (error) {
+			NSLog(@"%@",error);
+			return ;
+		}
+		
 		NSDictionary *prj = resultData[@"project"];
 		
 		NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:prj.count];
@@ -166,25 +181,38 @@
 {
 	__block TestWAServerUser *user = nil;
 	NSString *str = [RecordscriptGetServerUser stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	[TestWAHttpExecutor loadDataWithUrlStr:str handleResultBlock:^(id resultData) {
+	[TestWAHttpExecutor loadDataWithUrlStr:str handleResultBlock:^(id resultData,NSError *error) {
+		if (error) {
+			NSLog(@"%@",error);
+			return ;
+		}
 		user = [TestWAServerUser objectWithKeyedDict:resultData];
 	}];
 	
 	return user;
 }
 #pragma mark - upload script
-- (void)uploadScriptWithPostParams:(RecordScriptUploadParam *)params
+- (void)uploadScriptWithPostParams:(RecordScriptUploadParam *)params app:(RecordscriptApp *)app uploadIndex:(NSInteger)index
 {
-	[self updateScriptResultView];
-	[TestWAHttpExecutor uploadScriptWithUrlStr:RecordscriptUploadServerAddress queue:self.uploadQueue postParams:params];
+	[TestWAHttpExecutor uploadScriptWithUrlStr:RecordscriptUploadServerAddress queue:self.uploadQueue postParams:params handleResultBlock:^(id resultData, NSError *error) {
+		RecordScriptUploadResult *result = app.scriptList[index];
+		if (!error) {
+			result.uploadStatus = RecordScriptUploadStatusSuccess;
+			[self updateScriptView];
+		}
+		else{
+			result.uploadStatus = RecordScriptUploadStatusFail;
+		}
+		[self.scriptUploadViewController.tableView reloadDataForRowIndexes:[NSIndexSet indexSetWithIndex:index] columnIndexes:[NSIndexSet indexSetWithIndex:0]];
+	}];
 }
-- (void)updateScriptResultView
+- (void)updateScriptView
 {
-	NSInteger selectedRow = self.appInfoTableView.selectedRow;
-	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
-	self.scriptUploadViewController.scriptList = [NSArray arrayWithArray:app.scriptList];
-	if (self.scriptUploadViewController.scriptList.count>0) [self.scriptUploadViewController.view setHidden:NO];
-	[self.scriptUploadViewController.tableView reloadData];
+	if (!self.scriptFistAddButton.isHidden) {
+		[self.scriptFistAddButton setHidden:YES];
+		
+		[self.scriptAddButton setHidden:NO];
+	}
 }
 - (IBAction)chooseScriptButtonClicked:(NSButton *)sender {
 	NSOpenPanel* chooseScriptPanlel = [NSOpenPanel openPanel];
@@ -200,31 +228,39 @@
 		
 		if (result == NSFileHandlingPanelOKButton && [[chooseScriptPanlel URLs][0] lastPathComponent]) {
 			NSURL *scriptFileUrl = [chooseScriptPanlel URLs][0];
-			
-			if (!self.scriptFistAddButton.isHidden) {
-				[self.scriptFistAddButton setHidden:YES];
-				
-				[self.scriptAddButton setHidden:NO];
-			}
 		
 			NSInteger selectedRow = self.appInfoTableView.selectedRow;
 			RecordscriptApp *app = (RecordscriptApp *)self.appListArr[selectedRow];
 		
-			[self setupAppRecordScriptUploadResult:app withScriptName:[scriptFileUrl lastPathComponent]];
-			[self uploadScriptWithPostParams:[self setupAppParams:app withScriptFileUrl:scriptFileUrl]];
+			NSInteger uploadIndex = [self setupAppRecordScriptUploadResult:app withScriptName:[scriptFileUrl lastPathComponent]];
+			
+			[self uploadScriptWithPostParams:[self setupAppParams:app withScriptFileUrl:scriptFileUrl] app:app uploadIndex:uploadIndex];
 		}
 	}];
 }
 #pragma mark update record script result
-- (void)setupAppRecordScriptUploadResult:(RecordscriptApp *)app withScriptName:(NSString *)scriptName
+- (NSInteger)setupAppRecordScriptUploadResult:(RecordscriptApp *)app withScriptName:(NSString *)scriptName
 {
 	NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:app.scriptList.count+1];
 	if (app.scriptList) [arrM addObjectsFromArray:app.scriptList];
 	RecordScriptUploadResult *result = [RecordScriptUploadResult new];
 	result.scriptName = scriptName;
+	result.uploadStatus = RecordScriptUploadStatusUploading;
 	[arrM addObject:result];
 	app.scriptList = arrM;
 	arrM = nil;
+	
+	[self updateScriptResultView];
+	
+	return app.scriptList.count-1;
+}
+- (void)updateScriptResultView
+{
+	NSInteger selectedRow = self.appInfoTableView.selectedRow;
+	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
+	self.scriptUploadViewController.scriptList = [NSArray arrayWithArray:app.scriptList];
+	if (self.scriptUploadViewController.scriptList.count>0) [self.scriptUploadViewController.view setHidden:NO];
+	[self.scriptUploadViewController.tableView reloadData];
 }
 - (RecordScriptUploadParam *)setupAppParams:(RecordscriptApp *)app withScriptFileUrl:(NSURL *)scriptFileUrl
 {
@@ -241,7 +277,6 @@
 	
 	NSData *fileData = [NSData dataWithContentsOfFile:path];
 	param.base64EncodingStr = [fileData base64Encoding];
-	NSLog(@"param:%@",param);
 	
 	return param;
 }
@@ -319,6 +354,9 @@
 		[self.scriptFistAddButton setHidden:NO];
 		[self.scriptAddButton setHidden:YES];
 	}
+}
+- (IBAction)removeRecordScript:(id)sender{
+	
 }
 #pragma mark - login
 - (IBAction)clickedLogin:(id)sender {

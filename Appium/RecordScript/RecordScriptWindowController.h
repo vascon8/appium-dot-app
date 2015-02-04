@@ -18,15 +18,15 @@
 
 @interface RecordScriptWindowController : NSWindowController
 
-@property (weak) IBOutlet NSTableView *appInfoTableView;
-@property (weak) IBOutlet NSButton *appInfoRefreshButton;
-@property (weak) IBOutlet NSProgressIndicator *appLoadProgressIndicator;
-
-@property (weak) IBOutlet NSButton *scriptAddButton;
-@property (weak) IBOutlet NSButton *scriptFistAddButton;
-
-@property (weak) IBOutlet NSButton *loginButton;
-@property (weak) IBOutlet NSTextField *userLabel;
+//@property (weak) IBOutlet NSTableView *appInfoTableView;
+//@property (weak) IBOutlet NSButton *appInfoRefreshButton;
+//@property (weak) IBOutlet NSProgressIndicator *appLoadProgressIndicator;
+//
+//@property (weak) IBOutlet NSButton *scriptAddButton;
+//@property (weak) IBOutlet NSButton *scriptFistAddButton;
+//
+//@property (weak) IBOutlet NSButton *loginButton;
+//@property (weak) IBOutlet NSTextField *userLabel;
 
 - (void)logStateDidChanged:(NSNotification *)notification;
 
