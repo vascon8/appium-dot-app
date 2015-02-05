@@ -70,6 +70,7 @@
 - (void)setupViews
 {
 	[self.scriptAddButton setHidden:YES];
+	[self.scriptRemoveButton setHidden:YES];
 	[self.scriptFistAddButton setHidden:NO];
 	[self.scriptFistAddButton	setEnabled:NO];
 
@@ -207,10 +208,29 @@
 }
 - (void)updateScriptView
 {
-	if (!self.scriptFistAddButton.isHidden) {
-		[self.scriptFistAddButton setHidden:YES];
+//	if (!self.scriptFistAddButton.isHidden) {
+//		[self.scriptFistAddButton setHidden:YES];
+//		
+//		[self.scriptAddButton setHidden:NO];
+//		[self.scriptRemoveButton setHidden:NO];
+//	}
+	
+	NSInteger selectedRow = self.appInfoTableView.selectedRow;
+	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
+	if (app.scriptList.count>0) {
+		if (!self.scriptFistAddButton.isHidden)[self.scriptFistAddButton setHidden:YES];
+		if (self.scriptAddButton.isHidden)[self.scriptAddButton setHidden:NO];
+		if (self.scriptRemoveButton.isHidden)[self.scriptRemoveButton setHidden:NO];
 		
-		[self.scriptAddButton setHidden:NO];
+		if (self.scriptUploadViewController.tableView.isHidden)[self.scriptUploadViewController.tableView setHidden:NO];
+		self.scriptUploadViewController.scriptList = app.scriptList;
+		[self.scriptUploadViewController.tableView reloadData];
+	}
+	else{
+		[self.scriptUploadViewController.tableView setHidden:YES];
+		[self.scriptFistAddButton setHidden:NO];
+		[self.scriptAddButton setHidden:YES];
+		[self.scriptRemoveButton setHidden:YES];
 	}
 }
 - (IBAction)chooseScriptButtonClicked:(NSButton *)sender {
@@ -226,7 +246,6 @@
 	[chooseScriptPanlel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
 		
 		if (result == NSFileHandlingPanelOKButton && [[chooseScriptPanlel URLs][0] lastPathComponent]) {
-			[self updateScriptView];
 			NSURL *scriptFileUrl = [chooseScriptPanlel URLs][0];
 		
 			NSInteger selectedRow = self.appInfoTableView.selectedRow;
@@ -238,6 +257,7 @@
 				[self uploadScriptWithPostParams:[self setupAppParams:app withScriptFileUrl:scriptFileUrl] app:app uploadIndex:uploadIndex];
 			}];
 			[self.uploadQueue addOperation:uploadOp];
+			[self updateScriptView];
 		}
 	}];
 }
@@ -253,18 +273,11 @@
 	app.scriptList = arrM;
 	arrM = nil;
 	
-	[self updateScriptResultView];
+	[self updateScriptResultTableView];
 	
 	return app.scriptList.count-1;
 }
-- (void)updateScriptResultView
-{
-	NSInteger selectedRow = self.appInfoTableView.selectedRow;
-	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
-	self.scriptUploadViewController.scriptList = [NSArray arrayWithArray:app.scriptList];
-	if (self.scriptUploadViewController.scriptList.count>0) [self.scriptUploadViewController.view setHidden:NO];
-	[self.scriptUploadViewController.tableView reloadData];
-}
+
 - (RecordScriptUploadParam *)setupAppParams:(RecordscriptApp *)app withScriptFileUrl:(NSURL *)scriptFileUrl
 {
 	RecordScriptUploadParam *param = [[RecordScriptUploadParam alloc]init];
@@ -341,26 +354,57 @@
 		[self.scriptFistAddButton setEnabled:YES];
 	}
 	
+//	NSInteger selectedRow = self.appInfoTableView.selectedRow;
+//	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
+//	if (app.scriptList.count>0) {
+//		if (!self.scriptFistAddButton.isHidden)[self.scriptFistAddButton setHidden:YES];
+//		if (self.scriptAddButton.isHidden)[self.scriptAddButton setHidden:NO];
+//		if (self.scriptRemoveButton.isHidden)[self.scriptRemoveButton setHidden:NO];
+//		
+//		if (self.scriptUploadViewController.tableView.isHidden)[self.scriptUploadViewController.tableView setHidden:NO];
+//		self.scriptUploadViewController.scriptList = app.scriptList;
+//		[self.scriptUploadViewController.tableView reloadData];
+//	}
+//	else{
+//		[self.scriptUploadViewController.tableView setHidden:YES];
+//		[self.scriptFistAddButton setHidden:NO];
+//		[self.scriptAddButton setHidden:YES];
+//		[self.scriptRemoveButton setHidden:YES];
+//	}
+	[self updateScriptView];
+}
+#pragma mark - scriptUploadViewController
+//- (void)saveRecordScriptResultForApp:(RecordscriptApp *)app
+//{
+//	app.scriptList = self.scriptUploadViewController.scriptList;
+//}
+- (void)updateScriptResultTableView
+{
 	NSInteger selectedRow = self.appInfoTableView.selectedRow;
 	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
-	if (app.scriptList.count>0) {
-		if (!self.scriptFistAddButton.isHidden)[self.scriptFistAddButton setHidden:YES];
-		if (self.scriptAddButton.isHidden)[self.scriptAddButton setHidden:NO];
-		
-		if (self.scriptUploadViewController.tableView.isHidden)[self.scriptUploadViewController.tableView setHidden:NO];
-		self.scriptUploadViewController.scriptList = app.scriptList;
-		[self.scriptUploadViewController.tableView reloadData];
-	}
-	else{
-		
-		[self.scriptUploadViewController.tableView setHidden:YES];
-		[self.scriptFistAddButton setHidden:NO];
-		[self.scriptAddButton setHidden:YES];
-	}
+	self.scriptUploadViewController.scriptList = [NSArray arrayWithArray:app.scriptList];
+	if (self.scriptUploadViewController.scriptList.count>0) [self.scriptUploadViewController.view setHidden:NO];
+	[self.scriptUploadViewController.tableView reloadData];
 }
 #pragma mark - remove upload script record
 - (IBAction)removeRecordScript:(id)sender{
+	NSInteger selectedRow = self.appInfoTableView.selectedRow;
+	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
+//	[self saveRecordScriptResultForApp:app];
 	
+	NSMutableArray *arrM = [NSMutableArray arrayWithArray:app.scriptList];
+	NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+	[app.scriptList enumerateObjectsUsingBlock:^(RecordScriptUploadResult *result, NSUInteger idx, BOOL *stop) {
+		if (result.checked) {
+			[indexSet addIndex:idx];
+			[arrM removeObject:result];
+		}
+	}];
+	app.scriptList = arrM;
+	arrM = nil;
+	self.scriptUploadViewController.scriptList = app.scriptList;
+	[self.scriptUploadViewController.tableView removeRowsAtIndexes:indexSet	withAnimation:NSTableViewAnimationEffectFade];
+	[self updateScriptView];
 }
 #pragma mark - login
 - (IBAction)clickedLogin:(id)sender {

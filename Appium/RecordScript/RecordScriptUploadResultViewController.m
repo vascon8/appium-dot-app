@@ -51,8 +51,16 @@
 	else{
 		NSButton *btn = (NSButton *)cellView;
 		[btn setState:result.checked];
+		[btn setAction:@selector(clickedCheckButton:)];
+		[btn setTarget:self];
 	}
 
 	return cellView;
+}
+#pragma mark - click check button
+- (void)clickedCheckButton:(NSButton *)sender
+{
+	RecordScriptUploadResult *result = [self.scriptList objectAtIndex:[self.tableView rowForView:sender]];
+	result.checked = sender.state;
 }
 @end
