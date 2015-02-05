@@ -216,6 +216,7 @@
 //	}
 	
 	NSInteger selectedRow = self.appInfoTableView.selectedRow;
+	if (selectedRow > self.appListArr.count-1) return;
 	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
 	if (app.scriptList.count>0) {
 		if (!self.scriptFistAddButton.isHidden)[self.scriptFistAddButton setHidden:YES];
