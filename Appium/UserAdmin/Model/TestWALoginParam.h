@@ -10,7 +10,7 @@
 
 @interface TestWALoginParam : NSObject
 
-@property NSString *userName;
+@property NSString *username;
 @property NSString *password;
 
 @end

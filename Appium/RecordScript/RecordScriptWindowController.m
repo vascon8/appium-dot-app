@@ -24,11 +24,10 @@
 #import "AppiumAppDelegate.h"
 #import "TestWAAccountTool.h"
 
-#define TestWAServerPrefix [NSString stringWithFormat:@"%@:%@",[DEFAULTS valueForKey:APPIUM_PLIST_TestWA_ServerAddress],[DEFAULTS valueForKey:APPIUM_PLIST_TestWA_ServerPort]]
 #define RecordscriptGetServerAppAddress [NSString stringWithFormat:@"%@/attp/ajax/allApps",TestWAServerPrefix]
 #define RecordscriptUploadServerAddress [NSString stringWithFormat:@"%@/attp/upload",TestWAServerPrefix]
 #define RecordscriptGetServerUser [NSString stringWithFormat:@"%@/attp/ajax/allAdmin",TestWAServerPrefix]
-#define RecordscriptGetServerProjectAddress [NSString stringWithFormat:@"%@/attp/projects",TestWAServerPrefix]
+#define RecordscriptGetServerProjectAddress [NSString stringWithFormat:@"%@/attp/projects/13",TestWAServerPrefix]
 
 @interface RecordScriptWindowController ()<NSTableViewDataSource,NSTableViewDelegate>
 
@@ -96,18 +95,18 @@
 	self.uploadQueue = [[NSOperationQueue alloc]init];
 	[self.uploadQueue setMaxConcurrentOperationCount:MaxConcurrentUploadOperation];
 	
-	NSMutableArray *arr = [NSMutableArray arrayWithCapacity:10];
-	for (int i=0; i<6; i++) {
-		RecordscriptApp *app = [[RecordscriptApp alloc]init];
-		app.type = i%2 ? @"IOS" : @"Android";
-		app.name = [NSString stringWithFormat:@"App %d",i+1];
-		[arr addObject:app];
-	}
-	self.appListArr = arr;
-	[self.appInfoTableView reloadData];
+//	NSMutableArray *arr = [NSMutableArray arrayWithCapacity:10];
+//	for (int i=0; i<6; i++) {
+//		RecordscriptApp *app = [[RecordscriptApp alloc]init];
+//		app.type = i%2 ? @"IOS" : @"Android";
+//		app.name = [NSString stringWithFormat:@"App %d",i+1];
+//		[arr addObject:app];
+//	}
+//	self.appListArr = arr;
+//	[self.appInfoTableView reloadData];
 	
 //	[self loadAppData];
-//	[self loadProjectData];
+	[self loadProjectData];
 }
 #pragma mark - load project data
 - (void)loadProjectData

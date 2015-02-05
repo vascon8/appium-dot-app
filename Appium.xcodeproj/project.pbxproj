@@ -21,6 +21,7 @@
 		0F68EBD01A81BF8300CA6062 /* upload3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBCB1A81BF8300CA6062 /* upload3.png */; };
 		0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */; };
 		0F7B14EE1A6F96FD0012296F /* RecordScriptWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */; };
+		0F8DEAAB1A83B18900CC022A /* TestWALoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DEAAA1A83B18900CC022A /* TestWALoginResult.m */; };
 		0F9BE9081A766AB400D668DE /* RecordScriptUploadResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BE9071A766AB400D668DE /* RecordScriptUploadResultViewController.m */; };
 		0F9BE9111A76706500D668DE /* RecordScriptUploadResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */; };
 		0FA34BE01A77E4C400D0774C /* applistrefresh.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0FA34BDB1A77E4C400D0774C /* applistrefresh.tiff */; };
@@ -155,6 +156,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0F8DEAB01A83B18A00CC022A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C77BC82D19FFC16B008979E5;
+			remoteInfo = SeleniumForiOS;
+		};
+		0F8DEAB21A83B18A00CC022A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C77BC83719FFC16B008979E5;
+			remoteInfo = SeleniumForiOSTests;
+		};
 		36683086184A5DDB00C1A91D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
@@ -226,6 +241,8 @@
 		0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptMainWindow.xib; sourceTree = "<group>"; };
 		0F7B14EC1A6F96FD0012296F /* RecordScriptWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptWindowController.h; sourceTree = "<group>"; };
 		0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptWindowController.m; sourceTree = "<group>"; };
+		0F8DEAA91A83B18900CC022A /* TestWALoginResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWALoginResult.h; sourceTree = "<group>"; };
+		0F8DEAAA1A83B18900CC022A /* TestWALoginResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWALoginResult.m; sourceTree = "<group>"; };
 		0F9BE9061A766AB400D668DE /* RecordScriptUploadResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadResultViewController.h; sourceTree = "<group>"; };
 		0F9BE9071A766AB400D668DE /* RecordScriptUploadResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadResultViewController.m; sourceTree = "<group>"; };
 		0F9BE90F1A76706500D668DE /* RecordScriptUploadResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadResult.h; sourceTree = "<group>"; };
@@ -552,6 +569,8 @@
 				0FAC3DBF1A7F6A7A00CCE61F /* TestWAServerUser.m */,
 				0FAC3DC11A7F6F8600CCE61F /* TestWALoginParam.h */,
 				0FAC3DC21A7F6F8600CCE61F /* TestWALoginParam.m */,
+				0F8DEAA91A83B18900CC022A /* TestWALoginResult.h */,
+				0F8DEAAA1A83B18900CC022A /* TestWALoginResult.m */,
 				0FAC3DC41A7F6FBB00CCE61F /* TestWAAccountTool.h */,
 				0FAC3DC51A7F6FBB00CCE61F /* TestWAAccountTool.m */,
 			);
@@ -913,6 +932,8 @@
 				36A1A000173FFF34002717C2 /* Selenium.framework */,
 				36A1A002173FFF34002717C2 /* SeleniumTests.xctest */,
 				36B9018119071DEF00AE40E8 /* liblibSelenium.a */,
+				0F8DEAB11A83B18A00CC022A /* SeleniumForiOS.framework */,
+				0F8DEAB31A83B18A00CC022A /* SeleniumForiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1162,6 +1183,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		0F8DEAB11A83B18A00CC022A /* SeleniumForiOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SeleniumForiOS.framework;
+			remoteRef = 0F8DEAB01A83B18A00CC022A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0F8DEAB31A83B18A00CC022A /* SeleniumForiOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SeleniumForiOSTests.xctest;
+			remoteRef = 0F8DEAB21A83B18A00CC022A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		36A1A000173FFF34002717C2 /* Selenium.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1306,6 +1341,7 @@
 				3661735617172AB200E786DF /* AppiumCodeMakerPythonPlugin.m in Sources */,
 				36FF07AD171743AC009ED9E2 /* AppiumCodeMakerLocator.m in Sources */,
 				7D7BE878199686F90080F21A /* AppiumServerArgument.m in Sources */,
+				0F8DEAAB1A83B18900CC022A /* TestWALoginResult.m in Sources */,
 				0F1C6EEE1A7B4CC100D4ED32 /* RecordScriptSettingModel.m in Sources */,
 				36FF07B0171747C4009ED9E2 /* AppiumCodeMakerJavaPlugin.m in Sources */,
 				C71F95651A5FF2470013F230 /* AppiumMonitorWindowGeneralSettingsPopOverViewController.m in Sources */,

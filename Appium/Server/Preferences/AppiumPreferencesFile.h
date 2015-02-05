@@ -139,3 +139,4 @@
 
 #define APPIUM_PLIST_TestWA_ServerAddress @"TestWA_ServerAddress"
 #define APPIUM_PLIST_TestWA_ServerPort @"TestWA_ServerPort"
+#define TestWAServerPrefix [NSString stringWithFormat:@"%@:%@",[DEFAULTS valueForKey:APPIUM_PLIST_TestWA_ServerAddress],[DEFAULTS valueForKey:APPIUM_PLIST_TestWA_ServerPort]]

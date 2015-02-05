@@ -248,7 +248,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" id="zVt-xT-RN3" userLabel="Text Field - Logo">
                                 <rect key="frame" x="504" y="20" width="188" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="http://testq.cn" id="41J-90-5Fd" userLabel="Text Field Cell - testQ logo">
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="http://testWA.cn" id="41J-90-5Fd" userLabel="Text Field Cell - testQ logo">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" name="selectedKnobColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -4545,14 +4545,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="-2" name="enabled3" keyPath="model.record.useExportscriptsDirectory" previousBinding="FOh-Qy-G8r" id="obO-Qt-phB">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                        </dictionary>
-                                    </binding>
                                     <binding destination="-2" name="enabled2" keyPath="model.general.useRemoteServer" previousBinding="CdJ-Vc-RO8" id="FOh-Qy-G8r">
                                         <dictionary key="options">
                                             <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -4572,6 +4564,14 @@
                                             <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                         </dictionary>
                                     </binding>
+                                    <binding destination="-2" name="enabled3" keyPath="model.record.useExportscriptsDirectory" previousBinding="FOh-Qy-G8r" id="obO-Qt-phB">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                        </dictionary>
+                                    </binding>
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" id="0np-0e-h9O" userLabel="Exportscript Directory Button">
@@ -4583,14 +4583,6 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="chooseExportscriptsDirectory:" target="-2" id="YGL-sB-GMv"/>
-                                    <binding destination="-2" name="enabled2" keyPath="model.record.useExportscriptsDirectory" previousBinding="Zvk-gN-QQF" id="OgQ-9Y-d6f">
-                                        <dictionary key="options">
-                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                            <integer key="NSNullPlaceholder" value="-1"/>
-                                        </dictionary>
-                                    </binding>
                                     <binding destination="-2" name="enabled3" keyPath="model.general.useRemoteServer" previousBinding="OgQ-9Y-d6f" id="Cwu-7Y-Ku9">
                                         <dictionary key="options">
                                             <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -4603,6 +4595,14 @@
                                     <binding destination="-2" name="enabled" keyPath="model.isServerRunning" id="Zvk-gN-QQF">
                                         <dictionary key="options">
                                             <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="enabled2" keyPath="model.record.useExportscriptsDirectory" previousBinding="Zvk-gN-QQF" id="OgQ-9Y-d6f">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
                                         </dictionary>
                                     </binding>
                                 </connections>
