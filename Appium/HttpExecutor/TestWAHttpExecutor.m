@@ -8,10 +8,24 @@
 
 #import "TestWAHttpExecutor.h"
 #import "RecordScriptUploadParam.h"
+#import "TestWALoginParam.h"
+
 #import "NSObject+LXDict.h"
+#import "AFNetworking.h"
 
 @implementation TestWAHttpExecutor
-
+#pragma mark - user log in
++ (void)postWithUrlStr:(NSString *)urlStr params:(TestWALoginParam *)params handleResultBlock:(void (^)(id resultData, NSError *))handleResultBlock
+{
+	AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+	
+	[manager POST:[self handleUrlStr:urlStr] parameters:[params keyedDictFromModel] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		handleResultBlock(responseObject,nil);
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		handleResultBlock(operation.response,error);
+	}];
+}
+#pragma mark - load project data
 + (void)loadDataWithUrlStr:(NSString *)urlStr handleResultBlock:(void (^)(id resultData,NSError *error))handleResultBlock{
 	
 	NSURL *url = [NSURL URLWithString:[self handleUrlStr:urlStr]];
@@ -38,7 +52,7 @@
 		handleResultBlock(nil,error);
 	}
 }
-
+#pragma mark - upload record script
 + (void)uploadScriptWithUrlStr:(NSString *)urlStr queue:(NSOperationQueue *)uploadQueue postParams:(RecordScriptUploadParam *)params handleResultBlock:(void (^)(id resultData,NSError *error))handleResultBlock{
 	NSError *error = nil;
 	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[params keyedDictFromModel] options:NSJSONWritingPrettyPrinted error:&error];
@@ -61,7 +75,7 @@
 		handleResultBlock(response,connectionError);
 	}];
 }
-
+#pragma mark - private
 + (NSString *)handleUrlStr:(NSString *)urlStr
 {
 	return [urlStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

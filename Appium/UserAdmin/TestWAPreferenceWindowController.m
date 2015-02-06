@@ -16,7 +16,8 @@
 #import "AppiumPreferencesFile.h"
 
 #import "NSObject+LXDict.h"
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
+#import "TestWAHttpExecutor.h"
 
 #define TestWALoginServerAddr [NSString stringWithFormat:@"%@/attp/login",TestWAServerPrefix]
 
@@ -83,53 +84,20 @@
 	param.username = userName;
 	param.password = pwd;
 	
-//	TestWAServerUser *temp = [[TestWAServerUser alloc]init];
-//	temp.name = userName;
-//	temp.id = @"tempID";
-//	[TestWAAccountTool saveAccount:temp];
-	
-	NSString *urlStr = [TestWALoginServerAddr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	urlStr = @"http://1fd0d95b.ngrok.com/attp/client/login?username=%@&password=%@";
-	
-	NSURL *url = [NSURL URLWithString:urlStr];
-	
-	AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-
-	[manager POST:@"http://1fd0d95b.ngrok.com/attp/client/login" parameters:[param keyedDictFromModel] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		NSLog(@"JSON: %@", responseObject);
-		TestWALoginResult *result = [TestWALoginResult objectWithKeyedDict:responseObject];
-		if ([result.flag isEqualToString:@"success"]) {
-			[TestWAAccountTool saveAccount:result.user];
+	[TestWAHttpExecutor postWithUrlStr:TestWALoginServerAddr params:param handleResultBlock:^(id resultData, NSError *error) {
+		if (!error) {
+			TestWALoginResult *result = [TestWALoginResult objectWithKeyedDict:resultData];
+			if ([result.flag isEqualToString:@"success"]) {
+				[TestWAAccountTool saveAccount:result.user];
+			}
+			else{
+				self.loginMsgLabel.stringValue = @"用户名或密码错误";
+			}
 		}
 		else{
-			self.loginMsgLabel.stringValue = @"用户名或密码错误";
+			self.loginMsgLabel.stringValue = @"连接错误,请检查网络和服务器参数设置";
 		}
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		self.loginMsgLabel.stringValue = @"连接错误";
 	}];
-	
-//	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
-//	[request setHTTPMethod:@"POST"];
-//	NSError *error = nil;
-//	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[param keyedDictFromModel] options:NSJSONWritingPrettyPrinted error:&error];
-//	[request setHTTPBody:jsonData];
-////	NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
-//	
-//	NSURLResponse *response = nil;
-////	NSData *resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-//	if (error) {
-//		NSLog(@"%@ %@",error,response);
-//	}
-//	NSLog(@"%@ \n%@",resultData,response);
-//	
-//	id json = [NSJSONSerialization JSONObjectWithData:resultData options:NSJSONReadingAllowFragments error:nil];
-//	NSLog(@"%@",json);
-//	if (!error) {
-//		[TestWAAccountTool saveAccount:json];
-//	}
-//	else{
-//		self.loginMsgLabel.stringValue = @"用户名或密码错误";
-//	}
 	
 	[self.loginProgressView setHidden:YES];
 	[self setupLogView];
