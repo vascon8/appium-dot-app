@@ -15,13 +15,6 @@
 
 @implementation RecordScriptUploadResultViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
 #pragma mark - tableView datasource
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {

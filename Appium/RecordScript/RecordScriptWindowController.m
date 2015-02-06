@@ -95,17 +95,6 @@
 	self.uploadQueue = [[NSOperationQueue alloc]init];
 	[self.uploadQueue setMaxConcurrentOperationCount:MaxConcurrentUploadOperation];
 	
-//	NSMutableArray *arr = [NSMutableArray arrayWithCapacity:10];
-//	for (int i=0; i<6; i++) {
-//		RecordscriptApp *app = [[RecordscriptApp alloc]init];
-//		app.type = i%2 ? @"IOS" : @"Android";
-//		app.name = [NSString stringWithFormat:@"App %d",i+1];
-//		[arr addObject:app];
-//	}
-//	self.appListArr = arr;
-//	[self.appInfoTableView reloadData];
-	
-//	[self loadAppData];
 	[self loadProjectData];
 }
 #pragma mark - load project data
@@ -153,29 +142,7 @@
 	if (self.isLoadingApp || !self.isLogin) return;
 	[self loadProjectData];
 }
-//- (void)loadAppData
-//{
-//	self.isLoadingApp = YES;
-//	[self.appLoadProgressIndicator startAnimation:nil];
-//	[self.appInfoRefreshButton setEnabled:NO];
-//
-//	[TestWAHttpExecutor loadDataWithUrlStr:[RecordscriptGetServerAppAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] handleResultBlock:^(id resultData) {
-//		NSMutableArray *tempArrM = [NSMutableArray arrayWithCapacity:resultData.count];
-//		for (NSDictionary *dict in resultData) {
-//			RecordscriptApp *rc = [RecordscriptApp objectWithKeyedDict:dict];
-//			[tempArrM addObject:rc];
-//		}
-//		self.appListArr = tempArrM;
-//		tempArrM = nil;
-//		[self.appInfoTableView reloadData];
-//		NSLog(@"appist:%@",self.appListArr);
-//	}];
-//	
-//	
-//	[self.appLoadProgressIndicator stopAnimation:nil];
-//	self.isLoadingApp = NO;
-//	[self.appInfoRefreshButton setEnabled:YES];
-//}
+
 #pragma mark - get User data
 - (TestWAServerUser *)getUser
 {
@@ -207,13 +174,6 @@
 }
 - (void)updateScriptView
 {
-//	if (!self.scriptFistAddButton.isHidden) {
-//		[self.scriptFistAddButton setHidden:YES];
-//		
-//		[self.scriptAddButton setHidden:NO];
-//		[self.scriptRemoveButton setHidden:NO];
-//	}
-	
 	NSInteger selectedRow = self.appInfoTableView.selectedRow;
 	if (selectedRow > self.appListArr.count-1) return;
 	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
@@ -353,31 +313,9 @@
 	if ([self.appInfoTableView numberOfRows] > 0 && !self.scriptFistAddButton.isEnabled) {
 		[self.scriptFistAddButton setEnabled:YES];
 	}
-	
-//	NSInteger selectedRow = self.appInfoTableView.selectedRow;
-//	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
-//	if (app.scriptList.count>0) {
-//		if (!self.scriptFistAddButton.isHidden)[self.scriptFistAddButton setHidden:YES];
-//		if (self.scriptAddButton.isHidden)[self.scriptAddButton setHidden:NO];
-//		if (self.scriptRemoveButton.isHidden)[self.scriptRemoveButton setHidden:NO];
-//		
-//		if (self.scriptUploadViewController.tableView.isHidden)[self.scriptUploadViewController.tableView setHidden:NO];
-//		self.scriptUploadViewController.scriptList = app.scriptList;
-//		[self.scriptUploadViewController.tableView reloadData];
-//	}
-//	else{
-//		[self.scriptUploadViewController.tableView setHidden:YES];
-//		[self.scriptFistAddButton setHidden:NO];
-//		[self.scriptAddButton setHidden:YES];
-//		[self.scriptRemoveButton setHidden:YES];
-//	}
 	[self updateScriptView];
 }
 #pragma mark - scriptUploadViewController
-//- (void)saveRecordScriptResultForApp:(RecordscriptApp *)app
-//{
-//	app.scriptList = self.scriptUploadViewController.scriptList;
-//}
 - (void)updateScriptResultTableView
 {
 	NSInteger selectedRow = self.appInfoTableView.selectedRow;
@@ -390,7 +328,6 @@
 - (IBAction)removeRecordScript:(id)sender{
 	NSInteger selectedRow = self.appInfoTableView.selectedRow;
 	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
-//	[self saveRecordScriptResultForApp:app];
 	
 	NSMutableArray *arrM = [NSMutableArray arrayWithArray:app.scriptList];
 	NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
