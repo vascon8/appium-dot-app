@@ -16,10 +16,9 @@
 #import "AppiumPreferencesFile.h"
 
 #import "NSObject+LXDict.h"
-//#import "AFNetworking.h"
 #import "TestWAHttpExecutor.h"
 
-#define TestWALoginServerAddr [NSString stringWithFormat:@"%@/attp/login",TestWAServerPrefix]
+#define TestWALoginServerAddr [NSString stringWithFormat:@"%@/attp/client/login",TestWAServerPrefix]
 
 @interface TestWAPreferenceWindowController ()<NSTextFieldDelegate>
 
@@ -85,10 +84,12 @@
 	param.password = pwd;
 	
 	[TestWAHttpExecutor postWithUrlStr:TestWALoginServerAddr params:param handleResultBlock:^(id resultData, NSError *error) {
+		
 		if (!error) {
 			TestWALoginResult *result = [TestWALoginResult objectWithKeyedDict:resultData];
 			if ([result.flag isEqualToString:@"success"]) {
 				[TestWAAccountTool saveAccount:result.user];
+				[self setupLogView];
 			}
 			else{
 				self.loginMsgLabel.stringValue = @"用户名或密码错误";
@@ -97,10 +98,8 @@
 		else{
 			self.loginMsgLabel.stringValue = @"连接错误,请检查网络和服务器参数设置";
 		}
+		[self.loginProgressView setHidden:YES];
 	}];
-	
-	[self.loginProgressView setHidden:YES];
-	[self setupLogView];
 }
 #pragma mark - textField delegate
 - (void)controlTextDidChange:(NSNotification *)obj

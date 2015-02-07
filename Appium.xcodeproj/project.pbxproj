@@ -14,10 +14,10 @@
 		0F2095CC1A72446000B6C3D3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0F2095C91A72446000B6C3D3 /* README.md */; };
 		0F264B2C1A81F53600EB7600 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F264B2B1A81F53600EB7600 /* user.png */; };
 		0F264B301A81F58100EB7600 /* upload-cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F264B2F1A81F58100EB7600 /* upload-cloud.png */; };
-		0F68EBCC1A81BF8300CA6062 /* add3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBC71A81BF8300CA6062 /* add3.png */; };
-		0F68EBCD1A81BF8300CA6062 /* faile3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBC81A81BF8300CA6062 /* faile3.png */; };
-		0F68EBCE1A81BF8300CA6062 /* remove3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBC91A81BF8300CA6062 /* remove3.png */; };
-		0F68EBCF1A81BF8300CA6062 /* success3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBCA1A81BF8300CA6062 /* success3.png */; };
+		0F68EBCC1A81BF8300CA6062 /* script-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBC71A81BF8300CA6062 /* script-add.png */; };
+		0F68EBCD1A81BF8300CA6062 /* uplod-fail.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBC81A81BF8300CA6062 /* uplod-fail.png */; };
+		0F68EBCE1A81BF8300CA6062 /* script-remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBC91A81BF8300CA6062 /* script-remove.png */; };
+		0F68EBCF1A81BF8300CA6062 /* upload-success.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBCA1A81BF8300CA6062 /* upload-success.png */; };
 		0F68EBD01A81BF8300CA6062 /* upload3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBCB1A81BF8300CA6062 /* upload3.png */; };
 		0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */; };
 		0F7B14EE1A6F96FD0012296F /* RecordScriptWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */; };
@@ -27,8 +27,6 @@
 		0F9BE9081A766AB400D668DE /* RecordScriptUploadResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BE9071A766AB400D668DE /* RecordScriptUploadResultViewController.m */; };
 		0F9BE9111A76706500D668DE /* RecordScriptUploadResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */; };
 		0FA34BE01A77E4C400D0774C /* applistrefresh.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0FA34BDB1A77E4C400D0774C /* applistrefresh.tiff */; };
-		0FA74AEA1A7D296000665B7A /* remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FA74AE91A7D296000665B7A /* remove.png */; };
-		0FA74AF41A7D296800665B7A /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FA74AF31A7D296800665B7A /* add.png */; };
 		0FAC3DB91A7F629200CCE61F /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FAC3DB81A7F629200CCE61F /* PreferenceWindow.xib */; };
 		0FAC3DBC1A7F62C300CCE61F /* TestWAPreferenceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAC3DBB1A7F62C300CCE61F /* TestWAPreferenceWindowController.m */; };
 		0FAC3DC01A7F6A7A00CCE61F /* TestWAServerUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAC3DBF1A7F6A7A00CCE61F /* TestWAServerUser.m */; };
@@ -233,10 +231,10 @@
 		0F2095C91A72446000B6C3D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		0F264B2B1A81F53600EB7600 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		0F264B2F1A81F58100EB7600 /* upload-cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload-cloud.png"; sourceTree = "<group>"; };
-		0F68EBC71A81BF8300CA6062 /* add3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add3.png; sourceTree = "<group>"; };
-		0F68EBC81A81BF8300CA6062 /* faile3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = faile3.png; sourceTree = "<group>"; };
-		0F68EBC91A81BF8300CA6062 /* remove3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = remove3.png; sourceTree = "<group>"; };
-		0F68EBCA1A81BF8300CA6062 /* success3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success3.png; sourceTree = "<group>"; };
+		0F68EBC71A81BF8300CA6062 /* script-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "script-add.png"; sourceTree = "<group>"; };
+		0F68EBC81A81BF8300CA6062 /* uplod-fail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uplod-fail.png"; sourceTree = "<group>"; };
+		0F68EBC91A81BF8300CA6062 /* script-remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "script-remove.png"; sourceTree = "<group>"; };
+		0F68EBCA1A81BF8300CA6062 /* upload-success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload-success.png"; sourceTree = "<group>"; };
 		0F68EBCB1A81BF8300CA6062 /* upload3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload3.png; sourceTree = "<group>"; };
 		0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptMainWindow.xib; sourceTree = "<group>"; };
 		0F7B14EC1A6F96FD0012296F /* RecordScriptWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptWindowController.h; sourceTree = "<group>"; };
@@ -250,8 +248,6 @@
 		0F9BE90F1A76706500D668DE /* RecordScriptUploadResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadResult.h; sourceTree = "<group>"; };
 		0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadResult.m; sourceTree = "<group>"; };
 		0FA34BDB1A77E4C400D0774C /* applistrefresh.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = applistrefresh.tiff; sourceTree = "<group>"; };
-		0FA74AE91A7D296000665B7A /* remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = remove.png; sourceTree = "<group>"; };
-		0FA74AF31A7D296800665B7A /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		0FAC3DB81A7F629200CCE61F /* PreferenceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		0FAC3DBA1A7F62C300CCE61F /* TestWAPreferenceWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWAPreferenceWindowController.h; sourceTree = "<group>"; };
 		0FAC3DBB1A7F62C300CCE61F /* TestWAPreferenceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWAPreferenceWindowController.m; sourceTree = "<group>"; };
@@ -750,16 +746,14 @@
 			children = (
 				0F264B2F1A81F58100EB7600 /* upload-cloud.png */,
 				0F264B2B1A81F53600EB7600 /* user.png */,
-				0F68EBC71A81BF8300CA6062 /* add3.png */,
-				0F68EBC81A81BF8300CA6062 /* faile3.png */,
-				0F68EBC91A81BF8300CA6062 /* remove3.png */,
-				0F68EBCA1A81BF8300CA6062 /* success3.png */,
+				0F68EBC71A81BF8300CA6062 /* script-add.png */,
+				0F68EBC81A81BF8300CA6062 /* uplod-fail.png */,
+				0F68EBC91A81BF8300CA6062 /* script-remove.png */,
+				0F68EBCA1A81BF8300CA6062 /* upload-success.png */,
 				0F68EBCB1A81BF8300CA6062 /* upload3.png */,
 				0F1C6EF11A7B4CCD00D4ED32 /* record.png */,
-				0FA74AF31A7D296800665B7A /* add.png */,
 				C7FFBA8C19F15CDE005B030F /* menubar-icon.png */,
 				364EED46191EDF6C00AB4439 /* android.png */,
-				0FA74AE91A7D296000665B7A /* remove.png */,
 				364EED48191EDF9100AB4439 /* apple.png */,
 				364EED3A191EDE6F00AB4439 /* dev-settings.png */,
 				0FA34BDB1A77E4C400D0774C /* applistrefresh.tiff */,
@@ -1228,23 +1222,21 @@
 				36CEB7D616E3662E00B5B100 /* InfoPlist.strings in Resources */,
 				36CEB7DC16E3662E00B5B100 /* Credits.rtf in Resources */,
 				364EED47191EDF6C00AB4439 /* android.png in Resources */,
-				0F68EBCD1A81BF8300CA6062 /* faile3.png in Resources */,
-				0FA74AF41A7D296800665B7A /* add.png in Resources */,
+				0F68EBCD1A81BF8300CA6062 /* uplod-fail.png in Resources */,
 				364EED49191EDF9100AB4439 /* apple.png in Resources */,
 				364EED4F191EDFFF00AB4439 /* inspector.png in Resources */,
 				364EED53191EE04A00AB4439 /* settings.png in Resources */,
 				C7FFBA8D19F15CDE005B030F /* menubar-icon.png in Resources */,
 				0F9564C61A85C2420005B353 /* appium.icns in Resources */,
-				0FA74AEA1A7D296000665B7A /* remove.png in Resources */,
 				0F264B301A81F58100EB7600 /* upload-cloud.png in Resources */,
 				0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */,
-				0F68EBCF1A81BF8300CA6062 /* success3.png in Resources */,
+				0F68EBCF1A81BF8300CA6062 /* upload-success.png in Resources */,
 				0F2095CC1A72446000B6C3D3 /* README.md in Resources */,
 				36CEB7E216E3662E00B5B100 /* MainMenu.xib in Resources */,
 				0F264B2C1A81F53600EB7600 /* user.png in Resources */,
 				364EED55191EE07000AB4439 /* trash.png in Resources */,
 				0FB49B341A7E2D7200CD946A /* logTextViewBgBak2.png in Resources */,
-				0F68EBCE1A81BF8300CA6062 /* remove3.png in Resources */,
+				0F68EBCE1A81BF8300CA6062 /* script-remove.png in Resources */,
 				36BA3A1D191EE417007FA51B /* doctor.png in Resources */,
 				0F68EBD01A81BF8300CA6062 /* upload3.png in Resources */,
 				3695CAB116E3FCAE003697A9 /* AppiumInstallationWindow.xib in Resources */,
@@ -1257,7 +1249,7 @@
 				0FAC3DB91A7F629200CCE61F /* PreferenceWindow.xib in Resources */,
 				0F9564C41A85C21A0005B353 /* logTextViewBg.png in Resources */,
 				36CD44EF16F0D5C300194193 /* AppiumInspectorWindow.xib in Resources */,
-				0F68EBCC1A81BF8300CA6062 /* add3.png in Resources */,
+				0F68EBCC1A81BF8300CA6062 /* script-add.png in Resources */,
 				36D17E2916F144E600DC5797 /* Upgrade.applescript in Resources */,
 				364EED3B191EDE6F00AB4439 /* dev-settings.png in Resources */,
 			);

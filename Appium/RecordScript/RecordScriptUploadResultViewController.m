@@ -30,14 +30,14 @@
 		cellView.textField.stringValue = result.scriptName;
 		switch (result.uploadStatus) {
 			case RecordScriptUploadStatusUploading:
-				[cellView.imageView setImage:[NSImage imageNamed:@"upload3"]];
+				[cellView.imageView setImage:[NSImage imageNamed:@"upload-cloud"]];
 				break;
 			case RecordScriptUploadStatusFail:
-				[cellView.imageView setImage:[NSImage imageNamed:@"faile3"]];
+				[cellView.imageView setImage:[NSImage imageNamed:@"uplod-fail"]];
 				break;
 			case RecordScriptUploadStatusSuccess:
 			default:
-				[cellView.imageView setImage:[NSImage imageNamed:@"success3"]];
+				[cellView.imageView setImage:[NSImage imageNamed:@"upload-success"]];
 				break;
 		}
 	}

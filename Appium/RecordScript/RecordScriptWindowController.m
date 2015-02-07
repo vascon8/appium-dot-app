@@ -24,10 +24,10 @@
 #import "AppiumAppDelegate.h"
 #import "TestWAAccountTool.h"
 
-#define RecordscriptGetServerAppAddress [NSString stringWithFormat:@"%@/attp/ajax/allApps",TestWAServerPrefix]
+//#define RecordscriptGetServerAppAddress [NSString stringWithFormat:@"%@/attp/ajax/allApps",TestWAServerPrefix]
 #define RecordscriptUploadServerAddress [NSString stringWithFormat:@"%@/attp/upload",TestWAServerPrefix]
-#define RecordscriptGetServerUser [NSString stringWithFormat:@"%@/attp/ajax/allAdmin",TestWAServerPrefix]
-#define RecordscriptGetServerProjectAddress [NSString stringWithFormat:@"%@/attp/projects/13",TestWAServerPrefix]
+//#define RecordscriptGetServerUser [NSString stringWithFormat:@"%@/attp/ajax/allAdmin",TestWAServerPrefix]
+#define RecordscriptGetServerProjectAddress [NSString stringWithFormat:@"%@/attp/projects/1",TestWAServerPrefix]
 
 @interface RecordScriptWindowController ()<NSTableViewDataSource,NSTableViewDelegate>
 
@@ -143,21 +143,6 @@
 	[self loadProjectData];
 }
 
-#pragma mark - get User data
-- (TestWAServerUser *)getUser
-{
-	__block TestWAServerUser *user = nil;
-	NSString *str = [RecordscriptGetServerUser stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	[TestWAHttpExecutor loadDataWithUrlStr:str handleResultBlock:^(id resultData,NSError *error) {
-		if (error) {
-			NSLog(@"%@",error);
-			return ;
-		}
-		user = [TestWAServerUser objectWithKeyedDict:resultData];
-	}];
-	
-	return user;
-}
 #pragma mark - upload script
 - (void)uploadScriptWithPostParams:(RecordScriptUploadParam *)params app:(RecordscriptApp *)app uploadIndex:(NSInteger)index
 {
@@ -247,7 +232,7 @@
 	param.appId = app.id;
 	param.name = app.name;
 	param.language = [self scriptLanguage:param.filename];
-	TestWAServerUser *user = [self getUser];
+	TestWAServerUser *user = [TestWAAccountTool requestAccount];
 	if (!user) param.userID = @"1";
 	else param.userID = user.id;
 	
