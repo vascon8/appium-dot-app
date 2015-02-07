@@ -15,6 +15,7 @@
 + (void)saveAccount:(TestWAServerUser *)user;
 + (TestWAServerUser *)requestAccount;
 + (NSString *)loginUserName;
++ (NSString *)loginUserID;
 
 + (void)clearAccountRecord;
 

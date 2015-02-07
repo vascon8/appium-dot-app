@@ -36,7 +36,6 @@
 	
 	if (!error && data != nil) {
 		id resultData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-		
 		if (error) {
 			NSLog(@"error found:%@",error);
 		}

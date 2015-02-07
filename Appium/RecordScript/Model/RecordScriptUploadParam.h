@@ -14,7 +14,7 @@
 @property NSString *name;
 @property NSString *language;
 @property NSString *appId;
-@property NSString *userID;
+//@property NSString *userID;
 
 @property NSString *filePath;
 @property NSString *base64EncodingStr;

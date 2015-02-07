@@ -24,10 +24,8 @@
 #import "AppiumAppDelegate.h"
 #import "TestWAAccountTool.h"
 
-//#define RecordscriptGetServerAppAddress [NSString stringWithFormat:@"%@/attp/ajax/allApps",TestWAServerPrefix]
 #define RecordscriptUploadServerAddress [NSString stringWithFormat:@"%@/attp/upload",TestWAServerPrefix]
-//#define RecordscriptGetServerUser [NSString stringWithFormat:@"%@/attp/ajax/allAdmin",TestWAServerPrefix]
-#define RecordscriptGetServerProjectAddress [NSString stringWithFormat:@"%@/attp/projects/1",TestWAServerPrefix]
+#define RecordscriptGetServerProjectAddress [NSString stringWithFormat:@"%@/attp/projects",TestWAServerPrefix]
 
 @interface RecordScriptWindowController ()<NSTableViewDataSource,NSTableViewDelegate>
 
@@ -64,7 +62,6 @@
     [super windowDidLoad];
 	[self setupViews];
 	[self setupAppData];
-	if(_isLogin) [self loadProjectData];
 }
 - (void)setupViews
 {
@@ -84,6 +81,11 @@
 		self.userLabel.stringValue = [TestWAAccountTool loginUserName];
 		[self loadProjectData];
 	}
+	else{
+		self.prjListArr = nil;
+		self.appListArr = nil;
+		[self.appInfoTableView reloadData];
+	}
 	
 	[self.userLabel setHidden:!self.isLogin];
 	[self.loginButton setHidden:self.isLogin];
@@ -95,7 +97,8 @@
 	self.uploadQueue = [[NSOperationQueue alloc]init];
 	[self.uploadQueue setMaxConcurrentOperationCount:MaxConcurrentUploadOperation];
 	
-	[self loadProjectData];
+	
+	if(_isLogin) [self loadProjectData];
 }
 #pragma mark - load project data
 - (void)loadProjectData
@@ -104,7 +107,8 @@
 	[self.appLoadProgressIndicator startAnimation:nil];
 	[self.appInfoRefreshButton setEnabled:NO];
 
-	[TestWAHttpExecutor loadDataWithUrlStr:[RecordscriptGetServerProjectAddress stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] handleResultBlock:^(id resultData,NSError *error) {
+	NSString *str = [NSString stringWithFormat:@"%@/%@",RecordscriptGetServerProjectAddress,[TestWAAccountTool loginUserID]];
+	[TestWAHttpExecutor loadDataWithUrlStr:str handleResultBlock:^(id resultData,NSError *error) {
 		if (error) {
 			NSLog(@"%@",error);
 			return ;
@@ -232,9 +236,6 @@
 	param.appId = app.id;
 	param.name = app.name;
 	param.language = [self scriptLanguage:param.filename];
-	TestWAServerUser *user = [TestWAAccountTool requestAccount];
-	if (!user) param.userID = @"1";
-	else param.userID = user.id;
 	
 	NSData *fileData = [NSData dataWithContentsOfFile:path];
 	param.base64EncodingStr = [fileData base64Encoding];

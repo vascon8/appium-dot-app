@@ -31,6 +31,12 @@
 	if (user) return user.name;
 	else return nil;
 }
++ (NSString *)loginUserID
+{
+	TestWAServerUser *user = [self requestAccount];
+	if (user) return user.id;
+	else return nil;
+}
 + (BOOL)isLogin
 {
 	if([self requestAccount]) return YES;
