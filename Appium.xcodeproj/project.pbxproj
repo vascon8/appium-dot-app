@@ -22,6 +22,8 @@
 		0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */; };
 		0F7B14EE1A6F96FD0012296F /* RecordScriptWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */; };
 		0F8DEAAB1A83B18900CC022A /* TestWALoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DEAAA1A83B18900CC022A /* TestWALoginResult.m */; };
+		0F9564C41A85C21A0005B353 /* logTextViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F9564C31A85C21A0005B353 /* logTextViewBg.png */; };
+		0F9564C61A85C2420005B353 /* appium.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0F9564C51A85C2420005B353 /* appium.icns */; };
 		0F9BE9081A766AB400D668DE /* RecordScriptUploadResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BE9071A766AB400D668DE /* RecordScriptUploadResultViewController.m */; };
 		0F9BE9111A76706500D668DE /* RecordScriptUploadResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */; };
 		0FA34BE01A77E4C400D0774C /* applistrefresh.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0FA34BDB1A77E4C400D0774C /* applistrefresh.tiff */; };
@@ -35,7 +37,7 @@
 		0FB49B141A7DF7F100CD946A /* TestWAHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB49B131A7DF7F100CD946A /* TestWAHttpExecutor.m */; };
 		0FB49B171A7E080500CD946A /* TestWAServerProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB49B161A7E080500CD946A /* TestWAServerProject.m */; };
 		0FB49B1A1A7E083A00CD946A /* TestWABaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB49B191A7E083A00CD946A /* TestWABaseModel.m */; };
-		0FB49B341A7E2D7200CD946A /* logTextViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB49B331A7E2D7200CD946A /* logTextViewBg.png */; };
+		0FB49B341A7E2D7200CD946A /* logTextViewBgBak2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB49B331A7E2D7200CD946A /* logTextViewBgBak2.png */; };
 		0FC9FE391A74E52E0096FC14 /* RecordScriptUploadParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9FE381A74E52E0096FC14 /* RecordScriptUploadParam.m */; };
 		0FC9FE4E1A74F7F00096FC14 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9FE3C1A74F7F00096FC14 /* AFHTTPRequestOperation.m */; };
 		0FC9FE4F1A74F7F00096FC14 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9FE3E1A74F7F00096FC14 /* AFHTTPRequestOperationManager.m */; };
@@ -106,7 +108,6 @@
 		369ED811171DA81E000A7A4E /* MGSFragaria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369ED810171DA81E000A7A4E /* MGSFragaria.framework */; };
 		369ED812171DA83F000A7A4E /* MGSFragaria.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 369ED810171DA81E000A7A4E /* MGSFragaria.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		36A0138B19076BDB00952D9B /* AppiumMonitorWindowPopOverButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A0138A19076BDB00952D9B /* AppiumMonitorWindowPopOverButton.m */; };
-		36A765A616F01C7C002A7D6A /* appium.icns in Resources */ = {isa = PBXBuildFile; fileRef = 36A765A516F01C7C002A7D6A /* appium.icns */; };
 		36A7C8EC17A485C9007F15AB /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36A7C8EB17A485C9007F15AB /* ScriptingBridge.framework */; };
 		36A7C8F117A487DC007F15AB /* AppiumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CEB7F516E3662E00B5B100 /* AppiumTests.m */; };
 		36A871C8170B980F005BFD15 /* AppiumInspectorScreenshotImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A871C7170B980F005BFD15 /* AppiumInspectorScreenshotImageView.m */; };
@@ -141,7 +142,6 @@
 		36CEB7F316E3662E00B5B100 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36CEB7F116E3662E00B5B100 /* InfoPlist.strings */; };
 		36D17E2916F144E600DC5797 /* Upgrade.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 36D17E2816F144E600DC5797 /* Upgrade.applescript */; };
 		36D66777191FC8CE0088C110 /* NSObject+Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D66776191FC8CE0088C110 /* NSObject+Properties.m */; };
-		36F1DE43191FE67300FC65AC /* logTextViewBg3.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F1DE42191FE67300FC65AC /* logTextViewBg3.png */; };
 		36F5FA2C16F4E87F007751D6 /* Selenium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F5FA2B16F4E87E007751D6 /* Selenium.framework */; };
 		36FA922C174037FD00699A6B /* AppiumCodeMakerActionScrollTo.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FA922B174037FD00699A6B /* AppiumCodeMakerActionScrollTo.m */; };
 		36FF07AD171743AC009ED9E2 /* AppiumCodeMakerLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FF07AC171743AC009ED9E2 /* AppiumCodeMakerLocator.m */; };
@@ -243,6 +243,8 @@
 		0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptWindowController.m; sourceTree = "<group>"; };
 		0F8DEAA91A83B18900CC022A /* TestWALoginResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWALoginResult.h; sourceTree = "<group>"; };
 		0F8DEAAA1A83B18900CC022A /* TestWALoginResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWALoginResult.m; sourceTree = "<group>"; };
+		0F9564C31A85C21A0005B353 /* logTextViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logTextViewBg.png; sourceTree = "<group>"; };
+		0F9564C51A85C2420005B353 /* appium.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appium.icns; sourceTree = "<group>"; };
 		0F9BE9061A766AB400D668DE /* RecordScriptUploadResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadResultViewController.h; sourceTree = "<group>"; };
 		0F9BE9071A766AB400D668DE /* RecordScriptUploadResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadResultViewController.m; sourceTree = "<group>"; };
 		0F9BE90F1A76706500D668DE /* RecordScriptUploadResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadResult.h; sourceTree = "<group>"; };
@@ -265,7 +267,7 @@
 		0FB49B161A7E080500CD946A /* TestWAServerProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWAServerProject.m; sourceTree = "<group>"; };
 		0FB49B181A7E083A00CD946A /* TestWABaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWABaseModel.h; sourceTree = "<group>"; };
 		0FB49B191A7E083A00CD946A /* TestWABaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWABaseModel.m; sourceTree = "<group>"; };
-		0FB49B331A7E2D7200CD946A /* logTextViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logTextViewBg.png; sourceTree = "<group>"; };
+		0FB49B331A7E2D7200CD946A /* logTextViewBgBak2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logTextViewBgBak2.png; sourceTree = "<group>"; };
 		0FC9FE371A74E52E0096FC14 /* RecordScriptUploadParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadParam.h; sourceTree = "<group>"; };
 		0FC9FE381A74E52E0096FC14 /* RecordScriptUploadParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadParam.m; sourceTree = "<group>"; };
 		0FC9FE3B1A74F7F00096FC14 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -395,7 +397,6 @@
 		369ED810171DA81E000A7A4E /* MGSFragaria.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSFragaria.framework; path = Frameworks/MGSFragaria.framework; sourceTree = "<group>"; };
 		36A0138919076BDB00952D9B /* AppiumMonitorWindowPopOverButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiumMonitorWindowPopOverButton.h; sourceTree = "<group>"; };
 		36A0138A19076BDB00952D9B /* AppiumMonitorWindowPopOverButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppiumMonitorWindowPopOverButton.m; sourceTree = "<group>"; };
-		36A765A516F01C7C002A7D6A /* appium.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appium.icns; sourceTree = "<group>"; };
 		36A7C8EA17A48466007F15AB /* Appium.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Appium.h; sourceTree = "<group>"; };
 		36A7C8EB17A485C9007F15AB /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		36A7C8ED17A486EA007F15AB /* SystemEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemEvents.h; sourceTree = "<group>"; };
@@ -461,7 +462,6 @@
 		36D17E2816F144E600DC5797 /* Upgrade.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = Upgrade.applescript; sourceTree = "<group>"; };
 		36D66775191FC8CE0088C110 /* NSObject+Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Properties.h"; path = "Utility/NSObject+Properties.h"; sourceTree = "<group>"; };
 		36D66776191FC8CE0088C110 /* NSObject+Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Properties.m"; path = "Utility/NSObject+Properties.m"; sourceTree = "<group>"; };
-		36F1DE42191FE67300FC65AC /* logTextViewBg3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logTextViewBg3.png; sourceTree = "<group>"; };
 		36F5FA2B16F4E87E007751D6 /* Selenium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Selenium.framework; path = Frameworks/Selenium.framework; sourceTree = "<group>"; };
 		36FA922A174037FD00699A6B /* AppiumCodeMakerActionScrollTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiumCodeMakerActionScrollTo.h; sourceTree = "<group>"; };
 		36FA922B174037FD00699A6B /* AppiumCodeMakerActionScrollTo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppiumCodeMakerActionScrollTo.m; sourceTree = "<group>"; };
@@ -1076,9 +1076,9 @@
 				36CEB7D916E3662E00B5B100 /* Appium-Prefix.pch */,
 				36CEB7DA16E3662E00B5B100 /* Credits.rtf */,
 				36B2F18516E6379C008764E0 /* defaults.plist */,
-				36F1DE42191FE67300FC65AC /* logTextViewBg3.png */,
-				0FB49B331A7E2D7200CD946A /* logTextViewBg.png */,
-				36A765A516F01C7C002A7D6A /* appium.icns */,
+				0F9564C31A85C21A0005B353 /* logTextViewBg.png */,
+				0F9564C51A85C2420005B353 /* appium.icns */,
+				0FB49B331A7E2D7200CD946A /* logTextViewBgBak2.png */,
 				36CEB7D416E3662E00B5B100 /* InfoPlist.strings */,
 				36CEB7D716E3662E00B5B100 /* main.m */,
 			);
@@ -1234,6 +1234,7 @@
 				364EED4F191EDFFF00AB4439 /* inspector.png in Resources */,
 				364EED53191EE04A00AB4439 /* settings.png in Resources */,
 				C7FFBA8D19F15CDE005B030F /* menubar-icon.png in Resources */,
+				0F9564C61A85C2420005B353 /* appium.icns in Resources */,
 				0FA74AEA1A7D296000665B7A /* remove.png in Resources */,
 				0F264B301A81F58100EB7600 /* upload-cloud.png in Resources */,
 				0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */,
@@ -1242,20 +1243,19 @@
 				36CEB7E216E3662E00B5B100 /* MainMenu.xib in Resources */,
 				0F264B2C1A81F53600EB7600 /* user.png in Resources */,
 				364EED55191EE07000AB4439 /* trash.png in Resources */,
-				0FB49B341A7E2D7200CD946A /* logTextViewBg.png in Resources */,
+				0FB49B341A7E2D7200CD946A /* logTextViewBgBak2.png in Resources */,
 				0F68EBCE1A81BF8300CA6062 /* remove3.png in Resources */,
 				36BA3A1D191EE417007FA51B /* doctor.png in Resources */,
 				0F68EBD01A81BF8300CA6062 /* upload3.png in Resources */,
 				3695CAB116E3FCAE003697A9 /* AppiumInstallationWindow.xib in Resources */,
-				36F1DE43191FE67300FC65AC /* logTextViewBg3.png in Resources */,
 				0F1C6EF21A7B4CCD00D4ED32 /* record.png in Resources */,
 				0FA34BE01A77E4C400D0774C /* applistrefresh.tiff in Resources */,
 				36AA8D7016E40B28007472C1 /* AppiumMonitorWindow.xib in Resources */,
 				3612E5F816E5B6520050CF0A /* appium.sdef in Resources */,
 				364EED59191EE27000AB4439 /* robot.png in Resources */,
 				36B2F18616E6379C008764E0 /* defaults.plist in Resources */,
-				36A765A616F01C7C002A7D6A /* appium.icns in Resources */,
 				0FAC3DB91A7F629200CCE61F /* PreferenceWindow.xib in Resources */,
+				0F9564C41A85C21A0005B353 /* logTextViewBg.png in Resources */,
 				36CD44EF16F0D5C300194193 /* AppiumInspectorWindow.xib in Resources */,
 				0F68EBCC1A81BF8300CA6062 /* add3.png in Resources */,
 				36D17E2916F144E600DC5797 /* Upgrade.applescript in Resources */,
