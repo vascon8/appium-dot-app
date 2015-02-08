@@ -55,5 +55,8 @@
 {
 	RecordScriptUploadResult *result = [self.scriptList objectAtIndex:[self.tableView rowForView:sender]];
 	result.checked = sender.state;
+	if ([self.delegate respondsToSelector:@selector(recordscriptUploadResultView:checkedScriptRow:)]) {
+		[self.delegate recordscriptUploadResultView:self checkedScriptRow:sender.state];
+	}
 }
 @end

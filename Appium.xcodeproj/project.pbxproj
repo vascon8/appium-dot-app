@@ -27,6 +27,7 @@
 		0F9BE9081A766AB400D668DE /* RecordScriptUploadResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BE9071A766AB400D668DE /* RecordScriptUploadResultViewController.m */; };
 		0F9BE9111A76706500D668DE /* RecordScriptUploadResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */; };
 		0FA34BE01A77E4C400D0774C /* applistrefresh.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0FA34BDB1A77E4C400D0774C /* applistrefresh.tiff */; };
+		0FA44A5F1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA44A5E1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.m */; };
 		0FAC3DB91A7F629200CCE61F /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FAC3DB81A7F629200CCE61F /* PreferenceWindow.xib */; };
 		0FAC3DBC1A7F62C300CCE61F /* TestWAPreferenceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAC3DBB1A7F62C300CCE61F /* TestWAPreferenceWindowController.m */; };
 		0FAC3DC01A7F6A7A00CCE61F /* TestWAServerUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAC3DBF1A7F6A7A00CCE61F /* TestWAServerUser.m */; };
@@ -248,6 +249,8 @@
 		0F9BE90F1A76706500D668DE /* RecordScriptUploadResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadResult.h; sourceTree = "<group>"; };
 		0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadResult.m; sourceTree = "<group>"; };
 		0FA34BDB1A77E4C400D0774C /* applistrefresh.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = applistrefresh.tiff; sourceTree = "<group>"; };
+		0FA44A5D1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWAPrjOutlineViewDataSource.h; sourceTree = "<group>"; };
+		0FA44A5E1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWAPrjOutlineViewDataSource.m; sourceTree = "<group>"; };
 		0FAC3DB81A7F629200CCE61F /* PreferenceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		0FAC3DBA1A7F62C300CCE61F /* TestWAPreferenceWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWAPreferenceWindowController.h; sourceTree = "<group>"; };
 		0FAC3DBB1A7F62C300CCE61F /* TestWAPreferenceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWAPreferenceWindowController.m; sourceTree = "<group>"; };
@@ -622,6 +625,8 @@
 				0FB49B161A7E080500CD946A /* TestWAServerProject.m */,
 				0FB49B181A7E083A00CD946A /* TestWABaseModel.h */,
 				0FB49B191A7E083A00CD946A /* TestWABaseModel.m */,
+				0FA44A5D1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.h */,
+				0FA44A5E1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1312,6 +1317,7 @@
 				368C3FF516E8F3EC00B84DE6 /* AppiumUpdater.m in Sources */,
 				364C076816E94B1A0093011E /* AppiumMenuBarManager.m in Sources */,
 				365CA3BF16EFB9C000A6DBE8 /* AppiumModel.m in Sources */,
+				0FA44A5F1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.m in Sources */,
 				0FAC3DC31A7F6F8600CCE61F /* TestWALoginParam.m in Sources */,
 				365CA3C316EFDA8300A6DBE8 /* AppiumPortTransformer.m in Sources */,
 				7D6B509318F522C400E25292 /* AppiumCodeMakerNodePlugin.m in Sources */,
