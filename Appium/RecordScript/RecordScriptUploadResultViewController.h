@@ -8,10 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class RecordScriptUploadResultViewController;
+
+@protocol RecordScriptUploadResultViewDelegate <NSObject>
+
+- (void)recordscriptUploadResultView:(RecordScriptUploadResultViewController *)recordscriptUploadResultView checkedScriptRow:(BOOL)checkedScriptRow;
+
+@end
+
 @interface RecordScriptUploadResultViewController : NSViewController
 
 @property (weak) IBOutlet NSTableView *tableView;
 
 @property NSArray *scriptList;
+@property (weak) id<RecordScriptUploadResultViewDelegate> delegate;
 
 @end

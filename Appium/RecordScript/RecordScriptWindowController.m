@@ -17,6 +17,7 @@
 
 #import "RecordScriptUploadResultViewController.h"
 #import "RecordScriptUploadResult.h"
+#import "TestWAPrjOutlineViewDataSource.h"
 
 #import "TestWAServerUser.h"
 #import "TestWAServerProject.h"
@@ -27,9 +28,11 @@
 #define RecordscriptUploadServerAddress [NSString stringWithFormat:@"%@/attp/upload",TestWAServerPrefix]
 #define RecordscriptGetServerProjectAddress [NSString stringWithFormat:@"%@/attp/projects",TestWAServerPrefix]
 
-@interface RecordScriptWindowController ()<NSTableViewDataSource,NSTableViewDelegate>
+@interface RecordScriptWindowController ()<NSSplitViewDelegate,NSOutlineViewDelegate,RecordScriptUploadResultViewDelegate>
 
-@property (weak) IBOutlet NSTableView *appInfoTableView;
+@property (weak) IBOutlet NSOutlineView *prjOutlineView;
+@property (strong) IBOutlet TestWAPrjOutlineViewDataSource *prjOutlineViewDataSource;
+
 @property (weak) IBOutlet NSButton *appInfoRefreshButton;
 @property (weak) IBOutlet NSProgressIndicator *appLoadProgressIndicator;
 
@@ -40,7 +43,6 @@
 @property (weak) IBOutlet NSButton *loginButton;
 @property (weak) IBOutlet NSTextField *userLabel;
 
-@property NSArray *appListArr;
 @property BOOL isLoadingApp;
 @property (strong) IBOutlet RecordScriptUploadResultViewController *scriptUploadViewController;
 @property NSOperationQueue *uploadQueue;
@@ -79,12 +81,13 @@
 	self.isLogin = [TestWAAccountTool isLogin];
 	if (_isLogin) {
 		self.userLabel.stringValue = [TestWAAccountTool loginUserName];
+		[self.appInfoRefreshButton setHidden:NO];
 		[self loadProjectData];
 	}
 	else{
+		[self.appInfoRefreshButton setHidden:YES];
 		self.prjListArr = nil;
-		self.appListArr = nil;
-		[self.appInfoTableView reloadData];
+		[self.prjOutlineView reloadData];
 	}
 	
 	[self.userLabel setHidden:!self.isLogin];
@@ -92,13 +95,9 @@
 }
 - (void)setupAppData
 {
-	self.appInfoTableView.delegate = self;
-	self.appInfoTableView.dataSource = self;
 	self.uploadQueue = [[NSOperationQueue alloc]init];
 	[self.uploadQueue setMaxConcurrentOperationCount:MaxConcurrentUploadOperation];
-	
-	
-	if(_isLogin) [self loadProjectData];
+	self.scriptUploadViewController.delegate = self;
 }
 #pragma mark - load project data
 - (void)loadProjectData
@@ -124,16 +123,8 @@
 		self.prjListArr = arrM;
 		arrM = nil;
 		
-		NSMutableArray *arr = [NSMutableArray array];
-		for (TestWAServerProject *prj in self.prjListArr) {
-			for (RecordscriptApp *app in prj.apps) {
-				[arr addObject:app];
-			}
-		}
-		self.appListArr = arr;
-		arr = nil;
-		
-		[self.appInfoTableView reloadData];
+		self.prjOutlineViewDataSource.prjList = self.prjListArr;
+		[self.prjOutlineView reloadData];
 	}];
 	
 	[self.appLoadProgressIndicator stopAnimation:nil];
@@ -141,7 +132,6 @@
 	[self.appInfoRefreshButton setEnabled:YES];
 
 }
-#pragma mark - load app data
 - (IBAction)refreshAppList:(id)sender {
 	if (self.isLoadingApp || !self.isLogin) return;
 	[self loadProjectData];
@@ -161,27 +151,7 @@
 		[self.scriptUploadViewController.tableView reloadDataForRowIndexes:[NSIndexSet indexSetWithIndex:index] columnIndexes:[NSIndexSet indexSetWithIndex:1]];
 	}];
 }
-- (void)updateScriptView
-{
-	NSInteger selectedRow = self.appInfoTableView.selectedRow;
-	if (selectedRow > self.appListArr.count-1) return;
-	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
-	if (app.scriptList.count>0) {
-		if (!self.scriptFistAddButton.isHidden)[self.scriptFistAddButton setHidden:YES];
-		if (self.scriptAddButton.isHidden)[self.scriptAddButton setHidden:NO];
-		if (self.scriptRemoveButton.isHidden)[self.scriptRemoveButton setHidden:NO];
-		
-		if (self.scriptUploadViewController.tableView.isHidden)[self.scriptUploadViewController.tableView setHidden:NO];
-		self.scriptUploadViewController.scriptList = app.scriptList;
-		[self.scriptUploadViewController.tableView reloadData];
-	}
-	else{
-		[self.scriptUploadViewController.tableView setHidden:YES];
-		[self.scriptFistAddButton setHidden:NO];
-		[self.scriptAddButton setHidden:YES];
-		[self.scriptRemoveButton setHidden:YES];
-	}
-}
+
 - (IBAction)chooseScriptButtonClicked:(NSButton *)sender {
 	NSOpenPanel* chooseScriptPanlel = [NSOpenPanel openPanel];
 	[chooseScriptPanlel setMessage:@"请选择要上传的脚本"];
@@ -197,8 +167,10 @@
 		if (result == NSFileHandlingPanelOKButton && [[chooseScriptPanlel URLs][0] lastPathComponent]) {
 			NSURL *scriptFileUrl = [chooseScriptPanlel URLs][0];
 		
-			NSInteger selectedRow = self.appInfoTableView.selectedRow;
-			RecordscriptApp *app = (RecordscriptApp *)self.appListArr[selectedRow];
+			NSInteger selectedRow = [self.prjOutlineView selectedRow];
+			if (![[self.prjOutlineView itemAtRow:selectedRow] isKindOfClass:[RecordscriptApp class]]) return ;
+			
+			RecordscriptApp *app = [self.prjOutlineView itemAtRow:selectedRow];
 		
 			NSInteger uploadIndex = [self setupAppRecordScriptUploadResult:app withScriptName:[scriptFileUrl lastPathComponent]];
 			
@@ -210,7 +182,6 @@
 		}
 	}];
 }
-#pragma mark update record script result
 - (NSInteger)setupAppRecordScriptUploadResult:(RecordscriptApp *)app withScriptName:(NSString *)scriptName
 {
 	NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:app.scriptList.count+1];
@@ -222,7 +193,7 @@
 	app.scriptList = arrM;
 	arrM = nil;
 	
-	[self updateScriptResultTableView];
+	[self updateScriptResultTableViewWithApp:app];
 	
 	return app.scriptList.count-1;
 }
@@ -270,50 +241,45 @@
 	
 	return language;
 }
-#pragma mark - tableview datasource
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+#pragma mark - outlineView delegate
+- (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item
 {
-    NSInteger rows = self.appListArr.count;
-    if (rows <= 0) {
-        if (self.scriptFistAddButton.isEnabled) [self.scriptFistAddButton setEnabled:NO];
-    }
+	if ([outlineView parentForItem:item] == nil) {
+		NSTextField *prjTextField = [outlineView makeViewWithIdentifier:@"PrjTextField" owner:self];
+		NSString *name = [item valueForKey:@"name"];
+		NSInteger apps = [[item valueForKey:@"apps"] count];
+		name = [NSString stringWithFormat:@"%@ (%ld)",name,apps];
+		prjTextField.stringValue = name;
+		return prjTextField;
+	}
 	else{
-        if (!self.scriptAddButton.isEnabled) [self.scriptAddButton setEnabled:YES];
+		NSTableCellView *cellView = [outlineView makeViewWithIdentifier:@"AppCellView" owner:self];
+		cellView.textField.stringValue = [item valueForKey:@"name"];
+		NSString *imgName = @"apple";
+		NSString *type = [item valueForKey:@"type"];
+		if ([[type lowercaseString] isEqualToString:@"android"]) imgName = @"android";
+		[cellView.imageView setImage:[NSImage imageNamed:imgName]];
+		return cellView;
 	}
-    
-	return rows;
 }
-#pragma mark - tableview delegate
-- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+- (void)outlineViewSelectionDidChange:(NSNotification *)notification
 {
-	NSTableCellView	 *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
-	RecordscriptApp *app = [self.appListArr objectAtIndex:row];
-	cellView.textField.stringValue = app.name;
-	NSString *imageName = @"apple";
-	if ([[app.type lowercaseString] isEqualToString:@"android"]) imageName = @"android";
-	[cellView.imageView setImage:[NSImage imageNamed:imageName]];
-	return cellView;
-}
-- (void)tableViewSelectionDidChange:(NSNotification *)notification
-{
-	if ([self.appInfoTableView numberOfRows] > 0 && !self.scriptFistAddButton.isEnabled) {
-		[self.scriptFistAddButton setEnabled:YES];
-	}
 	[self updateScriptView];
 }
+
 #pragma mark - scriptUploadViewController
-- (void)updateScriptResultTableView
+- (void)updateScriptResultTableViewWithApp:(RecordscriptApp *)app
 {
-	NSInteger selectedRow = self.appInfoTableView.selectedRow;
-	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
 	self.scriptUploadViewController.scriptList = [NSArray arrayWithArray:app.scriptList];
 	if (self.scriptUploadViewController.scriptList.count>0) [self.scriptUploadViewController.view setHidden:NO];
 	[self.scriptUploadViewController.tableView reloadData];
 }
 #pragma mark - remove upload script record
 - (IBAction)removeRecordScript:(id)sender{
-	NSInteger selectedRow = self.appInfoTableView.selectedRow;
-	RecordscriptApp *app = [self.appListArr objectAtIndex:selectedRow];
+	NSInteger selectedRow = [self.prjOutlineView selectedRow];
+	if (![[self.prjOutlineView itemAtRow:selectedRow] isKindOfClass:[RecordscriptApp class]]) return ;
+	
+	RecordscriptApp *app = [self.prjOutlineView itemAtRow:selectedRow];
 	
 	NSMutableArray *arrM = [NSMutableArray arrayWithArray:app.scriptList];
 	NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
@@ -329,6 +295,63 @@
 	[self.scriptUploadViewController.tableView removeRowsAtIndexes:indexSet	withAnimation:NSTableViewAnimationEffectFade];
 	[self updateScriptView];
 }
+#pragma mark - update scriptView
+- (void)updateScriptView
+{
+	NSInteger selectedRow = self.prjOutlineView.selectedRow;
+	
+	if (selectedRow > self.prjOutlineView.numberOfRows-1) return;
+	
+	id item = [self.prjOutlineView itemAtRow:selectedRow];
+	if ([self.prjOutlineView parentForItem:item]) {
+		RecordscriptApp *app = [self.prjOutlineView itemAtRow:selectedRow];
+		if (app.scriptList.count>0) {
+			[self showScriptView];
+			self.scriptUploadViewController.scriptList = app.scriptList;
+			[self.scriptUploadViewController.tableView reloadData];
+		}
+		else{
+			[self hideScriptViewEnableFirstAddButton:YES];
+		}
+	}
+	else{
+		[self hideScriptViewEnableFirstAddButton:NO];
+	}
+	
+}
+- (void)showScriptView
+{
+	[self.scriptUploadViewController.tableView setHidden:NO];
+	[self.scriptFistAddButton setHidden:YES];
+	[self.scriptAddButton setHidden:NO];
+	[self.scriptRemoveButton setHidden:NO];
+	
+	[self updateRemoveButton];
+}
+- (void)hideScriptViewEnableFirstAddButton:(BOOL)enable
+{
+	[self.scriptUploadViewController.tableView setHidden:YES];
+	[self.scriptFistAddButton setHidden:NO];
+	[self.scriptAddButton setHidden:YES];
+	[self.scriptRemoveButton setHidden:YES];
+	
+	[self.scriptFistAddButton setEnabled:enable];
+}
+- (void)updateRemoveButton
+{
+	NSInteger selectedRow = [self.prjOutlineView selectedRow];
+	if (![[self.prjOutlineView itemAtRow:selectedRow] isKindOfClass:[RecordscriptApp class]]) return ;
+	
+	RecordscriptApp *app = [self.prjOutlineView itemAtRow:selectedRow];
+	
+	for (RecordScriptUploadResult *result in app.scriptList) {
+		if (result.checked) {
+			[self.scriptRemoveButton setEnabled:YES];
+			return;
+		}
+	}
+	[self.scriptRemoveButton setEnabled:NO];
+}
 #pragma mark - login
 - (IBAction)clickedLogin:(id)sender {
 	if (!self.isLogin) {
@@ -336,9 +359,24 @@
 		[appDelegate displayPreferenceWindow:nil];
 	}
 }
-#pragma mark - change log state and update app info
 - (void)logStateDidChanged:(NSNotification *)notification
 {
 	[self setupUserInfo];
+}
+#pragma mark - recordscript upload result view delegate
+- (void)recordscriptUploadResultView:(RecordScriptUploadResultViewController *)recordscriptUploadResultView checkedScriptRow:(BOOL)checkedScriptRow
+{
+	[self updateRemoveButton];
+}
+#pragma mark - splitview delegate
+- (BOOL)splitView:(NSSplitView *)splitView canCollapseSubview:(NSView *)subview {
+    return NO;
+}
+
+- (CGFloat)splitView:(NSSplitView *)splitView constrainMinCoordinate:(CGFloat)proposedMinimumPosition ofSubviewAt:(NSInteger)dividerIndex {
+    if (proposedMinimumPosition < 160) {
+        proposedMinimumPosition = 160;
+    }
+    return proposedMinimumPosition;
 }
 @end
