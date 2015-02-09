@@ -39,4 +39,5 @@
 
 @property TestWAPreferenceWindowController *preferenceWindow;
 - (IBAction)displayPreferenceWindow:(id)sender;
+
 @end

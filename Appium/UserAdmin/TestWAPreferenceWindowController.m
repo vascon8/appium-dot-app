@@ -70,7 +70,7 @@
 	[[NSNotificationCenter defaultCenter]postNotificationName:TestWALogStateDidChangedNotification object:self userInfo:nil];
 }
 - (IBAction)logout:(id)sender {
-	[TestWAAccountTool clearAccountRecord];
+	[TestWAAccountTool logout];
 	[self setupLogView];
 }
 

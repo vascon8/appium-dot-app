@@ -42,7 +42,8 @@
 	if([self requestAccount]) return YES;
 	else return NO;
 }
-+ (void)clearAccountRecord
+
++ (void)logout
 {
 	NSError *error = nil;
 	[[NSFileManager defaultManager]removeItemAtPath:[self userinfoFile] error:&error];
