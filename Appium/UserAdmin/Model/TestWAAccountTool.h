@@ -17,6 +17,7 @@
 + (NSString *)loginUserName;
 + (NSString *)loginUserID;
 
-+ (void)clearAccountRecord;
+//+ (void)clearAccountRecord;
++ (void)logout;
 
 @end

@@ -10,4 +10,6 @@
 
 @interface TestWAPreferenceWindowController : NSWindowController
 
+- (IBAction)logout:(id)sender;
+
 @end

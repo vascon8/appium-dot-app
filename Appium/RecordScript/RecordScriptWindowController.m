@@ -24,6 +24,7 @@
 
 #import "AppiumAppDelegate.h"
 #import "TestWAAccountTool.h"
+#import "TestWAPreferenceWindowController.h"
 
 #define RecordscriptUploadServerAddress [NSString stringWithFormat:@"%@/attp/upload",TestWAServerPrefix]
 #define RecordscriptGetServerProjectAddress [NSString stringWithFormat:@"%@/attp/projects",TestWAServerPrefix]
@@ -41,7 +42,11 @@
 @property (weak) IBOutlet NSButton *scriptRemoveButton;
 
 @property (weak) IBOutlet NSButton *loginButton;
+
+@property (weak) IBOutlet NSView *loginView;
 @property (weak) IBOutlet NSTextField *userLabel;
+@property (weak) IBOutlet NSButton *logoutButton;
+@property (weak) IBOutlet NSBox *loginViewSplitLine;
 
 @property BOOL isLoadingApp;
 @property (strong) IBOutlet RecordScriptUploadResultViewController *scriptUploadViewController;
@@ -79,19 +84,35 @@
 - (void)setupUserInfo
 {
 	self.isLogin = [TestWAAccountTool isLogin];
+	
+	[self.loginButton setHidden:self.isLogin];
+	[self.loginView setHidden:!self.isLogin];
+	[self.appInfoRefreshButton setHidden:!self.isLogin];
+	
 	if (_isLogin) {
 		self.userLabel.stringValue = [TestWAAccountTool loginUserName];
-		[self.appInfoRefreshButton setHidden:NO];
+		
+		[self.userLabel sizeToFit];
+		[self.logoutButton sizeToFit];
+		CGFloat userLabelW = self.userLabel.frame.size.width;
+		
+		NSRect splitLineF = self.loginViewSplitLine.frame;
+		splitLineF.size.height = self.userLabel.frame.size.height;
+		splitLineF.origin.x = userLabelW;
+		self.loginViewSplitLine.frame = splitLineF;
+		
+		NSRect logoutBtnF = self.logoutButton.frame;
+		logoutBtnF.origin.x = userLabelW + 2.0;
+		self.logoutButton.frame = logoutBtnF;
+		
 		[self loadProjectData];
 	}
 	else{
-		[self.appInfoRefreshButton setHidden:YES];
 		self.prjListArr = nil;
+		self.prjOutlineViewDataSource.prjList = nil;
+		
 		[self.prjOutlineView reloadData];
 	}
-	
-	[self.userLabel setHidden:!self.isLogin];
-	[self.loginButton setHidden:self.isLogin];
 }
 - (void)setupAppData
 {
@@ -355,14 +376,20 @@
 #pragma mark - login
 - (IBAction)clickedLogin:(id)sender {
 	if (!self.isLogin) {
-		AppiumAppDelegate *appDelegate = [NSApplication sharedApplication].delegate;
-		[appDelegate displayPreferenceWindow:nil];
+		[[self appDelegate]displayPreferenceWindow:nil];
 	}
 }
 - (void)logStateDidChanged:(NSNotification *)notification
 {
 	[self setupUserInfo];
 }
+- (IBAction)clickedLogout:(id)sender {
+	if (self.isLogin) {
+		[TestWAAccountTool logout];
+		[self setupUserInfo];
+	}
+}
+
 #pragma mark - recordscript upload result view delegate
 - (void)recordscriptUploadResultView:(RecordScriptUploadResultViewController *)recordscriptUploadResultView checkedScriptRow:(BOOL)checkedScriptRow
 {
@@ -378,5 +405,10 @@
         proposedMinimumPosition = 160;
     }
     return proposedMinimumPosition;
+}
+#pragma mark - private
+- (AppiumAppDelegate *)appDelegate
+{
+	return [NSApplication sharedApplication].delegate;
 }
 @end
