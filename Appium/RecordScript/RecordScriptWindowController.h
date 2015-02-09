@@ -18,6 +18,7 @@
 
 @interface RecordScriptWindowController : NSWindowController
 
+@property NSInteger selectedIndex;
 - (void)logStateDidChanged:(NSNotification *)notification;
 
 @end
