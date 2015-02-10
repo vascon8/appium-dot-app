@@ -13,5 +13,6 @@
 @interface RecordScriptUploadViewController : NSViewController
 
 @property (weak) RecordScriptWindowController *recordWindow;
+- (void)updateUserInfo;
 
 @end

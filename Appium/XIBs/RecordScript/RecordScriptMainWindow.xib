@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="RecordScriptWindowController">
             <connections>
                 <outlet property="contentTabView" destination="HhN-Cq-zOQ" id="Du0-CJ-vYJ"/>
+                <outlet property="headerSegmentButton" destination="qCN-Vi-zBb" id="69G-TP-bxq"/>
                 <outlet property="loginButton" destination="Oe1-Cy-rEH" id="xJr-rv-emN"/>
                 <outlet property="loginView" destination="Grj-Na-TFV" id="Css-zI-Xeq"/>
                 <outlet property="loginViewSplitLine" destination="E6n-zy-c4x" id="3Iu-5g-3Ob"/>
@@ -21,10 +22,10 @@
         <window title="脚本上传" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="g6E-SB-Rpk">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="109" y="131" width="600" height="360"/>
+            <rect key="contentRect" x="109" y="131" width="600" height="380"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="ufq-r2-ddX">
-                <rect key="frame" x="0.0" y="0.0" width="600" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="mmf-ad-YHS">
@@ -35,7 +36,7 @@
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <box autoresizesSubviews="NO" transparent="YES" title="Box" borderType="line" titlePosition="noTitle" id="Phc-rB-ZrE" userLabel="Header Box - Box">
-                        <rect key="frame" x="0.0" y="330" width="600" height="30"/>
+                        <rect key="frame" x="0.0" y="340" width="600" height="30"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="598" height="28"/>
@@ -55,7 +56,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <box horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="E6n-zy-c4x">
-                                            <rect key="frame" x="80" y="2" width="5" height="20"/>
+                                            <rect key="frame" x="80" y="0.0" width="5" height="10"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -75,7 +76,7 @@
                                     </subviews>
                                 </customView>
                                 <button appearanceType="aqua" id="Oe1-Cy-rEH" userLabel="Login Bevel Button - 登录">
-                                    <rect key="frame" x="10" y="0.0" width="44" height="30"/>
+                                    <rect key="frame" x="10" y="3" width="44" height="24"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="bevel" title="登录" bezelStyle="regularSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="tgF-Sj-hGE">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -85,22 +86,20 @@
                                         <action selector="clickedLogin:" target="-2" id="3n4-30-Bsg"/>
                                     </connections>
                                 </button>
-                                <button appearanceType="aqua" id="ATN-IO-V9m">
-                                    <rect key="frame" x="200" y="3" width="60" height="24"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="bevel" title="upload" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8OS-B0-xfC">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system" size="10"/>
-                                    </buttonCell>
-                                </button>
-                                <button appearanceType="aqua" id="sF3-ka-6Dy">
-                                    <rect key="frame" x="269" y="3" width="60" height="24"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="bevel" title="local" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rTm-ZN-BWK">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system" size="10"/>
-                                    </buttonCell>
-                                </button>
+                                <segmentedControl verticalHuggingPriority="750" id="qCN-Vi-zBb" userLabel="Tab Header Segmented Control - 脚本上传, 本地脚本">
+                                    <rect key="frame" x="234" y="3" width="130" height="23"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <segmentedCell key="cell" alignment="left" style="capsule" trackingMode="selectOne" id="0qw-be-T8i">
+                                        <font key="font" metaFont="system"/>
+                                        <segments>
+                                            <segment label="脚本上传" width="61"/>
+                                            <segment label="本地脚本" width="62" tag="1"/>
+                                        </segments>
+                                    </segmentedCell>
+                                    <connections>
+                                        <action selector="clickedSwitchTabItem:" target="-2" id="OmW-DM-0k6"/>
+                                    </connections>
+                                </segmentedControl>
                             </subviews>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>

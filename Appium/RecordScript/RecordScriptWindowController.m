@@ -7,25 +7,12 @@
 //
 
 #import "RecordScriptWindowController.h"
-//#import "AppiumPreferencesFile.h"
-
-//#import "RecordscriptApp.h"
-//#import "RecordScriptUploadParam.h"
-
-//#import "NSObject+LXDict.h"
-//#import "TestWAHttpExecutor.h"
-
-//#import "RecordScriptUploadResultViewController.h"
-//#import "RecordScriptUploadResult.h"
-//#import "TestWAPrjOutlineViewDataSource.h"
-
-//#import "TestWAServerUser.h"
-//#import "TestWAServerProject.h"
-
 #import "AppiumAppDelegate.h"
 #import "TestWAAccountTool.h"
 #import "TestWAPreferenceWindowController.h"
+
 #import "RecordScriptUploadViewController.h"
+#import "RecordScriptLocalScriptViewController.h"
 
 @interface RecordScriptWindowController ()
 
@@ -40,41 +27,49 @@
 
 @property (weak) IBOutlet NSTabView *contentTabView;
 @property RecordScriptUploadViewController *uploadController;
+@property RecordScriptLocalScriptViewController *localScriptController;
+@property (weak) IBOutlet NSSegmentedControl *headerSegmentButton;
 
 @end
 
 @implementation RecordScriptWindowController
-- (id)initWithWindowNibName:(NSString *)windowNibName
-{
-	self = [super initWithWindowNibName:windowNibName];
-	if (self) {	}
-	return self;
-}
 - (void)loadWindow
 {
 	[super loadWindow];
 	
+	[self setupHeaderView];
+	[self setupViews];
+	[self setupTabItems];
+}
+- (void)setupTabItems
+{
 	RecordScriptUploadViewController *uploadController = [[RecordScriptUploadViewController alloc]initWithNibName:@"RecordScriptUploadView" bundle:nil];
 	uploadController.recordWindow = self;
 	self.uploadController = uploadController;
 	
-	self.selectedIndex = 0;
-	NSTabViewItem *uploadItem = [self.contentTabView.tabViewItems objectAtIndex:0];
+	NSTabViewItem *uploadItem = [[NSTabViewItem alloc]init];
 	[uploadItem setView:uploadController.view];
 	[self.contentTabView addTabViewItem:uploadItem];
 	
+	self.localScriptController = [[RecordScriptLocalScriptViewController alloc]initWithNibName:@"RecordScriptLocalScriptMgrView" bundle:nil];
+	NSTabViewItem *localScriptItem = [[NSTabViewItem alloc]init];
+	[localScriptItem setView:self.localScriptController.view];
+	[self.contentTabView addTabViewItem:localScriptItem];
+	
+	[self.contentTabView removeTabViewItem:[self.contentTabView tabViewItemAtIndex:0]];
+	self.headerSegmentButton.selectedSegment = 0;
+	self.selectedIndex = self.headerSegmentButton.selectedSegment;
 	
 }
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-	[self setupViews];
+	[self.uploadController updateUserInfo];
+}
+- (void)setupHeaderView
+{
 }
 - (void)setupViews
-{
-	[self setupUserInfo];
-}
-- (void)setupUserInfo
 {
 	self.isLogin = [TestWAAccountTool isLogin];
 	
@@ -94,10 +89,21 @@
 		self.loginViewSplitLine.frame = splitLineF;
 		
 		NSRect logoutBtnF = self.logoutButton.frame;
-		logoutBtnF.origin.x = userLabelW + 2.0;
+		logoutBtnF.origin.x = userLabelW + 4.0;
 		self.logoutButton.frame = logoutBtnF;
 	}
 }
+- (void)setupUserInfo
+{
+	[self setupViews];
+	
+	[self.uploadController updateUserInfo];
+}
+#pragma mark - switch tab view
+- (IBAction)clickedSwitchTabItem:(NSSegmentedControl *)sender {
+	self.selectedIndex = sender.selectedSegment;
+}
+
 
 #pragma mark - login
 - (IBAction)clickedLogin:(id)sender {

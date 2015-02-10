@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0E400E1A89E94D00228E67 /* tabHeader-button-left.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F0E40081A89E94D00228E67 /* tabHeader-button-left.tiff */; };
+		0F0E400F1A89E94D00228E67 /* tabHeader-smooth-button-middle.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F0E40091A89E94D00228E67 /* tabHeader-smooth-button-middle.tiff */; };
+		0F0E40101A89E94D00228E67 /* tabHeader-smooth-button-on-left.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F0E400A1A89E94D00228E67 /* tabHeader-smooth-button-on-left.tiff */; };
+		0F0E40111A89E94D00228E67 /* tabHeader-smooth-button-on-middle.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F0E400B1A89E94D00228E67 /* tabHeader-smooth-button-on-middle.tiff */; };
+		0F0E40121A89E94D00228E67 /* tabHeader-smooth-button-on-right.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F0E400C1A89E94D00228E67 /* tabHeader-smooth-button-on-right.tiff */; };
+		0F0E40131A89E94D00228E67 /* tabHeader-smooth-button-right.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F0E400D1A89E94D00228E67 /* tabHeader-smooth-button-right.tiff */; };
 		0F1C6EEE1A7B4CC100D4ED32 /* RecordScriptSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1C6EED1A7B4CC100D4ED32 /* RecordScriptSettingModel.m */; };
 		0F1C6EF21A7B4CCD00D4ED32 /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F1C6EF11A7B4CCD00D4ED32 /* record.png */; };
 		0F2095CA1A72446000B6C3D3 /* LXIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2095C61A72446000B6C3D3 /* LXIvar.m */; };
@@ -14,11 +20,13 @@
 		0F2095CC1A72446000B6C3D3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0F2095C91A72446000B6C3D3 /* README.md */; };
 		0F264B2C1A81F53600EB7600 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F264B2B1A81F53600EB7600 /* user.png */; };
 		0F264B301A81F58100EB7600 /* upload-cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F264B2F1A81F58100EB7600 /* upload-cloud.png */; };
+		0F2937A61A89D792007B08FC /* RecordScriptLocalScriptMgrView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F2937A51A89D792007B08FC /* RecordScriptLocalScriptMgrView.xib */; };
 		0F68EBCC1A81BF8300CA6062 /* script-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBC71A81BF8300CA6062 /* script-add.png */; };
 		0F68EBCD1A81BF8300CA6062 /* uplod-fail.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBC81A81BF8300CA6062 /* uplod-fail.png */; };
 		0F68EBCE1A81BF8300CA6062 /* script-remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBC91A81BF8300CA6062 /* script-remove.png */; };
 		0F68EBCF1A81BF8300CA6062 /* upload-success.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBCA1A81BF8300CA6062 /* upload-success.png */; };
 		0F68EBD01A81BF8300CA6062 /* upload3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F68EBCB1A81BF8300CA6062 /* upload3.png */; };
+		0F7303BE1A89B8280082D180 /* RecordScriptLocalScriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7303BD1A89B8280082D180 /* RecordScriptLocalScriptViewController.m */; };
 		0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */; };
 		0F7B14EE1A6F96FD0012296F /* RecordScriptWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */; };
 		0F8DEAAB1A83B18900CC022A /* TestWALoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DEAAA1A83B18900CC022A /* TestWALoginResult.m */; };
@@ -157,20 +165,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0F8DEAB01A83B18A00CC022A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C77BC82D19FFC16B008979E5;
-			remoteInfo = SeleniumForiOS;
-		};
-		0F8DEAB21A83B18A00CC022A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C77BC83719FFC16B008979E5;
-			remoteInfo = SeleniumForiOSTests;
-		};
 		36683086184A5DDB00C1A91D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
@@ -223,6 +217,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F0E40081A89E94D00228E67 /* tabHeader-button-left.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "tabHeader-button-left.tiff"; sourceTree = "<group>"; };
+		0F0E40091A89E94D00228E67 /* tabHeader-smooth-button-middle.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "tabHeader-smooth-button-middle.tiff"; sourceTree = "<group>"; };
+		0F0E400A1A89E94D00228E67 /* tabHeader-smooth-button-on-left.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "tabHeader-smooth-button-on-left.tiff"; sourceTree = "<group>"; };
+		0F0E400B1A89E94D00228E67 /* tabHeader-smooth-button-on-middle.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "tabHeader-smooth-button-on-middle.tiff"; sourceTree = "<group>"; };
+		0F0E400C1A89E94D00228E67 /* tabHeader-smooth-button-on-right.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "tabHeader-smooth-button-on-right.tiff"; sourceTree = "<group>"; };
+		0F0E400D1A89E94D00228E67 /* tabHeader-smooth-button-right.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "tabHeader-smooth-button-right.tiff"; sourceTree = "<group>"; };
 		0F1C6EEC1A7B4CC100D4ED32 /* RecordScriptSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptSettingModel.h; sourceTree = "<group>"; };
 		0F1C6EED1A7B4CC100D4ED32 /* RecordScriptSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptSettingModel.m; sourceTree = "<group>"; };
 		0F1C6EF11A7B4CCD00D4ED32 /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
@@ -234,11 +234,14 @@
 		0F2095C91A72446000B6C3D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		0F264B2B1A81F53600EB7600 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		0F264B2F1A81F58100EB7600 /* upload-cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload-cloud.png"; sourceTree = "<group>"; };
+		0F2937A51A89D792007B08FC /* RecordScriptLocalScriptMgrView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptLocalScriptMgrView.xib; sourceTree = "<group>"; };
 		0F68EBC71A81BF8300CA6062 /* script-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "script-add.png"; sourceTree = "<group>"; };
 		0F68EBC81A81BF8300CA6062 /* uplod-fail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uplod-fail.png"; sourceTree = "<group>"; };
 		0F68EBC91A81BF8300CA6062 /* script-remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "script-remove.png"; sourceTree = "<group>"; };
 		0F68EBCA1A81BF8300CA6062 /* upload-success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload-success.png"; sourceTree = "<group>"; };
 		0F68EBCB1A81BF8300CA6062 /* upload3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload3.png; sourceTree = "<group>"; };
+		0F7303BC1A89B8280082D180 /* RecordScriptLocalScriptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptLocalScriptViewController.h; sourceTree = "<group>"; };
+		0F7303BD1A89B8280082D180 /* RecordScriptLocalScriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptLocalScriptViewController.m; sourceTree = "<group>"; };
 		0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptMainWindow.xib; sourceTree = "<group>"; };
 		0F7B14EC1A6F96FD0012296F /* RecordScriptWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptWindowController.h; sourceTree = "<group>"; };
 		0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptWindowController.m; sourceTree = "<group>"; };
@@ -540,6 +543,7 @@
 			children = (
 				0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */,
 				0FAB8EE41A88F86100DD68DD /* RecordScriptUploadView.xib */,
+				0F2937A51A89D792007B08FC /* RecordScriptLocalScriptMgrView.xib */,
 			);
 			name = RecordScript;
 			path = XIBs/RecordScript;
@@ -555,6 +559,8 @@
 				0FAB8EE71A88F8DD00DD68DD /* RecordScriptUploadViewController.m */,
 				0F9BE9061A766AB400D668DE /* RecordScriptUploadResultViewController.h */,
 				0F9BE9071A766AB400D668DE /* RecordScriptUploadResultViewController.m */,
+				0F7303BC1A89B8280082D180 /* RecordScriptLocalScriptViewController.h */,
+				0F7303BD1A89B8280082D180 /* RecordScriptLocalScriptViewController.m */,
 			);
 			path = RecordScript;
 			sourceTree = "<group>";
@@ -757,6 +763,12 @@
 		364EED37191EDDB300AB4439 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				0F0E40081A89E94D00228E67 /* tabHeader-button-left.tiff */,
+				0F0E40091A89E94D00228E67 /* tabHeader-smooth-button-middle.tiff */,
+				0F0E400A1A89E94D00228E67 /* tabHeader-smooth-button-on-left.tiff */,
+				0F0E400B1A89E94D00228E67 /* tabHeader-smooth-button-on-middle.tiff */,
+				0F0E400C1A89E94D00228E67 /* tabHeader-smooth-button-on-right.tiff */,
+				0F0E400D1A89E94D00228E67 /* tabHeader-smooth-button-right.tiff */,
 				0F264B2F1A81F58100EB7600 /* upload-cloud.png */,
 				0F264B2B1A81F53600EB7600 /* user.png */,
 				0F68EBC71A81BF8300CA6062 /* script-add.png */,
@@ -939,8 +951,6 @@
 				36A1A000173FFF34002717C2 /* Selenium.framework */,
 				36A1A002173FFF34002717C2 /* SeleniumTests.xctest */,
 				36B9018119071DEF00AE40E8 /* liblibSelenium.a */,
-				0F8DEAB11A83B18A00CC022A /* SeleniumForiOS.framework */,
-				0F8DEAB31A83B18A00CC022A /* SeleniumForiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1190,20 +1200,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		0F8DEAB11A83B18A00CC022A /* SeleniumForiOS.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SeleniumForiOS.framework;
-			remoteRef = 0F8DEAB01A83B18A00CC022A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0F8DEAB31A83B18A00CC022A /* SeleniumForiOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SeleniumForiOSTests.xctest;
-			remoteRef = 0F8DEAB21A83B18A00CC022A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		36A1A000173FFF34002717C2 /* Selenium.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1233,6 +1229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36CEB7D616E3662E00B5B100 /* InfoPlist.strings in Resources */,
+				0F0E40121A89E94D00228E67 /* tabHeader-smooth-button-on-right.tiff in Resources */,
 				36CEB7DC16E3662E00B5B100 /* Credits.rtf in Resources */,
 				364EED47191EDF6C00AB4439 /* android.png in Resources */,
 				0F68EBCD1A81BF8300CA6062 /* uplod-fail.png in Resources */,
@@ -1244,9 +1241,13 @@
 				0F264B301A81F58100EB7600 /* upload-cloud.png in Resources */,
 				0F7B14E51A6F827A0012296F /* RecordScriptMainWindow.xib in Resources */,
 				0F68EBCF1A81BF8300CA6062 /* upload-success.png in Resources */,
+				0F0E400F1A89E94D00228E67 /* tabHeader-smooth-button-middle.tiff in Resources */,
 				0F2095CC1A72446000B6C3D3 /* README.md in Resources */,
 				36CEB7E216E3662E00B5B100 /* MainMenu.xib in Resources */,
+				0F0E400E1A89E94D00228E67 /* tabHeader-button-left.tiff in Resources */,
 				0F264B2C1A81F53600EB7600 /* user.png in Resources */,
+				0F0E40101A89E94D00228E67 /* tabHeader-smooth-button-on-left.tiff in Resources */,
+				0F0E40131A89E94D00228E67 /* tabHeader-smooth-button-right.tiff in Resources */,
 				364EED55191EE07000AB4439 /* trash.png in Resources */,
 				0FB49B341A7E2D7200CD946A /* logTextViewBgBak2.png in Resources */,
 				0F68EBCE1A81BF8300CA6062 /* script-remove.png in Resources */,
@@ -1264,7 +1265,9 @@
 				0F9564C41A85C21A0005B353 /* logTextViewBg.png in Resources */,
 				36CD44EF16F0D5C300194193 /* AppiumInspectorWindow.xib in Resources */,
 				0F68EBCC1A81BF8300CA6062 /* script-add.png in Resources */,
+				0F2937A61A89D792007B08FC /* RecordScriptLocalScriptMgrView.xib in Resources */,
 				36D17E2916F144E600DC5797 /* Upgrade.applescript in Resources */,
+				0F0E40111A89E94D00228E67 /* tabHeader-smooth-button-on-middle.tiff in Resources */,
 				364EED3B191EDE6F00AB4439 /* dev-settings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1379,6 +1382,7 @@
 				0FC9FE541A74F7F00096FC14 /* AFURLRequestSerialization.m in Sources */,
 				368DC8521737255A0030F656 /* AppiumCodeMakerActionExecuteScript.m in Sources */,
 				3668307B184A5DC000C1A91D /* SocketIOJSONSerialization.m in Sources */,
+				0F7303BE1A89B8280082D180 /* RecordScriptLocalScriptViewController.m in Sources */,
 				36BBC4CE1737334C006A83D7 /* AppiumCodeMakerObjectiveCPlugin.m in Sources */,
 				36BF83771738787E00FF4234 /* AppiumCodeMakerActionShake.m in Sources */,
 				3668307E184A5DC000C1A91D /* SocketIOTransportXHR.m in Sources */,

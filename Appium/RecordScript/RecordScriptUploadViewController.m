@@ -30,6 +30,9 @@
 #define RecordscriptUploadServerAddress [NSString stringWithFormat:@"%@/attp/upload",TestWAServerPrefix]
 #define RecordscriptGetServerProjectAddress [NSString stringWithFormat:@"%@/attp/projects",TestWAServerPrefix]
 
+#define MaxConcurrentUploadOperation 5
+#define MaxConcurrentLoadOperation 2
+
 @interface RecordScriptUploadViewController ()<NSSplitViewDelegate,NSOutlineViewDelegate,RecordScriptUploadResultViewDelegate>
 
 @property (weak) IBOutlet NSOutlineView *prjOutlineView;
@@ -45,6 +48,7 @@
 @property BOOL isLoadingApp;
 @property (strong) IBOutlet RecordScriptUploadResultViewController *scriptUploadViewController;
 @property NSOperationQueue *uploadQueue;
+@property NSOperationQueue *loadQueue;
 
 @property NSArray *prjListArr;
 @property BOOL isLogin;
@@ -65,8 +69,8 @@
 {
 	[super loadView];
 	
+	[self loadDataPrepare];
 	[self setupViews];
-	[self setupAppData];
 }
 - (void)setupViews
 {
@@ -77,9 +81,9 @@
 	
 	[self.scriptUploadViewController.tableView setHidden:YES];
 	
-	[self setupUserInfo];
+//	[self updateUserInfo];
 }
-- (void)setupUserInfo
+- (void)updateUserInfo
 {
 	self.isLogin = [TestWAAccountTool isLogin];
 	
@@ -96,11 +100,14 @@
 		[self.prjOutlineView reloadData];
 	}
 }
-- (void)setupAppData
+- (void)loadDataPrepare
 {
 	self.uploadQueue = [[NSOperationQueue alloc]init];
 	[self.uploadQueue setMaxConcurrentOperationCount:MaxConcurrentUploadOperation];
 	self.scriptUploadViewController.delegate = self;
+	
+	self.loadQueue = [[NSOperationQueue alloc]init];
+	[self.loadQueue setMaxConcurrentOperationCount:MaxConcurrentLoadOperation];
 }
 #pragma mark - load project data
 - (void)loadProjectData
@@ -110,29 +117,60 @@
 	[self.appInfoRefreshButton setEnabled:NO];
 	
 	NSString *str = [NSString stringWithFormat:@"%@/%@",RecordscriptGetServerProjectAddress,[TestWAAccountTool loginUserID]];
-	[TestWAHttpExecutor loadDataWithUrlStr:str handleResultBlock:^(id resultData,NSError *error) {
+	
+	[TestWAHttpExecutor loadDataWithUrlStr:str queue:self.loadQueue handleResultBlock:^(id resultData, NSError *error) {
 		if (error) {
 			NSLog(@"%@",error);
-			return ;
 		}
-		
-		NSDictionary *prj = resultData[@"project"];
-		
-		NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:prj.count];
-		for (id obj in prj) {
-			TestWAServerProject *prj = [TestWAServerProject objectWithKeyedDict:obj modelDict:@{@"apps": @"RecordscriptApp"}];
-			[arrM addObject:prj];
+		else{
+			
+			NSDictionary *prj = resultData[@"project"];
+			
+			NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:prj.count];
+			for (id obj in prj) {
+				TestWAServerProject *prj = [TestWAServerProject objectWithKeyedDict:obj modelDict:@{@"apps": @"RecordscriptApp"}];
+				[arrM addObject:prj];
+			}
+			self.prjListArr = [arrM sortedArrayUsingComparator:^NSComparisonResult(TestWAServerProject *obj1, TestWAServerProject *obj2) {
+				if(obj1.apps.count > obj2.apps.count) return NSOrderedAscending;
+				if(obj1.apps.count < obj2.apps.count) return NSOrderedDescending;
+				else return NSOrderedSame;
+			}];
+			
+//			self.prjListArr = arrM;
+			arrM = nil;
+			
+			self.prjOutlineViewDataSource.prjList = self.prjListArr;
+			[self.prjOutlineView reloadData];
 		}
-		self.prjListArr = arrM;
-		arrM = nil;
-		
-		self.prjOutlineViewDataSource.prjList = self.prjListArr;
-		[self.prjOutlineView reloadData];
+		[self.appLoadProgressIndicator stopAnimation:nil];
+		self.isLoadingApp = NO;
+		[self.appInfoRefreshButton setEnabled:YES];
 	}];
 	
-	[self.appLoadProgressIndicator stopAnimation:nil];
-	self.isLoadingApp = NO;
-	[self.appInfoRefreshButton setEnabled:YES];
+//	[TestWAHttpExecutor loadDataWithUrlStr:str handleResultBlock:^(id resultData,NSError *error) {
+//		if (error) {
+//			NSLog(@"%@",error);
+//			return ;
+//		}
+//		
+//		NSDictionary *prj = resultData[@"project"];
+//		
+//		NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:prj.count];
+//		for (id obj in prj) {
+//			TestWAServerProject *prj = [TestWAServerProject objectWithKeyedDict:obj modelDict:@{@"apps": @"RecordscriptApp"}];
+//			[arrM addObject:prj];
+//		}
+//		self.prjListArr = arrM;
+//		arrM = nil;
+//		
+//		self.prjOutlineViewDataSource.prjList = self.prjListArr;
+//		[self.prjOutlineView reloadData];
+//	}];
+	
+//	[self.appLoadProgressIndicator stopAnimation:nil];
+//	self.isLoadingApp = NO;
+//	[self.appInfoRefreshButton setEnabled:YES];
 	
 }
 - (IBAction)refreshAppList:(id)sender {
