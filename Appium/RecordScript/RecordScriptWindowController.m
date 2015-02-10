@@ -37,7 +37,6 @@
 {
 	[super loadWindow];
 	
-	[self setupHeaderView];
 	[self setupViews];
 	[self setupTabItems];
 }
@@ -65,9 +64,7 @@
 {
     [super windowDidLoad];
 	[self.uploadController updateUserInfo];
-}
-- (void)setupHeaderView
-{
+	[self.localScriptController prepareData];
 }
 - (void)setupViews
 {

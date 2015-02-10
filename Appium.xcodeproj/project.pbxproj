@@ -32,12 +32,10 @@
 		0F8DEAAB1A83B18900CC022A /* TestWALoginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DEAAA1A83B18900CC022A /* TestWALoginResult.m */; };
 		0F9564C41A85C21A0005B353 /* logTextViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F9564C31A85C21A0005B353 /* logTextViewBg.png */; };
 		0F9564C61A85C2420005B353 /* appium.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0F9564C51A85C2420005B353 /* appium.icns */; };
-		0F9BE9081A766AB400D668DE /* RecordScriptUploadResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BE9071A766AB400D668DE /* RecordScriptUploadResultViewController.m */; };
 		0F9BE9111A76706500D668DE /* RecordScriptUploadResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */; };
 		0FA34BE01A77E4C400D0774C /* applistrefresh.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0FA34BDB1A77E4C400D0774C /* applistrefresh.tiff */; };
 		0FA44A5F1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA44A5E1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.m */; };
 		0FAB8EE51A88F86100DD68DD /* RecordScriptUploadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FAB8EE41A88F86100DD68DD /* RecordScriptUploadView.xib */; };
-		0FAB8EE81A88F8DD00DD68DD /* RecordScriptUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB8EE71A88F8DD00DD68DD /* RecordScriptUploadViewController.m */; };
 		0FAC3DB91A7F629200CCE61F /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FAC3DB81A7F629200CCE61F /* PreferenceWindow.xib */; };
 		0FAC3DBC1A7F62C300CCE61F /* TestWAPreferenceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAC3DBB1A7F62C300CCE61F /* TestWAPreferenceWindowController.m */; };
 		0FAC3DC01A7F6A7A00CCE61F /* TestWAServerUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAC3DBF1A7F6A7A00CCE61F /* TestWAServerUser.m */; };
@@ -47,6 +45,13 @@
 		0FB49B171A7E080500CD946A /* TestWAServerProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB49B161A7E080500CD946A /* TestWAServerProject.m */; };
 		0FB49B1A1A7E083A00CD946A /* TestWABaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB49B191A7E083A00CD946A /* TestWABaseModel.m */; };
 		0FB49B341A7E2D7200CD946A /* logTextViewBgBak2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB49B331A7E2D7200CD946A /* logTextViewBgBak2.png */; };
+		0FB8DBDB1A8A2E9700EC1CA9 /* RecordScriptUploadResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB8DBD81A8A2E9700EC1CA9 /* RecordScriptUploadResultViewController.m */; };
+		0FB8DBDC1A8A2E9700EC1CA9 /* RecordScriptUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB8DBDA1A8A2E9700EC1CA9 /* RecordScriptUploadViewController.m */; };
+		0FB8DBDF1A8A306C00EC1CA9 /* RecordScriptLocalScriptDirModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB8DBDE1A8A306C00EC1CA9 /* RecordScriptLocalScriptDirModel.m */; };
+		0FB8DBE21A8A351A00EC1CA9 /* RecordScriptLocalScriptOperateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB8DBE11A8A351A00EC1CA9 /* RecordScriptLocalScriptOperateViewController.m */; };
+		0FB8DBE51A8A39B100EC1CA9 /* RecordScriptLocalScriptOperateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB8DBE41A8A39B100EC1CA9 /* RecordScriptLocalScriptOperateModel.m */; };
+		0FB8DBE71A8A3C0400EC1CA9 /* run.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB8DBE61A8A3C0400EC1CA9 /* run.png */; };
+		0FB8DBE91A8A3C5B00EC1CA9 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB8DBE81A8A3C5B00EC1CA9 /* folder.png */; };
 		0FC9FE391A74E52E0096FC14 /* RecordScriptUploadParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9FE381A74E52E0096FC14 /* RecordScriptUploadParam.m */; };
 		0FC9FE4E1A74F7F00096FC14 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9FE3C1A74F7F00096FC14 /* AFHTTPRequestOperation.m */; };
 		0FC9FE4F1A74F7F00096FC14 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9FE3E1A74F7F00096FC14 /* AFHTTPRequestOperationManager.m */; };
@@ -165,6 +170,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0FB8DBD01A8A23C600EC1CA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C77BC82D19FFC16B008979E5;
+			remoteInfo = SeleniumForiOS;
+		};
+		0FB8DBD21A8A23C600EC1CA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C77BC83719FFC16B008979E5;
+			remoteInfo = SeleniumForiOSTests;
+		};
 		36683086184A5DDB00C1A91D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 363782F1172AD9F200A924F8 /* Selenium.xcodeproj */;
@@ -240,8 +259,8 @@
 		0F68EBC91A81BF8300CA6062 /* script-remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "script-remove.png"; sourceTree = "<group>"; };
 		0F68EBCA1A81BF8300CA6062 /* upload-success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload-success.png"; sourceTree = "<group>"; };
 		0F68EBCB1A81BF8300CA6062 /* upload3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload3.png; sourceTree = "<group>"; };
-		0F7303BC1A89B8280082D180 /* RecordScriptLocalScriptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptLocalScriptViewController.h; sourceTree = "<group>"; };
-		0F7303BD1A89B8280082D180 /* RecordScriptLocalScriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptLocalScriptViewController.m; sourceTree = "<group>"; };
+		0F7303BC1A89B8280082D180 /* RecordScriptLocalScriptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordScriptLocalScriptViewController.h; path = ../RecordScriptLocalScriptViewController.h; sourceTree = "<group>"; };
+		0F7303BD1A89B8280082D180 /* RecordScriptLocalScriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordScriptLocalScriptViewController.m; path = ../RecordScriptLocalScriptViewController.m; sourceTree = "<group>"; };
 		0F7B14E41A6F827A0012296F /* RecordScriptMainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptMainWindow.xib; sourceTree = "<group>"; };
 		0F7B14EC1A6F96FD0012296F /* RecordScriptWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptWindowController.h; sourceTree = "<group>"; };
 		0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptWindowController.m; sourceTree = "<group>"; };
@@ -249,16 +268,12 @@
 		0F8DEAAA1A83B18900CC022A /* TestWALoginResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWALoginResult.m; sourceTree = "<group>"; };
 		0F9564C31A85C21A0005B353 /* logTextViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logTextViewBg.png; sourceTree = "<group>"; };
 		0F9564C51A85C2420005B353 /* appium.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appium.icns; sourceTree = "<group>"; };
-		0F9BE9061A766AB400D668DE /* RecordScriptUploadResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadResultViewController.h; sourceTree = "<group>"; };
-		0F9BE9071A766AB400D668DE /* RecordScriptUploadResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadResultViewController.m; sourceTree = "<group>"; };
-		0F9BE90F1A76706500D668DE /* RecordScriptUploadResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadResult.h; sourceTree = "<group>"; };
-		0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadResult.m; sourceTree = "<group>"; };
+		0F9BE90F1A76706500D668DE /* RecordScriptUploadResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordScriptUploadResult.h; path = ../../Model/RecordScriptUploadResult.h; sourceTree = "<group>"; };
+		0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordScriptUploadResult.m; path = ../../Model/RecordScriptUploadResult.m; sourceTree = "<group>"; };
 		0FA34BDB1A77E4C400D0774C /* applistrefresh.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = applistrefresh.tiff; sourceTree = "<group>"; };
-		0FA44A5D1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWAPrjOutlineViewDataSource.h; sourceTree = "<group>"; };
-		0FA44A5E1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWAPrjOutlineViewDataSource.m; sourceTree = "<group>"; };
+		0FA44A5D1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestWAPrjOutlineViewDataSource.h; path = ../../Model/TestWAPrjOutlineViewDataSource.h; sourceTree = "<group>"; };
+		0FA44A5E1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestWAPrjOutlineViewDataSource.m; path = ../../Model/TestWAPrjOutlineViewDataSource.m; sourceTree = "<group>"; };
 		0FAB8EE41A88F86100DD68DD /* RecordScriptUploadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordScriptUploadView.xib; sourceTree = "<group>"; };
-		0FAB8EE61A88F8DD00DD68DD /* RecordScriptUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadViewController.h; sourceTree = "<group>"; };
-		0FAB8EE71A88F8DD00DD68DD /* RecordScriptUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadViewController.m; sourceTree = "<group>"; };
 		0FAC3DB81A7F629200CCE61F /* PreferenceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		0FAC3DBA1A7F62C300CCE61F /* TestWAPreferenceWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWAPreferenceWindowController.h; sourceTree = "<group>"; };
 		0FAC3DBB1A7F62C300CCE61F /* TestWAPreferenceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWAPreferenceWindowController.m; sourceTree = "<group>"; };
@@ -270,13 +285,25 @@
 		0FAC3DC51A7F6FBB00CCE61F /* TestWAAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWAAccountTool.m; sourceTree = "<group>"; };
 		0FB49B121A7DF7F100CD946A /* TestWAHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWAHttpExecutor.h; sourceTree = "<group>"; };
 		0FB49B131A7DF7F100CD946A /* TestWAHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWAHttpExecutor.m; sourceTree = "<group>"; };
-		0FB49B151A7E080500CD946A /* TestWAServerProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWAServerProject.h; sourceTree = "<group>"; };
-		0FB49B161A7E080500CD946A /* TestWAServerProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWAServerProject.m; sourceTree = "<group>"; };
+		0FB49B151A7E080500CD946A /* TestWAServerProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestWAServerProject.h; path = ../../Model/TestWAServerProject.h; sourceTree = "<group>"; };
+		0FB49B161A7E080500CD946A /* TestWAServerProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestWAServerProject.m; path = ../../Model/TestWAServerProject.m; sourceTree = "<group>"; };
 		0FB49B181A7E083A00CD946A /* TestWABaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWABaseModel.h; sourceTree = "<group>"; };
 		0FB49B191A7E083A00CD946A /* TestWABaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWABaseModel.m; sourceTree = "<group>"; };
 		0FB49B331A7E2D7200CD946A /* logTextViewBgBak2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logTextViewBgBak2.png; sourceTree = "<group>"; };
-		0FC9FE371A74E52E0096FC14 /* RecordScriptUploadParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadParam.h; sourceTree = "<group>"; };
-		0FC9FE381A74E52E0096FC14 /* RecordScriptUploadParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadParam.m; sourceTree = "<group>"; };
+		0FB8DBD71A8A2E9700EC1CA9 /* RecordScriptUploadResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadResultViewController.h; sourceTree = "<group>"; };
+		0FB8DBD81A8A2E9700EC1CA9 /* RecordScriptUploadResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadResultViewController.m; sourceTree = "<group>"; };
+		0FB8DBD91A8A2E9700EC1CA9 /* RecordScriptUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptUploadViewController.h; sourceTree = "<group>"; };
+		0FB8DBDA1A8A2E9700EC1CA9 /* RecordScriptUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptUploadViewController.m; sourceTree = "<group>"; };
+		0FB8DBDD1A8A306C00EC1CA9 /* RecordScriptLocalScriptDirModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptLocalScriptDirModel.h; sourceTree = "<group>"; };
+		0FB8DBDE1A8A306C00EC1CA9 /* RecordScriptLocalScriptDirModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptLocalScriptDirModel.m; sourceTree = "<group>"; };
+		0FB8DBE01A8A351A00EC1CA9 /* RecordScriptLocalScriptOperateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptLocalScriptOperateViewController.h; sourceTree = "<group>"; };
+		0FB8DBE11A8A351A00EC1CA9 /* RecordScriptLocalScriptOperateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptLocalScriptOperateViewController.m; sourceTree = "<group>"; };
+		0FB8DBE31A8A39B100EC1CA9 /* RecordScriptLocalScriptOperateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordScriptLocalScriptOperateModel.h; sourceTree = "<group>"; };
+		0FB8DBE41A8A39B100EC1CA9 /* RecordScriptLocalScriptOperateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordScriptLocalScriptOperateModel.m; sourceTree = "<group>"; };
+		0FB8DBE61A8A3C0400EC1CA9 /* run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = run.png; sourceTree = "<group>"; };
+		0FB8DBE81A8A3C5B00EC1CA9 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
+		0FC9FE371A74E52E0096FC14 /* RecordScriptUploadParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordScriptUploadParam.h; path = ../../Model/RecordScriptUploadParam.h; sourceTree = "<group>"; };
+		0FC9FE381A74E52E0096FC14 /* RecordScriptUploadParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordScriptUploadParam.m; path = ../../Model/RecordScriptUploadParam.m; sourceTree = "<group>"; };
 		0FC9FE3B1A74F7F00096FC14 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		0FC9FE3C1A74F7F00096FC14 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		0FC9FE3D1A74F7F00096FC14 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -297,8 +324,8 @@
 		0FC9FE4C1A74F7F00096FC14 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		0FC9FE4D1A74F7F00096FC14 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		0FC9FE571A74F8EA0096FC14 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		0FE85A4A1A6FFC0000240A45 /* RecordscriptApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordscriptApp.h; sourceTree = "<group>"; };
-		0FE85A4B1A6FFC0000240A45 /* RecordscriptApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordscriptApp.m; sourceTree = "<group>"; };
+		0FE85A4A1A6FFC0000240A45 /* RecordscriptApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordscriptApp.h; path = ../../Model/RecordscriptApp.h; sourceTree = "<group>"; };
+		0FE85A4B1A6FFC0000240A45 /* RecordscriptApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordscriptApp.m; path = ../../Model/RecordscriptApp.m; sourceTree = "<group>"; };
 		360BD91316F12B03000D3BEB /* AppiumInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiumInspector.h; sourceTree = "<group>"; };
 		360BD91416F12B03000D3BEB /* AppiumInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppiumInspector.m; sourceTree = "<group>"; };
 		3612E5F716E5B6520050CF0A /* appium.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appium.sdef; sourceTree = "<group>"; };
@@ -552,15 +579,11 @@
 		0F7B14E81A6F8BD50012296F /* RecordScript */ = {
 			isa = PBXGroup;
 			children = (
+				0FB8DBD51A8A2D8B00EC1CA9 /* UploadScript */,
+				0FB8DBCB1A8A23C600EC1CA9 /* LocalScriptMgr */,
 				0FE85A411A6FFB9800240A45 /* Model */,
 				0F7B14EC1A6F96FD0012296F /* RecordScriptWindowController.h */,
 				0F7B14ED1A6F96FD0012296F /* RecordScriptWindowController.m */,
-				0FAB8EE61A88F8DD00DD68DD /* RecordScriptUploadViewController.h */,
-				0FAB8EE71A88F8DD00DD68DD /* RecordScriptUploadViewController.m */,
-				0F9BE9061A766AB400D668DE /* RecordScriptUploadResultViewController.h */,
-				0F9BE9071A766AB400D668DE /* RecordScriptUploadResultViewController.m */,
-				0F7303BC1A89B8280082D180 /* RecordScriptLocalScriptViewController.h */,
-				0F7303BD1A89B8280082D180 /* RecordScriptLocalScriptViewController.m */,
 			);
 			path = RecordScript;
 			sourceTree = "<group>";
@@ -599,6 +622,58 @@
 			path = HttpExecutor;
 			sourceTree = "<group>";
 		};
+		0FB8DBCB1A8A23C600EC1CA9 /* LocalScriptMgr */ = {
+			isa = PBXGroup;
+			children = (
+				0FB8DBD41A8A23EB00EC1CA9 /* Model */,
+				0F7303BC1A89B8280082D180 /* RecordScriptLocalScriptViewController.h */,
+				0F7303BD1A89B8280082D180 /* RecordScriptLocalScriptViewController.m */,
+				0FB8DBE01A8A351A00EC1CA9 /* RecordScriptLocalScriptOperateViewController.h */,
+				0FB8DBE11A8A351A00EC1CA9 /* RecordScriptLocalScriptOperateViewController.m */,
+			);
+			path = LocalScriptMgr;
+			sourceTree = "<group>";
+		};
+		0FB8DBD41A8A23EB00EC1CA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0FB8DBDD1A8A306C00EC1CA9 /* RecordScriptLocalScriptDirModel.h */,
+				0FB8DBDE1A8A306C00EC1CA9 /* RecordScriptLocalScriptDirModel.m */,
+				0FB8DBE31A8A39B100EC1CA9 /* RecordScriptLocalScriptOperateModel.h */,
+				0FB8DBE41A8A39B100EC1CA9 /* RecordScriptLocalScriptOperateModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0FB8DBD51A8A2D8B00EC1CA9 /* UploadScript */ = {
+			isa = PBXGroup;
+			children = (
+				0FB8DBD71A8A2E9700EC1CA9 /* RecordScriptUploadResultViewController.h */,
+				0FB8DBD81A8A2E9700EC1CA9 /* RecordScriptUploadResultViewController.m */,
+				0FB8DBD91A8A2E9700EC1CA9 /* RecordScriptUploadViewController.h */,
+				0FB8DBDA1A8A2E9700EC1CA9 /* RecordScriptUploadViewController.m */,
+				0FB8DBD61A8A2E2600EC1CA9 /* Model */,
+			);
+			path = UploadScript;
+			sourceTree = "<group>";
+		};
+		0FB8DBD61A8A2E2600EC1CA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0FE85A4A1A6FFC0000240A45 /* RecordscriptApp.h */,
+				0FE85A4B1A6FFC0000240A45 /* RecordscriptApp.m */,
+				0FB49B151A7E080500CD946A /* TestWAServerProject.h */,
+				0FB49B161A7E080500CD946A /* TestWAServerProject.m */,
+				0FC9FE371A74E52E0096FC14 /* RecordScriptUploadParam.h */,
+				0FC9FE381A74E52E0096FC14 /* RecordScriptUploadParam.m */,
+				0FA44A5D1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.h */,
+				0FA44A5E1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.m */,
+				0F9BE90F1A76706500D668DE /* RecordScriptUploadResult.h */,
+				0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0FC9FE3A1A74F7F00096FC14 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -629,18 +704,8 @@
 		0FE85A411A6FFB9800240A45 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0FE85A4A1A6FFC0000240A45 /* RecordscriptApp.h */,
-				0FE85A4B1A6FFC0000240A45 /* RecordscriptApp.m */,
-				0FC9FE371A74E52E0096FC14 /* RecordScriptUploadParam.h */,
-				0FC9FE381A74E52E0096FC14 /* RecordScriptUploadParam.m */,
-				0F9BE90F1A76706500D668DE /* RecordScriptUploadResult.h */,
-				0F9BE9101A76706500D668DE /* RecordScriptUploadResult.m */,
-				0FB49B151A7E080500CD946A /* TestWAServerProject.h */,
-				0FB49B161A7E080500CD946A /* TestWAServerProject.m */,
 				0FB49B181A7E083A00CD946A /* TestWABaseModel.h */,
 				0FB49B191A7E083A00CD946A /* TestWABaseModel.m */,
-				0FA44A5D1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.h */,
-				0FA44A5E1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -763,6 +828,8 @@
 		364EED37191EDDB300AB4439 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				0FB8DBE61A8A3C0400EC1CA9 /* run.png */,
+				0FB8DBE81A8A3C5B00EC1CA9 /* folder.png */,
 				0F0E40081A89E94D00228E67 /* tabHeader-button-left.tiff */,
 				0F0E40091A89E94D00228E67 /* tabHeader-smooth-button-middle.tiff */,
 				0F0E400A1A89E94D00228E67 /* tabHeader-smooth-button-on-left.tiff */,
@@ -951,6 +1018,8 @@
 				36A1A000173FFF34002717C2 /* Selenium.framework */,
 				36A1A002173FFF34002717C2 /* SeleniumTests.xctest */,
 				36B9018119071DEF00AE40E8 /* liblibSelenium.a */,
+				0FB8DBD11A8A23C600EC1CA9 /* SeleniumForiOS.framework */,
+				0FB8DBD31A8A23C600EC1CA9 /* SeleniumForiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1073,10 +1142,10 @@
 		36CEB7D116E3662E00B5B100 /* Appium */ = {
 			isa = PBXGroup;
 			children = (
+				362DF1E4170F4350001CAD1D /* AppiumGlobals.h */,
 				0FAC3DB51A7F612900CCE61F /* UserAdmin */,
 				0FB49B111A7DF79200CD946A /* HttpExecutor */,
 				0F7B14E81A6F8BD50012296F /* RecordScript */,
-				362DF1E4170F4350001CAD1D /* AppiumGlobals.h */,
 				3612E5F916E5B6820050CF0A /* AppleScript */,
 				36CD44F016F0E1CE00194193 /* Inspector */,
 				3614B1711719F46200A72D99 /* Misc */,
@@ -1200,6 +1269,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		0FB8DBD11A8A23C600EC1CA9 /* SeleniumForiOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SeleniumForiOS.framework;
+			remoteRef = 0FB8DBD01A8A23C600EC1CA9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FB8DBD31A8A23C600EC1CA9 /* SeleniumForiOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SeleniumForiOSTests.xctest;
+			remoteRef = 0FB8DBD21A8A23C600EC1CA9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		36A1A000173FFF34002717C2 /* Selenium.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1261,6 +1344,7 @@
 				0FAB8EE51A88F86100DD68DD /* RecordScriptUploadView.xib in Resources */,
 				364EED59191EE27000AB4439 /* robot.png in Resources */,
 				36B2F18616E6379C008764E0 /* defaults.plist in Resources */,
+				0FB8DBE71A8A3C0400EC1CA9 /* run.png in Resources */,
 				0FAC3DB91A7F629200CCE61F /* PreferenceWindow.xib in Resources */,
 				0F9564C41A85C21A0005B353 /* logTextViewBg.png in Resources */,
 				36CD44EF16F0D5C300194193 /* AppiumInspectorWindow.xib in Resources */,
@@ -1269,6 +1353,7 @@
 				36D17E2916F144E600DC5797 /* Upgrade.applescript in Resources */,
 				0F0E40111A89E94D00228E67 /* tabHeader-smooth-button-on-middle.tiff in Resources */,
 				364EED3B191EDE6F00AB4439 /* dev-settings.png in Resources */,
+				0FB8DBE91A8A3C5B00EC1CA9 /* folder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1305,6 +1390,7 @@
 			files = (
 				36B901891907221000AE40E8 /* AppiumMonitorWindowPopOverViewController.m in Sources */,
 				36683084184A5DCE00C1A91D /* NSData+SRB64Additions.m in Sources */,
+				0FB8DBDB1A8A2E9700EC1CA9 /* RecordScriptUploadResultViewController.m in Sources */,
 				36CEB7D816E3662E00B5B100 /* main.m in Sources */,
 				0F9BE9111A76706500D668DE /* RecordScriptUploadResult.m in Sources */,
 				36CEB7DF16E3662E00B5B100 /* AppiumAppDelegate.m in Sources */,
@@ -1316,9 +1402,11 @@
 				0FC9FE531A74F7F00096FC14 /* AFURLConnectionOperation.m in Sources */,
 				3641B1C91922B10400DCF95D /* AppiumDeveloperSettingsModel.m in Sources */,
 				3668306D184A5DB500C1A91D /* SBJsonStreamWriterState.m in Sources */,
+				0FB8DBDF1A8A306C00EC1CA9 /* RecordScriptLocalScriptDirModel.m in Sources */,
 				36442F3E19081ACA00C2AED7 /* AppiumAndroidSettingsModel.m in Sources */,
 				36683066184A5DB500C1A91D /* SBJsonStreamParser.m in Sources */,
 				3652B34416E4287600BDE3E4 /* AppiumLaunchButtonTextTransformer.m in Sources */,
+				0FB8DBE51A8A39B100EC1CA9 /* RecordScriptLocalScriptOperateModel.m in Sources */,
 				0F2095CA1A72446000B6C3D3 /* LXIvar.m in Sources */,
 				3612E5FC16E5B69C0050CF0A /* NSApplication+AppleScript.m in Sources */,
 				0FB49B171A7E080500CD946A /* TestWAServerProject.m in Sources */,
@@ -1329,6 +1417,7 @@
 				368C3FF516E8F3EC00B84DE6 /* AppiumUpdater.m in Sources */,
 				364C076816E94B1A0093011E /* AppiumMenuBarManager.m in Sources */,
 				365CA3BF16EFB9C000A6DBE8 /* AppiumModel.m in Sources */,
+				0FB8DBE21A8A351A00EC1CA9 /* RecordScriptLocalScriptOperateViewController.m in Sources */,
 				0FA44A5F1A870E610094A2D3 /* TestWAPrjOutlineViewDataSource.m in Sources */,
 				0FAC3DC31A7F6F8600CCE61F /* TestWALoginParam.m in Sources */,
 				365CA3C316EFDA8300A6DBE8 /* AppiumPortTransformer.m in Sources */,
@@ -1343,9 +1432,9 @@
 				369126DD1704DABD007FBB5E /* AppiumInspectorRefreshButtonTextTransformer.m in Sources */,
 				36A871C8170B980F005BFD15 /* AppiumInspectorScreenshotImageView.m in Sources */,
 				362B5B651713B35A00F1B344 /* AppiumCodeMakerCSharpPlugin.m in Sources */,
+				0FB8DBDC1A8A2E9700EC1CA9 /* RecordScriptUploadViewController.m in Sources */,
 				368230DA1715C73F00FF113F /* AppiumCodeMaker.m in Sources */,
 				0FC9FE511A74F7F00096FC14 /* AFNetworkReachabilityManager.m in Sources */,
-				0FAB8EE81A88F8DD00DD68DD /* RecordScriptUploadViewController.m in Sources */,
 				7D3CB870198579DD004D3CA4 /* AppiumInspectorButtonImageTransformer.m in Sources */,
 				36919C8B171616AD00AC2C63 /* AppiumCodeMakerAction.m in Sources */,
 				0F7B14EE1A6F96FD0012296F /* RecordScriptWindowController.m in Sources */,
@@ -1386,7 +1475,6 @@
 				36BBC4CE1737334C006A83D7 /* AppiumCodeMakerObjectiveCPlugin.m in Sources */,
 				36BF83771738787E00FF4234 /* AppiumCodeMakerActionShake.m in Sources */,
 				3668307E184A5DC000C1A91D /* SocketIOTransportXHR.m in Sources */,
-				0F9BE9081A766AB400D668DE /* RecordScriptUploadResultViewController.m in Sources */,
 				0FAC3DBC1A7F62C300CCE61F /* TestWAPreferenceWindowController.m in Sources */,
 				3668307C184A5DC000C1A91D /* SocketIOPacket.m in Sources */,
 				36D66777191FC8CE0088C110 /* NSObject+Properties.m in Sources */,

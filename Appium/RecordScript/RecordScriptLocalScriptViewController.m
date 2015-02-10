@@ -7,20 +7,41 @@
 //
 
 #import "RecordScriptLocalScriptViewController.h"
+#import "RecordScriptLocalScriptDirModel.h"
+#import "RecordScriptLocalScriptOperateViewController.h"
 
-@interface RecordScriptLocalScriptViewController ()
+#import "AppiumPreferencesFile.h"
+
+@interface RecordScriptLocalScriptViewController ()<NSTableViewDataSource>
+
+@property (weak) IBOutlet NSTableView *dirTableView;
+@property NSArray *dirList;
+
+@property (strong) IBOutlet RecordScriptLocalScriptOperateViewController *operateTableView;
 
 @end
 
 @implementation RecordScriptLocalScriptViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)loadView
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
+	[super loadView];
+}
+- (void)prepareData
+{
+	RecordScriptLocalScriptDirModel *defaultDir = [RecordScriptLocalScriptDirModel dirModelWithPath:[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]];
+	self.dirList = @[defaultDir];
+	
+	self.operateTableView.dirList = self.dirList;
+}
+#pragma mark - dir tableview datasource
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+	return self.dirList.count;
+}
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+	RecordScriptLocalScriptDirModel *dirModel = [self.dirList objectAtIndex:row];
+	return dirModel.fileUrl.lastPathComponent;
 }
 
 @end

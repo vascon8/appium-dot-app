@@ -10,4 +10,6 @@
 
 @interface RecordScriptLocalScriptViewController : NSViewController
 
+- (void)prepareData;
+
 @end
