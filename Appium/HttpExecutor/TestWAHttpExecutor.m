@@ -26,30 +26,29 @@
 	}];
 }
 #pragma mark - load project data
-+ (void)loadDataWithUrlStr:(NSString *)urlStr handleResultBlock:(void (^)(id resultData,NSError *error))handleResultBlock{
++ (void)loadDataWithUrlStr:(NSString *)urlStr queue:(NSOperationQueue *)loadQueue handleResultBlock:(void (^)(id resultData,NSError *error))handleResultBlock{
 	
 	NSURL *url = [NSURL URLWithString:[self handleUrlStr:urlStr]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
-	NSURLResponse *response = nil;
-	NSError *error = nil;
-	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 	
-	if (!error && data != nil) {
-		id resultData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-		if (error) {
-			NSLog(@"error found:%@",error);
+	[NSURLConnection sendAsynchronousRequest:request queue:loadQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+		if (!connectionError && data != nil) {
+			id resultData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
+			if (connectionError) {
+				NSLog(@"error found:%@",connectionError);
+			}
+			else{
+				handleResultBlock(resultData,nil);
+			}
+		}
+		else if (data == nil){
+			NSLog(@"no data found");
 		}
 		else{
-			handleResultBlock(resultData,nil);
+			NSLog(@"%@",connectionError);
+			handleResultBlock(nil,connectionError);
 		}
-	}
-	else if (data == nil){
-		NSLog(@"no data found");
-	}
-	else{
-		NSLog(@"%@",error);
-		handleResultBlock(nil,error);
-	}
+	}];
 }
 #pragma mark - upload record script
 + (void)uploadScriptWithUrlStr:(NSString *)urlStr queue:(NSOperationQueue *)uploadQueue postParams:(RecordScriptUploadParam *)params handleResultBlock:(void (^)(id resultData,NSError *error))handleResultBlock{

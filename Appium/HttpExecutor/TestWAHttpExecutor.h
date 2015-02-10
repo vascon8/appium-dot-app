@@ -14,8 +14,7 @@
 @interface TestWAHttpExecutor : NSObject
 
 //load app data
-//load user data
-+ (void)loadDataWithUrlStr:(NSString *)urlStr handleResultBlock:(void (^)(id resultData,NSError *error))handleResultBlock;
++ (void)loadDataWithUrlStr:(NSString *)urlStr queue:(NSOperationQueue *)loadQueue  handleResultBlock:(void (^)(id resultData,NSError *error))handleResultBlock;
 //upload script
 + (void)uploadScriptWithUrlStr:(NSString *)urlStr queue:(NSOperationQueue *)uploadQueue postParams:(RecordScriptUploadParam *)params handleResultBlock:(void (^)(id resultData,NSError *error))handleResultBlock;
 //login

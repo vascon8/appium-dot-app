@@ -14,8 +14,6 @@
 //#define RecordscriptGetServerUser @"http://192.168.1.100:8008/attp/ajax/allAdmin"
 //#define RecordscriptGetServerProjectAddress @"http://192.168.1.100:8008/attp/projects/13"
 
-#define MaxConcurrentUploadOperation 5
-
 @interface RecordScriptWindowController : NSWindowController
 
 @property NSInteger selectedIndex;
