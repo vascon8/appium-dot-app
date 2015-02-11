@@ -72,24 +72,9 @@
 #pragma mark - run script
 - (IBAction)clickedRunScriptBtn:(id)sender {
 	
-	if([[NSFileManager defaultManager]fileExistsAtPath:self.pathLabel.stringValue]) [self runScript];
+	if([[NSFileManager defaultManager]fileExistsAtPath:self.pathLabel.stringValue]) [RecordScriptTool runScript:self.pathLabel.stringValue];
 }
-- (void)runScript
-{
-	NSString *scriptName = [self.pathLabel.stringValue lastPathComponent];
-	RecordScriptModel *scriptModel = [RecordScriptTool recordScriptWithName:scriptName];
-	if ([scriptModel.language isEqualTo:@"Python"] || [scriptModel.language isEqualTo:@"node.js"] || [scriptModel.language isEqualTo:@"Ruby"]) {
-		
-//		[self.driver quit];
-//		[_windowController.window close];
-		
-		NSString *command = [NSString stringWithFormat:@"'%@' '%@'",scriptModel.commadStr, self.pathLabel.stringValue];
-		
-		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:@"tell application \"Terminal\" to do script \"%@\"\nactivate application \"Terminal\"", command]];
-		[script executeAndReturnError:nil];
-	}
 
-}
 #pragma mark - remove script
 - (IBAction)clickedRemoveBtn:(id)sender {
 }
@@ -107,6 +92,9 @@
 			NSArray *arr = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:[dir.fileUrl path] error:&error];
 			if (!error && arr.count > 0){
 				for (NSString *fileName in arr) {
+					RecordScriptModel *model = [RecordScriptTool recordScriptWithName:fileName];
+					if (!model.language) continue;
+					
 					RecordScriptLocalScriptOperateModel *op = [[RecordScriptLocalScriptOperateModel alloc]init];
 					op.name = fileName;
 					op.checked = NO;

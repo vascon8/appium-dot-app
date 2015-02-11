@@ -65,16 +65,15 @@
 	
 	[addDirPanel beginSheetModalForWindow:nil completionHandler:^(NSInteger result) {
 		if (result == NSFileHandlingPanelOKButton && [addDirPanel URLs]) {
-			NSLog(@"%@",[addDirPanel URLs]);
+			NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:self.dirList.count+1];
+			[arrM addObjectsFromArray:self.dirList];
+			RecordScriptLocalScriptDirModel *dir = [[RecordScriptLocalScriptDirModel alloc]init];
+			dir.fileUrl = [addDirPanel URLs][0];
+			[arrM addObject:dir];
+			
+			self.dirList = arrM;
+			[self.dirTableView reloadData];
 		}
-		NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:self.dirList.count+1];
-		[arrM addObjectsFromArray:self.dirList];
-		RecordScriptLocalScriptDirModel *dir = [[RecordScriptLocalScriptDirModel alloc]init];
-		dir.fileUrl = [addDirPanel URLs][0];
-		[arrM addObject:dir];
-		
-		self.dirList = arrM;
-		[self.dirTableView reloadData];
 	}];
 }
 
