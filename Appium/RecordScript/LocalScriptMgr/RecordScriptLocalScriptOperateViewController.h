@@ -8,11 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface RecordScriptLocalScriptOperateViewController : NSViewController{
-	@private
-	NSArray *_dirList;
-}
+@class RecordScriptLocalScriptViewController;
+
+@interface RecordScriptLocalScriptOperateViewController : NSViewController
 
 @property NSArray *dirList;
+@property (weak) RecordScriptLocalScriptViewController *localScriptController;
 
 @end

@@ -12,7 +12,7 @@
 
 #import "AppiumPreferencesFile.h"
 
-@interface RecordScriptLocalScriptViewController ()<NSTableViewDataSource>
+@interface RecordScriptLocalScriptViewController ()<NSTableViewDataSource,NSTableViewDelegate>
 
 @property (weak) IBOutlet NSTableView *dirTableView;
 @property NSArray *dirList;
@@ -28,9 +28,13 @@
 }
 - (void)prepareData
 {
+	self.operateTableView.localScriptController = self;
+	
 	RecordScriptLocalScriptDirModel *defaultDir = [RecordScriptLocalScriptDirModel dirModelWithPath:[DEFAULTS valueForKey:APPIUM_PLIST_ExportRecordScripts_DIRECTORY]];
 	self.dirList = @[defaultDir];
 	
+//	self.operateTableView.dirList = self.dirList;
+	[self.dirTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:YES];
 	self.operateTableView.dirList = self.dirList;
 }
 #pragma mark - dir tableview datasource
@@ -43,5 +47,47 @@
 	RecordScriptLocalScriptDirModel *dirModel = [self.dirList objectAtIndex:row];
 	return dirModel.fileUrl.lastPathComponent;
 }
+#pragma mark - dir tableview delegate
+//- (void)tableViewSelectionDidChange:(NSNotification *)notification
+//{
+//	if (!self.operateTableView.dirList && self.dirTableView.selectedRow != -1 && self.dirTableView.selectedRow < self.dirList.count)
+//	self.operateTableView.dirList = self.dirList;
+//}
+#pragma mark - add dir
+- (IBAction)clickedAddDirBtn:(id)sender {
+	NSOpenPanel *addDirPanel = [NSOpenPanel openPanel];
+	addDirPanel.canChooseFiles = NO;
+	addDirPanel.canChooseDirectories = YES;
+	[addDirPanel setDirectoryURL:[NSURL URLWithString:NSHomeDirectory()]];
+	[addDirPanel setCanCreateDirectories:YES];
+	[addDirPanel setPrompt:@"添加该目录"];
+	[addDirPanel setMessage:@"添加管理脚本目录"];
+	
+	[addDirPanel beginSheetModalForWindow:nil completionHandler:^(NSInteger result) {
+		if (result == NSFileHandlingPanelOKButton && [addDirPanel URLs]) {
+			NSLog(@"%@",[addDirPanel URLs]);
+		}
+		NSMutableArray *arrM = [NSMutableArray arrayWithCapacity:self.dirList.count+1];
+		[arrM addObjectsFromArray:self.dirList];
+		RecordScriptLocalScriptDirModel *dir = [[RecordScriptLocalScriptDirModel alloc]init];
+		dir.fileUrl = [addDirPanel URLs][0];
+		[arrM addObject:dir];
+		
+		self.dirList = arrM;
+		[self.dirTableView reloadData];
+	}];
+}
 
+#pragma mark - selected dir
+- (NSString *)selectedDir
+{
+	if (self.dirTableView.selectedRow != -1 && self.dirTableView.selectedRow < self.dirList.count) {
+		NSInteger selectedRow = [self.dirTableView selectedRow];
+		RecordScriptLocalScriptDirModel *dir = [self.dirList objectAtIndex:selectedRow];
+		return [dir.fileUrl path];
+	}
+	else{
+		return nil;
+	}
+}
 @end

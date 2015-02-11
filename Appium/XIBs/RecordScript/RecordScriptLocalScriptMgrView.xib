@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -27,10 +27,10 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <box autoresizesSubviews="NO" transparent="YES" borderType="line" titlePosition="noTitle" id="uPf-uv-xa1">
-                                    <rect key="frame" x="0.0" y="300" width="239.5" height="30"/>
+                                    <rect key="frame" x="0.0" y="300" width="239" height="30"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <view key="contentView">
-                                        <rect key="frame" x="1" y="1" width="237.5" height="28"/>
+                                        <rect key="frame" x="1" y="1" width="237" height="28"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <button id="7xk-fp-AHv" userLabel="Dir Setting Bevel Button">
@@ -42,12 +42,15 @@
                                                 </buttonCell>
                                             </button>
                                             <button id="LqW-Ct-2aR" userLabel="Dir Add Bevel Button">
-                                                <rect key="frame" x="60" y="0.0" width="24" height="24"/>
+                                                <rect key="frame" x="62" y="3" width="20" height="19"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nvh-we-CMe">
+                                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="script-add" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Nvh-we-CMe">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system" size="10"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="clickedAddDirBtn:" target="-2" id="Ihp-HE-cSW"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </view>
@@ -127,22 +130,36 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <button appearanceType="aqua" id="uzj-eh-utl" userLabel="Trash Bevel Button">
-                                                <rect key="frame" x="300" y="3" width="24" height="24"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GK0-6f-JnX">
+                                                <rect key="frame" x="330" y="6" width="20" height="19"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="trash" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyDown" inset="2" id="GK0-6f-JnX">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system" size="10"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="clickedRemoveBtn:" target="Ggj-nA-WRi" id="TOj-Ur-bBX"/>
+                                                </connections>
                                             </button>
                                             <textField appearanceType="aqua" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Q53-dP-DNK" userLabel="Dir Text Field - Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="waX-4k-i5V">
+                                                <rect key="frame" x="30" y="0.0" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="waX-4k-i5V">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
+                                            <button id="WV6-m5-ldH" userLabel="Run Script Bevel Button">
+                                                <rect key="frame" x="7" y="6" width="20" height="19"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="run" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyDown" inset="2" id="CO0-Zo-fWU">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system" size="10"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="clickedRunScriptBtn:" target="Ggj-nA-WRi" id="Fbe-15-XVk"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </view>
                                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -162,7 +179,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                 <tableColumns>
-                                                    <tableColumn identifier="nameColumn" width="300" minWidth="60" maxWidth="1000" id="2xK-Mw-Awl">
+                                                    <tableColumn identifier="nameColumn" width="330" minWidth="60" maxWidth="1000" id="2xK-Mw-Awl">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -174,6 +191,26 @@
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                        <prototypeCellViews>
+                                                            <tableCellView id="184-Yi-bfL">
+                                                                <rect key="frame" x="1" y="1" width="330" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <subviews>
+                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="O5S-m5-pyZ">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="330" height="17"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Ap4-ys-gQd">
+                                                                            <font key="font" metaFont="system"/>
+                                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                        </textFieldCell>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <connections>
+                                                                    <outlet property="textField" destination="O5S-m5-pyZ" id="lQh-mA-NA4"/>
+                                                                </connections>
+                                                            </tableCellView>
+                                                        </prototypeCellViews>
                                                     </tableColumn>
                                                     <tableColumn identifier="checkColumn" width="20" minWidth="18" maxWidth="1000" id="bXb-TS-LFJ">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
@@ -185,30 +222,11 @@
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         <prototypeCellViews>
                                                             <button id="xum-Mb-Mrr">
-                                                                <rect key="frame" x="304" y="1" width="20" height="18"/>
+                                                                <rect key="frame" x="334" y="1" width="20" height="20"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kRo-b0-CiT">
+                                                                <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="only" state="on" inset="2" id="kRo-b0-CiT">
                                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                     <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                            </button>
-                                                        </prototypeCellViews>
-                                                    </tableColumn>
-                                                    <tableColumn identifier="runColumn" width="20" minWidth="10" maxWidth="3.4028234663852886e+38" id="8xl-Ex-6rq">
-                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                            <font key="font" metaFont="smallSystem"/>
-                                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                        </tableHeaderCell>
-                                                        <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="oQp-JQ-sI6"/>
-                                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                        <prototypeCellViews>
-                                                            <button id="EBp-Cd-6c3" userLabel="Run Script Bevel Button">
-                                                                <rect key="frame" x="327" y="1" width="20" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="run" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="2NN-nc-ohp">
-                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                    <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
                                                             </button>
                                                         </prototypeCellViews>
@@ -243,6 +261,9 @@
         </customView>
         <customObject id="Ggj-nA-WRi" customClass="RecordScriptLocalScriptOperateViewController">
             <connections>
+                <outlet property="pathLabel" destination="Q53-dP-DNK" id="dLB-by-6m4"/>
+                <outlet property="removeButton" destination="uzj-eh-utl" id="MlN-7Z-WT8"/>
+                <outlet property="runScriptBtn" destination="WV6-m5-ldH" id="9WP-oy-3X3"/>
                 <outlet property="tableView" destination="gRk-EQ-dtf" id="HBD-jS-IGH"/>
                 <outlet property="view" destination="gRk-EQ-dtf" id="Tqd-Gm-frd"/>
             </connections>
@@ -250,5 +271,7 @@
     </objects>
     <resources>
         <image name="run" width="32" height="32"/>
+        <image name="script-add" width="32" height="32"/>
+        <image name="trash" width="144" height="144"/>
     </resources>
 </document>

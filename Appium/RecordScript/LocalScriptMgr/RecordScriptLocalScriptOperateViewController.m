@@ -10,10 +10,19 @@
 #import "RecordScriptLocalScriptOperateModel.h"
 #import "RecordScriptLocalScriptDirModel.h"
 
+#import "RecordScriptLocalScriptViewController.h"
+
+#import "RecordScriptTool.h"
+
 @interface RecordScriptLocalScriptOperateViewController ()<NSTableViewDelegate,NSTableViewDataSource>
 
 @property (weak) IBOutlet NSTableView *tableView;
 @property NSArray *scriptList;
+
+@property (weak) IBOutlet NSTextField *pathLabel;
+@property (weak) IBOutlet NSButton *runScriptBtn;
+
+@property (weak) IBOutlet NSButton *removeButton;
 
 @end
 
@@ -44,11 +53,52 @@
 	
 	return view;
 }
+- (void)tableViewSelectionDidChange:(NSNotification *)notification
+{
+	
+	NSString *path = [self.localScriptController selectedDir];
+	
+	if (path && self.tableView.selectedRow!=-1 && self.tableView.selectedRow<self.scriptList.count) {
+		[self.runScriptBtn setEnabled:YES];
+		
+		NSInteger selectedRow = [self.tableView selectedRow];
+		RecordScriptLocalScriptOperateModel *op = [self.scriptList objectAtIndex:selectedRow];
+		self.pathLabel.stringValue = [path stringByAppendingPathComponent:op.name];
+	}
+	else{
+		[self.runScriptBtn setEnabled:NO];
+	}
+}
+#pragma mark - run script
+- (IBAction)clickedRunScriptBtn:(id)sender {
+	
+	if([[NSFileManager defaultManager]fileExistsAtPath:self.pathLabel.stringValue]) [self runScript];
+}
+- (void)runScript
+{
+	NSString *scriptName = [self.pathLabel.stringValue lastPathComponent];
+	RecordScriptModel *scriptModel = [RecordScriptTool recordScriptWithName:scriptName];
+	if ([scriptModel.language isEqualTo:@"Python"] || [scriptModel.language isEqualTo:@"node.js"] || [scriptModel.language isEqualTo:@"Ruby"]) {
+		
+//		[self.driver quit];
+//		[_windowController.window close];
+		
+		NSString *command = [NSString stringWithFormat:@"'%@' '%@'",scriptModel.commadStr, self.pathLabel.stringValue];
+		
+		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:@"tell application \"Terminal\" to do script \"%@\"\nactivate application \"Terminal\"", command]];
+		[script executeAndReturnError:nil];
+	}
+
+}
+#pragma mark - remove script
+- (IBAction)clickedRemoveBtn:(id)sender {
+}
+
 #pragma mark - private
 @synthesize dirList;
 - (void)setDirList:(NSArray *)newDirList
 {
-	if (dirList != newDirList) {
+	if (newDirList.count>0 && dirList != newDirList) {
 		dirList = newDirList;
 		
 		NSMutableArray *arrM = [NSMutableArray array];
