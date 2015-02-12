@@ -11,6 +11,5 @@
 @interface RecordScriptLocalScriptViewController : NSViewController
 
 - (void)prepareData;
-- (NSString *)selectedDir;
 
 @end

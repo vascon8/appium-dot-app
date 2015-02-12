@@ -44,11 +44,9 @@
 	}
 	else if([tableColumn.identifier isEqualToString:@"checkColumn"]){
 		NSButton *btn = (NSButton *)view;
+		[btn setAction:@selector(clickedCheckBox:)];
+		[btn setTarget:self];
 		btn.state = op.checked;
-	}
-	else{
-		NSButton *btn = (NSButton *)view;
-		[btn setImage:[NSImage imageNamed:@"run"]];
 	}
 	
 	return view;
@@ -56,19 +54,35 @@
 - (void)tableViewSelectionDidChange:(NSNotification *)notification
 {
 	
-	NSString *path = [self.localScriptController selectedDir];
+	NSString *path = [self.currentDir.fileUrl path];
 	
 	if (path && self.tableView.selectedRow!=-1 && self.tableView.selectedRow<self.scriptList.count) {
-		[self.runScriptBtn setEnabled:YES];
+		[self.runScriptBtn setHidden:NO];
 		
 		NSInteger selectedRow = [self.tableView selectedRow];
 		RecordScriptLocalScriptOperateModel *op = [self.scriptList objectAtIndex:selectedRow];
 		self.pathLabel.stringValue = [path stringByAppendingPathComponent:op.name];
 	}
 	else{
-		[self.runScriptBtn setEnabled:NO];
+		[self.runScriptBtn setHidden:YES];
 	}
 }
+- (void)clickedCheckBox:(NSButton *)sender
+{
+	NSInteger selectedRow = [self.tableView rowForView:sender];
+	RecordScriptLocalScriptOperateModel *op = [self.scriptList objectAtIndex:selectedRow];
+	op.checked = sender.state;
+	
+	for (RecordScriptLocalScriptOperateModel *op in self.scriptList) {
+		if (op.checked) {
+			[self.removeButton setEnabled:YES];
+			return;
+		}
+	}
+	
+	[self.removeButton setEnabled:NO];
+}
+
 #pragma mark - run script
 - (IBAction)clickedRunScriptBtn:(id)sender {
 	
@@ -77,19 +91,42 @@
 
 #pragma mark - remove script
 - (IBAction)clickedRemoveBtn:(id)sender {
+	NSMutableArray *arrM = [NSMutableArray arrayWithArray:self.scriptList];
+	NSMutableArray *filePath = [NSMutableArray array];
+	
+	for (RecordScriptLocalScriptOperateModel *model in self.scriptList) {
+		if (model.checked) {
+			[arrM removeObject:model];
+			[filePath addObject:[self.currentDir.fileUrl.path stringByAppendingPathComponent:model.name]];
+		}
+	}
+	
+	self.scriptList = arrM;
+	[self.tableView reloadData];
+	
+	arrM = nil;
+	[self removeFiles:filePath];
 }
-
-#pragma mark - private
-@synthesize dirList;
-- (void)setDirList:(NSArray *)newDirList
+- (void)removeFiles:(NSArray *)filePath
 {
-	if (newDirList.count>0 && dirList != newDirList) {
-		dirList = newDirList;
+	for (NSString *path in filePath) {
+		NSError *error = nil;
+		[[NSFileManager defaultManager]removeItemAtPath:path error:&error];
+		if (error) {
+			NSLog(@"remove file error:%@",error);
+		}
+	}
+}
+#pragma mark - private
+@synthesize currentDir;
+- (void)setCurrentDir:(RecordScriptLocalScriptDirModel *)newDir
+{
+	if (newDir && newDir != currentDir) {
+		currentDir = newDir;
 		
 		NSMutableArray *arrM = [NSMutableArray array];
-		for (RecordScriptLocalScriptDirModel *dir in self.dirList) {
 			NSError *error;
-			NSArray *arr = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:[dir.fileUrl path] error:&error];
+			NSArray *arr = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:[currentDir.fileUrl path] error:&error];
 			if (!error && arr.count > 0){
 				for (NSString *fileName in arr) {
 					RecordScriptModel *model = [RecordScriptTool recordScriptWithName:fileName];
@@ -100,15 +137,17 @@
 					op.checked = NO;
 					[arrM addObject:op];
 				}
-			}
-			
 		}
 		self.scriptList = arrM;
+		
+		self.pathLabel.stringValue = @"";
 		[self.tableView reloadData];
+		[self.removeButton setEnabled:NO];
+		[self.runScriptBtn setHidden:YES];
 	}
 }
-- (NSArray *)dirList
+- (RecordScriptLocalScriptDirModel *)currentDir
 {
-	return dirList;
+	return currentDir;
 }
 @end
