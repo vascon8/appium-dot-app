@@ -8,6 +8,8 @@
 
 #import "RecordScriptTool.h"
 
+#import "AppiumAppDelegate.h"
+
 @implementation RecordScriptTool
 + (RecordScriptModel *)recordScriptWithName:(NSString *)scriptName{
 	RecordScriptModel *model = [[RecordScriptModel alloc]init];
@@ -40,40 +42,41 @@
 		else if ([ext isEqualToString:@"m"]){
 			language = @"Objective-C";
 		}
+		else{
+			language = nil;
+		}
 	}
 	
 	model.language = language;
 	model.commadStr = commandStr;
+	
 	return model;
 }
-+ (NSString *)scriptLanguage:(NSString *)scriptName
++ (void)runScript:(NSString *)scriptPath
 {
-	NSString *language = nil;
-	NSString *commandStr = nil;
-	
-	NSRange range = [scriptName rangeOfString:@"." options:NSBackwardsSearch];
-	if (range.length > 0) {
-		NSString *ext = [scriptName substringFromIndex:range.location+1];
-		if ([ext isEqualToString:@"py"]) {
-			language = @"Python";
+	NSString *scriptName = [scriptPath lastPathComponent];
+	RecordScriptModel *scriptModel = [self recordScriptWithName:scriptName];
+	if ([scriptModel.language isEqualTo:@"Python"] || [scriptModel.language isEqualTo:@"node.js"] || [scriptModel.language isEqualTo:@"Ruby"]) {
+		
+		AppiumAppDelegate *appDelegate = (AppiumAppDelegate *)[NSApplication sharedApplication].delegate;
+		AppiumModel *appModel = appDelegate.model;
+		
+		BOOL isServerRunning = appModel.isServerRunning;
+		if (!isServerRunning) {
+			isServerRunning = [appModel startServer];
+			if (!isServerRunning) {
+				NSLog(@"can't start server");
+				return;
+			}
 		}
-		else if ([ext isEqualToString:@"js"]){
-			language = @"node.js";
-		}
-		else if ([ext isEqualToString:@"rb"]){
-			language = @"Ruby";
-		}
-		else if ([ext isEqualToString:@"cs"]){
-			language = @"C#";
-		}
-		else if ([ext isEqualToString:@"java"]){
-			language = @"Java";
-		}
-		else if ([ext isEqualToString:@"m"]){
-			language = @"Objective-C";
-		}
+		
+		if (appDelegate.inspectorWindow.driver) [appDelegate.inspectorWindow.driver quit];
+		if (appDelegate.inspectorWindow.window) [appDelegate.inspectorWindow.window close];
+		
+		NSString *command = [NSString stringWithFormat:@"'%@' '%@'",scriptModel.commadStr, scriptPath];
+		
+		NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:@"tell application \"Terminal\" to do script \"%@\"\nactivate application \"Terminal\"", command]];
+		[script executeAndReturnError:nil];
 	}
-	
-	return language;
 }
 @end

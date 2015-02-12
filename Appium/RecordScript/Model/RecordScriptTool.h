@@ -11,7 +11,7 @@
 
 @interface RecordScriptTool : NSObject
 
-+ (NSString *)scriptLanguage:(NSString *)scriptName;
 + (RecordScriptModel *)recordScriptWithName:(NSString *)scriptName;
++ (void)runScript:(NSString *)scriptPath;
 
 @end
