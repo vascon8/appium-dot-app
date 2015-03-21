@@ -61,30 +61,63 @@
 		AppiumAppDelegate *appDelegate = [self appDelegate];
 		AppiumModel *appModel = appDelegate.model;
 		
+		if (appDelegate.inspectorWindow.driver) [appDelegate.inspectorWindow.driver quit];
+		if (appDelegate.inspectorWindow.window) [appDelegate.inspectorWindow.window close];
+		
 		BOOL isServerRunning = appModel.isServerRunning;
+		
 		if (!isServerRunning) {
 			isServerRunning = [appModel startServer];
 			if (!isServerRunning) {
 				NSLog(@"can't start server");
 				return;
 			}
-			else{
-				BOOL canRun = NO;
-				while (!canRun) {
-					sleep(2);
-					if (appModel.isServerListening) {
-						canRun = YES;
-						if (appDelegate.inspectorWindow.driver) [appDelegate.inspectorWindow.driver quit];
-						if (appDelegate.inspectorWindow.window) [appDelegate.inspectorWindow.window close];
-						
-						NSString *command = [NSString stringWithFormat:@"'%@' '%@'",scriptModel.commadStr, scriptPath];
-						
-						NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:@"tell application \"Terminal\" to do script \"%@\"\nactivate application \"Terminal\"", command]];
-						[script executeAndReturnError:nil];
-					}
-				}
+		}
+		
+		BOOL canRun = NO;
+		while (!canRun) {
+			sleep(2);
+			if (appModel.isServerListening) {
+				canRun = YES;
+				
+				NSString *command = [NSString stringWithFormat:@"'%@' '%@'",scriptModel.commadStr, scriptPath];
+				
+				NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:@"tell application \"Terminal\" to do script \"%@\"\nactivate application \"Terminal\"", command]];
+				
+				NSDictionary *dict;
+				NSAppleEventDescriptor *des = [script executeAndReturnError:&dict];
+				
+//				NSLog(@"%@ ,%@ ,%@",NSStringFromSelector(_cmd),dict,des);
 			}
 		}
+		
+//		if (!isServerRunning) {
+//			isServerRunning = [appModel startServer];
+//			if (!isServerRunning) {
+//				NSLog(@"can't start server");
+//				return;
+//			}
+//			else{
+//				BOOL canRun = NO;
+//				while (!canRun) {
+//					sleep(2);
+//					if (appModel.isServerListening) {
+//						canRun = YES;
+////						if (appDelegate.inspectorWindow.driver) [appDelegate.inspectorWindow.driver quit];
+////						if (appDelegate.inspectorWindow.window) [appDelegate.inspectorWindow.window close];
+//						
+//						NSString *command = [NSString stringWithFormat:@"'%@' '%@'",scriptModel.commadStr, scriptPath];
+//						
+//						NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:@"tell application \"Terminal\" to do script \"%@\"\nactivate application \"Terminal\"", command]];
+//						
+//						NSDictionary *dict;
+//						NSAppleEventDescriptor *des = [script executeAndReturnError:&dict];
+//						
+//						NSLog(@"%@ ,%@ ,%@",NSStringFromSelector(_cmd),dict,des);
+//					}
+//				}
+//			}
+//		}
 		
 //		if (appDelegate.inspectorWindow.driver) [appDelegate.inspectorWindow.driver quit];
 //		if (appDelegate.inspectorWindow.window) [appDelegate.inspectorWindow.window close];
