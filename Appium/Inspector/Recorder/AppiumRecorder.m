@@ -16,6 +16,8 @@
 #import "AppiumPreferencesFile.h"
 #import "AppiumAppDelegate.h"
 
+#import "RecordScriptTool.h"
+
 @interface AppiumRecorder ()
 @property (readonly) AppiumInspector *inspector;
 @property (readonly) SERemoteWebDriver *driver;

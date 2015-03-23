@@ -17,12 +17,16 @@
 #import "RecordScriptWindowController.h"
 #import "TestWAPreferenceWindowController.h"
 
+#import "LXLicenseTool.h"
+
 @implementation AppiumAppDelegate
 
 #pragma mark - Handlers
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+	
+	if(![LXLicenseTool validateLicense]) return;
 	// create model
 	[self setModel:[AppiumModel new]];
 
