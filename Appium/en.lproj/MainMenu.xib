@@ -14,10 +14,10 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <menu title="AMainMenu" systemMenu="main" id="29">
             <items>
-                <menuItem title="Appium" id="56">
-                    <menu key="submenu" title="Appium" systemMenu="apple" id="57">
+                <menuItem title="TestWA" id="56">
+                    <menu key="submenu" title="TestWA" systemMenu="apple" id="57">
                         <items>
-                            <menuItem title="关于Appium" id="58">
+                            <menuItem title="关于TestWA" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
@@ -53,7 +53,7 @@
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="隐藏Appium" keyEquivalent="h" id="134">
+                            <menuItem title="隐藏TestWA" keyEquivalent="h" id="134">
                                 <connections>
                                     <action selector="hide:" target="-1" id="367"/>
                                 </connections>
