@@ -8,11 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class RecordScriptLocalScriptDirModel;
+
 @class RecordScriptLocalScriptViewController;
 
 @interface RecordScriptLocalScriptOperateViewController : NSViewController
 
-@property NSArray *dirList;
+@property RecordScriptLocalScriptDirModel *currentDir;
 @property (weak) RecordScriptLocalScriptViewController *localScriptController;
 
 @end

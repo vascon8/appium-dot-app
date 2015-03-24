@@ -35,7 +35,7 @@
 	
 //	self.operateTableView.dirList = self.dirList;
 	[self.dirTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:YES];
-	self.operateTableView.dirList = self.dirList;
+	self.operateTableView.currentDir = self.dirList[self.dirTableView.selectedRow];
 }
 #pragma mark - dir tableview datasource
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
@@ -48,11 +48,11 @@
 	return dirModel.fileUrl.lastPathComponent;
 }
 #pragma mark - dir tableview delegate
-//- (void)tableViewSelectionDidChange:(NSNotification *)notification
-//{
-//	if (!self.operateTableView.dirList && self.dirTableView.selectedRow != -1 && self.dirTableView.selectedRow < self.dirList.count)
-//	self.operateTableView.dirList = self.dirList;
-//}
+- (void)tableViewSelectionDidChange:(NSNotification *)notification
+{
+	if (self.dirTableView.selectedRow != -1 && self.dirTableView.selectedRow < self.dirList.count)
+	self.operateTableView.currentDir = self.dirList[self.dirTableView.selectedRow];
+}
 #pragma mark - add dir
 - (IBAction)clickedAddDirBtn:(id)sender {
 	NSOpenPanel *addDirPanel = [NSOpenPanel openPanel];
@@ -75,18 +75,5 @@
 			[self.dirTableView reloadData];
 		}
 	}];
-}
-
-#pragma mark - selected dir
-- (NSString *)selectedDir
-{
-	if (self.dirTableView.selectedRow != -1 && self.dirTableView.selectedRow < self.dirList.count) {
-		NSInteger selectedRow = [self.dirTableView selectedRow];
-		RecordScriptLocalScriptDirModel *dir = [self.dirList objectAtIndex:selectedRow];
-		return [dir.fileUrl path];
-	}
-	else{
-		return nil;
-	}
 }
 @end

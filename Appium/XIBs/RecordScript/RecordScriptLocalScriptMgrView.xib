@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -18,31 +18,82 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="330"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <box autoresizesSubviews="NO" transparent="YES" title="Box" borderType="line" titlePosition="noTitle" id="kgt-NR-XkH">
+                    <rect key="frame" x="0.0" y="300" width="600" height="30"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <view key="contentView">
+                        <rect key="frame" x="1" y="1" width="598" height="28"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button appearanceType="aqua" id="uzj-eh-utl" userLabel="Trash Bevel Button">
+                                <rect key="frame" x="570" y="5" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="trash" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyDown" inset="2" id="GK0-6f-JnX">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="10"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clickedRemoveBtn:" target="Ggj-nA-WRi" id="TOj-Ur-bBX"/>
+                                </connections>
+                            </button>
+                            <button appearanceType="aqua" id="8tE-3a-fpf" userLabel="Refresh Bevel Button">
+                                <rect key="frame" x="542" y="8" width="16" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="applistrefresh" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="vJU-iw-AnP">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="10"/>
+                                </buttonCell>
+                            </button>
+                            <textField appearanceType="aqua" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Q53-dP-DNK" userLabel="Dir Text Field - Label">
+                                <rect key="frame" x="30" y="5" width="510" height="20"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="waX-4k-i5V">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button hidden="YES" id="WV6-m5-ldH" userLabel="Run Script Bevel Button">
+                                <rect key="frame" x="7" y="5" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="run" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="CO0-Zo-fWU">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="10"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clickedRunScriptBtn:" target="Ggj-nA-WRi" id="Fbe-15-XVk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </box>
                 <splitView dividerStyle="thin" vertical="YES" id="5hr-nT-ZPi">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="330"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <customView id="FnP-kM-Fbi" userLabel="Dir Custom View">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="330"/>
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <box autoresizesSubviews="NO" transparent="YES" borderType="line" titlePosition="noTitle" id="uPf-uv-xa1">
-                                    <rect key="frame" x="0.0" y="300" width="239" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <view key="contentView">
-                                        <rect key="frame" x="1" y="1" width="237" height="28"/>
+                                        <rect key="frame" x="1" y="1" width="238" height="28"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <button id="7xk-fp-AHv" userLabel="Dir Setting Bevel Button">
-                                                <rect key="frame" x="10" y="0.0" width="24" height="24"/>
+                                                <rect key="frame" x="40" y="3" width="20" height="19"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="akT-TH-r4a">
+                                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="script-remove" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="akT-TH-r4a">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system" size="10"/>
                                                 </buttonCell>
                                             </button>
                                             <button id="LqW-Ct-2aR" userLabel="Dir Add Bevel Button">
-                                                <rect key="frame" x="62" y="3" width="20" height="19"/>
+                                                <rect key="frame" x="10" y="3" width="20" height="19"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="script-add" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Nvh-we-CMe">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -58,14 +109,14 @@
                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </box>
                                 <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="9fO-JN-E4d">
-                                    <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
+                                    <rect key="frame" x="0.0" y="30" width="240" height="270"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <clipView key="contentView" drawsBackground="NO" id="8TN-cW-y0n">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="270"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" id="gIb-9h-mSA" userLabel="Dir Table View">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
+                                            <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" id="gIb-9h-mSA" userLabel="Dir Table View">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="270"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -102,69 +153,12 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
-                                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="eT2-FJ-38m">
-                                    <rect key="frame" x="0.0" y="300" width="240" height="5"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <font key="titleFont" metaFont="system"/>
-                                </box>
                             </subviews>
                         </customView>
                         <customView id="h5y-iR-QSS" userLabel="Script Custom View">
-                            <rect key="frame" x="241" y="0.0" width="359" height="330"/>
+                            <rect key="frame" x="241" y="0.0" width="359" height="300"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="eds-RA-e4R">
-                                    <rect key="frame" x="0.0" y="300" width="360" height="5"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <font key="titleFont" metaFont="system"/>
-                                </box>
-                                <box autoresizesSubviews="NO" transparent="YES" title="Box" borderType="line" titlePosition="noTitle" id="kgt-NR-XkH">
-                                    <rect key="frame" x="0.0" y="300" width="400" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <view key="contentView">
-                                        <rect key="frame" x="1" y="1" width="398" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <subviews>
-                                            <button appearanceType="aqua" id="uzj-eh-utl" userLabel="Trash Bevel Button">
-                                                <rect key="frame" x="330" y="6" width="20" height="19"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="trash" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyDown" inset="2" id="GK0-6f-JnX">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system" size="10"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="clickedRemoveBtn:" target="Ggj-nA-WRi" id="TOj-Ur-bBX"/>
-                                                </connections>
-                                            </button>
-                                            <textField appearanceType="aqua" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Q53-dP-DNK" userLabel="Dir Text Field - Label">
-                                                <rect key="frame" x="30" y="0.0" width="280" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="waX-4k-i5V">
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <button id="WV6-m5-ldH" userLabel="Run Script Bevel Button">
-                                                <rect key="frame" x="7" y="6" width="20" height="19"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="run" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyDown" inset="2" id="CO0-Zo-fWU">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system" size="10"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="clickedRunScriptBtn:" target="Ggj-nA-WRi" id="Fbe-15-XVk"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </view>
-                                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </box>
                                 <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="u1Q-1E-vAq">
                                     <rect key="frame" x="0.0" y="0.0" width="360" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -270,8 +264,10 @@
         </customObject>
     </objects>
     <resources>
+        <image name="applistrefresh" width="14" height="15"/>
         <image name="run" width="32" height="32"/>
         <image name="script-add" width="32" height="32"/>
+        <image name="script-remove" width="32" height="32"/>
         <image name="trash" width="144" height="144"/>
     </resources>
 </document>
