@@ -14,11 +14,14 @@
 
 @implementation AppiumAndroidSettingsPopOverViewController
 
+<<<<<<< HEAD
 //- (void)viewDidLoad {
 //    [super viewDidLoad];
 //    // Do view setup here.
 //}
 
+=======
+>>>>>>> upstream/master
 -(IBAction)chooseAndroidApp:(id)sender
 {
 	NSString *selectedApp = self.model.android.appPath;
